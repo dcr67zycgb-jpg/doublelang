@@ -1,0 +1,11 @@
+# Старые нидерландские URL (были в корне) → новая папка /dutch/
+/dutch-general.html                    /dutch/                                    301
+/index.html                            /                                          301
+/home.html                             /                                          301
+/article-inburgering-2026.html         /dutch/article-inburgering-2026.html       301
+/article-mvv-2026.html                 /dutch/article-mvv-2026.html               301
+/article-vlaams-vs-nederlands.html     /dutch/article-vlaams-vs-nederlands.html   301
+# Clean-URL заготовки для статей блога
+/blog/inburgering-2026                 /dutch/article-inburgering-2026.html       301
+/blog/mvv-2026                         /dutch/article-mvv-2026.html               301
+/blog/vlaams-vs-nederlands             /dutch/article-vlaams-vs-nederlands.html   301

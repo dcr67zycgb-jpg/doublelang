@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Страница не найдена — DoubleLang</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#21747a;--teal-bright:#2aa39a;--ink:#0e1512;--gold:#e0b34a;
+  --gradient-accent:linear-gradient(135deg,#2aa39a,#21747a);
+  --font-body:'Manrope',system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  font-family:var(--font-body);color:#fff;background:var(--ink);
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:32px 20px;position:relative;overflow:hidden;-webkit-font-smoothing:antialiased;
+}
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 78% 22%,rgba(42,163,154,.20),transparent 60%),
+    radial-gradient(ellipse 50% 45% at 15% 85%,rgba(224,179,74,.12),transparent 60%),
+    linear-gradient(150deg,#0b1310 0%,#0e1512 45%,#123f42 100%);}
+.wrap{position:relative;z-index:1;max-width:560px;}
+.logo{height:44px;width:auto;display:block;margin:0 auto 40px;}
+.code{font-size:clamp(88px,22vw,168px);font-weight:800;line-height:.92;letter-spacing:-.04em;
+  background:linear-gradient(100deg,#e9c877,#f4e4b0 32%,#d7a94a 56%,#f4e4b0 76%,#e9c877);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:goldFlow 6s linear infinite;}
+@keyframes goldFlow{to{background-position:220% center;}}
+h1{font-size:clamp(22px,4.5vw,30px);font-weight:800;letter-spacing:-.02em;margin:14px 0 12px;}
+p{font-size:16px;color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:34px;}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;
+  border-radius:99px;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer;
+  text-decoration:none;border:none;transition:transform .28s cubic-bezier(.22,.61,.36,1),box-shadow .28s;}
+.btn-gold{background:linear-gradient(100deg,#e9c877,#f4e4b0 45%,#d7a94a);color:var(--ink);
+  box-shadow:0 8px 26px rgba(224,179,74,.32);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(224,179,74,.42);}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.22);}
+.btn-ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-2px);}
+.langs{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;font-size:14px;}
+.langs a{color:rgba(255,255,255,.85);text-decoration:none;padding:10px 20px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .25s,border-color .25s,color .25s,transform .25s;}
+.langs a:hover{color:#fff;background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35);transform:translateY(-2px);}
+@media(max-width:480px){.ctas{flex-direction:column;}.ctas .btn{width:100%;}}
+</style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="wrap">
+    <a href="/home.html"><img class="logo" src="/assets/logo.png" alt="DoubleLang" style="filter:brightness(0) invert(1)"></a>
+    <div class="code">404</div>
+    <h1>Такой страницы нет</h1>
+    <p>Возможно, ссылка устарела или адрес введён с ошибкой. Давайте вернёмся к изучению языков.</p>
+    <div class="ctas">
+      <a href="/home.html" class="btn btn-gold">На главную</a>
+    </div>
+    <div class="langs">
+      <a href="/index.html">Нидерландский</a>
+      <a href="/german/index.html">Немецкий</a>
+      <a href="/french/index.html">Французский</a>
+      <a href="/english/index.html">Английский</a>
+      <a href="/serbian/index.html">Сербский</a>
+    </div>
+  </div>
+</body>
+</html>

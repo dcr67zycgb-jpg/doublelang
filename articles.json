@@ -1,0 +1,101 @@
+[
+  {
+    "id": "inburgering-2026",
+    "lang": "nl",
+    "title": "Как подготовиться к экзамену Inburgering в 2026 году",
+    "excerpt": "Разбираем структуру экзамена, требования к уровню и пошаговый план подготовки с нуля.",
+    "cover": "/assets/blog-inburgering-cover.png",
+    "url": "/article-inburgering-2026.html",
+    "category": "Экзамены",
+    "readtime": "8 мин чтения",
+    "date": "2026-02-01"
+  },
+  {
+    "id": "vlaams-vs-nederlands",
+    "lang": "nl",
+    "title": "Нидерландский или фламандский: в чём разница",
+    "excerpt": "Один язык или два? Объясняем различия в произношении, лексике и грамматике.",
+    "cover": "/assets/blog-vlaams-cover.png",
+    "url": "/article-vlaams-vs-nederlands.html",
+    "category": "Язык",
+    "readtime": "6 мин чтения",
+    "date": "2026-01-20"
+  },
+  {
+    "id": "mvv-2026",
+    "lang": "nl",
+    "title": "MVV: пошаговый гид для переезда в Нидерланды",
+    "excerpt": "Какие документы нужны, как проходит экзамен и сколько времени занимает подготовка.",
+    "cover": "/assets/blog-mvv-cover.png",
+    "url": "/article-mvv-2026.html",
+    "category": "Переезд",
+    "readtime": "9 мин чтения",
+    "date": "2026-01-10"
+  },
+  {
+    "id": "oesd-guide",
+    "lang": "de",
+    "title": "ÖSD: пошаговый гид для переезда в Германию",
+    "excerpt": "Какие документы нужны для ÖSD, как проходит экзамен и сколько занимает подготовка.",
+    "cover": "/assets/blog-oesd-cover.png",
+    "url": "/german/article-oesd-guide.html",
+    "category": "Экзамены",
+    "readtime": "8 мин чтения",
+    "date": "2026-02-05"
+  },
+  {
+    "id": "testdaf-2026",
+    "lang": "de",
+    "title": "Как подготовиться к TestDaF в 2026 году",
+    "excerpt": "Структура TestDaF, уровни TDN 3–5, цифровой формат и пошаговый план подготовки.",
+    "cover": "/assets/blog-testdaf-cover.png",
+    "url": "/german/article-testdaf-2026.html",
+    "category": "Экзамены",
+    "readtime": "8 мин чтения",
+    "date": "2026-01-25"
+  },
+  {
+    "id": "german-austria",
+    "lang": "de",
+    "title": "Немецкий в Австрии и Германии: в чём разница",
+    "excerpt": "Один язык или два? Произношение, лексика и грамматические особенности.",
+    "cover": "/assets/blog-german-austria-cover.png",
+    "url": "/german/article-german-austria.html",
+    "category": "Язык",
+    "readtime": "6 мин чтения",
+    "date": "2026-01-15"
+  },
+  {
+    "id": "delf-2026",
+    "lang": "fr",
+    "title": "Как подготовиться к DELF в 2026 году",
+    "excerpt": "Структура экзамена DELF, уровни A1–B2, формат 2026 года и пошаговый план.",
+    "cover": "/assets/blog-delf-cover.png",
+    "url": "/french/article-delf-2026.html",
+    "category": "Экзамены",
+    "readtime": "8 мин чтения",
+    "date": "2026-02-03"
+  },
+  {
+    "id": "tcf-canada",
+    "lang": "fr",
+    "title": "TCF Canada: пошаговый гид для иммиграции в Канаду",
+    "excerpt": "Какой балл нужен (NCLC 7 и 9), структура экзамена и сроки подготовки с нуля.",
+    "cover": "/assets/blog-tcf-cover.png",
+    "url": "/french/article-tcf-canada.html",
+    "category": "Иммиграция",
+    "readtime": "9 мин чтения",
+    "date": "2026-01-28"
+  },
+  {
+    "id": "francophonie",
+    "lang": "fr",
+    "title": "Французский во Франции, Бельгии и Канаде: в чём разница",
+    "excerpt": "Произношение, лексика, счёт и акценты франкоязычных стран.",
+    "cover": "/assets/blog-francophonie-cover.png",
+    "url": "/french/article-francophonie.html",
+    "category": "Язык",
+    "readtime": "6 мин чтения",
+    "date": "2026-01-12"
+  }
+]

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Нидерландский -->
+  <url><loc>https://doublelang-online-school.com/dutch/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://doublelang-online-school.com/dutch/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/dutch/article-inburgering-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/dutch/article-mvv-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/dutch/article-vlaams-vs-nederlands.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Немецкий -->
+  <url><loc>https://doublelang-online-school.com/german/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://doublelang-online-school.com/german/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/german/article-testdaf-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/german/article-german-austria.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/german/article-oesd-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Французский -->
+  <url><loc>https://doublelang-online-school.com/french/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://doublelang-online-school.com/french/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/french/article-delf-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/french/article-francophonie.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/french/article-tcf-canada.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Английский -->
+  <url><loc>https://doublelang-online-school.com/english/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Сербский -->
+  <url><loc>https://doublelang-online-school.com/serbian/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Документы -->
+  <url><loc>https://doublelang-online-school.com/oferta.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://doublelang-online-school.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://doublelang-online-school.com/refund.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+</urlset>
