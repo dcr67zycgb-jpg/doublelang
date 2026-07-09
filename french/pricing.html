@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DoubleLang — Оплата · Нидерландский</title>
+<title>DoubleLang — Оплата · Французский</title>
+<link rel="icon" type="image/svg+xml" href="https://app.doublelang-online-school.com/static/images/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -36,6 +37,8 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
   border-radius:22px;padding:28px 24px;display:flex;flex-direction:column;
   box-shadow:0 4px 24px rgba(21,33,29,.06);
   transition:transform .3s var(--ease), box-shadow .3s, border-color .3s;}
+.card.pop{border-color:var(--teal-bright)}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px -14px var(--teal-bright)}
 @keyframes iridescent{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);
   background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;
@@ -43,42 +46,36 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
   color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;
   padding:5px 16px;border-radius:var(--pill);text-transform:uppercase;white-space:nowrap;
   box-shadow:0 4px 12px rgba(42,163,154,.4);}
-.badge-gold{background:linear-gradient(135deg,#e0b34a,#e0b34a,#d4a840,#e0b34a)!important;background-size:200% 200%!important;animation:iridescent 10s ease infinite!important;box-shadow:0 4px 12px rgba(224,179,74,.45)!important;color:#fff!important;}
+.badge-gold{background:linear-gradient(135deg,#e0b34a,#e0b34a,#d4a840,#e0b34a)!important;background-size:200% 200%!important;box-shadow:0 4px 12px rgba(224,179,74,.45)!important;}
 .name{font-size:12px;font-weight:800;letter-spacing:2px;color:var(--teal);text-transform:uppercase;text-align:center;margin-bottom:4px;}
-.per{margin:14px 0 6px;text-align:center;}
+.per-wrap{display:flex;flex-direction:column;align-items:center;gap:0;min-height:78px}
+.per{margin:14px 0 0;text-align:center;}
 .per b{font-size:38px;letter-spacing:-.03em;}.per span{color:var(--ink-3);font-size:15px;margin-left:4px;}
-.per-wrap{display:flex;flex-direction:column;align-items:center;}
-.feats{list-style:none;margin:18px 0 14px;flex:1;display:flex;flex-direction:column;gap:10px}
+.savings{display:inline-block;margin-top:10px;background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;animation:iridescent 12s ease infinite;color:#fff;
+  font-size:11px;font-weight:800;padding:4px 14px;border-radius:99px;white-space:nowrap;box-shadow:0 3px 10px rgba(42,163,154,.3);}
+.feats{list-style:none;margin:16px auto 12px;flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:10px;width:fit-content;max-width:100%}
 .feats li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--ink-2);line-height:1.5;}
 .feats .ck{width:20px;height:20px;flex:none;border-radius:50%;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;display:grid;place-items:center;margin-top:1px;}
 .feats .ck svg{width:11px;height:11px}
-
-.savings{display:inline-block;background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;animation:iridescent 12s ease infinite;color:#fff;
-  font-size:11px;font-weight:800;padding:4px 14px;border-radius:99px;
-  margin:4px 0 8px;white-space:nowrap;box-shadow:0 3px 10px rgba(42,163,154,.3);}
 .total{display:flex;justify-content:center;align-items:baseline;padding-top:14px;border-top:1px solid var(--line);margin-top:auto;}
 .total .lbl{font-size:18px;color:var(--ink);font-weight:800;text-align:center;}
 .pay{margin-top:16px;display:block;text-align:center;text-decoration:none;
   background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;
-  animation:iridescent 12s ease infinite;
-  color:#fff;font-weight:800;font-size:16px;
-  padding:15px;border-radius:var(--pill);
-  box-shadow:0 4px 16px rgba(42,163,154,.3);
-  transition:transform .2s var(--ease),box-shadow .2s;
-  letter-spacing:.02em;}
+  animation:iridescent 12s ease infinite;color:#fff;font-weight:800;font-size:16px;
+  padding:15px;border-radius:var(--pill);box-shadow:0 4px 16px rgba(42,163,154,.3);
+  transition:transform .2s var(--ease),box-shadow .2s;letter-spacing:.02em;}
 .pay:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,163,154,.5);}
 .note{text-align:center;color:var(--ink-3);font-size:13px;margin-top:26px}
 </style>
-<link rel="icon" type="image/svg+xml" href="https://app.doublelang-online-school.com/static/images/favicon.svg">
 </head>
 <body>
 <div class="wrap">
-  <a href="index.html" class="back">← Вернуться на сайт</a>
+  <a href="index.html#pricing" class="back">← Вернуться к тарифам</a>
 
   <div class="head">
-    <img src="assets/logo-clean.png" alt="DoubleLang">
-    <h1>Нидерландский язык</h1>
-    <p style="font-weight:700;font-size:20px;text-align:center;color:var(--ink-2);margin-top:8px">Выберите пакет индивидуальных занятий</p>
+    <img src="../assets/logo.png" alt="DoubleLang">
+    <h1>Французский язык</h1>
+    <p style="font-weight:700;font-size:20px;color:var(--ink-2)">Выберите пакет индивидуальных занятий</p>
     <div class="toggle">
       <button id="t-ru" class="on" onclick="setTeacher('ru')">Русскоязычный преподаватель</button>
       <button id="t-native" onclick="setTeacher('native')">Носитель языка</button>
@@ -87,37 +84,37 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
 
   <div class="grid" id="grid"></div>
 
-
+  <p class="note">Оплачивайте с email, указанным при регистрации — так уроки зачислятся автоматически.</p>
 </div>
 
 <script>
 const PLANS = {
   ru: [
+    {name:'СТАРТ',      lessons:5,  total:105, per:21, popular:false},
+    {name:'БАЗИС',      lessons:10, total:190, per:19, popular:true,  savings:20},
+    {name:'ПРОРЫВ',     lessons:20, total:340, per:17, popular:false, savings:80},
+    {name:'МАСТЕРСТВО', lessons:30, total:420, per:14, popular:false, superBadge:true, savings:210},
+  ],
+  native: [
     {name:'СТАРТ',      lessons:5,  total:150, per:30, popular:false},
     {name:'БАЗИС',      lessons:10, total:270, per:27, popular:true,  savings:30},
     {name:'ПРОРЫВ',     lessons:20, total:500, per:25, popular:false, savings:100},
     {name:'МАСТЕРСТВО', lessons:30, total:690, per:23, popular:false, superBadge:true, savings:210},
   ],
-  native: [
-    {name:'СТАРТ',      lessons:5,  total:175, per:35, popular:false},
-    {name:'БАЗИС',      lessons:10, total:320, per:32, popular:true,  savings:30},
-    {name:'ПРОРЫВ',     lessons:20, total:580, per:29, popular:false, savings:120},
-    {name:'МАСТЕРСТВО', lessons:30, total:780, per:26, popular:false, superBadge:true, savings:270},
-  ],
 };
 
 const LINKS = {
   ru: {
-    'СТАРТ':      'https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/bb3701a6-34ca-4039-8661-e4dc7800418e?currency=EUR',
-    'БАЗИС':      'https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/e9ce7293-c735-4a8b-9c7e-5ebb40b612d6?currency=EUR',
-    'ПРОРЫВ':     'https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/fcaeac75-5060-4933-8e8a-403bf0482bd2?currency=EUR',
-    'МАСТЕРСТВО': 'https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/85296b4f-8e99-4b1a-a329-10d32c6c7ade?currency=EUR',
+    'СТАРТ':      'https://app.lava.top/products/7baadb1c-a0f6-40c2-8a56-e14e81eb7e72/d14a3c40-306b-4b7d-8af5-72cb0998fb23?currency=EUR',
+    'БАЗИС':      'https://app.lava.top/products/7baadb1c-a0f6-40c2-8a56-e14e81eb7e72/86ade7c5-fab9-4c36-b2bf-3f81a10c5c6d?currency=EUR',
+    'ПРОРЫВ':     'https://app.lava.top/products/7baadb1c-a0f6-40c2-8a56-e14e81eb7e72/a8f5009c-f761-42c7-93b6-7afd5f3d9ff2?currency=EUR',
+    'МАСТЕРСТВО': 'https://app.lava.top/products/7baadb1c-a0f6-40c2-8a56-e14e81eb7e72/f5829b54-d6e1-48b9-a977-13297d2dc0ce?currency=EUR',
   },
   native: {
-    'СТАРТ':      'https://app.lava.top/products/63f2a103-e87d-4d0a-bf09-b67e8a8e5fba/5e191c68-e705-448c-9e37-68f80d344d3b?currency=EUR',
-    'БАЗИС':      'https://app.lava.top/products/63f2a103-e87d-4d0a-bf09-b67e8a8e5fba/90b59bd6-d940-482f-a03a-a5d32e5190bd?currency=EUR',
-    'ПРОРЫВ':     'https://app.lava.top/products/63f2a103-e87d-4d0a-bf09-b67e8a8e5fba/e4b13b84-0ded-4c5b-a397-041df1078632?currency=EUR',
-    'МАСТЕРСТВО': 'https://app.lava.top/products/63f2a103-e87d-4d0a-bf09-b67e8a8e5fba/46eaaebe-2eb5-458d-b3b0-a77508d04586?currency=EUR',
+    'СТАРТ':      'https://app.lava.top/products/51a1d67b-6cf3-460e-ba3c-01de704dc0a5/a373ceae-247e-43bc-8ac7-c335e9b7102a?currency=EUR',
+    'БАЗИС':      'https://app.lava.top/products/51a1d67b-6cf3-460e-ba3c-01de704dc0a5/96c18f8e-d797-4a23-9d39-d6f28f455fa9?currency=EUR',
+    'ПРОРЫВ':     'https://app.lava.top/products/51a1d67b-6cf3-460e-ba3c-01de704dc0a5/a7370ad9-0d89-45c7-9d5a-12adfce2cf17?currency=EUR',
+    'МАСТЕРСТВО': 'https://app.lava.top/products/51a1d67b-6cf3-460e-ba3c-01de704dc0a5/8f223a5a-8800-45d7-8fbc-7630e219278c?currency=EUR',
   },
 };
 
@@ -128,23 +125,14 @@ function render(){
   document.getElementById('grid').innerHTML = PLANS[teacher].map(p=>{
     const feats = [
       'Урок 60 минут',
-      p.lessons === 5  ? 'Познакомьтесь с форматом' :
-      p.lessons === 10 ? 'Почувствуйте реальный прогресс' :
-      p.lessons === 20 ? 'Перейдите на новый уровень' :
-                         'Максимальное погружение в язык',
-      p.lessons === 5  ? 'Идеально для начала' :
-      p.lessons === 10 ? 'Выстройте базу языка' :
-      p.lessons === 20 ? '' :
-                         'Готовность к экзаменам и жизни',
-      p.lessons === 5  ? '' :
-      p.lessons === 10 ? 'Первые уверенные разговоры' :
-      p.lessons === 20 ? 'Заметный результат в обучении' :
-                         'Приоритет в расписании',
+      p.lessons===5 ? 'Познакомьтесь с форматом' : p.lessons===10 ? 'Почувствуйте реальный прогресс' : p.lessons===20 ? 'Перейдите на новый уровень' : 'Максимальное погружение в язык',
+      p.lessons===5 ? 'Идеально для начала' : p.lessons===10 ? 'Постройте базу языка' : p.lessons===20 ? '' : 'Готовность к экзаменам и жизни',
+      p.lessons===5 ? '' : p.lessons===10 ? 'Первые уверенные разговоры' : p.lessons===20 ? 'Заметный результат в обучении' : 'Приоритет в расписании',
     ].filter(Boolean);
-    return `<div class="card${p.popular?' featured':''}">
+    return `<div class="card${p.popular?' pop':''}">
       ${p.popular?'<span class="badge">Популярный</span>':p.superBadge?'<span class="badge badge-gold">Супер выгодно</span>':''}
       <div class="name">${p.name}</div>
-      <div class="per-wrap"><div class="per"><b>${p.per} €</b> <span>/ занятие</span></div>${p.savings?'<span class="savings">Экономия '+p.savings+' €</span>':''}</div>
+      <div class="per-wrap"><div class="per"><b>${String(p.per).replace('.',',')} €</b> <span>/ занятие</span></div>${p.savings?'<span class="savings">Экономия '+p.savings+' €</span>':''}</div>
       <ul class="feats">${feats.map(f=>`<li>${CK}${f}</li>`).join('')}</ul>
       <div class="total"><span class="lbl">${p.lessons} занятий</span></div>
       <a class="pay" href="${LINKS[teacher][p.name]}">Оплатить ${p.total} €</a>
@@ -157,13 +145,8 @@ function setTeacher(t){
   document.getElementById('t-native').classList.toggle('on', t==='native');
   render();
 }
+try{var _t=new URLSearchParams(location.search).get('type');if(_t==='native')setTeacher('native');}catch(e){}
 render();
-// Auto-select teacher from URL param
-(function(){
-  var p = new URLSearchParams(window.location.search).get('type');
-  if(p === 'native') setTeacher('native');
-  else setTeacher('ru');
-})();
 </script>
 </body>
 </html>
