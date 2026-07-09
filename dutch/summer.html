@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DoubleLang · Летнее предложение</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -14 120 120'%3E%3Cpolygon points='60,14 108,36 60,54 12,36' fill='%2321747a'/%3E%3Cpath d='M26,42 Q24,68 60,76 Q96,68 94,42' fill='%2321747a'/%3E%3Cline x1='12' y1='36' x2='12' y2='56' stroke='%2321747a' stroke-width='5' stroke-linecap='round'/%3E%3Cline x1='12' y1='56' x2='12' y2='74' stroke='%232aa39a' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='80' r='6' fill='%232aa39a'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --teal:#21747a; --teal-bright:#2aa39a; --teal-deep:#15545a;
+  --teal-soft:rgba(33,116,122,.12); --glow:rgba(42,163,154,.4);
+  --side:#0c1f22; --side-2:#103034;
+  --ink:#15211d; --ink-2:#46554f; --ink-3:#6c7d76;
+  --bg:#eef3f2; --surface:#fff; --surface-2:#f6f9f8;
+  --line:rgba(21,33,29,.10);
+  --gold:#e0b34a; --gold-soft:rgba(224,179,74,.15);
+  --ok:#2a9d6a; --ok-soft:rgba(42,157,106,.12);
+  --r:16px; --r-lg:22px; --r-sm:11px;
+  --sans:'Manrope',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --shadow:0 1px 2px rgba(15,30,26,.04),0 10px 28px -14px rgba(15,30,26,.18);
+  --shadow-lg:0 2px 6px rgba(15,30,26,.05),0 30px 60px -24px rgba(15,30,26,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.55}
+a{text-decoration:none}
+@keyframes goldFlow{to{background-position:220% center}}
+.wrap{max-width:980px;margin:0 auto;padding:40px 18px 64px}
+.logo-row{text-align:center;margin-bottom:26px}
+.logo-row .dl-logo{height:48px;width:auto;display:inline-block}
+
+/* hero offer */
+.offer{background:radial-gradient(120% 130% at 50% -10%,var(--side-2),var(--side) 62%);color:#fff;border-radius:var(--r-lg);
+  padding:46px 32px 40px;text-align:center;position:relative;overflow:hidden}
+.offer::before{content:"";position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:60%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,var(--glow),transparent 60%);opacity:.45}
+.offer .eyebrow{position:relative;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-bright)}
+.offer h1{position:relative;font-weight:800;font-size:clamp(26px,4.2vw,40px);line-height:1.16;letter-spacing:-.02em;margin-top:14px}
+.offer h1 em{font-style:normal;background:linear-gradient(100deg,#e9c877,#f4e4b0 30%,#d7a94a 55%,#f4e4b0 75%,#e9c877);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:goldFlow 6s linear infinite}
+.offer p{position:relative;font-size:15.5px;color:rgba(255,255,255,.78);margin-top:14px}
+
+/* countdown */
+.cd{position:relative;display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+.cd .u{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;
+  padding:14px 8px;min-width:78px;backdrop-filter:blur(6px)}
+.cd .n{font-weight:800;font-size:30px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.cd .l{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px}
+.cd-note{position:relative;margin-top:16px;font-size:13px;color:rgba(255,255,255,.6)}
+
+/* prices */
+.ptitle{text-align:center;font-weight:800;font-size:clamp(22px,3.4vw,32px);letter-spacing:-.02em;margin:54px 0 28px}
+.ptitle em{font-style:normal;color:var(--teal)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:760px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.grid{grid-template-columns:1fr}}
+.pc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px 18px 20px;
+  display:flex;flex-direction:column;text-align:center;position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .25s}
+.pc:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.pc.hot{background:linear-gradient(140deg,var(--teal-bright),var(--teal) 60%,var(--teal-deep));border-color:transparent;color:#fff;box-shadow:0 24px 50px -22px var(--glow)}
+.hit{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);
+  font-weight:800;font-size:9.5px;letter-spacing:.06em;padding:5px 14px;border-radius:0 0 11px 11px;white-space:nowrap}
+.pc.hot .hit{background:var(--gold);color:var(--ink)}
+.pcn{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.pc.hot .pcn{color:rgba(255,255,255,.8)}
+.pc.hot .hit+.pcn{margin-top:6px}
+.ppn{font-weight:800;font-size:32px;line-height:1;letter-spacing:-.02em}
+.ppp{font-size:12px;color:var(--ink-3);margin-top:5px}
+.pc.hot .ppp{color:rgba(255,255,255,.7)}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px;justify-content:center}
+.bdg{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;background:var(--teal-soft);color:var(--teal-deep)}
+.pc.hot .bdg{background:rgba(255,255,255,.16);color:#fff}
+.win{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;background:var(--gold-soft);color:#9a7b1f}
+.pc.hot .win{background:rgba(255,225,150,.2);color:#ffe9a8}
+.pdesc{font-size:12.5px;color:var(--ink-2);margin-top:13px;line-height:1.6;flex:1}
+.pc.hot .pdesc{color:rgba(255,255,255,.82)}
+
+/* buy button */
+.buy{margin-top:18px;display:flex;align-items:center;justify-content:center;border:none;border-radius:12px;
+  padding:14px 0;cursor:pointer;width:100%;font-family:var(--sans);font-weight:800;font-size:15px;color:#fff;
+  background:linear-gradient(135deg,var(--teal-bright),var(--teal));transition:transform .25s var(--ease),box-shadow .25s;position:relative;overflow:hidden;isolation:isolate;letter-spacing:-.01em}
+.buy::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 48%,transparent 66%);transform:translateX(-130%);transition:transform .7s var(--ease)}
+.buy:hover{transform:translateY(-2px);box-shadow:0 14px 28px -10px var(--glow)}
+.buy:hover::after{transform:translateX(130%)}
+.pc.hot .buy{background:var(--gold);color:var(--ink)}
+.pc.hot .buy:hover{box-shadow:0 16px 30px -10px rgba(224,179,74,.6)}
+
+.foot{text-align:center;margin-top:40px;font-size:13px;color:var(--ink-3);line-height:1.7}
+.foot a{color:var(--teal);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo-row">
+    <img class="dl-logo" src="../assets/logo.png" alt="DoubleLang" />
+  </div>
+
+  <div class="offer">
+    <div class="eyebrow">Летнее предложение</div>
+    <h1>Скидка до <em>210 €</em> на пакет уроков</h1>
+    <p>Первый урок — бесплатно. Предложение действует всё лето.</p>
+
+    <div class="cd" id="cd">
+      <div class="u"><div class="n" id="cd-d">22</div><div class="l">дней</div></div>
+      <div class="u"><div class="n" id="cd-h">00</div><div class="l">часов</div></div>
+      <div class="u"><div class="n" id="cd-m">00</div><div class="l">минут</div></div>
+      <div class="u"><div class="n" id="cd-s">00</div><div class="l">секунд</div></div>
+    </div>
+    <div class="cd-note">До конца акции осталось — успейте записаться</div>
+  </div>
+
+  <h2 class="ptitle">Выберите <em>свой пакет</em></h2>
+  <div class="grid">
+
+    <div class="pc">
+      <div class="pcn">Пробный старт</div>
+      <div class="ppn">150 €</div>
+      <div class="ppp">30 € за занятие</div>
+      <div class="badges"><span class="bdg">5 занятий</span></div>
+      <div class="pdesc">Попробуйте формат и снимите языковой барьер перед отпуском.</div>
+      <a class="buy" href="https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/bb3701a6-34ca-4039-8661-e4dc7800418e?currency=EUR" target="_blank" rel="noopener">Оплатить</a>
+    </div>
+
+    <div class="pc">
+      <div class="pcn">Летний ритм</div>
+      <div class="ppn">270 €</div>
+      <div class="ppp">27 € за занятие</div>
+      <div class="badges"><span class="bdg">10 занятий</span><span class="win">✓ Экономия 30 €</span></div>
+      <div class="pdesc">Для тех, кто хочет 2–3 урока в неделю и реального прогресса.</div>
+      <a class="buy" href="https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/e9ce7293-c735-4a8b-9c7e-5ebb40b612d6?currency=EUR" target="_blank" rel="noopener">Оплатить</a>
+    </div>
+
+    <div class="pc hot">
+      <div class="hit">★ Хит продаж</div>
+      <div class="pcn">Летний интенсив</div>
+      <div class="ppn">500 €</div>
+      <div class="ppp">25 € за занятие</div>
+      <div class="badges"><span class="bdg">20 занятий</span><span class="win">✓ Экономия 100 €</span></div>
+      <div class="pdesc">Максимальная выгода — два полных летних месяца.</div>
+      <a class="buy" href="https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/fcaeac75-5060-4933-8e8a-403bf0482bd2?currency=EUR" target="_blank" rel="noopener">Оплатить</a>
+    </div>
+
+    <div class="pc">
+      <div class="pcn">Мастер-сезон</div>
+      <div class="ppn">690 €</div>
+      <div class="ppp">23 € за занятие</div>
+      <div class="badges"><span class="bdg">30 занятий</span><span class="win">✓ Экономия 210 €</span></div>
+      <div class="pdesc">Рекордно низкая цена — самый выгодный пакет.</div>
+      <a class="buy" href="https://app.lava.top/products/dc37048e-05c1-472d-a990-d3b4f3729082/85296b4f-8e99-4b1a-a329-10d32c6c7ade?currency=EUR" target="_blank" rel="noopener">Оплатить</a>
+    </div>
+
+  </div>
+
+  <div class="foot">Остались вопросы по тарифам? Напишите нам в <a href="https://t.me/doublelang_online_school" target="_blank" rel="noopener">Telegram</a> или <a href="https://wa.me/+995599435407" target="_blank" rel="noopener">WhatsApp</a>.</div>
+</div>
+
+<script>
+(function(){
+  // Фиксированная дата окончания акции — одна для всех
+  var deadline=new Date('2026-07-31T23:59:59+03:00').getTime();
+  function p(n){return (n<10?'0':'')+n;}
+  function tick(){
+    var diff=deadline-Date.now();
+    if(diff<0)diff=0;
+    var d=Math.floor(diff/86400000);
+    var h=Math.floor(diff%86400000/3600000);
+    var m=Math.floor(diff%3600000/60000);
+    var s=Math.floor(diff%60000/1000);
+    document.getElementById('cd-d').textContent=d;
+    document.getElementById('cd-h').textContent=p(h);
+    document.getElementById('cd-m').textContent=p(m);
+    document.getElementById('cd-s').textContent=p(s);
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>

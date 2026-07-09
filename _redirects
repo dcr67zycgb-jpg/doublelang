@@ -9,3 +9,20 @@
 /blog/inburgering-2026                 /dutch/article-inburgering-2026.html       301
 /blog/mvv-2026                         /dutch/article-mvv-2026.html               301
 /blog/vlaams-vs-nederlands             /dutch/article-vlaams-vs-nederlands.html   301
+
+# Clean-URL прайсы по языкам (rewrite, URL остаётся красивым)
+/pricegermany          /german/pricing.html?type=russian    200
+/pricegermanynative    /german/pricing.html?type=native     200
+/pricedutch            /dutch/pricing.html?type=russian      200
+/pricedutchnative      /dutch/pricing.html?type=native       200
+/pricefrench           /french/pricing.html?type=russian     200
+/pricefrenchnative     /french/pricing.html?type=native      200
+/priceserbian          /serbian/pricing.html?type=russian    200
+/priceserbiannative    /serbian/pricing.html?type=native     200
+/priceenglish          /english/pricing.html?type=russian    200
+/priceenglishnative    /english/pricing.html?type=native     200
+
+# Clean-URL летние акции по языкам
+/summergermany         /german/summer.html                   200
+/summerdutch           /dutch/summer.html                    200
+/summer                /summer-offer.html                    200
