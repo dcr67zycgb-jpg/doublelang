@@ -25,7 +25,7 @@
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Курсы немецкого языка онлайн","description":"Индивидуальные онлайн-занятия немецким языком. Обучение с нуля до C1. Подготовка к ÖSD, EPD, TestDaF, интеграционным экзаменам A1, B1, B2 Beruf.","provider":{"@type":"Organization","name":"DoubleLang","url":"https://doublelang-online-school.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что будет на пробном занятии?","acceptedAnswer":{"@type":"Answer","text":"Преподаватель определит уровень, расскажет о программе и ответит на вопросы. Бесплатно, без обязательств."}},{"@type":"Question","name":"Как проходят занятия?","acceptedAnswer":{"@type":"Answer","text":"Онлайн, в формате видеодиалога с преподавателем на платформе DoubleLang."}},{"@type":"Question","name":"Сколько длится занятие?","acceptedAnswer":{"@type":"Answer","text":"60 минут. По договорённости — 80 минут."}}]},{"@type":"AggregateRating","itemReviewed":{"@type":"Organization","name":"DoubleLang"},"ratingValue":"5","bestRating":"5","ratingCount":"1000"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог DoubleLang о немецком языке","url":"https://doublelang-online-school.com/german/blog","blogPost":[{"@type":"BlogPosting","headline":"Как подготовиться к TestDaF в 2026 году","articleSection":"Экзамены"},{"@type":"BlogPosting","headline":"Немецкий в Австрии и Германии: в чём разница","articleSection":"Язык"},{"@type":"BlogPosting","headline":"ÖSD: пошаговый гид для переезда в Германию","articleSection":"Переезд"},{"@type":"BlogPosting","headline":"B2 Beruf: как найти работу в Германии","articleSection":"Карьера"}]}</script>
 <style>
@@ -1644,6 +1644,7 @@ document.querySelectorAll('section[id]').forEach(s=>new IntersectionObserver(ent
 /* SCROLL REVEAL */
 const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -36px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-scale').forEach(el=>ro.observe(el));
+setTimeout(function(){document.querySelectorAll('#blog .blog-card').forEach(function(c){if(!c.classList.contains('blog-extra'))c.classList.add('visible');});},1600);
 
 /* LEVEL BARS */
 const lb=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){const b=e.target.querySelector('.level-bar');if(b)setTimeout(()=>b.style.width=b.dataset.width,180);lb.unobserve(e.target);}});},{threshold:.25});

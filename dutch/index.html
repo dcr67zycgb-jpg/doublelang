@@ -25,7 +25,7 @@
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Курсы нидерландского языка онлайн","description":"Индивидуальные онлайн-занятия нидерландским языком. Обучение с нуля до C1. Подготовка к Ваша цель — наш ориентир.","provider":{"@type":"Organization","name":"DoubleLang","url":"https://doublelang-online-school.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что будет на пробном занятии?","acceptedAnswer":{"@type":"Answer","text":"Преподаватель определит уровень, расскажет о программе и ответит на вопросы. Бесплатно, без обязательств."}},{"@type":"Question","name":"Как проходят занятия?","acceptedAnswer":{"@type":"Answer","text":"Онлайн, в формате видеодиалога с преподавателем на платформе DoubleLang."}},{"@type":"Question","name":"Сколько длится занятие?","acceptedAnswer":{"@type":"Answer","text":"60 минут. По договорённости — 80 минут."}}]},{"@type":"AggregateRating","itemReviewed":{"@type":"Organization","name":"DoubleLang"},"ratingValue":"5","bestRating":"5","ratingCount":"1000"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог DoubleLang о нидерландском языке","url":"https://doublelang-online-school.com/blog","blogPost":[{"@type":"BlogPosting","headline":"Как подготовиться к экзамену Inburgering в 2026 году","articleSection":"Экзамены"},{"@type":"BlogPosting","headline":"Нидерландский или фламандский: в чём разница","articleSection":"Язык"},{"@type":"BlogPosting","headline":"MVV: пошаговый гид для переезда в Нидерланды","articleSection":"Переезд"},{"@type":"BlogPosting","headline":"10 голландских слов, которые невозможно перевести","articleSection":"Лексика"},{"@type":"BlogPosting","headline":"Сколько времени нужно, чтобы выучить нидерландский","articleSection":"Обучение"},{"@type":"BlogPosting","headline":"NT2 Programma I и II: какой экзамен выбрать","articleSection":"Экзамены"}]}</script>
 <style>
@@ -220,7 +220,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 
 /* HERO PHOTO BACKGROUND */
 .hero-blobs, #hero-canvas, .hero-scene { display:none !important; }
-.hero-photo { position:absolute; inset:0; z-index:0; background:url('../assets/hero-amsterdam-new.png') center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; will-change:transform; }
+.hero-photo { position:absolute; inset:0; z-index:0; background:url('../assets/hero-amsterdam-new.webp') center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; will-change:transform; }
 .hero-photo::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.42); z-index:1; }
 
 
@@ -1626,6 +1626,7 @@ document.querySelectorAll('section[id]').forEach(s=>new IntersectionObserver(ent
 /* SCROLL REVEAL */
 const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -36px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-scale').forEach(el=>ro.observe(el));
+setTimeout(function(){document.querySelectorAll('#blog .blog-card').forEach(function(c){if(!c.classList.contains('blog-extra'))c.classList.add('visible');});},1600);
 
 /* LEVEL BARS */
 const lb=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){const b=e.target.querySelector('.level-bar');if(b)setTimeout(()=>b.style.width=b.dataset.width,180);lb.unobserve(e.target);}});},{threshold:.25});

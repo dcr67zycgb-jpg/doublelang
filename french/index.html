@@ -25,7 +25,7 @@
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Курсы французского языка онлайн","description":"Индивидуальные онлайн-занятия французским языком. Обучение с нуля до C1. Подготовка к DELF, DALF, TCF.","provider":{"@type":"Organization","name":"DoubleLang","url":"https://doublelang-online-school.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что будет на пробном занятии?","acceptedAnswer":{"@type":"Answer","text":"Преподаватель определит уровень, расскажет о программе и ответит на вопросы. Бесплатно, без обязательств."}},{"@type":"Question","name":"Как проходят занятия?","acceptedAnswer":{"@type":"Answer","text":"Онлайн, в формате видеодиалога с преподавателем на платформе DoubleLang."}},{"@type":"Question","name":"Сколько длится занятие?","acceptedAnswer":{"@type":"Answer","text":"60 минут. По договорённости — 80 минут."}}]},{"@type":"AggregateRating","itemReviewed":{"@type":"Organization","name":"DoubleLang"},"ratingValue":"5","bestRating":"5","ratingCount":"1000"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог DoubleLang о французском языке","url":"https://doublelang-online-school.com/french/","blogPost":[{"@type":"BlogPosting","headline":"Как подготовиться к DELF в 2026 году","articleSection":"Экзамены"},{"@type":"BlogPosting","headline":"Французский во Франции, Бельгии и Канаде: в чём разница","articleSection":"Язык"},{"@type":"BlogPosting","headline":"TCF: пошаговый гид для иммиграции в Канаду","articleSection":"Переезд"},{"@type":"BlogPosting","headline":"10 французских слов, которые невозможно перевести","articleSection":"Лексика"},{"@type":"BlogPosting","headline":"Сколько времени нужно, чтобы выучить французский","articleSection":"Обучение"}]}</script>
 <style>
@@ -221,7 +221,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 
 /* HERO PHOTO BACKGROUND */
 .hero-blobs, #hero-canvas, .hero-scene { display:none !important; }
-.hero-photo { position:absolute; inset:0; z-index:0; background:url('../assets/hero-paris.png') center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; will-change:transform; }
+.hero-photo { position:absolute; inset:0; z-index:0; background:url('../assets/hero-paris-lite.webp') center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; will-change:transform; }
 .hero-photo::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.50); z-index:1; }
 
 
@@ -909,8 +909,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 #modal-phone-field input { display:block; width:100%; padding:13px 16px; border:1.5px solid #d0dbd8; border-radius:var(--radius-sm); font-size:14px; font-family:var(--font-body); color:var(--ink); background:#fff; outline:none; box-sizing:border-box; }
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
 </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -1643,6 +1642,7 @@ document.querySelectorAll('section[id]').forEach(s=>new IntersectionObserver(ent
 /* SCROLL REVEAL */
 const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -36px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-scale').forEach(el=>ro.observe(el));
+setTimeout(function(){document.querySelectorAll('#blog .blog-card').forEach(function(c){if(!c.classList.contains('blog-extra'))c.classList.add('visible');});},1600);
 
 /* LEVEL BARS */
 const lb=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){const b=e.target.querySelector('.level-bar');if(b)setTimeout(()=>b.style.width=b.dataset.width,180);lb.unobserve(e.target);}});},{threshold:.25});
@@ -1910,10 +1910,10 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
 
 /* THREE.JS FLAG */
 (function initThree(){
-  if(typeof THREE === 'undefined'){ setTimeout(initThree, 50); return; }
   const canvas = document.getElementById('hero-canvas');
   if(!canvas) return;
   if(getComputedStyle(canvas).display === 'none') return; // hero uses photo bg — skip heavy WebGL loop
+  if(typeof THREE === 'undefined'){ setTimeout(initThree, 50); return; }
   const hero  = document.querySelector('.hero');
   function getSize(){ return {w: hero.offsetWidth, h: hero.offsetHeight}; }
   let {w,h} = getSize();

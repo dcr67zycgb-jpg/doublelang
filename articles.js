@@ -42,9 +42,18 @@
     );
   }
 
+  function revealCards(grid) {
+    // Гарантированно показываем карточки блога, даже если
+    // IntersectionObserver/анимация reveal не сработали.
+    (grid || document).querySelectorAll('.blog-card.reveal').forEach(function (el) {
+      if (!el.classList.contains('blog-extra')) el.classList.add('visible');
+    });
+  }
+
   function render(list) {
     var grid = document.querySelector('.blog-grid');
-    if (!grid || !list.length) return;
+    if (!grid) return;
+    if (!list.length) { revealCards(grid); return; }
     var VISIBLE = 3;
     grid.innerHTML = list
       .map(function (a, i) { return cardHTML(a, i, i >= VISIBLE); })
@@ -76,6 +85,8 @@
     } else {
       grid.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
     }
+    // Подстраховка: если через 1.4с карточки всё ещё скрыты — показываем принудительно.
+    setTimeout(function () { revealCards(grid); }, 1400);
   }
 
   function boot() {
@@ -92,7 +103,7 @@
         list.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
         render(list);
       })
-      .catch(function () { /* оставляем статические карточки как fallback */ });
+      .catch(function () { revealCards(document.querySelector('.blog-grid')); });
   }
 
   if (document.readyState === 'loading') {
