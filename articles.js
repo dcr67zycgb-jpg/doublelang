@@ -28,8 +28,7 @@
       '<article class="blog-card reveal ' + rev + extra + '"' + style + '>' +
         '<div class="blog-thumb" style="padding:0;overflow:hidden">' +
           '<img src="' + esc(a.cover) + '" alt="' + esc(a.title) + '" loading="lazy" style="width:100%;height:100%;object-fit:cover">' +
-          (a.category ? '<span class="blog-cat" style="position:absolute;top:14px;left:14px">' + esc(a.category) + '</span>' : '') +
-        '</div>' +
+          '</div>' +
         '<div class="blog-body">' +
           '<h3>' + esc(a.title) + '</h3>' +
           '<p>' + esc(a.excerpt) + '</p>' +
