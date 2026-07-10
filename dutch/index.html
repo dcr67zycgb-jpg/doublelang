@@ -1866,12 +1866,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         '🌐 Источник: 🇳🇱 Нидерландский\n' +
         '⏰ Время: ' + new Date().toLocaleString('ru-RU', {timeZone:'Europe/Moscow'});
       Promise.all([
-        fetch('https://api.telegram.org/bot8902775229:AAFhupnZiAS_W9aGIyx6rDaB9ta6kwtf7lM/sendMessage', {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({chat_id:'5364646512', text:tgText})
-        }).catch(function(e){console.error('TG error:',e);}),
-        fetch('https://hook.eu1.make.com/qa8lfg4he5bkkekrxxhivuvy3rpk9v8y', {
+        fetch('/api/lead', {
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
@@ -2063,9 +2058,9 @@ function closeModal(){
       const mSource='https://doublelang-online-school.com/dutch-general';
       const mCalltime=(document.getElementById('modal-calltime')?.value||'').trim();
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
-      fetch('https://api.telegram.org/bot8902775229:AAFhupnZiAS_W9aGIyx6rDaB9ta6kwtf7lM/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'5364646512',text:tgText})}).catch(()=>{});
+      
       Promise.all([
-        fetch('https://hook.eu1.make.com/qa8lfg4he5bkkekrxxhivuvy3rpk9v8y',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,source:mSource,page:window.location.href})}).catch(()=>{})
+        fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,source:mSource,page:window.location.href})}).catch(()=>{})
       ]).finally(function(){
         submitBtn.style.background='var(--teal)';
         closeModal();
@@ -2232,8 +2227,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
 <script>
 (function(){
-  var TG_TOKEN='8902775229:AAFhupnZiAS_W9aGIyx6rDaB9ta6kwtf7lM';
-  var TG_CHAT_ID='5364646512';
+  var TG_TOKEN='';
+  var TG_CHAT_ID='';
   var WA_LINK='https://wa.me/995599435407';
   var isOpen=false, inited=false;
   var userData={goal:'',phone:'',name:''};
@@ -2445,7 +2440,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       +(userData.name?'Имя: '+userData.name+'\n':'')
       +'Страница: '+window.location.href;
     var xhr=new XMLHttpRequest();
-    xhr.open('POST','https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage',true);
+    xhr.open('POST','/api/lead',true);
     xhr.setRequestHeader('Content-Type','application/json');
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
@@ -2457,7 +2452,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       try{t.remove();}catch(e){}
       showSuccess();
     };
-    xhr.send(JSON.stringify({chat_id:TG_CHAT_ID,text:msg}));
+    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'chat_widget',page:window.location.href}));
   }
 
   function showSuccess(){

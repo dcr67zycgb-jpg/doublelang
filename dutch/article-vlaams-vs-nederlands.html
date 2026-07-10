@@ -347,7 +347,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
   </div>
 </div>
 <script>
-function dlArtSend(btn){var tel=document.getElementById('art-tel');var consent=document.getElementById('art-consent');if(!tel||!tel.value.trim()||tel.value.replace(/\D/g,'').length<7){if(tel){tel.style.borderColor='#e05555';tel.focus();}return;}tel.style.borderColor='';if(!consent||!consent.checked){var l=document.getElementById('art-consent-lbl');if(l)l.style.color='#e05555';return;}var name=((document.getElementById('art-name')||{}).value||'').trim();var email=((document.getElementById('art-email')||{}).value||'').trim();var ct=((document.getElementById('art-calltime')||{}).value||'').trim();var phone=tel.value.trim();var tg='\u{1F4E9} Новая заявка DoubleLang\n\u{1F4F1} Телефон: '+phone+'\n\u{1F464} Имя: '+(name||'—')+'\n\u{1F4E7} Email: '+(email||'—')+'\n\u{1F550} Время звонка: '+(ct||'—')+'\n\u{1F310} Источник: Статья '+window.location.pathname;if(btn){btn.disabled=true;btn.textContent='Отправляем...';}fetch('https://api.telegram.org/bot8902775229:AAFhupnZiAS_W9aGIyx6rDaB9ta6kwtf7lM/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'5364646512',text:tg})}).catch(function(){});fetch('https://hook.eu1.make.com/qa8lfg4he5bkkekrxxhivuvy3rpk9v8y',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,calltime:ct,source:'article',page:window.location.href})}).catch(function(){});setTimeout(function(){window.location.href='thank-you.html';},500);}
+function dlArtSend(btn){var tel=document.getElementById('art-tel');var consent=document.getElementById('art-consent');if(!tel||!tel.value.trim()||tel.value.replace(/\D/g,'').length<7){if(tel){tel.style.borderColor='#e05555';tel.focus();}return;}tel.style.borderColor='';if(!consent||!consent.checked){var l=document.getElementById('art-consent-lbl');if(l)l.style.color='#e05555';return;}var name=((document.getElementById('art-name')||{}).value||'').trim();var email=((document.getElementById('art-email')||{}).value||'').trim();var ct=((document.getElementById('art-calltime')||{}).value||'').trim();var phone=tel.value.trim();var tg='\u{1F4E9} Новая заявка DoubleLang\n\u{1F4F1} Телефон: '+phone+'\n\u{1F464} Имя: '+(name||'—')+'\n\u{1F4E7} Email: '+(email||'—')+'\n\u{1F550} Время звонка: '+(ct||'—')+'\n\u{1F310} Источник: Статья '+window.location.pathname;if(btn){btn.disabled=true;btn.textContent='Отправляем...';}fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,calltime:ct,source:'article',page:window.location.href})}).catch(function(){});setTimeout(function(){window.location.href='thank-you.html';},500);}
 window.__dlArtDial=(function(){try{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';var m={'Europe/Amsterdam':'+31 ','Europe/Brussels':'+32 ','Europe/Moscow':'+7 ','Europe/Kiev':'+380 ','Europe/Istanbul':'+90 ','Europe/Berlin':'+49 ','Europe/Paris':'+33 '};return m[tz]||'+31 ';}catch(e){return '+31 ';}})();
 function openArtModal(){
   var m=document.getElementById('art-modal');
@@ -408,9 +408,9 @@ function artSubmit(btn){
   var tgText='\u{1F4E9} Новая заявка DoubleLang\n\u{1F4F1} Телефон: '+phone+'\n\u{1F464} Имя: '+(name||'—')+'\n\u{1F4E7} Email: '+(email||'—')+'\n\u{1F310} Источник: Статья '+src;
   btn.disabled=true;
   btn.textContent='Отправляем...';
-  fetch('https://api.telegram.org/bot8902775229:AAFhupnZiAS_W9aGIyx6rDaB9ta6kwtf7lM/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'5364646512',text:tgText})}).catch(()=>{});
+  
   Promise.all([
-    fetch('https://hook.eu1.make.com/qa8lfg4he5bkkekrxxhivuvy3rpk9v8y',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,source:'article',page:window.location.href})}).catch(()=>{})
+    fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,source:'article',page:window.location.href})}).catch(()=>{})
   ]).finally(function(){
     window.location.href='thank-you.html';
   });
@@ -495,8 +495,8 @@ function artSubmit(btn){
 
 <script>
 (function(){
-  var TG_TOKEN='8902775229:AAFhupnZiAS_W9aGIyx6rDaB9ta6kwtf7lM';
-  var TG_CHAT_ID='5364646512';
+  var TG_TOKEN='';
+  var TG_CHAT_ID='';
   var WA_LINK='https://wa.me/995599435407';
   var isOpen=false, inited=false;
   var userData={goal:'',phone:'',name:''};
@@ -714,7 +714,7 @@ function artSubmit(btn){
       +(userData.name?'Имя: '+userData.name+'\n':'')
       +'Страница: '+window.location.href;
     var xhr=new XMLHttpRequest();
-    xhr.open('POST','https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage',true);
+    xhr.open('POST','/api/lead',true);
     xhr.setRequestHeader('Content-Type','application/json');
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
@@ -726,7 +726,7 @@ function artSubmit(btn){
       try{t.remove();}catch(e){}
       showSuccess();
     };
-    xhr.send(JSON.stringify({chat_id:TG_CHAT_ID,text:msg}));
+    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'chat_widget',page:window.location.href}));
   }
 
   function showSuccess(){
