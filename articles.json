@@ -1,5 +1,16 @@
 [
   {
+    "id": "test",
+    "lang": "nl",
+    "title": "Тест",
+    "excerpt": "",
+    "cover": "/assets/blog-test-cover.png",
+    "url": "/dutch/article-test.html",
+    "category": "",
+    "readtime": "",
+    "date": "2026-07-11"
+  },
+  {
     "id": "inburgering-2026",
     "lang": "nl",
     "title": "Как подготовиться к экзамену Inburgering в 2026 году",
