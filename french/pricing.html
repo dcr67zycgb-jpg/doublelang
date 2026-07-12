@@ -73,7 +73,7 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
   <a href="index.html#pricing" class="back">← Вернуться к тарифам</a>
 
   <div class="head">
-    <img src="../assets/logo.png" alt="DoubleLang">
+    <a href="index.html" class="logo-link" style="display:inline-block;line-height:0"><img src="../assets/logo.png" alt="DoubleLang"></a>
     <h1>Французский язык</h1>
     <p style="font-weight:700;font-size:20px;color:var(--ink-2)">Выберите пакет индивидуальных занятий</p>
     <div class="toggle">
@@ -131,7 +131,7 @@ function render(){
     return `<div class="card${p.popular?' pop':''}">
       ${p.popular?'<span class="badge">Популярный</span>':p.superBadge?'<span class="badge badge-gold">Супер выгодно</span>':''}
       <div class="name">${p.name}</div>
-      <div class="per-wrap"><div class="per"><b>${String(p.per).replace('.',',')} €</b> <span>/ занятие</span></div>${p.savings?'<span class="savings">Экономия '+p.savings+' €</span>':''}</div>
+      <div class="per-wrap"><div class="per"><b>${String(p.per).replace('.',',')} €</b> <span>/ занятие</span></div>${p.savings?'<span class="savings">Экономия '+p.savings+' €</span>':'<span class="savings" style="visibility:hidden">Экономия</span>'}</div>
       <ul class="feats">${feats.map(f=>`<li>${CK}${f}</li>`).join('')}</ul>
       <div class="total"><span class="lbl">${p.lessons} занятий</span></div>
       <a class="pay" href="${LINKS[teacher][p.name]}">Оплатить ${p.total} €</a>
