@@ -1910,7 +1910,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
       </article>
     </div>
     <p style="text-align:center;margin-top:36px">
-      <button id="blog-toggle" class="btn btn-ghost magnetic" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){if(open){el.style.display='none';}else{el.style.display='flex';el.style.opacity='1';el.style.transform='none';el.classList.add('visible');}});btn.dataset.open=open?'0':'1';btn.textContent=open?'Показать ещё →':'Свернуть ↑'})()">Показать ещё →</button>
+      <button id="blog-toggle" class="btn btn-ghost magnetic" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){el.style.display=open?'none':'flex';if(!open)el.classList.add('visible');});btn.dataset.open=open?'0':'1';btn.textContent=open?'Показать ещё →':'Свернуть ↑'})()">Показать ещё →</button>
     </p>
     <div class="tg-inline" style="display:flex;gap:14px;align-items:center;max-width:640px;margin:32px auto 0;padding:16px 20px;background:rgba(33,116,122,.07);border-left:4px solid #21747a;border-radius:0 12px 12px 0;">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="#21747a" style="flex-shrink:0;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>

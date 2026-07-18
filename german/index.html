@@ -1494,7 +1494,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
       </article>
     </div>
     <p style="text-align:center;margin-top:36px">
-      <button id="blog-toggle" class="btn btn-ghost magnetic" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){el.style.display=open?'none':'flex'});btn.dataset.open=open?'0':'1';btn.textContent=open?'Показать ещё →':'Свернуть ↑'})()">Показать ещё →</button>
+      <button id="blog-toggle" class="btn btn-ghost magnetic" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){el.style.display=open?'none':'flex';if(!open)el.classList.add('visible');});btn.dataset.open=open?'0':'1';btn.textContent=open?'Показать ещё →':'Свернуть ↑'})()">Показать ещё →</button>
     </p>
   </div>
 
