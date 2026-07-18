@@ -26,8 +26,8 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Курсы нидерландского языка онлайн","description":"Индивидуальные онлайн-занятия нидерландским языком. Обучение с нуля до C1. Подготовка к MVV, Inburgering, NT2.","provider":{"@type":"Organization","name":"DoubleLang","url":"https://doublelang-online-school.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что будет на пробном занятии?","acceptedAnswer":{"@type":"Answer","text":"Преподаватель определит уровень, расскажет о программе и ответит на вопросы. Бесплатно, без обязательств."}},{"@type":"Question","name":"Как проходят занятия?","acceptedAnswer":{"@type":"Answer","text":"Онлайн, в формате видеодиалога с преподавателем на платформе DoubleLang."}},{"@type":"Question","name":"Сколько длится занятие?","acceptedAnswer":{"@type":"Answer","text":"60 минут. По договорённости — 80 минут."}}]},{"@type":"AggregateRating","itemReviewed":{"@type":"Organization","name":"DoubleLang"},"ratingValue":"5","bestRating":"5","ratingCount":"1000"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог DoubleLang о нидерландском языке","url":"https://doublelang-online-school.com/blog","blogPost":[{"@type":"BlogPosting","headline":"Как подготовиться к экзамену Inburgering в 2026 году","articleSection":"Экзамены"},{"@type":"BlogPosting","headline":"Нидерландский или фламандский: в чём разница","articleSection":"Язык"},{"@type":"BlogPosting","headline":"MVV: пошаговый гид для переезда в Нидерланды","articleSection":"Переезд"},{"@type":"BlogPosting","headline":"10 голландских слов, которые невозможно перевести","articleSection":"Лексика"},{"@type":"BlogPosting","headline":"Сколько времени нужно, чтобы выучить нидерландский","articleSection":"Обучение"},{"@type":"BlogPosting","headline":"NT2 Programma I и II: какой экзамен выбрать","articleSection":"Экзамены"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Курсы сербского языка онлайн","description":"Индивидуальные онлайн-занятия сербским языком. Обучение с нуля до C1. Подготовка к экзамену на гражданство A2, язык для переезда и работы.","provider":{"@type":"Organization","name":"DoubleLang","url":"https://doublelang-online-school.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что будет на пробном занятии?","acceptedAnswer":{"@type":"Answer","text":"Преподаватель определит уровень, расскажет о программе и ответит на вопросы. Бесплатно, без обязательств."}},{"@type":"Question","name":"Как проходят занятия?","acceptedAnswer":{"@type":"Answer","text":"Онлайн, в формате видеодиалога с преподавателем на платформе DoubleLang."}},{"@type":"Question","name":"Сколько длится занятие?","acceptedAnswer":{"@type":"Answer","text":"60 минут. По договорённости — 80 минут."}}]},{"@type":"AggregateRating","itemReviewed":{"@type":"Organization","name":"DoubleLang"},"ratingValue":"5","bestRating":"5","ratingCount":"1000"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог DoubleLang о сербском языке","url":"https://doublelang-online-school.com/serbian","blogPost":[{"@type":"BlogPosting","headline":"10 вещей, которые удивляют в Белграде","articleSection":"Культура"},{"@type":"BlogPosting","headline":"Сколько времени нужно, чтобы выучить сербский","articleSection":"Обучение"},{"@type":"BlogPosting","headline":"Сербская кириллица за 2 недели","articleSection":"Язык"}]}</script>
 <style>
 /* ── DESIGN TOKENS (platform source of truth) ── */
 :root {
@@ -576,7 +576,7 @@ h2.section-title {
 /* ── TEACHERS ── */
 
 /* ── TEACHERS NEW ── */
-.teachers-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.teachers-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
 @media(max-width:1100px){.teachers-grid{grid-template-columns:repeat(3,1fr)!important;}}
 @media(max-width:760px){.teachers-grid{grid-template-columns:repeat(2,1fr)!important;}}
 .teacher-card {
@@ -775,7 +775,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .container { padding:0 16px; }
   .hero { padding:60px 0 44px; }
   .nav-inner { display:flex!important; justify-content:flex-end; align-items:center; position:relative; }
-  .nav-logo { position:absolute; left:50%; top:calc(50% + 20px); transform:translate(-50%,-50%); pointer-events:auto; }
+  .nav-logo { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:auto; }
   .hero-badge { display:inline-flex!important; width:auto!important; align-self:center; }
   .hero-inner { align-items:center; }
   .hero h1 { text-align:center; }
@@ -920,11 +920,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         m[i].l=1*new Date();
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110288328', 'ym');
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110843442', 'ym');
 
-    ym(110288328, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    ym(110843442, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110288328" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/110843442" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <!-- Meta Pixel Code -->
 <script>
@@ -957,7 +957,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
 <nav id="main-nav">
   <div class="container nav-inner">
     <a href="https://doublelang-online-school.com/" class="nav-logo">
-      <img src="../assets/logo.png" alt="Логотип онлайн-школы нидерландского языка DoubleLang">
+      <img src="../assets/logo.png" alt="Логотип онлайн-школы сербского языка DoubleLang">
     </a>
     <ul class="nav-links">
       <li><a href="#goals">Цели</a></li>
@@ -1061,7 +1061,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
         <div class="laptop">
           <div class="laptop-screen">
             <div class="laptop-cam"></div>
-            <img src="../assets/platform-screenshot.png" alt="Платформа DoubleLang" loading="lazy">
+            <img src="../assets/platform-serbian.png" alt="Платформа DoubleLang" loading="lazy">
           </div>
           <div class="laptop-base"><div class="laptop-notch"></div></div>
         </div>
@@ -1115,7 +1115,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
     <p class="section-sub reveal">Все преподаватели специализируются на сербском языке и помогают подготовиться к экзаменам, переезду и работе в Сербии.</p>
     <div class="teachers-grid">
       <div class="teacher-card reveal s1">
-        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-anita.png" alt="Анита Ницевич" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-anita.png" alt="Анита Ницевич" style="width:100%;height:100%;object-fit:cover;object-position:top;" loading="lazy"></div>
         <div class="teacher-body">
           <h3 class="teacher-name">Анита Ницевич</h3>
           <div class="teacher-exp-badge">6+ лет</div>
@@ -1124,7 +1124,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
         </div>
       </div>
       <div class="teacher-card reveal s2">
-        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-azat.png" alt="Азат Хатыпович" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-azat.png" alt="Азат Хатыпович" style="width:100%;height:100%;object-fit:cover;object-position:top;" loading="lazy"></div>
         <div class="teacher-body">
           <h3 class="teacher-name">Азат Хатыпович</h3>
           <div class="teacher-exp-badge">10 лет</div>
@@ -1133,12 +1133,30 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
         </div>
       </div>
       <div class="teacher-card reveal s3">
-        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-vladimir-g.png" alt="Владимир Гуяничич" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-vladimir-g.png" alt="Владимир Гуяничич" style="width:100%;height:100%;object-fit:cover;object-position:top;" loading="lazy"></div>
         <div class="teacher-body">
           <h3 class="teacher-name">Владимир Гуяничич</h3>
           <div class="teacher-exp-badge">5 лет</div>
           <div class="teacher-short">Сербский язык онлайн, разговорные практики.</div>
           <button class="teacher-more-btn" onclick="openTeacherModal(2)">Подробнее</button>
+        </div>
+      </div>
+      <div class="teacher-card reveal s4">
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-milos.png" alt="Милош Йованович" style="width:100%;height:100%;object-fit:cover;object-position:top;" loading="lazy"></div>
+        <div class="teacher-body">
+          <h3 class="teacher-name">Милош Йованович</h3>
+          <div class="teacher-exp-badge">12 лет</div>
+          <div class="teacher-short">Носитель сербского языка, разговорная практика с первого урока.</div>
+          <button class="teacher-more-btn" onclick="openTeacherModal(3)">Подробнее</button>
+        </div>
+      </div>
+      <div class="teacher-card reveal s5">
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-jelena.png" alt="Елена Стоянович" style="width:100%;height:100%;object-fit:cover;object-position:top;" loading="lazy"></div>
+        <div class="teacher-body">
+          <h3 class="teacher-name">Елена Стоянович</h3>
+          <div class="teacher-exp-badge">9 лет</div>
+          <div class="teacher-short">Сербский с нуля до C1, подготовка к экзамену на гражданство.</div>
+          <button class="teacher-more-btn" onclick="openTeacherModal(4)">Подробнее</button>
         </div>
       </div>
     </div></div>
@@ -1150,7 +1168,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
   <div class="container" style="margin-bottom:44px">
     <div class="section-tag reveal-left">Отзывы</div>
     <h2 class="section-title reveal">Что говорят ученики</h2>
-    <p class="section-sub reveal" style="margin-bottom:0">Более 1 000 учеников уже занимаются или окончили курсы нидерландского в DoubleLang.</p>
+    <p class="section-sub reveal" style="margin-bottom:0">Более 1 000 учеников уже занимаются или окончили курсы сербского в DoubleLang.</p>
   </div>
   <div class="container" style="padding-bottom:0">
     <div class="reviews-slider-outer" id="reviews-slider-outer">
@@ -1164,6 +1182,8 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
           <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Павел+Д&background=5a3e8a&color=fff&size=44&rounded=true&bold=true" alt="Павел Д." loading="lazy"><div class="review-meta"><div class="review-author">Павел Д.</div><div class="review-goal">Цель: общий сербский</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Учу сербский, потому что часто езжу на Балканы. Теперь могу общаться в Белграде, Сараево и Загребе — языки очень похожи. Занятия живые, много разговорной практики.»</p></div>
           <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Екатерина+Н&background=a03a5e&color=fff&size=44&rounded=true&bold=true" alt="Екатерина Н." loading="lazy"><div class="review-meta"><div class="review-author">Екатерина Н.</div><div class="review-goal">Цель: экзамен A2</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Очень переживала за экзамен на гражданство — всё же экзамен на иностранном языке. Преподаватель разобрал типичные задания и научил отвечать уверенно. Сдала без проблем.»</p></div>
           <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Сергей+В&background=3a7a4a&color=fff&size=44&rounded=true&bold=true" alt="Сергей В." loading="lazy"><div class="review-meta"><div class="review-author">Сергей В.</div><div class="review-goal">Цель: путешествия по Балканам</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Сербский открыл для меня весь Балканский полуостров. Теперь путешествую по Сербии, Черногории и Северной Македонии и везде чувствую себя своим. Язык учить интересно и весело.»</p></div>
+          <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Марина+К&background=b0533a&color=fff&size=44&rounded=true&bold=true" alt="Марина К." loading="lazy"><div class="review-meta"><div class="review-author">Марина К.</div><div class="review-goal">Цель: переезд в Белград</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Переехали в Белград всей семьёй, и занятия в DoubleLang очень помогли адаптироваться. Через полгода я спокойно общаюсь в банке, поликлинике и с соседями. Преподаватель терпеливый и всегда на связи.»</p></div>
+          <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Дмитрий+Л&background=356a6a&color=fff&size=44&rounded=true&bold=true" alt="Дмитрий Л." loading="lazy"><div class="review-meta"><div class="review-author">Дмитрий Л.</div><div class="review-goal">Цель: работа в IT</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Учил сербский для работы в местной компании. Понравился упор на живую речь с первого урока — уже через пару месяцев проходил собеседования на сербском. Гибкое расписание идеально совмещается с работой.»</p></div>
         </div>
       </div>
     </div>
@@ -1398,15 +1418,15 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
     <p class="section-sub reveal">Гайды по переезду в Сербию, гражданству и изучению языка — пишем понятно и по делу.</p>
     <div class="blog-grid">
       <article class="blog-card reveal s1">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-belgrade-v2.png" alt="10 вещей, которые удивляют в Белграде" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-belgrade-v2.png" alt="10 вещей, которые удивляют в Белграде" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
         <div class="blog-body"><h3>10 вещей, которые удивляют в Белграде</h3><p>Кафане, слава, ракия и сербское гостеприимство — что нужно знать о культуре Сербии.</p><div class="blog-meta"><span>8 мин чтения</span><a href="article-belgrade-culture.html" class="blog-read">Читать →</a></div></div>
       </article>
       <article class="blog-card reveal s2">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-serb-time-cover.png" alt="Сколько времени нужно, чтобы выучить сербский" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-serb-time-cover.png" alt="Сколько времени нужно, чтобы выучить сербский" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
         <div class="blog-body"><h3>Сколько времени нужно, чтобы выучить сербский</h3><p>Реалистичные сроки до A2, B1 и B2 — и почему сербский проще, чем кажется.</p><div class="blog-meta"><span>7 мин чтения</span><a href="article-skolko-uchit-serbskiy.html" class="blog-read">Читать →</a></div></div>
       </article>
       <article class="blog-card reveal s3">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-serb-cyr-cover.png" alt="Сербская кириллица за 2 недели" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-serb-cyr-cover.png" alt="Сербская кириллица за 2 недели" style="width:100%;height:100%;object-fit:cover" loading="lazy"></div>
         <div class="blog-body"><h3>Сербская кириллица: как выучить за 2 недели</h3><p>Простая система для быстрого освоения сербского алфавита с нуля.</p><div class="blog-meta"><span>9 мин чтения</span><a href="article-serbskaya-kirillica.html" class="blog-read">Читать →</a></div></div>
       </article>
     </div>
@@ -1472,7 +1492,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
   <div class="container">
     <div class="footer-inner">
       <div>
-        <div class="footer-logo"><img src="../assets/logo.png" alt="Логотип онлайн-школы нидерландского языка DoubleLang"></div>
+        <div class="footer-logo"><img src="../assets/logo.png" alt="Логотип онлайн-школы сербского языка DoubleLang"></div>
         <p class="footer-desc">Онлайн-школа сербского языка. Индивидуальные занятия с опытными преподавателями. Подготовка к экзамену на гражданство, язык для переезда и работы.</p>
       </div>
       <div class="footer-col">
@@ -1798,7 +1818,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
         }).catch(function(e){console.error('Make error:',e);})
-      ]).then(function(){ window.location.href='../thank-you.html'; }).catch(function(){ window.location.href='../thank-you.html'; });
+      ]).then(function(){ window.location.href='thank-you.html'; }).catch(function(){ window.location.href='thank-you.html'; });
     });
   });
   if(back)back.addEventListener('click',()=>{
@@ -2002,7 +2022,7 @@ function closeModal(){
 
 
 /* TEACHER MODAL */
-const TEACHERS_DATA = [{"name":"Анита Ницевич","full":"Преподаватель сербского и английского языков с опытом работы более 6 лет. Обучает детей и взрослых, свободно владеет сербским и русским, знает английский. Для каждого ученика разрабатывает индивидуальный учебный план, который помогает быстро снять барьеры и достичь максимальных результатов. Занятия проходят в дружеской атмосфере, где легко найти общий язык и увлечься процессом.","tags":["Сербский","Английский","Дети и взрослые"]},{"name":"Азат Хатыпович","full":"Опыт 10 лет в преподавании сербского и хорватского языка позволяет Азату Хатыповичу сделать знакомство с языком более интересным и доступным для любого ученика. Он использует инновационные методы обучения, чтобы сделать процесс изучения занимательным и эффективным. Самое интересное? Азат Хатыпович владеет искусством объяснения на иностранном языке, что делает его уроки понятными и доступными даже для новичков. Хотите освоить грамматику сербского или хорватского без затруднений, погрузиться в культуру и историю этих стран и уверенно общаться с носителями языка? Азат Хатыпович поможет достичь этих целей.","tags":["Сербский","Хорватский","A1–C1"]},{"name":"Владимир Гуяничич","full":"Дипломированный специалист, более 5 лет обучает сербскому языку онлайн. Увлекательные занятия с упором на разговорные навыки и освоение грамматики в нужном объёме. Погружение в сербский язык, обогащение словарного запаса и раскрытие всех граней языка через разговорную практику.","tags":["Сербский","Разговорный","Онлайн"]}];
+const TEACHERS_DATA = [{"name":"Анита Ницевич","full":"Преподаватель сербского и английского языков с опытом работы более 6 лет. Обучает детей и взрослых, свободно владеет сербским и русским, знает английский. Для каждого ученика разрабатывает индивидуальный учебный план, который помогает быстро снять барьеры и достичь максимальных результатов. Занятия проходят в дружеской атмосфере, где легко найти общий язык и увлечься процессом.","tags":["Сербский","Английский","Дети и взрослые"]},{"name":"Азат Хатыпович","full":"Опыт 10 лет в преподавании сербского и хорватского языка позволяет Азату Хатыповичу сделать знакомство с языком более интересным и доступным для любого ученика. Он использует инновационные методы обучения, чтобы сделать процесс изучения занимательным и эффективным. Самое интересное? Азат Хатыпович владеет искусством объяснения на иностранном языке, что делает его уроки понятными и доступными даже для новичков. Хотите освоить грамматику сербского или хорватского без затруднений, погрузиться в культуру и историю этих стран и уверенно общаться с носителями языка? Азат Хатыпович поможет достичь этих целей.","tags":["Сербский","Хорватский","A1–C1"]},{"name":"Владимир Гуяничич","full":"Дипломированный специалист, более 5 лет обучает сербскому языку онлайн. Увлекательные занятия с упором на разговорные навыки и освоение грамматики в нужном объёме. Погружение в сербский язык, обогащение словарного запаса и раскрытие всех граней языка через разговорную практику.","tags":["Сербский","Разговорный","Онлайн"]},{"name":"Милош Йованович","full":"Носитель сербского языка из Белграда с 12-летним опытом преподавания. Магистр филологии Белградского университета. Милош строит занятия вокруг живой разговорной практики: с первого урока вы начинаете говорить, а грамматику осваиваете естественно, через реальные ситуации — от кафаны до оформления документов. Помогает переехавшим быстро адаптироваться в сербской среде, готовит к собеседованиям и повседневному общению. Занятия проходят энергично, с юмором и полным погружением в культуру.","tags":["Носитель","Разговорный","Переезд"]},{"name":"Елена Стоянович","full":"Дипломированный преподаватель сербского языка с 9-летним опытом. Обучает с нуля до уровня C1, специализируется на подготовке к экзамену на гражданство (A2) и языковой адаптации для переезда. Елена известна тёплой, спокойной атмосферой на уроках и умением объяснять сложную грамматику простыми словами. Составляет индивидуальную программу под цель каждого ученика, много внимания уделяет чтению и письму на кириллице и латинице.","tags":["A1–C1","Гражданство","Переезд"]}];
 function openTeacherModal(i){
   window.__selectedTeacherIdx=i;
   const t=TEACHERS_DATA[i];

@@ -10,8 +10,8 @@
     if (/\/french\//.test(p))  return 'fr';
     if (/\/english\//.test(p)) return 'en';
     if (/\/serbian\//.test(p)) return 'sr';
-    if (/home\.html/.test(p) || /index\.html$/.test(p) || p === '/' || p === '') return 'all';
-    return 'nl'; // dutch-general.html и прочие нидерландские страницы
+    if (/home\.html/.test(p) || p === '/' || p === '') return 'all';
+    return 'nl'; // index.html, dutch-general.html
   }
 
   function esc(s) {

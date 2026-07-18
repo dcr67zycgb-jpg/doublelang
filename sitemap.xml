@@ -33,10 +33,4 @@
   <url><loc>https://doublelang-online-school.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://doublelang-online-school.com/refund.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
-  <url>
-    <loc>https://doublelang-online-school.com/english/article-cambridge-english-fce-cae-cpe-2026.html</loc>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>
