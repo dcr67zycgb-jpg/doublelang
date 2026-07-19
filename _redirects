@@ -23,6 +23,10 @@
 /priceenglishnative    /english/pricing.html?type=native     200
 /pricespanish          /spanish/pricing.html?type=russian    200
 /pricespanishnative    /spanish/pricing.html?type=native     200
+/pricegreek            /greek/pricing.html?type=russian      200
+/pricegreeknative      /greek/pricing.html?type=native       200
+/priceportuguese       /portuguese/pricing.html?type=russian 200
+/priceportuguesenative /portuguese/pricing.html?type=native  200
 
 # Прокси формы заявок → серверная функция (токен скрыт в env Netlify)
 /api/lead              /.netlify/functions/lead              200
