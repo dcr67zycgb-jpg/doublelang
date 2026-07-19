@@ -2709,13 +2709,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
   function dlGetPriceText(){
     var path=window.location.pathname;
-    var ruPrice='23';
-    if(path.indexOf('/german')!==-1||path.indexOf('german/')!==-1) ruPrice='14';
-    if(path.indexOf('/english')!==-1||path.indexOf('english/')!==-1) ruPrice='20';
-    if(path.indexOf('/french')!==-1||path.indexOf('french/')!==-1) ruPrice='18';
-    if(path.indexOf('/serbian')!==-1||path.indexOf('serbian/')!==-1) ruPrice='16';
+    var ruPrice='14';
+    var natPrice='23';
+    if(path.indexOf('english')!==-1){ ruPrice='20'; natPrice='26'; }
+    else if(path.indexOf('french')!==-1){ ruPrice='18'; natPrice='23'; }
+    else if(path.indexOf('serbian')!==-1){ ruPrice='14'; natPrice='23'; }
+    else if(path.indexOf('german')!==-1){ ruPrice='14'; natPrice='23'; }
+    else if(path.indexOf('spanish')!==-1||path.indexOf('greek')!==-1||path.indexOf('portuguese')!==-1){ ruPrice='14'; natPrice='23'; }
+    else if(path.indexOf('dutch')!==-1){ ruPrice='14'; natPrice='23'; }
     var pricingUrl=dlGetPricingUrl();
-    return 'Занятия с русскоязычным преподавателем — <b>от '+ruPrice+' €</b>, с носителем языка — <b>от 26 €</b>.<br>Пакеты на 5, 10, 20, 30 и 50 занятий — чем больше, тем выгоднее.<br><b>Первый пробный урок — бесплатно!</b><br><a href="'+pricingUrl+'" style="color:#2aa39a;font-weight:700;">📋 Посмотреть все тарифы →</a>';
+    return 'Занятия с русскоязычным преподавателем — <b>от '+ruPrice+' €</b>, с носителем языка — <b>от '+natPrice+' €</b>.<br>Пакеты на 5, 10, 20 и 30 занятий — чем больше, тем выгоднее.<br><b>Первый пробный урок — бесплатно!</b><br><a href="'+pricingUrl+'" style="color:#2aa39a;font-weight:700;">📋 Посмотреть все тарифы →</a>';
   }
   function dlGetPricingUrl(){
     return 'pricing.html';
@@ -2728,7 +2731,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     'exams': {
       q:'📋 Экзамены',
-      a:'Готовим к:<br>🇳🇱 <b>MVV</b> — A1, для въезда в Нидерланды<br>🇳🇱 <b>Inburgering</b> — B1, для ВНЖ и гражданства<br>🇳🇱 <b>NT2</b> — программа I (B1) и II (B2), для учёбы и работы<br>грационный A1 (семейное воссоединение), B1 (ПМЖ/гражданство), B2 Beruf (работа)<br>🇫🇷 <b>Французский:</b> DELF, TCF<br>🇬🇧 <b>Английский:</b> IELTS, TOEFL<br>🇷🇸 <b>Сербский:</b> экзамен A2 на гражданство',
+      a:'Готовим к официальным экзаменам по всем языкам:<br>🇳🇱 <b>Нидерландский:</b> MVV, Inburgering, NT2<br>🇩🇪 <b>Немецкий:</b> ÖSD, EPD, TestDaF<br>🇫🇷 <b>Французский:</b> DELF, DALF, TCF<br>🇬🇧 <b>Английский:</b> IELTS, TOEFL<br>🇪🇸 <b>Испанский:</b> DELE, SIELE<br>🇬🇷 <b>Греческий:</b> Ελληνομάθεια<br>🇵🇹 <b>Португальский:</b> CIPLE, DIPLE, CAPLE<br>🇷🇸 <b>Сербский:</b> A2 для гражданства',
       after:'Хотите записаться на пробный урок для подготовки к экзамену?'
     },
     'lessons': {
@@ -2738,7 +2741,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     'levels': {
       q:'🎓 Уровни и сроки',
-      a:'Обучаем от нуля до C1:<br>• <b>A1</b> — ~40 занятий (приветствия, базовые фразы)<br>• <b>A2</b> — ~60 занятий (бытовые ситуации)<br>• <b>B1</b> — ~90 занятий (работа, Inburgering)<br>• <b>B2</b> — ~120 занятий (деловое общение)<br>• <b>C1</b> — ~150 занятий (свободное владение)<br>Коммуникативный подход: максимум практики, грамматика без зубрёжки.',
+      a:'Обучаем от нуля до C1:<br>• <b>A1</b> — ~30–40 занятий (приветствия, базовые фразы)<br>• <b>A2</b> — ~60 занятий (бытовые ситуации)<br>• <b>B1</b> — ~90 занятий (работа, ВНЖ, гражданство)<br>• <b>B2</b> — ~120 занятий (деловое общение, учёба)<br>• <b>C1</b> — ~150 занятий (свободное владение)<br>Коммуникативный подход: максимум практики, грамматика без зубрёжки.',
       after:'Хотите определить свой уровень на бесплатном пробном уроке?'
     },
     'teachers': {
@@ -3500,7 +3503,7 @@ function toggleLangs(btn){
   });
 })();
 </script>
-<script src="/articles.js" defer></script>
+<!-- articles.js отключён: блог управляется статически -->
 
 <div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif">
   <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
