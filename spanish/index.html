@@ -1567,7 +1567,8 @@ window.addEventListener('scroll',()=>{sbar.style.width=(window.scrollY/(document
 
 /* NAV SHADOW */
 const nav=document.getElementById('main-nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+const _heroEl=document.querySelector('.hero');
+window.addEventListener('scroll',()=>{const th=_heroEl?_heroEl.offsetHeight-80:40;nav.classList.toggle('scrolled',window.scrollY>th);},{passive:true});
 
 /* ACTIVE NAV */
 const navAs=document.querySelectorAll('.nav-links a');
