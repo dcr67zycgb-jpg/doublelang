@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Главная -->
+  <url><loc>https://doublelang-online-school.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
   <!-- Нидерландский -->
   <url><loc>https://doublelang-online-school.com/dutch/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://doublelang-online-school.com/dutch/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -9,7 +12,7 @@
   <url><loc>https://doublelang-online-school.com/dutch/article-vlaams-vs-nederlands.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Немецкий -->
-  <url><loc>https://doublelang-online-school.com/german/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://doublelang-online-school.com/german/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://doublelang-online-school.com/german/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://doublelang-online-school.com/german/article-testdaf-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://doublelang-online-school.com/german/article-german-austria.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -24,9 +27,38 @@
 
   <!-- Английский -->
   <url><loc>https://doublelang-online-school.com/english/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://doublelang-online-school.com/english/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/english/article-ielts-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/english/article-british-vs-american.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/english/article-ielts-vs-toefl.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Испанский -->
+  <url><loc>https://doublelang-online-school.com/spanish/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://doublelang-online-school.com/spanish/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/spanish/article-dele-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/spanish/article-spain-vs-latam.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/spanish/article-dele-vs-siele.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Сербский -->
   <url><loc>https://doublelang-online-school.com/serbian/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://doublelang-online-school.com/serbian/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/serbian/article-belgrade-culture.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/serbian/article-skolko-uchit-serbskiy.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/serbian/article-serbskaya-kirillica.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Греческий -->
+  <url><loc>https://doublelang-online-school.com/greek/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://doublelang-online-school.com/greek/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/greek/article-ellinomatheia-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/greek/article-greek-cyprus.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/greek/article-greek-citizenship.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Португальский -->
+  <url><loc>https://doublelang-online-school.com/portuguese/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://doublelang-online-school.com/portuguese/pricing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://doublelang-online-school.com/portuguese/article-ciple-2026.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/portuguese/article-pt-br.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://doublelang-online-school.com/portuguese/article-pt-citizenship.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Документы -->
   <url><loc>https://doublelang-online-school.com/oferta.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

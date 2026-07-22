@@ -729,7 +729,7 @@ h2.section-title {
 
 /* ── FOOTER ── */
 footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px; }
-.footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+.footer-inner { display:grid; grid-template-columns:1.6fr 1fr 1fr 1.1fr; gap:40px; margin-bottom:48px; }
 .footer-logo img { height:40px; width:auto; display:block; margin-bottom:16px; filter:brightness(0) invert(1); }
 .footer-desc { font-size:13px; line-height:1.82; max-width:340px; }
 .footer-col h4 { color:#fff; font-size:13px; font-weight:700; margin-bottom:18px; letter-spacing:.05em; }
@@ -1554,6 +1554,19 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
         <p class="footer-desc">Онлайн-школа французского языка. Индивидуальные занятия с опытными преподавателями. Подготовка к DELF, DALF, TCF.</p>
       </div>
       <div class="footer-col">
+        <h4>Языки школы</h4>
+        <ul>
+          <li><a href="/dutch/">Нидерландский</a></li>
+          <li><a href="/german/">Немецкий</a></li>
+          <li><a href="/french/">Французский</a></li>
+          <li><a href="/english/">Английский</a></li>
+          <li><a href="/spanish/">Испанский</a></li>
+          <li><a href="/serbian/">Сербский</a></li>
+          <li><a href="/greek/">Греческий</a></li>
+          <li><a href="/portuguese/">Португальский</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Курсы</h4>
         <ul>
           <li><a href="#goals">Цели обучения</a></li>
@@ -1911,7 +1924,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
   const canvas = document.getElementById('hero-canvas');
   if(!canvas) return;
   if(getComputedStyle(canvas).display === 'none') return; // hero uses photo bg — skip heavy WebGL loop
-  if(typeof THREE === 'undefined'){ setTimeout(initThree, 50); return; }
+  if(typeof THREE === 'undefined'){ return; }
   const hero  = document.querySelector('.hero');
   function getSize(){ return {w: hero.offsetWidth, h: hero.offsetHeight}; }
   let {w,h} = getSize();

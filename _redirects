@@ -22,6 +22,8 @@
 /priceenglish          /english/pricing.html?type=russian    200
 /priceenglishnative    /english/pricing.html?type=native     200
 /pricespanish          /spanish/pricing.html?type=russian    200
+/pricejapanese         /japanese/pricing.html?type=russian   200
+/pricejapanesenative   /japanese/pricing.html?type=native    200
 /pricespanishnative    /spanish/pricing.html?type=native     200
 /pricegreek            /greek/pricing.html?type=russian      200
 /pricegreeknative      /greek/pricing.html?type=native       200

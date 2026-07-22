@@ -1,16 +1,13 @@
 User-agent: *
 Allow: /
 
-# Закрываем служебные страницы
+# Служебные страницы
 Disallow: /thank-you.html
-Disallow: /pricing.html
-Disallow: /german/pricing.html
+Disallow: /thank-you copy.html
+Disallow: /home-v2.html
+Disallow: /mobile-preview.html
+Disallow: /preview-mobile.html
+Disallow: /ads-creatives.html
+Disallow: /chat-widget.html
 
-# Разрешаем все языковые разделы
-Allow: /german/
-Allow: /english/
-Allow: /french/
-Allow: /serbian/
-
-# Sitemap
 Sitemap: https://doublelang-online-school.com/sitemap.xml

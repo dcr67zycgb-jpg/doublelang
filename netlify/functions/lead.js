@@ -9,11 +9,16 @@
 //
 // Node 18+ на Netlify: global fetch доступен.
 
-const ALLOW_ORIGIN = '*'; // сайт и функции на одном домене; можно сузить до домена
+// Разрешённые источники (Origin). Заявки принимаем только со своих доменов.
+const ALLOWED = [
+  'https://doublelang-online-school.com',
+  'https://www.doublelang-online-school.com',
+];
 
-function cors() {
+function cors(origin) {
+  const allow = ALLOWED.includes(origin) ? origin : ALLOWED[0];
   return {
-    'Access-Control-Allow-Origin': ALLOW_ORIGIN,
+    'Access-Control-Allow-Origin': allow,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type': 'application/json; charset=utf-8',
@@ -24,13 +29,41 @@ function digits(s) {
   return String(s || '').replace(/\D/g, '');
 }
 
+// Rate-limit по IP (best-effort, в памяти тёплого инстанса).
+// Не более RL_MAX заявок за RL_WINDOW мс с одного IP.
+const RL_WINDOW = 60 * 1000;
+const RL_MAX = 5;
+const rlHits = new Map();
+function rateLimited(ip) {
+  const now = Date.now();
+  const arr = (rlHits.get(ip) || []).filter(function (t) { return now - t < RL_WINDOW; });
+  arr.push(now);
+  rlHits.set(ip, arr);
+  if (rlHits.size > 5000) { // защита от разрастания памяти
+    for (const [k, v] of rlHits) { if (!v.length || now - v[v.length - 1] > RL_WINDOW) rlHits.delete(k); }
+  }
+  return arr.length > RL_MAX;
+}
+
 exports.handler = async function (event) {
+  const origin = (event.headers && (event.headers.origin || event.headers.Origin)) || '';
   // Preflight
   if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 204, headers: cors(), body: '' };
+    return { statusCode: 204, headers: cors(origin), body: '' };
   }
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: cors(), body: JSON.stringify({ ok: false, error: 'method_not_allowed' }) };
+    return { statusCode: 405, headers: cors(origin), body: JSON.stringify({ ok: false, error: 'method_not_allowed' }) };
+  }
+
+  // Rate-limit по IP
+  const ip = (event.headers && (event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || '')).split(',')[0].trim() || 'unknown';
+  if (rateLimited(ip)) {
+    return { statusCode: 429, headers: cors(origin), body: JSON.stringify({ ok: false, error: 'too_many_requests' }) };
+  }
+
+  // Ограничение размера тела (защита от мусорных payload)
+  if ((event.body || '').length > 8000) {
+    return { statusCode: 413, headers: cors(origin), body: JSON.stringify({ ok: false, error: 'payload_too_large' }) };
   }
 
   // Парсим тело
@@ -38,18 +71,18 @@ exports.handler = async function (event) {
   try {
     data = JSON.parse(event.body || '{}');
   } catch (e) {
-    return { statusCode: 400, headers: cors(), body: JSON.stringify({ ok: false, error: 'bad_json' }) };
+    return { statusCode: 400, headers: cors(origin), body: JSON.stringify({ ok: false, error: 'bad_json' }) };
   }
 
   // Простейший антиспам: honeypot-поле (если фронт его пришлёт заполненным — бот)
   if (data.website || data.hp) {
-    return { statusCode: 200, headers: cors(), body: JSON.stringify({ ok: true }) };
+    return { statusCode: 200, headers: cors(origin), body: JSON.stringify({ ok: true }) };
   }
 
   // Валидация телефона — минимум 7 цифр
   const phone = String(data.phone || '').trim();
   if (digits(phone).length < 7) {
-    return { statusCode: 422, headers: cors(), body: JSON.stringify({ ok: false, error: 'phone_required' }) };
+    return { statusCode: 422, headers: cors(origin), body: JSON.stringify({ ok: false, error: 'phone_required' }) };
   }
 
   const name = String(data.name || '').trim();
@@ -65,7 +98,7 @@ exports.handler = async function (event) {
   const MAKE_WEBHOOK = process.env.LEAD_MAKE_WEBHOOK;
 
   if (!TG_TOKEN || !TG_CHAT_ID) {
-    return { statusCode: 500, headers: cors(), body: JSON.stringify({ ok: false, error: 'server_not_configured' }) };
+    return { statusCode: 500, headers: cors(origin), body: JSON.stringify({ ok: false, error: 'server_not_configured' }) };
   }
 
   const now = new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' });
@@ -104,5 +137,5 @@ exports.handler = async function (event) {
 
   await Promise.all(tasks);
 
-  return { statusCode: 200, headers: cors(), body: JSON.stringify({ ok: true }) };
+  return { statusCode: 200, headers: cors(origin), body: JSON.stringify({ ok: true }) };
 };

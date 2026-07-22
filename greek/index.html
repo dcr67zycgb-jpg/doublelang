@@ -712,7 +712,7 @@ h2.section-title {
 
 /* ── FOOTER ── */
 footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px; }
-.footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+.footer-inner { display:grid; grid-template-columns:1.6fr 1fr 1fr 1.1fr; gap:40px; margin-bottom:48px; }
 .footer-logo img { height:40px; width:auto; display:block; margin-bottom:16px; filter:brightness(0) invert(1); }
 .footer-desc { font-size:13px; line-height:1.82; max-width:340px; }
 .footer-col h4 { color:#fff; font-size:13px; font-weight:700; margin-bottom:18px; letter-spacing:.05em; }
@@ -889,8 +889,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 #modal-phone-field input { display:block; width:100%; padding:13px 16px; border:1.5px solid #d0dbd8; border-radius:var(--radius-sm); font-size:14px; font-family:var(--font-body); color:var(--ink); background:#fff; outline:none; box-sizing:border-box; }
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
 </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -1499,6 +1498,19 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
         <p class="footer-desc">Онлайн-школа греческого языка. Индивидуальные занятия с опытными преподавателями. Подготовка к Ελληνομάθεια — сертификация.</p>
       </div>
       <div class="footer-col">
+        <h4>Языки школы</h4>
+        <ul>
+          <li><a href="/dutch/">Нидерландский</a></li>
+          <li><a href="/german/">Немецкий</a></li>
+          <li><a href="/french/">Французский</a></li>
+          <li><a href="/english/">Английский</a></li>
+          <li><a href="/spanish/">Испанский</a></li>
+          <li><a href="/serbian/">Сербский</a></li>
+          <li><a href="/greek/">Греческий</a></li>
+          <li><a href="/portuguese/">Португальский</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Курсы</h4>
         <ul>
           <li><a href="#goals">Цели обучения</a></li>
@@ -1835,7 +1847,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
 
 /* THREE.JS FLAG */
 (function initThree(){
-  if(typeof THREE === 'undefined'){ setTimeout(initThree, 50); return; }
+  if(typeof THREE === 'undefined'){ return; }
   const canvas = document.getElementById('hero-canvas');
   if(!canvas) return;
   if(getComputedStyle(canvas).display === 'none') return; // hero uses photo bg — skip heavy WebGL loop

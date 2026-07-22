@@ -31,9 +31,9 @@
 <style>
 /* ── DESIGN TOKENS (platform source of truth) ── */
 :root {
-  --teal:        #1A3A6B;
-  --teal-bright: #2952A3;
-  --teal-deep:   #0D1F3C;
+  --teal:        #1a7a3c;
+  --teal-bright: #2a9d52;
+  --teal-deep:   #0f4d26;
   --teal-soft:   rgba(26,58,107,.10);
   --ink:         #15211d;
   --ink-2:       #46554f;
@@ -41,8 +41,8 @@
   --surface:     #fff;
   --surface-2:   #f5f9f8;
   --line:        rgba(21,33,29,.09);
-  --glow:        rgba(26,58,107,.40);
-  --gradient-accent: linear-gradient(135deg, #2952A3, #1A3A6B);
+  --glow:        rgba(26,122,60,.40);
+  --gradient-accent: linear-gradient(135deg, #2a9d52, #1a7a3c);
   --radius-lg:   26px;
   --radius:      20px;
   --radius-sm:   13px;
@@ -53,8 +53,8 @@
   --duration:    .28s;
   --font-body:   'Manrope', system-ui, -apple-system, sans-serif;
   /* extra */
-  --gold: #e0b34a;
-  --gold-soft: rgba(224,179,74,.15);
+  --gold: #d21e28;
+  --gold-soft: rgba(210,30,40,.12);
 }
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
@@ -221,8 +221,8 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 
 /* HERO PHOTO BACKGROUND */
 .hero-blobs, #hero-canvas, .hero-scene { display:none !important; }
-.hero-photo { position:absolute; inset:0; z-index:0; background:linear-gradient(150deg,#0b1310,#0e1512 45%,#123f42) center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; will-change:transform; }
-.hero-photo::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.32); z-index:1; }
+.hero-photo { position:absolute; inset:0; z-index:0; background:url('../assets/hero-lisbon.jpg') center/cover no-repeat; animation:kenburns 28s ease-in-out infinite alternate; will-change:transform; }
+.hero-photo::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.48); z-index:1; }
 
 
 @keyframes kenburns { 0% { transform:scale(1.05); } 100% { transform:scale(1.16) translate(-2%,-1.5%); } }
@@ -712,7 +712,7 @@ h2.section-title {
 
 /* ── FOOTER ── */
 footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px; }
-.footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+.footer-inner { display:grid; grid-template-columns:1.6fr 1fr 1fr 1.1fr; gap:40px; margin-bottom:48px; }
 .footer-logo img { height:40px; width:auto; display:block; margin-bottom:16px; filter:brightness(0) invert(1); }
 .footer-desc { font-size:13px; line-height:1.82; max-width:340px; }
 .footer-col h4 { color:#fff; font-size:13px; font-weight:700; margin-bottom:18px; letter-spacing:.05em; }
@@ -889,8 +889,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 #modal-phone-field input { display:block; width:100%; padding:13px 16px; border:1.5px solid #d0dbd8; border-radius:var(--radius-sm); font-size:14px; font-family:var(--font-body); color:var(--ink); background:#fff; outline:none; box-sizing:border-box; }
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
 </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -901,11 +900,11 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '745375728389889');
+  fbq('init', '1085691277307556');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=745375728389889&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=1085691277307556&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
 <!-- Google Tag Manager -->
@@ -922,11 +921,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         m[i].l=1*new Date();
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110848803', 'ym');
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110945227', 'ym');
 
-    ym(110848803, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    ym(110945227, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110848803" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/110945227" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <!-- Meta Pixel Code -->
 <script>
@@ -938,11 +937,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '745375728389889');
+fbq('init', '1085691277307556');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=745375728389889&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1085691277307556&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -1023,10 +1022,10 @@ src="https://www.facebook.com/tr?id=745375728389889&ev=PageView&noscript=1"
     <h2 class="section-title reveal">Португальский для любой цели</h2>
     <p class="section-sub reveal">Программа подстраивается под вашу задачу — переезд, работа, учёба или просто любовь к языку.</p>
     <div class="goals-grid">
-      <div class="goal-card reveal s1 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Переезд в Португалию</h3><p>Базовый язык для жизни в испаноязычной стране: врач, магазин, работа, соседи. Быстрая адаптация с первого дня.</p></div>
+      <div class="goal-card reveal s1 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Переезд в Португалию</h3><p>Базовый язык для жизни в португалоязычной стране: врач, магазин, работа, соседи. Быстрая адаптация с первого дня.</p></div>
       <div class="goal-card reveal s2 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 14l2 2 4-4"/></svg></div><h3>Экзамены CIPLE / DIPLE / CAPLE</h3><p>Целевая подготовка к международным экзаменам для учёбы, работы и гражданства в португалоязычных странах.</p></div>
       <div class="goal-card reveal s3 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/></svg></div><h3>Карьера в международных компаниях</h3><p>Деловой португальский, переговоры, презентации и профессиональная переписка на уровне носителя.</p></div>
-      <div class="goal-card reveal s4 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Учёба в испаноязычном вузе</h3><p>Поступление в университеты Португалии и Латинской Америки. Подготовка к DELE и SIELE.</p></div>
+      <div class="goal-card reveal s4 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Учёба в португальском вузе</h3><p>Поступление в университеты Португалии и Бразилии. Подготовка к сертификатам CIPLE, DIPLE, CAPLE.</p></div>
       <div class="goal-card reveal s5 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h3>Путешествия и международное общение</h3><p>Разговорный курс для тех, кто хочет свободно общаться в любой стране мира без словаря и страха.</p></div>
       <div class="goal-card reveal s6 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 019-9 9 9 0 016.7 3M21 12a9 9 0 01-9 9 9 9 0 01-6.7-3"/><path d="M21 3v5h-5M3 21v-5h5"/></svg></div><h3>Улучшить деловой португальский</h3><p>Для тех, кто уже знает базу, но хочет убрать акцент, говорить уверенно и писать профессионально.</p></div>
     </div>
@@ -1066,7 +1065,7 @@ src="https://www.facebook.com/tr?id=745375728389889&ev=PageView&noscript=1"
         <div class="laptop">
           <div class="laptop-screen">
             <div class="laptop-cam"></div>
-            <img src="../assets/platform-portuguese.png" alt="Платформа DoubleLang — португальский" loading="lazy">
+            <img src="../assets/platform-portuguese.png?v=2" alt="Платформа DoubleLang — португальский" loading="lazy">
           </div>
           <div class="laptop-base"><div class="laptop-notch"></div></div>
         </div>
@@ -1129,38 +1128,38 @@ src="https://www.facebook.com/tr?id=745375728389889&ev=PageView&noscript=1"
         </div>
       </div>
       <div class="teacher-card reveal s2">
-        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-eli.png" alt="Эли Линго" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=700&fit=crop&crop=faces" alt="Мигел Соуза" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
         <div class="teacher-body">
-          <h3 class="teacher-name">Эли Линго</h3>
-          <div class="teacher-exp-badge">Носитель</div>
-          <div class="teacher-short">Португальский с носителем: заговорите с первого урока.</div>
+          <h3 class="teacher-name">Мигел Соуза</h3>
+          <div class="teacher-exp-badge">Носитель · 8+ лет</div>
+          <div class="teacher-short">Носитель европейского португальского из Лиссабона. Ставит произношение и живую речь с первого урока.</div>
           <button class="teacher-more-btn" onclick="openTeacherModal(1)">Подробнее</button>
         </div>
       </div>
       <div class="teacher-card reveal s3">
-        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-leandro.png" alt="Леандро Перес" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&crop=faces" alt="Беатриз Алмейда" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
         <div class="teacher-body">
-          <h3 class="teacher-name">Леандро Перес</h3>
-          <div class="teacher-exp-badge">Носитель · 5+ лет</div>
-          <div class="teacher-short">Носитель португальского: с нуля и подготовка к экзаменам DELE / SIELE.</div>
+          <h3 class="teacher-name">Беатриз Алмейда</h3>
+          <div class="teacher-exp-badge">Носитель · 6+ лет</div>
+          <div class="teacher-short">Носитель языка, специализируется на подготовке к CIPLE, DIPLE и CAPLE. Помогает уверенно сдать экзамен.</div>
           <button class="teacher-more-btn" onclick="openTeacherModal(2)">Подробнее</button>
         </div>
       </div>
       <div class="teacher-card reveal s4">
-        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-marina.jpg" alt="Марина Владимировна" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=faces" alt="Жоао Ногейра" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
         <div class="teacher-body">
-          <h3 class="teacher-name">Марина Владимировна</h3>
-          <div class="teacher-exp-badge">15 лет</div>
-          <div class="teacher-short">Дипломированный преподаватель, 15 лет опыта. Разговорная практика с первых уроков.</div>
+          <h3 class="teacher-name">Жоао Ногейра</h3>
+          <div class="teacher-exp-badge">Носитель · 7+ лет</div>
+          <div class="teacher-short">Преподаёт с нуля до C1. Делает акцент на разговорной практике и снятии языкового барьера.</div>
           <button class="teacher-more-btn" onclick="openTeacherModal(3)">Подробнее</button>
         </div>
       </div>
       <div class="teacher-card reveal s1">
-        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="../assets/teacher-felipe.png" alt="Фелипе Пинеда" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
+        <div class="teacher-photo" style="background:#f5f5f5;padding:0;overflow:hidden;"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=700&fit=crop&crop=faces" alt="Инна Сергеевна" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;"></div>
         <div class="teacher-body">
-          <h3 class="teacher-name">Фелипе Пинеда</h3>
-          <div class="teacher-exp-badge">Носитель · 4+ года</div>
-          <div class="teacher-short">Носитель португальского языка, преподаёт до уровня C1.</div>
+          <h3 class="teacher-name">Инна Сергеевна</h3>
+          <div class="teacher-exp-badge">12 лет</div>
+          <div class="teacher-short">Дипломированный преподаватель и переводчик. Понятно объясняет грамматику на русском, ведёт к экзаменам.</div>
           <button class="teacher-more-btn" onclick="openTeacherModal(4)">Подробнее</button>
         </div>
       </div>
@@ -1370,7 +1369,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
     <div class="pricing-grid" style="justify-content:center">
       <div class="price-card reveal s1" id="pcard-0">
         <h3 class="price-type">Русскоязычный преподаватель</h3>
-        <div class="price-amount">от 14 <span>€</span></div>
+        <div class="price-amount">от 23 <span>€</span></div>
         <div class="price-per">за урок · 60 минут</div>
         <ul class="price-features">
           <li><span class="ok">✓</span>Объяснение на доступном языке</li>
@@ -1382,7 +1381,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
       </div>
       <div class="price-card reveal s2" id="pcard-1">
 <h3 class="price-type">Носитель языка</h3>
-        <div class="price-amount">от 23 <span>€</span></div>
+        <div class="price-amount">от 26 <span>€</span></div>
         <div class="price-per">за урок · 60 минут</div>
         <ul class="price-features">
           <li><span class="ok">✓</span>Языковое совершенствование</li>
@@ -1414,23 +1413,23 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
 </section>
 
 <!-- BLOG -->
-<section id="blog" style="display:none">
+<section id="blog">
   <div class="container">
     <div class="section-tag reveal-left">Блог</div>
     <h2 class="section-title reveal">Полезные статьи о португальском</h2>
     <p class="section-sub reveal">Гайды по экзаменам, иммиграции и изучению португальского — пишем понятно и по делу.</p>
     <div class="blog-grid">
       <article class="blog-card reveal s1">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-dele-cover.png" alt="DELE 2026" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
-        <div class="blog-body"><h3>Как подготовиться к DELE в 2026 году</h3><p>Разбираем структуру экзамена, стратегии для каждой части и пошаговый план подготовки с нуля.</p><div class="blog-meta"><span>8 мин чтения</span><a href="article-dele-2026.html" class="blog-read">Читать →</a></div></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-ciple-cover.png" alt="CIPLE 2026" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-body"><h3>Как подготовиться к CIPLE в 2026 году</h3><p>Разбираем структуру экзамена, стратегии для каждой части и пошаговый план подготовки с нуля.</p><div class="blog-meta"><span>8 мин чтения</span><a href="article-ciple-2026.html" class="blog-read">Читать →</a></div></div>
       </article>
       <article class="blog-card reveal s2">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-spain-latam-cover.png" alt="Португальский Португалии и Латинской Америки" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
-        <div class="blog-body"><h3>Португальский Португалии и Латинской Америки: в чём разница</h3><p>Произношение, лексика, грамматика и культурные различия — что важно знать и когда это имеет значение.</p><div class="blog-meta"><span>7 мин чтения</span><a href="article-spain-vs-latam.html" class="blog-read">Читать →</a></div></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-pt-br-cover.png" alt="Португальский Португалии и Бразилии" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-body"><h3>Португальский Португалии и Бразилии: в чём разница</h3><p>Произношение, лексика и культурные различия — что важно знать и когда это имеет значение.</p><div class="blog-meta"><span>6 мин чтения</span><a href="article-pt-br.html" class="blog-read">Читать →</a></div></div>
       </article>
       <article class="blog-card reveal s3">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-dele-siele-cover.png" alt="DELE или SIELE" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
-        <div class="blog-body"><h3>DELE или SIELE: что выбрать для иммиграции</h3><p>Сравниваем два главных экзамена, объясняем кому какой подойдёт и где каждый из них принимается.</p><div class="blog-meta"><span>8 мин чтения</span><a href="article-dele-vs-siele.html" class="blog-read">Читать →</a></div></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-pt-citizenship-cover.png" alt="Язык для гражданства Португалии" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-body"><h3>Язык для гражданства и ВНЖ Португалии</h3><p>Какой уровень португальского нужен для статуса, какой экзамен сдавать и как выстроить подготовку.</p><div class="blog-meta"><span>7 мин чтения</span><a href="article-pt-citizenship.html" class="blog-read">Читать →</a></div></div>
       </article>
     </div>
   </div>
@@ -1497,6 +1496,19 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
       <div>
         <div class="footer-logo"><img src="../assets/logo.png" alt="Логотип онлайн-школы португальского языка DoubleLang"></div>
         <p class="footer-desc">Онлайн-школа португальского языка. Индивидуальные занятия с опытными преподавателями. Подготовка к CIPLE, DIPLE, CAPLE.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Языки школы</h4>
+        <ul>
+          <li><a href="/dutch/">Нидерландский</a></li>
+          <li><a href="/german/">Немецкий</a></li>
+          <li><a href="/french/">Французский</a></li>
+          <li><a href="/english/">Английский</a></li>
+          <li><a href="/spanish/">Испанский</a></li>
+          <li><a href="/serbian/">Сербский</a></li>
+          <li><a href="/greek/">Греческий</a></li>
+          <li><a href="/portuguese/">Португальский</a></li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Курсы</h4>
@@ -1835,7 +1847,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
 
 /* THREE.JS FLAG */
 (function initThree(){
-  if(typeof THREE === 'undefined'){ setTimeout(initThree, 50); return; }
+  if(typeof THREE === 'undefined'){ return; }
   const canvas = document.getElementById('hero-canvas');
   if(!canvas) return;
   if(getComputedStyle(canvas).display === 'none') return; // hero uses photo bg — skip heavy WebGL loop
@@ -2026,7 +2038,7 @@ function closeModal(){
 
 
 /* TEACHER MODAL */
-const TEACHERS_DATA = [{"name":"Али Фарес","tags":["Португальский","Все уровни"],"full":"Опыт преподавания более 10 лет. Али — увлечённый преподаватель португальского языка, чья главная страсть — помогать студентам достигать реальных результатов. Он создаёт интересные, эффективные и динамичные уроки, которые легко подстраиваются под индивидуальные особенности и любой уровень подготовки ученика. Свободно владеет несколькими языками, что помогает объяснять сложные темы просто и понятно."},{"name":"Эли Линго","tags":["Носитель","Разговорный"],"full":"Носитель португальского языка с большим опытом работы с русскоязычными учениками. Эли делает акцент на живой разговорной речи — вы начинаете говорить уже с первого урока. Помогает поставить правильное произношение, преодолеть языковой барьер и уверенно общаться в реальных ситуациях. Занятия проходят энергично, с современными материалами и полным погружением в язык."},{"name":"Леандро Перес","tags":["Носитель","DELE","SIELE"],"full":"Носитель португальского языка с опытом преподавания более 5 лет. Обучает как с нуля, так и на продвинутых уровнях, готовит к международным экзаменам DELE и SIELE. Составляет индивидуальный план под цели и уровень каждого ученика, использует современные методики. Ориентирован на результат: с первого урока вы начинаете говорить по-португальски."},{"name":"Марина Владимировна","tags":["Разговорный","Опыт 15 лет"],"full":"Опыт работы более 15 лет. Дипломированный преподаватель иностранных языков (красный диплом РГУ им. С. А. Есенина, дополнительное обучение в МГУ им. М. В. Ломоносова). Главная цель — научить студентов свободно общаться. С первых уроков начинается активная разговорная практика без скучной зубрёжки: аутентичные книги, аудио и видео, полное погружение в культуру. Обучение по индивидуальной программе под конкретные задачи ученика."},{"name":"Фелипе Пинеда","tags":["Носитель","До C1"],"full":"Носитель португальского языка с опытом преподавания более 4 лет. Специализируется на обучении русскоязычных учеников и досконально знает специфику восприятия языка этой аудиторией, помогая обходить типичные трудности. Свободно владеет русским и английским, поэтому легко объясняет самые тонкие грамматические нюансы. Помогает прочувствовать живую речь и заговорить уверенно."}];
+const TEACHERS_DATA = [{"name":"Али Фарес","tags":["Португальский","Все уровни"],"full":"Опыт преподавания более 10 лет. Али — увлечённый преподаватель португальского языка, который создаёт интересные, эффективные и динамичные уроки под индивидуальные особенности и любой уровень ученика."},{"name":"Мигел Соуза","tags":["Носитель","Разговорный","Произношение"],"full":"Носитель европейского португальского из Лиссабона, опыт преподавания более 8 лет. Специализируется на постановке произношения и живой разговорной речи с первого урока. Помогает снять языковой барьер и заговорить естественно, используя актуальную лексику и реальные жизненные ситуации."},{"name":"Беатриз Алмейда","tags":["Носитель","CIPLE","DIPLE","CAPLE"],"full":"Носитель португальского языка с опытом более 6 лет. Специализируется на подготовке к официальным экзаменам CIPLE, DIPLE и CAPLE. Выстраивает подготовку под конкретную цель и уровень ученика, разбирает формат экзамена и типовые задания, доводит до уверенной сдачи."},{"name":"Жоао Ногейра","tags":["Носитель","A1–C1","Разговорный"],"full":"Носитель языка с опытом преподавания более 7 лет. Обучает с нуля до уровня C1, делает акцент на разговорной практике и снятии языкового барьера. Занятия проходят динамично и увлекательно, с полным погружением в живой португальский."},{"name":"Инна Сергеевна","tags":["Грамматика","Экзамены","С нуля"],"full":"Дипломированный преподаватель и переводчик с опытом более 12 лет. Понятно объясняет грамматику на русском языке, что особенно ценно для начинающих. Готовит к международным экзаменам, выстраивает индивидуальный план под цели каждого студента."}];
 function openTeacherModal(i){
   window.__selectedTeacherIdx=i;
   const t=TEACHERS_DATA[i];
@@ -2213,7 +2225,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     },
     'levels': {
       q:'🎓 Уровни и сроки',
-      a:'Обучаем от нуля до C1:<br>• <b>A1</b> — ~40 занятий (приветствия, базовые фразы)<br>• <b>A2</b> — ~60 занятий (бытовые ситуации)<br>• <b>B1</b> — ~90 занятий (работа, Inburgering)<br>• <b>B2</b> — ~120 занятий (деловое общение)<br>• <b>C1</b> — ~150 занятий (свободное владение)<br>Коммуникативный подход: максимум практики, грамматика без зубрёжки.',
+      a:'Обучаем от нуля до C1:<br>• <b>A1</b> — ~40 занятий (приветствия, базовые фразы)<br>• <b>A2</b> — ~60 занятий (бытовые ситуации, уровень для CIPLE)<br>• <b>B1</b> — ~90 занятий (работа, общение)<br>• <b>B2</b> — ~120 занятий (деловое общение, DIPLE)<br>• <b>C1</b> — ~150 занятий (свободное владение)<br>Коммуникативный подход: максимум практики, грамматика без зубрёжки.',
       after:'Хотите определить свой уровень на бесплатном пробном уроке?'
     },
     'teachers': {
