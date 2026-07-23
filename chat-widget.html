@@ -1,0 +1,301 @@
+<!-- CHAT LEAD WIDGET -->
+<style>
+#dl-chat-btn{position:fixed;bottom:24px;right:24px;z-index:9000;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2aa39a,#21747a);box-shadow:0 4px 20px rgba(33,116,122,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s;color:#fff;}
+#dl-chat-btn:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(33,116,122,.6);}
+#dl-chat-btn .chat-notif{position:absolute;top:-2px;right:-2px;width:20px;height:20px;background:#e0b34a;border-radius:50%;border:2.5px solid #fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#15211d;animation:notifPulse 2s ease-in-out infinite;}
+@keyframes notifPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+#dl-chat-window{position:fixed;bottom:100px;right:24px;z-index:8999;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:22px;box-shadow:0 8px 48px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;height:520px;max-height:calc(100vh - 120px);font-family:'Manrope',system-ui,sans-serif;}
+#dl-chat-window.open{display:flex;animation:chatIn .32s cubic-bezier(.22,.61,.36,1);}
+@keyframes chatIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+.dl-ch{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.dl-ch-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.dl-ch-info h4{font-size:14px;font-weight:700;margin:0 0 2px;}
+.dl-ch-info span{font-size:11px;opacity:.8;display:flex;align-items:center;gap:5px;}
+.dl-ch-info span::before{content:'';width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;}
+.dl-ch-close{margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.dl-ch-close:hover{background:rgba(255,255,255,.3);}
+.dl-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
+.dl-msgs::-webkit-scrollbar{width:3px;}
+.dl-msgs::-webkit-scrollbar-thumb{background:rgba(33,116,122,.2);border-radius:2px;}
+.dl-msg{max-width:85%;display:flex;flex-direction:column;gap:3px;}
+.dl-msg.bot{align-self:flex-start;}
+.dl-msg.user{align-self:flex-end;}
+.dl-bubble{padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.6;}
+.dl-msg.bot .dl-bubble{background:#f0f8f7;color:#15211d;border-bottom-left-radius:4px;}
+.dl-msg.user .dl-bubble{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border-bottom-right-radius:4px;}
+.dl-time{font-size:10px;color:#9ca3af;}
+.dl-msg.bot .dl-time{align-self:flex-start;}
+.dl-msg.user .dl-time{align-self:flex-end;}
+.dl-typing{align-self:flex-start;background:#f0f8f7;padding:10px 16px;border-radius:16px 16px 16px 4px;display:flex;gap:5px;align-items:center;}
+.dl-typing span{width:7px;height:7px;border-radius:50%;background:#2aa39a;animation:dlDot 1.2s ease-in-out infinite;}
+.dl-typing span:nth-child(2){animation-delay:.2s}.dl-typing span:nth-child(3){animation-delay:.4s}
+@keyframes dlDot{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-5px);opacity:1}}
+.dl-btns{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 12px;}
+.dl-btn{background:#f0f8f7;border:1.5px solid rgba(33,116,122,.3);color:#21747a;border-radius:20px;padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'Manrope',system-ui,sans-serif;transition:all .2s;}
+.dl-btn:hover{background:#21747a;color:#fff;border-color:#21747a;transform:translateY(-1px);}
+.dl-btn.accent{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border-color:transparent;}
+.dl-btn.accent:hover{opacity:.9;transform:translateY(-1px);}
+.dl-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #f0f0f0;flex-shrink:0;}
+.dl-input-row input{flex:1;border:1.5px solid #e5e7eb;border-radius:24px;padding:9px 16px;font-size:13.5px;font-family:'Manrope',system-ui,sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;}
+.dl-input-row input:focus{border-color:#2aa39a;box-shadow:0 0 0 3px rgba(42,163,154,.12);}
+.dl-send{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#2aa39a,#21747a);border:none;color:#fff;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:transform .2s,opacity .2s;}
+.dl-send:hover{transform:scale(1.08);}
+.dl-send:disabled{opacity:.4;cursor:default;transform:none;}
+.dl-success{text-align:center;padding:28px 20px;color:#15211d;}
+.dl-success .dl-s-icon{font-size:52px;margin-bottom:12px;}
+.dl-success h3{font-size:16px;font-weight:800;margin:0 0 8px;}
+.dl-success p{font-size:13px;color:#46554f;line-height:1.6;margin:0 0 20px;}
+.dl-wa-btn{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;border:none;border-radius:24px;padding:11px 22px;font-family:'Manrope',system-ui,sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s;}
+.dl-wa-btn:hover{background:#1db954;}
+</style>
+
+<button id="dl-chat-btn" title="Задать вопрос" onclick="dlToggle()">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <div class="chat-notif">1</div>
+</button>
+
+<div id="dl-chat-window">
+  <div class="dl-ch">
+    <div class="dl-ch-av">🎓</div>
+    <div class="dl-ch-info">
+      <h4>DoubleLang</h4>
+      <span>Онлайн · отвечает быстро</span>
+    </div>
+    <button class="dl-ch-close" onclick="dlToggle()">✕</button>
+  </div>
+  <div class="dl-msgs" id="dl-msgs"></div>
+  <div class="dl-btns" id="dl-btns"></div>
+  <div class="dl-input-row" id="dl-input-row" style="display:none;">
+    <input id="dl-input" placeholder="" type="text" onkeydown="if(event.key==='Enter')dlSendInput()">
+    <button class="dl-send" onclick="dlSendInput()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var TG_TOKEN='';
+  var TG_CHAT_ID='';
+  var WA_LINK='https://wa.me/995599435407';
+  var isOpen=false, inited=false;
+  var userData={goal:'',phone:'',name:''};
+
+  var FAQ={
+    'prices': {
+      q:'💰 Цены',
+      a:'Занятия с русскоязычным преподавателем — <b>от 14 €</b>, с носителем языка — <b>от 26 €</b>.<br>Пакеты: 5, 10, 20, 30, 50 занятий — чем больше, тем выгоднее (скидка до 25%).<br><b>Первый пробный урок — бесплатно!</b>',
+      after:'Хотите узнать точную стоимость или записаться на пробный урок?'
+    },
+    'exams': {
+      q:'📋 Экзамены',
+      a:'Готовим к:<br>🇳🇱 <b>Нидерландский:</b> MVV (A1), Inburgering (B1), NT2 программа I и II<br>🇩🇪 <b>Немецкий:</b> ÖSD, TestDaF<br>🇫🇷 <b>Французский:</b> DELF, TCF<br>🇬🇧 <b>Английский:</b> IELTS, TOEFL<br>🇷🇸 <b>Сербский:</b> экзамен A2 на гражданство',
+      after:'Хотите записаться на пробный урок для подготовки к экзамену?'
+    },
+    'lessons': {
+      q:'📚 Как проходят занятия',
+      a:'Всё онлайн, один на один с преподавателем через нашу платформу.<br>⏱ Длительность: <b>60 минут</b> (пробный — 30 мин)<br>📱 Платформа: личный кабинет, материалы, прогресс, Lotto AI для грамматики<br>📅 Перенос урока за 24 часа (до 2 раз в неделю)<br>📦 Все материалы включены — ничего доплачивать не нужно',
+      after:'Хотите попробовать первое занятие бесплатно?'
+    },
+    'levels': {
+      q:'🎓 Уровни и сроки',
+      a:'Обучаем от нуля до C1:<br>• <b>A1</b> — ~40 занятий (приветствия, базовые фразы)<br>• <b>A2</b> — ~60 занятий (бытовые ситуации)<br>• <b>B1</b> — ~90 занятий (работа, Inburgering)<br>• <b>B2</b> — ~120 занятий (деловое общение)<br>• <b>C1</b> — ~150 занятий (свободное владение)<br>Коммуникативный подход: максимум практики, грамматика без зубрёжки.',
+      after:'Хотите определить свой уровень на бесплатном пробном уроке?'
+    },
+    'teachers': {
+      q:'👨‍🏫 Преподаватели',
+      a:'У нас 8+ преподавателей с опытом от 5 до 30+ лет:<br>• Русскоязычные преподаватели — объясняют на вашем языке<br>• Носители языка — идеальное произношение, живая речь<br>Все преподаватели живут или жили в стране изучаемого языка.',
+      after:'Хотите подобрать преподавателя под ваши цели?'
+    }
+  };
+
+  window.dlToggle=function(){
+    isOpen=!isOpen;
+    var win=document.getElementById('dl-chat-window');
+    var notif=document.querySelector('.chat-notif');
+    win.classList.toggle('open',isOpen);
+    if(notif) notif.style.display='none';
+    if(isOpen&&!inited){inited=true;setTimeout(startMenu,200);}
+  };
+
+  function startMenu(){
+    botMsg('Привет! 👋 Я помогу ответить на вопросы о DoubleLang или записаться на бесплатный пробный урок.');
+    setTimeout(function(){
+      showBtns([
+        {label:'💰 Цены',fn:function(){showFAQ('prices');}},
+        {label:'📋 Экзамены',fn:function(){showFAQ('exams');}},
+        {label:'📚 Как учимся',fn:function(){showFAQ('lessons');}},
+        {label:'🎓 Уровни и сроки',fn:function(){showFAQ('levels');}},
+        {label:'👨‍🏫 Преподаватели',fn:function(){showFAQ('teachers');}},
+        {label:'✅ Записаться на урок',fn:startForm,accent:true}
+      ]);
+    },400);
+  }
+
+  function showFAQ(key){
+    var item=FAQ[key];
+    userMsg(item.q);
+    clearBtns();
+    var t=showTyping();
+    setTimeout(function(){
+      t.remove();
+      botMsg(item.a);
+      setTimeout(function(){
+        botMsg(item.after);
+        setTimeout(function(){
+          showBtns([
+            {label:'✅ Записаться на урок',fn:startForm,accent:true},
+            {label:'◀ Другой вопрос',fn:function(){userMsg('Другой вопрос');clearBtns();setTimeout(startMenu,300);}}
+          ]);
+        },300);
+      },400);
+    },700);
+  }
+
+  function startForm(){
+    userMsg('Записаться на урок');
+    clearBtns();
+    setTimeout(function(){
+      botMsg('Отлично! Давайте подберём время для вашего бесплатного пробного урока.');
+      setTimeout(function(){
+        botMsg('Какова ваша цель изучения языка?');
+        setTimeout(function(){
+          showBtns([
+            {label:'🏠 Переезд',fn:function(){setGoal('Переезд в другую страну');}},
+            {label:'📋 Экзамен',fn:function(){setGoal('Подготовка к экзамену');}},
+            {label:'💼 Работа',fn:function(){setGoal('Работа / бизнес');}},
+            {label:'🔄 Улучшить знания',fn:function(){setGoal('Улучшить знания');}},
+            {label:'🌍 Просто хочу учиться',fn:function(){setGoal('Просто хочу учиться');}}
+          ]);
+        },300);
+      },500);
+    },300);
+  }
+
+  function setGoal(g){
+    userData.goal=g;
+    userMsg(g);
+    clearBtns();
+    setTimeout(function(){
+      botMsg('Укажите ваш номер телефона (WhatsApp или Telegram) — менеджер свяжется с вами:');
+      showInput('Ваш номер телефона','phone');
+    },400);
+  }
+
+  function showBtns(items){
+    var el=document.getElementById('dl-btns');
+    el.innerHTML='';
+    items.forEach(function(item){
+      var b=document.createElement('button');
+      b.className='dl-btn'+(item.accent?' accent':'');
+      b.textContent=item.label;
+      b.onclick=item.fn;
+      el.appendChild(b);
+    });
+  }
+
+  function clearBtns(){document.getElementById('dl-btns').innerHTML='';}
+
+  function showInput(placeholder,step){
+    var row=document.getElementById('dl-input-row');
+    var inp=document.getElementById('dl-input');
+    row.style.display='flex';
+    inp.placeholder=placeholder;
+    inp.value='';
+    inp.dataset.step=step;
+    setTimeout(function(){inp.focus();},100);
+  }
+
+  function hideInput(){document.getElementById('dl-input-row').style.display='none';}
+
+  window.dlSendInput=function(){
+    var inp=document.getElementById('dl-input');
+    var val=inp.value.trim();
+    if(!val) return;
+    var step=inp.dataset.step;
+    userMsg(val);
+    hideInput();
+    clearBtns();
+    if(step==='phone'){
+      if(val.replace(/\s+/g,'').length<7){
+        botMsg('Пожалуйста, введите корректный номер телефона.');
+        showInput('Ваш номер телефона','phone');
+        return;
+      }
+      userData.phone=val;
+      setTimeout(function(){
+        botMsg('Как вас зовут? (можно пропустить)');
+        showInput('Ваше имя (необязательно)','name');
+        setTimeout(function(){
+          showBtns([{label:'Пропустить →',fn:function(){clearBtns();hideInput();userMsg('Пропустить');submitLead();}}]);
+        },200);
+      },400);
+    } else if(step==='name'){
+      userData.name=val;
+      submitLead();
+    }
+  };
+
+  function submitLead(){
+    clearBtns();
+    hideInput();
+    var t=showTyping();
+    var msg=[
+      '🤖 *Новая заявка — DoubleLang (чат-бот на сайте)*',
+      userData.goal?'🎯 Цель: '+userData.goal:'',
+      '📱 Телефон: '+userData.phone,
+      userData.name?'👤 Имя: '+userData.name:'',
+      '🌐 Страница: '+window.location.href
+    ].filter(Boolean).join('\n');
+    fetch('https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:TG_CHAT_ID,text:msg,parse_mode:'Markdown'})
+    }).catch(function(){}).finally(function(){
+      t.remove();
+      showSuccess();
+    });
+  }
+
+  function showSuccess(){
+    var win=document.getElementById('dl-chat-window');
+    var hdr='<div class="dl-ch"><div class="dl-ch-av">🎓</div><div class="dl-ch-info"><h4>DoubleLang</h4><span>Онлайн · отвечает быстро</span></div><button class="dl-ch-close" id="dl-cls">✕</button></div>';
+    var body='<div class="dl-msgs" style="justify-content:center;align-items:center;"><div class="dl-success"><div class="dl-s-icon">✅</div><h3>Заявка отправлена!</h3><p>Менеджер свяжется с вами в ближайшее время и подберёт удобное время для урока.</p><a href="'+WA_LINK+'" target="_blank" rel="noopener" class="dl-wa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Написать в WhatsApp</a></div></div>';
+    win.innerHTML=hdr+body;
+    var cls=document.getElementById('dl-cls');
+    if(cls) cls.onclick=dlToggle;
+  }
+
+  function botMsg(html){
+    var c=document.getElementById('dl-msgs');
+    if(!c) return;
+    var now=new Date().toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'});
+    var el=document.createElement('div');
+    el.className='dl-msg bot';
+    el.innerHTML='<div class="dl-bubble">'+html+'</div><div class="dl-time">'+now+'</div>';
+    c.appendChild(el);
+    c.scrollTop=c.scrollHeight;
+  }
+
+  function userMsg(text){
+    var c=document.getElementById('dl-msgs');
+    if(!c) return;
+    var now=new Date().toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'});
+    var el=document.createElement('div');
+    el.className='dl-msg user';
+    el.innerHTML='<div class="dl-bubble">'+text+'</div><div class="dl-time">'+now+'</div>';
+    c.appendChild(el);
+    c.scrollTop=c.scrollHeight;
+  }
+
+  function showTyping(){
+    var c=document.getElementById('dl-msgs');
+    if(!c) return {remove:function(){}};
+    var el=document.createElement('div');
+    el.className='dl-typing';
+    el.innerHTML='<span></span><span></span><span></span>';
+    c.appendChild(el);
+    c.scrollTop=c.scrollHeight;
+    return el;
+  }
+})();
+</script>

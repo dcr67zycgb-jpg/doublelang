@@ -962,9 +962,9 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
-<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-v2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
+<link rel="icon" href="/favicon-v2.ico" sizes="any">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -2061,7 +2061,7 @@ function openCtaModal(sourceBlock){
   const mt=document.getElementById('modal-tel'); if(mt){ if(window.IMask && !mt._masked){ mt._masked=true; mt.__mask = IMask(mt,{mask:'+{0000000000000}'}); } var _dc=window.__dlDial||''; if(mt.__mask){ mt.__mask.value=_dc; } else { mt.value=_dc; } mt.dataset.dlAuto='1'; mt.dataset.dlTyped=''; }
 }
 window.openCtaModal=openCtaModal;
-// Открыть форму записи при переходе со статьи (#book или #hero-form)
+// Открыть форму записи при переходе со статьи/внешней ссылки (#book или #hero-form)
 (function(){function _dlBookHash(){var h=location.hash;if(h==='#book'||h==='#hero-form'){setTimeout(function(){openCtaModal('article');},260);}}window.addEventListener('DOMContentLoaded',_dlBookHash);window.addEventListener('hashchange',_dlBookHash);})();
 function closeModal(){
   document.getElementById('contact-modal').classList.remove('open');

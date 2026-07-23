@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DoubleLang — рекламные креативы (нидерландский)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Manrope',system-ui,sans-serif;}
+  body{background:#0e1614;color:#e7efec;padding:40px 24px 80px;}
+  h1{color:#fff;font-size:26px;font-weight:800;margin-bottom:6px;text-align:center;}
+  .sub{color:#8fa8a2;font-size:14px;text-align:center;}
+  .bar{display:flex;justify-content:center;gap:12px;margin:20px 0 34px;flex-wrap:wrap;}
+  .allbtn{background:linear-gradient(135deg,#e9c877,#d7a94a);color:#15211d;font-weight:800;font-size:15px;padding:13px 28px;border:none;border-radius:99px;cursor:pointer;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:34px;max-width:1400px;margin:0 auto;}
+  .item{display:flex;flex-direction:column;gap:12px;align-items:center;}
+  canvas.prev{border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.5);width:340px;height:auto;background:#000;}
+  .caption{font-size:13px;color:#a8c0ba;text-align:center;}
+  .dl{background:rgba(42,163,154,.16);border:1.5px solid rgba(42,163,154,.5);color:#7edcd6;font-weight:700;font-size:13px;padding:9px 18px;border-radius:99px;cursor:pointer;}
+  .dl:hover{background:rgba(42,163,154,.28);}
+  #status{text-align:center;color:#8fa8a2;font-size:13px;margin-bottom:18px;}
+</style>
+</head>
+<body>
+<h1>Рекламные креативы · Нидерландский</h1>
+<div class="sub">4 концепта × 2 формата (1080×1080 и 1080×1350). «Скачать» сохраняет PNG в полном размере.</div>
+<div class="bar"><button class="allbtn" onclick="downloadAll()">⬇ Скачать все (8 PNG)</button></div>
+<div id="status">Загрузка шрифтов…</div>
+<div class="grid" id="grid"></div>
+
+<script>
+let ams,logoImg,teach,wlogo;
+function loadImg(src){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=src;});}
+function whiteLogo(){const c=document.createElement('canvas');c.width=logoImg.width;c.height=logoImg.height;const x=c.getContext('2d');x.drawImage(logoImg,0,0);x.globalCompositeOperation='source-in';x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);return c;}
+// high-quality stepped downscale of a source canvas/img to target height (px)
+function scaledLogo(src,th){const ar=src.width/src.height;let cw=src.width,ch=src.height,cur=src;const tw=Math.round(th*ar);while(ch>th*2){const nw=Math.round(cw/2),nh=Math.round(ch/2);const t=document.createElement('canvas');t.width=nw;t.height=nh;const tx=t.getContext('2d');tx.imageSmoothingEnabled=true;tx.imageSmoothingQuality='high';tx.drawImage(cur,0,0,nw,nh);cur=t;cw=nw;ch=nh;}const o=document.createElement('canvas');o.width=tw;o.height=Math.round(th);const ox=o.getContext('2d');ox.imageSmoothingEnabled=true;ox.imageSmoothingQuality='high';ox.drawImage(cur,0,0,tw,Math.round(th));return o;}
+function drawLogo(x,px,py,th,shadow){return 0;}
+
+const FAM="Manrope";
+function F(w,s){return `${w} ${s}px ${FAM}, Arial`;}
+function rr(x,cx,cy,w,h,r){x.beginPath();x.moveTo(cx+r,cy);x.arcTo(cx+w,cy,cx+w,cy+h,r);x.arcTo(cx+w,cy+h,cx,cy+h,r);x.arcTo(cx,cy+h,cx,cy,r);x.arcTo(cx,cy,cx+w,cy,r);x.closePath();}
+function pill(x,px,py,text){x.font=F(700,26);const tw=x.measureText(text).width;const padx=26,fw=26+18+tw+padx*2,h=54;rr(x,px,py,fw,h,h/2);x.fillStyle='rgba(42,163,154,.16)';x.fill();x.lineWidth=1.5;x.strokeStyle='rgba(42,163,154,.55)';x.stroke();const fx=px+padx,fy=py+(h-20)/2;rr(x,fx,fy,26,20,4);x.save();x.clip();x.fillStyle='#AE1C28';x.fillRect(fx,fy,26,7);x.fillStyle='#fff';x.fillRect(fx,fy+7,26,6);x.fillStyle='#21468B';x.fillRect(fx,fy+13,26,7);x.restore();x.fillStyle='#7edcd6';x.textBaseline='middle';x.textAlign='left';x.fillText(text,fx+26+14,py+h/2+1);return py+h;}
+function goldGrad(x,gx,gy,gw){const g=x.createLinearGradient(gx,gy,gx+gw,gy);g.addColorStop(0,'#e9c877');g.addColorStop(.45,'#f4e4b0');g.addColorStop(.7,'#d7a94a');g.addColorStop(1,'#e9c877');return g;}
+function goldBtn(x,bx,by,text){x.font=F(800,34);const tw=x.measureText(text).width;const w=tw+92,h=78;rr(x,bx,by,w,h,h/2);x.fillStyle=goldGrad(x,bx,by,w);x.fill();x.fillStyle='#15211d';x.textBaseline='middle';x.textAlign='left';x.fillText(text,bx+46,by+h/2+1);return w;}
+function base(v){const W=1080,H=v?1350:1080;const c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');x.imageSmoothingEnabled=true;x.imageSmoothingQuality='high';return {c,x,W,H,pad:v?80:72};}
+function wrapUp(x,text,tx,ty,maxw,lh){const words=text.split(' ');let lines=[],cur='';for(const w of words){const t=cur?cur+' '+w:w;if(x.measureText(t).width>maxw&&cur){lines.push(cur);cur=w;}else cur=t;}if(cur)lines.push(cur);for(let i=0;i<lines.length;i++)x.fillText(lines[i],tx,ty-(lines.length-1-i)*lh);return lines.length;}
+
+function c1(v){const {c,x,W,H,pad}=base(v);const s=Math.max(W/ams.width,H/ams.height),dw=ams.width*s,dh=ams.height*s;x.drawImage(ams,(W-dw)/2,(H-dh)/2,dw,dh);const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(10,20,17,.55)');g.addColorStop(1,'rgba(10,20,17,.85)');x.fillStyle=g;x.fillRect(0,0,W,H);const lh=76;drawLogo(x,pad,pad,lh,true);let y=H-pad-78;const bw=goldBtn(x,pad,y,'Записаться →');x.font=F(700,30);x.fillStyle='#fff';x.textBaseline='middle';x.fillText('от 23 € / занятие',pad+bw+40,y+39);x.font=F(500,34);x.fillStyle='rgba(255,255,255,.92)';x.textBaseline='alphabetic';const subY=y-56;wrapUp(x,'Индивидуальные занятия с преподавателями из Нидерландов и Бельгии',pad,subY,840,44);const hf=v?92:82;x.font=F(800,hf);const h2=subY-(v?180:158);x.fillStyle='#fff';x.fillText('Первый урок',pad,h2);x.fillStyle=goldGrad(x,pad,h2,x.measureText('бесплатно').width);x.fillText('бесплатно',pad,h2+hf*1.02);pill(x,pad,h2-hf-70,'Нидерландский · онлайн');return c;}
+function c2(v){const {c,x,W,H,pad}=base(v);const g=x.createRadialGradient(W*.8,H*.1,50,W*.8,H*.1,H);g.addColorStop(0,'#1c5a5c');g.addColorStop(.55,'#122f31');g.addColorStop(1,'#0c2224');x.fillStyle=g;x.fillRect(0,0,W,H);const lh=72;drawLogo(x,pad,pad,lh,false);let y=H-pad-78;const bw=goldBtn(x,pad,y,'Пробный урок →');x.font=F(700,28);x.fillStyle='#7edcd6';x.textBaseline='middle';x.fillText('94 % сдают с 1-го раза',pad+bw+36,y+39);const chipY=y-40-140,gap=20,cw=(W-pad*2-gap*2)/3,items=['MVV','Inburgering','NT2'];items.forEach((e,i)=>{const cx=pad+i*(cw+gap);rr(x,cx,chipY,cw,140,22);x.fillStyle='rgba(255,255,255,.07)';x.fill();x.lineWidth=1.5;x.strokeStyle='rgba(42,163,154,.4)';x.stroke();x.fillStyle='#fff';x.font=F(800,e.length>4?32:40);x.textAlign='center';x.textBaseline='middle';x.fillText(e,cx+cw/2,chipY+72);});x.textAlign='left';const hf=v?82:74;x.font=F(800,hf);x.fillStyle='#fff';x.textBaseline='alphabetic';const h1=chipY-70;x.fillText('Сдайте экзамен',pad,h1-hf*1.05);x.fillText('с первого раза',pad,h1);pill(x,pad,h1-hf*1.05-hf-60,'Подготовка к экзаменам');return c;}
+function c3(v){const {c,x,W,H,pad}=base(v);const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,'#0c2224');g.addColorStop(.6,'#15211d');g.addColorStop(1,'#0e3a3e');x.fillStyle=g;x.fillRect(0,0,W,H);const lh=72;drawLogo(x,pad,pad,lh,false);pill(x,pad,pad+lh+40,'Курсы нидерландского');const hf=v?70:62;x.font=F(800,hf);x.fillStyle='#fff';x.textAlign='left';x.textBaseline='alphabetic';let hy=pad+lh+40+54+70;x.fillText('Результат, который',pad,hy);x.fillText('можно измерить',pad,hy+hf*1.08);const st=[['1000+','выпускников'],['97 %','довольны результатом'],['94 %','сдают с первого раза']];let sy=hy+hf*1.08+(v?100:76),rowh=v?120:104;st.forEach(s=>{x.font=F(800,v?96:84);x.fillStyle=goldGrad(x,pad,sy-60,260);x.textBaseline='alphabetic';x.fillText(s[0],pad,sy);x.font=F(600,34);x.fillStyle='rgba(255,255,255,.82)';x.fillText(s[1],pad+300,sy-6);x.strokeStyle='rgba(255,255,255,.1)';x.lineWidth=1;x.beginPath();x.moveTo(pad,sy+(v?26:20));x.lineTo(W-pad,sy+(v?26:20));x.stroke();sy+=rowh;});goldBtn(x,pad,H-pad-78,'Записаться на урок →');x.font=F(400,26);x.fillStyle='rgba(255,255,255,.6)';x.textBaseline='middle';x.textAlign='right';x.fillText('Первый урок бесплатно',W-pad,H-pad-39);x.textAlign='left';return c;}
+function c4(v){const {c,x,W,H,pad}=base(v);const g0=x.createLinearGradient(0,0,W,H);g0.addColorStop(0,'#0c2224');g0.addColorStop(1,'#15211d');x.fillStyle=g0;x.fillRect(0,0,W,H);const pw=v?W*.62:W*.54;const s=Math.max(pw/teach.width,H/teach.height),dw=teach.width*s,dh=teach.height*s;x.save();rr(x,W-pw,0,pw,H,0);x.clip();x.drawImage(teach,W-pw-(dw-pw)/2,0,dw,dh);x.restore();const g=x.createLinearGradient(W-pw,0,W-pw+pw*.6,0);g.addColorStop(0,'#0c2224');g.addColorStop(.3,'rgba(12,34,36,.35)');g.addColorStop(.6,'transparent');x.fillStyle=g;x.fillRect(W-pw,0,pw,H);const lh=72;drawLogo(x,pad,pad,lh,true);let y=H-pad-78;goldBtn(x,pad,y,'Пробный урок →');x.font=F(500,32);x.fillStyle='rgba(255,255,255,.82)';x.textBaseline='alphabetic';const subY=y-56;wrapUp(x,'Живая среда, идеальное произношение и программа под вашу цель',pad,subY,540,44);const hf=v?76:66;x.font=F(800,hf);x.fillStyle='#fff';const h1=subY-(v?270:220);['Преподаватели','из Нидерландов','и Бельгии'].forEach((l,i)=>x.fillText(l,pad,h1+i*hf*1.08));pill(x,pad,h1-hf-56,'Наши преподаватели');return c;}
+
+const defs=[['c1',c1,'Концепт 1 · Пробный урок'],['c2',c2,'Концепт 2 · Экзамены'],['c3',c3,'Концепт 3 · Цифры и доверие'],['c4',c4,'Концепт 4 · Преподаватель']];
+const store=[];
+async function build(){
+  ams=await loadImg('assets/hero-amsterdam-new.png');
+  logoImg=await loadImg('assets/logo.png');
+  teach=await loadImg('assets/teacher-robert.jpg');
+  wlogo=whiteLogo();
+  // ensure fonts truly loaded at needed sizes
+  try{await Promise.all([document.fonts.load('800 82px Manrope','Тест Абвгд'),document.fonts.load('700 26px Manrope','Тест'),document.fonts.load('600 34px Manrope','Тест'),document.fonts.load('500 34px Manrope','Тест'),document.fonts.load('400 26px Manrope','Тест')]);}catch(e){}
+  await document.fonts.ready;
+  const grid=document.getElementById('grid');grid.innerHTML='';store.length=0;
+  let idx=1;
+  for(const [key,fn,label] of defs){for(const v of [false,true]){
+    const cv=fn(v);const fname=String(idx).padStart(2,'0')+'-'+key+'-'+(v?'1080x1350':'1080x1080');
+    cv.className='prev';
+    const item=document.createElement('div');item.className='item';
+    const cap=document.createElement('div');cap.className='caption';cap.textContent=label+' · '+(v?'1080×1350':'1080×1080');
+    const btn=document.createElement('button');btn.className='dl';btn.textContent='⬇ Скачать PNG';btn.onclick=()=>dl(cv,fname);
+    item.appendChild(cv);item.appendChild(cap);item.appendChild(btn);grid.appendChild(item);
+    store.push({cv,fname});idx++;
+  }}
+  document.getElementById('status').textContent='Готово — '+store.length+' креативов. Наведите и нажмите «Скачать PNG».';
+}
+function dl(cv,fname){cv.toBlob(b=>{const a=document.createElement('a');a.download=fname+'.png';a.href=URL.createObjectURL(b);a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);},'image/png');}
+async function downloadAll(){for(const {cv,fname} of store){dl(cv,fname);await new Promise(r=>setTimeout(r,500));}}
+build();
+</script>
+
+<div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif">
+  <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+    <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.82);flex:1 1 320px">Мы используем файлы cookie и сервисы аналитики (Google, Yandex, Meta) для корректной работы сайта и улучшения его удобства. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="/dutch/privacy.html" style="color:#e0b34a;text-decoration:underline">политикой конфиденциальности</a>.</p>
+    <button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Принять</button>
+  </div>
+</div>
+<script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
+
+</body>
+</html>

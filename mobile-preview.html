@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мобильный превью — DoubleLang</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a2e; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 20px; font-family: -apple-system, sans-serif; }
+    .scene { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .label { color: rgba(255,255,255,.45); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+    .phone {
+      width: 393px;
+      height: 852px;
+      background: #000;
+      border-radius: 54px;
+      box-shadow: 0 0 0 2px #3a3a3a, 0 0 0 4px #1a1a1a, 0 40px 80px rgba(0,0,0,.6);
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-inner {
+      position: absolute;
+      inset: 12px;
+      border-radius: 44px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .status-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 50px;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 28px 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .dynamic-island {
+      position: absolute;
+      top: 10px; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 34px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 20;
+    }
+    .home-indicator {
+      position: absolute;
+      bottom: 8px; left: 50%; transform: translateX(-50%);
+      width: 130px; height: 5px;
+      background: rgba(0,0,0,.2);
+      border-radius: 3px;
+      z-index: 10;
+    }
+    iframe {
+      position: absolute;
+      top: 50px;
+      left: 0; right: 0;
+      bottom: 20px;
+      width: 100%;
+      height: calc(100% - 70px);
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="label">iPhone 15 Pro · 393 × 852</div>
+    <div class="phone">
+      <div class="dynamic-island"></div>
+      <div class="status-bar">
+        <span>9:41</span>
+        <span style="display:flex;gap:6px;align-items:center">
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><rect x="0" y="3" width="3" height="9" rx="1" fill="#000"/><rect x="4.5" y="2" width="3" height="10" rx="1" fill="#000"/><rect x="9" y="0" width="3" height="12" rx="1" fill="#000"/><rect x="13.5" y="0" width="2.5" height="12" rx="1" fill="#000" opacity=".3"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.4C10.5 2.4 12.7 3.4 14.3 5L15.5 3.8C13.6 1.9 11 0.8 8 0.8C5 0.8 2.4 1.9 0.5 3.8L1.7 5C3.3 3.4 5.5 2.4 8 2.4Z"/><path d="M8 5.6C9.7 5.6 11.2 6.3 12.3 7.4L13.5 6.2C12.1 4.8 10.2 4 8 4C5.8 4 3.9 4.8 2.5 6.2L3.7 7.4C4.8 6.3 6.3 5.6 8 5.6Z"/><circle cx="8" cy="10" r="1.5"/></svg>
+          <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="#000" stroke-opacity=".35"/><rect x="2" y="2" width="16" height="8" rx="2" fill="#000"/><path d="M23 4.5V7.5C23.8 7.2 24.5 6.5 24.5 6C24.5 5.5 23.8 4.8 23 4.5Z" fill="#000" opacity=".4"/></svg>
+        </span>
+      </div>
+      <iframe src="index.html" title="DoubleLang мобильный"></iframe>
+      <div class="home-indicator"></div>
+    </div>
+    <div class="label">Прокручивайте внутри рамки</div>
+  </div>
+
+<div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif">
+  <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+    <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.82);flex:1 1 320px">Мы используем файлы cookie и сервисы аналитики (Google, Yandex, Meta) для корректной работы сайта и улучшения его удобства. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="/dutch/privacy.html" style="color:#e0b34a;text-decoration:underline">политикой конфиденциальности</a>.</p>
+    <button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Принять</button>
+  </div>
+</div>
+<script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
+
+</body>
+</html>

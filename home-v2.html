@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курсы нидерландского языка онлайн — Школа DoubleLang</title>
+  <meta name="description" content="Индивидуальные занятия нидерландским языком онлайн с преподавателями из Нидерландов и Бельгии. Ваша цель — наш ориентир. С нуля до уверенного разговорного уровня. Пробный урок бесплатно.">
+  <link rel="canonical" href="https://doublelang-online-school.com/">
+  <link rel="icon" href="https://app.doublelang-online-school.com/static/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="https://app.doublelang-online-school.com/static/images/favicon-v2.ico" sizes="any">
+  <link rel="apple-touch-icon" href="https://app.doublelang-online-school.com/static/images/favicon-180-v2.png">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js"></script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Курсы нидерландского языка онлайн","description":"Индивидуальные онлайн-занятия нидерландским языком. Обучение с нуля до C1. Подготовка к экзаменам MVV, Inburgering, NT2.","provider":{"@type":"Organization","name":"DoubleLang","url":"https://doublelang-online-school.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что будет на пробном занятии?","acceptedAnswer":{"@type":"Answer","text":"Преподаватель определит уровень, расскажет о программе и ответит на вопросы. Бесплатно, без обязательств."}},{"@type":"Question","name":"Как проходят занятия?","acceptedAnswer":{"@type":"Answer","text":"Онлайн, в формате видеодиалога с преподавателем на платформе DoubleLang."}},{"@type":"Question","name":"Сколько длится занятие?","acceptedAnswer":{"@type":"Answer","text":"60 минут. По договорённости — 80 минут."}}]},{"@type":"AggregateRating","itemReviewed":{"@type":"Organization","name":"DoubleLang"},"ratingValue":"5","bestRating":"5","ratingCount":"1000"}]}</script>
+
+  <style>
+    /* ── CORE DESIGN TOKENS (PREMIUM OBSIDIAN) ── */
+    :root {
+      --bg-main: #02040a;
+      --bg-card: rgba(255, 255, 255, 0.02);
+      --border-card: rgba(255, 255, 255, 0.05);
+      --teal: #2aa39a;
+      --teal-glow: rgba(42, 163, 154, 0.15);
+      --gold: #e0b34a;
+      --gold-glow: rgba(224, 179, 74, 0.2);
+      --text-main: #f3f4f6;
+      --text-muted: #8fa09a;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Manrope', sans-serif;
+      --radius: 24px;
+      --radius-sm: 14px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--teal); text-decoration: none; }
+
+    /* ── SCROLL PROGRESS ── */
+    #scroll-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--gold)); z-index: 9999; width: 0%; box-shadow: 0 0 10px var(--teal); }
+
+    /* ── HI-TECH BACKGROUND MATRIX NET ── */
+    .matrix-grid { position: fixed; inset: 0; z-index: -1; opacity: 0.12; pointer-events: none; background-size: 44px 44px; background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px); }
+
+    /* ── AMBIENT GLOW ORBS ── */
+    .ambient-wrapper { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
+    .dynamic-orb { position: absolute; border-radius: 50%; filter: blur(150px); opacity: 0.35; will-change: transform; }
+    .orb-teal { width: 700px; height: 700px; background: var(--teal); top: -10%; left: -10%; }
+    .orb-gold { width: 500px; height: 500px; background: var(--gold); bottom: 10%; right: -5%; opacity: 0.2; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 120px 0; position: relative; z-index: 2; background: var(--bg-main); }
+
+    /* ── ENTRY / REVEAL (CSS-driven, cannot freeze) ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes widgetIn { from { opacity: 0; transform: scale(0.8) translateY(60px); } to { opacity: 1; transform: none; } }
+    .luxury-fade { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+    .floating-widget { animation: widgetIn 1s cubic-bezier(0.16,1,0.3,1) both; }
+    .floating-widget.widget-2 { animation-delay: 0.12s; }
+    .floating-widget.widget-3 { animation-delay: 0.24s; }
+    .reveal-card-node { opacity: 1; transform: none; transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal-card-node.pre { opacity: 0; transform: translateY(34px); }
+    @media (prefers-reduced-motion: reduce) { .luxury-fade, .floating-widget { animation: none; } .reveal-card-node.pre { opacity: 1; transform: none; } }
+
+    .section-tag { font-family: var(--font-display); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: var(--teal); margin-bottom: 16px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 46px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.1; }
+    .section-sub { font-size: 16px; color: var(--text-muted); max-width: 640px; line-height: 1.6; margin-bottom: 56px; }
+
+    /* ── FLOATING BLURRED NAVIGATION PILL ── */
+    nav {
+      position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+      width: calc(100% - 48px); max-width: 1140px; z-index: 5000;
+      background: rgba(2, 4, 10, 0.2); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+      border: 1px solid var(--border-card); border-radius: 100px; padding: 12px 32px;
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .logo img { height: 32px; filter: brightness(0) invert(1); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .nav-links a:hover, .nav-links a.active { color: #fff; text-shadow: 0 0 10px var(--teal); }
+    .nav-actions { display: flex; align-items: center; gap: 24px; }
+    .nav-login { font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 6px; }
+    .nav-cta { background: #fff; color: #000; padding: 10px 24px; border-radius: 50px; font-size: 13px; font-weight: 800; }
+
+    /* ── HERO GRID WITH FLOATING INTERACTIVE CANVAS ── */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 120px; background: transparent; }
+    .hero-wrapper { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 40px; width: 100%; }
+    .hero-overline { font-family: var(--font-display); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; color: var(--teal); margin-bottom: 20px; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(36px, 5.5vw, 72px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 32px; }
+    .hero h1 em { font-style: normal; background: linear-gradient(135deg, var(--gold), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub-line { font-size: 17px; color: var(--text-muted); max-width: 580px; line-height: 1.65; margin-bottom: 44px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn { padding: 18px 36px; border-radius: 100px; font-size: 14px; font-weight: 800; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.4s ease; }
+    .btn-gold { background: var(--gold); color: #000; box-shadow: 0 12px 30px var(--gold-glow); }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 20px 45px var(--gold-glow); }
+    .btn-outline { background: transparent; color: white; border: 1px solid var(--border-card); backdrop-filter: blur(10px); }
+    .btn-outline:hover { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.2); }
+    .btn-lg { padding: 20px 40px; font-size: 15px; }
+
+    .hero-stats-row { display: flex; gap: 48px; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border-card); }
+    .hero-stat-num { font-family: var(--font-display); font-size: 38px; font-weight: 800; color: #fff; }
+    .hero-stat-lbl { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+
+    /* FLOATING WIDGETS PHYSICAL ENGINE */
+    .hero-canvas-container { position: relative; height: 450px; width: 100%; perspective: 1000px; }
+    .floating-widget { position: absolute; background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; padding: 20px 24px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); will-change: transform; z-index: 2; }
+    .widget-1 { top: 12%; left: 5%; width: 280px; }
+    .widget-2 { top: 48%; right: -2%; width: 290px; }
+    .widget-3 { bottom: 5%; left: 15%; width: 260px; }
+    .widget-user { display: flex; align-items: center; gap: 12px; }
+    .widget-avatar { width: 40px; height: 40px; background: var(--teal-glow); border: 1px solid var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .widget-user h4 { font-size: 14px; font-weight: 700; color: #fff; }
+    .widget-user p { font-size: 11px; color: var(--text-muted); }
+    .widget-ai-header { display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; font-weight: 700; color: var(--teal); margin-bottom: 10px; }
+    .ai-pulse { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 8px #4ade80; }
+    .widget-ai-phrase { font-family: var(--font-display); font-size: 15px; color: #fff; margin-bottom: 6px; }
+    .widget-ai-status { font-size: 11px; color: var(--gold); font-weight: 600; }
+    .widget-level-badge { display: inline-block; padding: 4px 10px; background: var(--teal-glow); border: 1px solid rgba(42, 163, 154, 0.3); border-radius: 50px; font-size: 11px; font-weight: 800; color: var(--teal); margin-bottom: 12px; }
+    .widget-progress-track { height: 5px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+    .widget-progress-fill { height: 100%; width: 65%; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+
+    /* ── BENTO GRID GOALS ── */
+    .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .bento-card { background: var(--bg-card); border: 1px solid var(--border-card); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border-radius: 24px; padding: 40px; position: relative; overflow: hidden; }
+    .bento-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(350px circle at var(--x, 0px) var(--y, 0px), rgba(42, 163, 154, 0.08), transparent 50%); pointer-events: none; opacity: 0; transition: opacity 0.4s; }
+    .bento-card:hover::after { opacity: 1; }
+    .bento-card:hover { border-color: rgba(42, 163, 154, 0.3); }
+    .bento-span-2 { grid-column: span 2; }
+    .goal-icon svg { width: 32px; height: 32px; stroke: var(--teal); stroke-width: 1.5; fill: none; margin-bottom: 20px; }
+    .bento-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .bento-card p { color: var(--text-muted); font-size: 14px; line-height: 1.65; }
+
+    /* ── TIMELINE LEVELS ── */
+    .levels-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .level-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 20px; padding: 24px; position: relative; }
+    .level-badge { font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--teal); margin-bottom: 8px; }
+    .level-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .level-lessons { font-size: 12px; color: var(--gold); font-weight: 700; margin-bottom: 16px; }
+    .level-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; min-height: 80px; }
+    .level-bar-wrap { height: 3px; background: rgba(255,255,255,0.03); margin-top: 24px; border-radius: 4px; overflow: hidden; }
+    .level-bar { height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); width: 0%; }
+
+    /* ── PLATFORM LAPTOP ENGINE ── */
+    .platform-bg { border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card); }
+    .platform-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .laptop-wrap { perspective: 1800px; width: 100%; max-width: 420px; margin: 20px auto 0; position: relative; }
+    .laptop { position: relative; transform-style: preserve-3d; }
+    .laptop-screen { position: relative; transform-origin: center bottom; transform: rotateX(-92deg); opacity: 0; background: #0c0e12; border-radius: 14px 14px 3px 3px; border: 8px solid #1c2029; border-bottom-width: 12px; overflow: hidden; box-shadow: 0 40px 80px -24px rgba(0,0,0,0.7); will-change: transform, opacity; }
+    .laptop-wrap.open .laptop-screen { animation: lidOpen 1.9s cubic-bezier(.34,1.22,.5,1) .12s forwards; }
+    @keyframes lidOpen { 0% { transform: rotateX(-92deg); opacity: 0; } 18% { opacity: 1; } 55% { transform: rotateX(12deg); } 78% { transform: rotateX(-5deg); } 100% { transform: rotateX(-7deg); opacity: 1; } }
+    .laptop-screen img { width: 100%; display: block; }
+    .laptop-base { position: relative; margin-top: -2px; width: 108%; left: -4%; height: 18px; background: linear-gradient(180deg,#cdd2d8,#9da4ab 55%,#747b83); border-radius: 4px 4px 10px 10px; box-shadow: 0 16px 32px -10px rgba(0,0,0,.42); }
+    .laptop-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 84px; height: 7px; background: #b0b7be; border-radius: 0 0 6px 6px; }
+    .feat-list { display: flex; flex-direction: column; gap: 18px; }
+    .feat-item { display: flex; gap: 16px; align-items: flex-start; }
+    .feat-ic { width: 44px; height: 42px; border-radius: 12px; background: rgba(42, 163, 154, 0.08); border: 1px solid rgba(42, 163, 154, 0.15); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .feat-ic svg { width: 20px; height: 20px; stroke: var(--teal); stroke-width: 1.8; fill: none; }
+    .feat-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .feat-item p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── EXAMS ── */
+    .exams-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .exam-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 24px; padding: 44px; text-align: center; }
+    .exam-name { font-family: var(--font-display); font-size: 40px; font-weight: 800; color: var(--teal); margin-bottom: 8px; }
+    .exam-full { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; }
+    .exam-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .exam-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 32px; }
+    .exam-stat { border-top: 1px solid var(--border-card); padding-top: 24px; font-size: 11px; text-transform: uppercase; color: var(--text-muted); }
+    .exam-stat strong { display: block; font-size: 28px; color: var(--gold); font-family: var(--font-display); margin-top: 4px; }
+
+    /* ── TEACHERS ── */
+    .teachers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .teacher-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+    .teacher-photo { height: 250px; position: relative; background: #111827; overflow: hidden; }
+    .teacher-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+    .teacher-body { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; }
+    .teacher-name { font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+    .teacher-exp-badge { font-size: 12px; color: var(--gold); font-weight: 700; margin-bottom: 12px; }
+    .teacher-short { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+    .teacher-more-btn { background: transparent; border: 1px solid var(--border-card); color: #fff; padding: 11px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+    .teacher-more-btn:hover { background: #fff; color: #000; border-color: #fff; }
+
+    /* ── REVIEWS SLIDER ── */
+    .reviews-slider-outer { position: relative; padding: 0 54px; }
+    .reviews-track-wrap { overflow: hidden; }
+    .reviews-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 8px 4px 28px; }
+    .reviews-track::-webkit-scrollbar { display: none; }
+    .review-card { scroll-snap-align: start; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 20px; padding: 28px 24px; width: 330px; flex-shrink: 0; }
+    .reviews-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-card); background: rgba(2,4,10,0.5); color: white; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; }
+    .reviews-arrow:hover { background: var(--teal); border-color: var(--teal); color: #000; }
+    .reviews-arrow.prev { left: 0; } .reviews-arrow.next { right: 0; }
+    .reviews-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+    .reviews-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.15); border: none; cursor: pointer; }
+    .reviews-dot.active { background: var(--teal); transform: scale(1.25); }
+    .stars { color: var(--gold); font-size: 12px; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-text { font-size: 13.5px; color: var(--text-main); line-height: 1.65; font-style: italic; margin-bottom: 18px; }
+    .review-header { display: flex; align-items: center; gap: 12px; }
+    .review-avatar { width: 40px; height: 40px; border-radius: 50%; }
+    .review-meta { display: flex; flex-direction: column; }
+    .review-author { font-size: 13.5px; font-weight: 700; }
+    .review-goal { font-size: 11.5px; color: var(--teal); font-weight: 600; }
+
+    /* ── PRICE CONFIGURATION ── */
+    .price-toggle { display: flex; background: rgba(255,255,255,0.03); border: 1px solid var(--border-card); border-radius: 50px; padding: 6px; gap: 4px; }
+    .ptab { border: 0; background: none; cursor: pointer; font-family: var(--font-body); font-weight: 700; font-size: 13.5px; color: var(--text-muted); padding: 10px 24px; border-radius: 50px; transition: all 0.25s; }
+    .ptab.active { background: var(--teal); color: #000; box-shadow: 0 4px 15px var(--teal-glow); }
+    .pricing-grid { display: grid; grid-template-columns: minmax(0, 440px); gap: 24px; justify-content: center; }
+    .price-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 24px; padding: 40px; text-align: center; position: relative; }
+    .price-card.popular { border-color: rgba(42,163,154,0.35); box-shadow: 0 20px 60px rgba(42,163,154,0.08); }
+    .price-type { font-size: 18px; font-weight: 800; margin-bottom: 16px; }
+    .price-amount { font-family: var(--font-display); font-size: 46px; font-weight: 800; color: #fff; }
+    .price-amount span { font-size: 24px; color: var(--gold); }
+    .price-per { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 28px; }
+    .price-features { list-style: none; text-align: left; margin: 0 auto 32px; max-width: 280px; display: flex; flex-direction: column; gap: 12px; }
+    .price-features li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-main); }
+    .price-features li span { color: var(--teal); font-weight: 800; }
+
+    /* ── FAQ ACCORDIONS ── */
+    .faq-list { max-width: 740px; margin: 0 auto; }
+    .faq-item { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 20px 26px; font-size: 14.5px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-chevron { width: 30px; height: 30px; border-radius: 50%; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; transition: transform 0.4s; flex-shrink: 0; margin-left: 16px; }
+    .faq-chevron svg { width: 11px; height: 11px; stroke: var(--teal); stroke-width: 2.5; fill: none; }
+    .faq-item.open .faq-chevron { transform: rotate(45deg); background: var(--teal); }
+    .faq-item.open .faq-chevron svg { stroke: #000; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a-inner { padding: 0 26px 22px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── CTA BAND ── */
+    .cta-band { background: linear-gradient(135deg, #134945, #0a2f33); border-radius: 28px; padding: 72px 24px; text-align: center; margin: 40px auto; max-width: 1100px; border: 1px solid rgba(42,163,154,0.15); }
+    .cta-band h2 { font-family: var(--font-display); font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .cta-band p { font-size: 16.5px; color: rgba(255,255,255,0.7); margin-bottom: 36px; max-width: 540px; margin-inline: auto; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border-card); padding: 72px 0 40px; position: relative; z-index: 2; background: var(--bg-main); }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+    .footer-logo img { height: 30px; filter: brightness(0) invert(1); margin-bottom: 18px; }
+    .footer-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; max-width: 320px; }
+    .footer-col h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; color: #fff; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul a { color: var(--text-muted); font-size: 14px; }
+    .footer-col ul a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid var(--border-card); margin-top: 48px; padding-top: 28px; text-align: center; font-size: 12.5px; color: var(--text-muted); }
+
+    /* ── MODALS & PIPELINES ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(2,4,10,0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 9990; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal-box { background: rgba(9, 14, 23, 0.85); border: 1px solid rgba(255,255,255,0.07); border-radius: 28px; padding: 40px 32px; width: 420px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); color: #fff; transform: scale(0.95); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+    .modal-overlay.open .modal-box { transform: scale(1); }
+    .modal-close { position: absolute; top: 18px; right: 18px; width: 30px; height: 30px; background: rgba(255,255,255,0.04); border: none; border-radius: 50%; cursor: pointer; color: #fff; display: flex; align-items: center; justify-content: center; }
+    .form-group { margin-bottom: 12px; }
+    .form-group input { width: 100%; padding: 13px 16px; border: 1px solid var(--border-card); border-radius: 12px; font-size: 14px; color: #fff; background: rgba(255,255,255,0.02); outline: none; font-family: var(--font-body); }
+    .form-group input:focus { border-color: var(--teal); box-shadow: 0 0 12px var(--teal-glow); }
+    .phone-hint { display: none; font-size: 11px; color: #ef4444; margin-top: 4px; }
+    .phone-field.invalid input { border-color: #ef4444 !important; }
+    .phone-field.invalid .phone-hint { display: block; }
+
+    #calltime-display { border: 1px solid var(--border-card); border-radius: 12px; padding: 13px 16px; font-size: 14px; color: var(--text-muted); background: rgba(255,255,255,0.02); cursor: pointer; display: flex; justify-content: space-between; }
+    #calltime-menu { display: none; position: absolute; left: 0; right: 0; top: calc(100% + 4px); background: #0b0f19; border: 1px solid var(--border-card); border-radius: 10px; overflow: hidden; z-index: 100; }
+    #calltime-menu div { padding: 11px 16px; color: #fff; font-size: 13.5px; cursor: pointer; }
+    #calltime-menu div:hover { background: var(--teal-glow); }
+
+    .teacher-modal-overlay { position: fixed; inset: 0; background: rgba(2,4,10,0.65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 9995; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .teacher-modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .teacher-modal { background: #0a0d18; border: 1px solid var(--border-card); border-radius: 24px; padding: 44px; max-width: 600px; width: 100%; box-shadow: 0 40px 100px rgba(0,0,0,0.7); transform: translateY(20px); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); max-height: 85vh; overflow-y: auto; }
+    .teacher-modal-overlay.open .teacher-modal { transform: translateY(0); }
+    .teacher-modal h2 { font-family: var(--font-display); font-size: 30px; margin-bottom: 16px; }
+    .teacher-modal-bio { font-size: 14.5px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+    .teacher-modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .teacher-modal-tags span { background: var(--teal-glow); color: #fff; border: 1px solid rgba(42,163,154,0.25); border-radius: 50px; padding: 4px 14px; font-size: 11.5px; font-weight: 700; }
+    .teacher-modal-btns { display: flex; gap: 12px; }
+    .btn-book { flex: 1; padding: 15px; border-radius: 50px; background: var(--gold); color: #000; font-weight: 800; border: none; cursor: pointer; }
+    .btn-back { padding: 15px 26px; border-radius: 50px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-card); color: #fff; font-weight: 700; cursor: pointer; }
+
+    /* ── CHAT BOT WIDGET ── */
+    #dl-chat-btn{ position: fixed; bottom: 24px; right: 24px; z-index: 9000; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,#2aa39a,#21747a); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 4px 20px var(--teal-glow); }
+    #dl-chat-window{ position: fixed; bottom: 96px; right: 24px; z-index: 8999; width: 340px; background: #fff; border-radius: 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; height: 460px; color: #000; font-family: var(--font-body); }
+    #dl-chat-window.open { display: flex; }
+    .dl-ch { background: linear-gradient(135deg,#2aa39a,#21747a); color: #fff; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; }
+    .dl-ch h4 { font-size: 15px; }
+    .dl-ch-close { background: none; border: none; color: #fff; cursor: pointer; font-size: 15px; }
+    .dl-msgs { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
+    .dl-msg.bot { align-self: flex-start; background: #f0f4f3; padding: 8px 12px; border-radius: 14px 14px 14px 2px; max-width: 85%; line-height: 1.5; }
+    .dl-msg.user { align-self: flex-end; background: #21747a; color: #fff; padding: 8px 12px; border-radius: 14px 14px 2px 14px; max-width: 85%; }
+    .dl-btns { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px; background: #f9fafb; }
+    .dl-btn { background: #fff; border: 1px solid #e5e7eb; padding: 6px 12px; border-radius: 30px; font-size: 12px; font-weight: 600; cursor: pointer; color: #111; }
+    .dl-btn:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+    /* ── RESPONSIVE MOBILE ── */
+    @media(max-width: 960px) {
+      section { padding: 72px 0; }
+      .hero-wrapper { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+      .hero-sub-line { margin-inline: auto; }
+      .hero-ctas { justify-content: center; }
+      .hero-stats-row { justify-content: center; gap: 28px; }
+      .hero-canvas-container { height: 380px; max-width: 440px; margin: 0 auto; }
+      .bento-grid, .levels-grid, .exams-grid, .teachers-grid, .platform-grid { grid-template-columns: 1fr !important; }
+      .bento-span-2 { grid-column: span 1; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+      .footer-desc { margin-inline: auto; }
+      .footer-col ul { align-items: center; }
+      .nav-links { display: none; }
+      .section-sub { margin-inline: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-bar"></div>
+  <div class="matrix-grid"></div>
+
+  <div class="ambient-wrapper">
+    <div class="dynamic-orb orb-teal" id="orb-t"></div>
+    <div class="dynamic-orb orb-gold" id="orb-g"></div>
+  </div>
+
+  <nav id="main-nav">
+    <div class="nav-inner">
+      <a href="https://doublelang-online-school.com/" class="logo"><img src="assets/logo.png" alt="DoubleLang"></a>
+      <ul class="nav-links">
+        <li><a href="#goals">Цели</a></li>
+        <li><a href="#levels">Программа</a></li>
+        <li><a href="#platform">Платформа</a></li>
+        <li><a href="#exams">Экзамены</a></li>
+        <li><a href="#teachers">Преподаватели</a></li>
+        <li><a href="#pricing">Цены</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://app.doublelang-online-school.com" class="nav-login">Вход</a>
+        <a href="#" onclick="event.preventDefault();openCtaModal('nav_button')" class="nav-cta active-target">Пробный урок</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero-trigger">
+    <div class="container hero-wrapper">
+      <div class="hero-left-content">
+        <div class="hero-overline luxury-fade">Нидерландский язык · Онлайн</div>
+        <h1 class="luxury-fade">Голландский язык —<br>с нуля до <em>уверенного</em><br>разговорного уровня</h1>
+        <p class="hero-sub-line luxury-fade">Индивидуальные занятия с носителями и опытными преподавателями. Любой уровень — от нуля до C1. Первый урок бесплатно.</p>
+        <div class="hero-ctas luxury-fade">
+          <a href="#" onclick="event.preventDefault();openCtaModal('hero_button')" class="btn btn-gold btn-lg active-target">Записаться на пробный урок</a>
+          <a href="#levels" class="btn btn-outline btn-lg active-target">Смотреть программу</a>
+        </div>
+        <div class="hero-stats-row luxury-fade">
+          <div class="hero-stat-item"><span class="hero-stat-num">1000+</span><span class="hero-stat-lbl">выпускников</span></div>
+          <div class="hero-stat-item"><span class="hero-stat-num">97%</span><span class="hero-stat-lbl">результат</span></div>
+          <div class="hero-stat-item"><span class="hero-stat-num">94%</span><span class="hero-stat-lbl">сдали сразу</span></div>
+        </div>
+      </div>
+
+      <div class="hero-canvas-container">
+        <div class="floating-widget widget-1">
+          <div class="widget-user">
+            <div class="widget-avatar">🇳🇱</div>
+            <div>
+              <h4>Роберт Питер</h4>
+              <p>Носитель языка · Онлайн</p>
+            </div>
+          </div>
+        </div>
+        <div class="floating-widget widget-2">
+          <div class="widget-ai-header">
+            <span>🤖 Lotto AI</span>
+            <div class="ai-pulse"></div>
+          </div>
+          <div class="widget-ai-phrase">De deuren gaan open...</div>
+          <div class="widget-ai-status">Грамматика закреплена +15%</div>
+        </div>
+        <div class="floating-widget widget-3">
+          <div class="widget-level-badge">Уровень B1</div>
+          <div class="widget-progress-track">
+            <div class="widget-progress-fill"></div>
+          </div>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">До экзамена Inburgering осталось 14 дней</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="goals">
+    <div class="container">
+      <div class="section-tag luxury-fade">Для кого курс</div>
+      <h2 class="section-title luxury-fade">Голландский для любой цели</h2>
+      <p class="section-sub luxury-fade">Программа подстраивается под вашу задачу — переезд, работа, учёба или просто любовь к языку.</p>
+
+      <div class="bento-grid">
+        <div class="bento-card bento-span-2 reveal-card-node">
+          <div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3>Переезд в Нидерланды</h3>
+          <p>Базовый язык для бытового общения: врач, магазин, ресторан, соседи. Адаптируйтесь в стране максимально быстро и безболезненно.</p>
+        </div>
+        <div class="bento-card reveal-card-node">
+          <div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2"/></svg></div>
+          <h3>Экзамены MVV / Inburgering</h3>
+          <p>Целевая и строгая подготовка к государственным тестам для получения визы, ВНЖ и гражданства.</p>
+        </div>
+        <div class="bento-card reveal-card-node">
+          <div class="goal-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+          <h3>Карьера и бизнес</h3>
+          <p>Работа с голландскими партнёрами, составление резюме и подготовка к интервью.</p>
+        </div>
+        <div class="bento-card bento-span-2 reveal-card-node">
+          <div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+          <h3>Учёба в голландском вузе</h3>
+          <p>Полноценная академическая подготовка: понимание профильных лекций, написание эссе и свободная сдача экзаменов на нидерландском.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="levels">
+    <div class="container">
+      <div class="section-tag luxury-fade">Программа обучения</div>
+      <h2 class="section-title luxury-fade">Путь от A1 до C1</h2>
+      <p class="section-sub luxury-fade">Каждый уровень — конкретные навыки и понятный, измеримый результат.</p>
+
+      <div class="levels-grid">
+        <div class="level-card reveal-card-node" data-level="20%">
+          <div class="level-badge">A1</div>
+          <div class="level-name">Начинающий</div>
+          <div class="level-lessons">30 занятий</div>
+          <div class="level-desc">Приветствия, базовые фразы, числа, простейшие диалоги.</div>
+          <div class="level-bar-wrap"><div class="level-bar"></div></div>
+        </div>
+        <div class="level-card reveal-card-node" data-level="40%">
+          <div class="level-badge">A2</div>
+          <div class="level-name">Элементарный</div>
+          <div class="level-lessons">60 занятий</div>
+          <div class="level-desc">Покупки, транспорт, семья, распространённые бытовые ситуации.</div>
+          <div class="level-bar-wrap"><div class="level-bar"></div></div>
+        </div>
+        <div class="level-card reveal-card-node" data-level="60%">
+          <div class="level-badge">B1</div>
+          <div class="level-name">Средний</div>
+          <div class="level-lessons">90 занятий</div>
+          <div class="level-desc">Работа, разбор новостей, выражение мнений, подготовка к Inburgering.</div>
+          <div class="level-bar-wrap"><div class="level-bar"></div></div>
+        </div>
+        <div class="level-card reveal-card-node" data-level="80%">
+          <div class="level-badge">B2</div>
+          <div class="level-name">Выше среднего</div>
+          <div class="level-lessons">120 занятий</div>
+          <div class="level-desc">Профессиональное общение, сложные академические тексты, NT2.</div>
+          <div class="level-bar-wrap"><div class="level-bar"></div></div>
+        </div>
+        <div class="level-card reveal-card-node" data-level="100%">
+          <div class="level-badge">C1</div>
+          <div class="level-name">Продвинутый</div>
+          <div class="level-lessons">150 занятий</div>
+          <div class="level-desc">Абсолютно свободная речь, тончайшие нюансы языка, уровень носителя.</div>
+          <div class="level-bar-wrap"><div class="level-bar"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="platform-bg" id="platform">
+    <div class="container">
+      <div class="section-tag luxury-fade">Платформа и технологии</div>
+      <h2 class="section-title luxury-fade">Учитесь на современной платформе</h2>
+      <p class="section-sub luxury-fade">Собственный личный кабинет — всё в одном месте, с компьютера или телефона.</p>
+
+      <div class="platform-grid">
+        <div class="laptop-wrap" id="laptop-anim">
+          <div class="laptop">
+            <div class="laptop-screen">
+              <img src="assets/platform-screenshot.png" alt="Платформа DoubleLang" loading="lazy">
+            </div>
+            <div class="laptop-base"><div class="laptop-notch"></div></div>
+          </div>
+        </div>
+        <div class="feat-list">
+          <div class="feat-item reveal-card-node">
+            <div class="feat-ic"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 016.5 3H20v15H6.5A2.5 2.5 0 014 20.5zm0 0A2.5 2.5 0 006.5 8H20"/></svg></div>
+            <div><h3>Расширение словарного запаса</h3><p>Тематические подборки слов и карточки, чтобы быстро набирать активную лексику.</p></div>
+          </div>
+          <div class="feat-item reveal-card-node">
+            <div class="feat-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <div><h3>Lotto AI для тренировки грамматики</h3><p>Игра-лото с искусственным интеллектом: закрепите знания без скучной зубрёжки.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="exams">
+    <div class="container">
+      <div class="section-tag luxury-fade">Подготовка к экзаменам</div>
+      <h2 class="section-title luxury-fade">Ваша цель — наш ориентир</h2>
+      <p class="section-sub luxury-fade">Мы строим программу под жёсткие стандарты европейских тестов.</p>
+
+      <div class="exams-grid">
+        <div class="exam-card reveal-card-node">
+          <div class="exam-name">MVV</div>
+          <div class="exam-full">Machtiging tot verblijf</div>
+          <h3>Долгосрочная виза</h3>
+          <p>Экзамен для въезда. Аудирование и говорение, сдаётся строго в посольстве страны проживания.</p>
+          <div class="exam-stat"><strong>A1</strong>требуемый уровень</div>
+        </div>
+        <div class="exam-card reveal-card-node">
+          <div class="exam-name">Inburgering</div>
+          <div class="exam-full">Интеграционный экзамен</div>
+          <h3>ВНЖ и гражданство</h3>
+          <p>Знание языка и общества для получения вида на жительство и гражданства Нидерландов.</p>
+          <div class="exam-stat"><strong>A2–B1</strong>требуемый уровень</div>
+        </div>
+        <div class="exam-card reveal-card-node">
+          <div class="exam-name">NT2</div>
+          <div class="exam-full">Nederlands als tweede taal</div>
+          <h3>Учёба и работа</h3>
+          <p>Государственный экзамен для поступления в вузы и работы по специальности в Нидерландах.</p>
+          <div class="exam-stat"><strong>B1–B2</strong>требуемый уровень</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teachers">
+    <div class="container">
+      <div class="section-tag luxury-fade">Команда</div>
+      <h2 class="section-title luxury-fade">Преподаватели нидерландского</h2>
+      <p class="section-sub luxury-fade">Все преподаватели имеют опыт жизни в Нидерландах или Бельгии и специализируются на нидерландском языке.</p>
+
+      <div class="teachers-grid">
+        <div class="teacher-card reveal-card-node">
+          <div class="teacher-photo"><img src="assets/teacher-anastasia.png" alt="Анастасия Сергеевна" loading="lazy"></div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Анастасия Сергеевна</h3>
+            <div class="teacher-exp-badge">7+ лет</div>
+            <div class="teacher-short">Преподаватель нидерландского и французского с 7-летним стажем.</div>
+            <button class="teacher-more-btn active-target" onclick="openTeacherModal(0)">Подробнее</button>
+          </div>
+        </div>
+        <div class="teacher-card reveal-card-node">
+          <div class="teacher-photo"><img src="assets/teacher-natalia.jpg" alt="Наталья Георгиевна" loading="lazy"></div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Наталья Георгиевна</h3>
+            <div class="teacher-exp-badge">19 лет</div>
+            <div class="teacher-short">Филолог с 19-летним стажем. Обучает нидерландскому и английскому языку.</div>
+            <button class="teacher-more-btn active-target" onclick="openTeacherModal(1)">Подробнее</button>
+          </div>
+        </div>
+        <div class="teacher-card reveal-card-node">
+          <div class="teacher-photo"><img src="assets/teacher-robert.jpg" alt="Роберт Питер" loading="lazy"></div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Роберт Питер</h3>
+            <div class="teacher-exp-badge">10 лет</div>
+            <div class="teacher-short">Аутентичный носитель нидерландского языка с 10-летним стажем.</div>
+            <button class="teacher-more-btn active-target" onclick="openTeacherModal(2)">Подробнее</button>
+          </div>
+        </div>
+        <div class="teacher-card reveal-card-node">
+          <div class="teacher-photo"><img src="assets/teacher-lada.jpg" alt="Лада Владимировна" loading="lazy"></div>
+          <div class="teacher-body">
+            <h3 class="teacher-name">Лада Владимировна</h3>
+            <div class="teacher-exp-badge">15 лет</div>
+            <div class="teacher-short">Опытный преподаватель голландского языка с 15-летним стажем.</div>
+            <button class="teacher-more-btn active-target" onclick="openTeacherModal(3)">Подробнее</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="container">
+      <div class="section-tag luxury-fade">Отзывы</div>
+      <h2 class="section-title luxury-fade">Что говорят ученики</h2>
+      <p class="section-sub luxury-fade">Более 1 000 учеников уже занимаются или окончили курсы нидерландского в DoubleLang.</p>
+
+      <div class="reviews-slider-outer">
+        <button class="reviews-arrow prev active-target" onclick="reviewsSlide(-1)">&#8592;</button>
+        <button class="reviews-arrow next active-target" onclick="reviewsSlide(1)">&#8594;</button>
+        <div class="reviews-track-wrap">
+          <div class="reviews-track" id="reviews-track">
+            <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Ксения+Л&background=21747a&color=fff" alt=""><div class="review-meta"><div class="review-author">Ксения Л.</div><div class="review-goal">Цель: работа</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Муж нашёл работу в Амстердаме, нужно было срочно учить язык. За 3 месяца с нуля дошла до разговорного уровня.»</p></div>
+            <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Екатерина+Д&background=c8922a&color=fff" alt=""><div class="review-meta"><div class="review-author">Екатерина Д.</div><div class="review-goal">Цель: переезд</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Живые диалоги, объяснение логики языка, не просто зубрёжка. Записалась на inburgering — и сдала с первого раза.»</p></div>
+            <div class="review-card"><div class="review-header"><img class="review-avatar" src="https://ui-avatars.com/api/?name=Артём+В&background=21747a&color=fff" alt=""><div class="review-meta"><div class="review-author">Артём В.</div><div class="review-goal">Цель: учёба</div></div></div><div class="stars">★★★★★</div><p class="review-text">«Готовился к NT2 для поступления в университет. Преподаватель разобрал все слабые места — сдал на нужный балл.»</p></div>
+          </div>
+        </div>
+        <div class="reviews-dots" id="reviews-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <div class="section-tag luxury-fade" style="text-align:center;">Стоимость</div>
+      <h2 class="section-title luxury-fade" style="text-align:center;">Выберите подходящий тариф</h2>
+
+      <div style="display:flex; justify-content:center; margin:24px 0 44px;" class="luxury-fade">
+        <div class="price-toggle">
+          <button class="ptab active" onclick="switchPrice(0)" id="ptab-0">Русскоязычный эксперт</button>
+          <button class="ptab" onclick="switchPrice(1)" id="ptab-1">Носитель языка</button>
+        </div>
+      </div>
+
+      <div class="pricing-grid" id="pcard-0">
+        <div class="price-card reveal-card-node popular">
+          <h3 class="price-type">Русскоязычный преподаватель</h3>
+          <div class="price-amount">от 23 <span>€</span></div>
+          <div class="price-per">за урок · 60 минут</div>
+          <ul class="price-features">
+            <li><span>✓</span> Объяснение на доступном языке</li>
+            <li><span>✓</span> Индивидуальные занятия</li>
+            <li><span>✓</span> Все материалы включены</li>
+          </ul>
+          <button class="btn btn-gold active-target" style="width: 100%; color:#000;" onclick="openCtaModal('russian_price')">Узнать цены</button>
+        </div>
+      </div>
+
+      <div class="pricing-grid" id="pcard-1" style="display:none;">
+        <div class="price-card reveal-card-node popular">
+          <h3 class="price-type">Носитель языка</h3>
+          <div class="price-amount">от 26 <span>€</span></div>
+          <div class="price-per">за урок · 60 минут</div>
+          <ul class="price-features">
+            <li><span>✓</span> Языковое совершенствование</li>
+            <li><span>✓</span> Идеальное произношение</li>
+            <li><span>✓</span> Все материалы включены</li>
+          </ul>
+          <button class="btn btn-gold active-target" style="width: 100%; color:#000;" onclick="openCtaModal('native_price')">Узнать цены</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-tag luxury-fade" style="text-align:center;">Вопросы и ответы</div>
+      <h2 class="section-title luxury-fade" style="text-align:center; margin-bottom:48px;">Часто задают</h2>
+      <div class="faq-list">
+        <div class="faq-item reveal-card-node"><div class="faq-q">Что будет на пробном занятии?<span class="faq-chevron"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Преподаватель определит уровень, расскажет о программе и ответит на все вопросы. Бесплатно, без обязательств.</div></div></div>
+        <div class="faq-item reveal-card-node"><div class="faq-q">Как проходят занятия?<span class="faq-chevron"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Занятия проходят в онлайн-формате с видеосвязью с преподавателем на платформе DoubleLang. Нужен только компьютер или планшет.</div></div></div>
+        <div class="faq-item reveal-card-node"><div class="faq-q">Сколько длится занятие?<span class="faq-chevron"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Стандартное занятие длится 60 минут. По договорённости с преподавателем возможны занятия по 80 минут.</div></div></div>
+        <div class="faq-item reveal-card-node"><div class="faq-q">Нужно ли покупать учебники?<span class="faq-chevron"><svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Нет — все материалы включены в стоимость и хранятся на платформе.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band container">
+    <h2 class="luxury-fade">Начните говорить на новом языке уже сейчас</h2>
+    <p class="luxury-fade">Пробный урок — бесплатно. Преподаватель составит индивидуальную программу под ваши цели и уровень.</p>
+    <a href="#" onclick="event.preventDefault();openCtaModal('cta_block')" class="btn btn-gold btn-lg active-target luxury-fade">Записаться на пробный урок →</a>
+  </section>
+
+  <div class="modal-overlay" id="contact-modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="form-card-title" style="font-size:18px; font-weight:800; margin-bottom:12px;">Оставьте контакт</div>
+      <form id="modal-form">
+        <input type="hidden" id="modal-goal-val" name="goal">
+        <input type="hidden" id="modal-teacher-val" name="teacher">
+        <input type="hidden" id="modal-source-val" name="source">
+        <div class="form-group"><input type="text" placeholder="Ваше имя (необязательно)" id="modal-name"></div>
+        <div class="form-group phone-field" id="modal-phone-field">
+          <input type="tel" id="modal-tel" placeholder="+31 6 12 34 56 78 *" required>
+          <div class="phone-hint">Введите полный номер телефона</div>
+        </div>
+        <div class="form-group"><input type="email" placeholder="E-mail (необязательно)" id="modal-email"></div>
+        <div class="form-group" style="position:relative;">
+          <input type="hidden" id="modal-calltime" name="calltime" value="">
+          <div id="calltime-display" onclick="toggleCalltimeMenu()">
+            <span id="calltime-label">Время звонка (необязательно)</span>
+            <span>▼</span>
+          </div>
+          <div id="calltime-menu">
+            <div onclick="pickCalltime('9:00–11:00')">9:00 – 11:00</div>
+            <div onclick="pickCalltime('11:00–13:00')">11:00 – 13:00</div>
+            <div onclick="pickCalltime('17:00–19:00')">17:00 – 19:00</div>
+          </div>
+        </div>
+        <button type="button" id="modal-submit-btn" class="btn btn-gold active-target" style="width:100%; margin-top:16px;">Записаться на пробный урок →</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="teacher-modal-overlay" id="teacher-modal-overlay" onclick="if(event.target===this)closeTeacherModal()">
+    <div class="teacher-modal">
+      <h2 id="tm-name"></h2>
+      <div class="teacher-modal-bio" id="tm-bio"></div>
+      <div class="teacher-modal-tags" id="tm-tags"></div>
+      <div class="teacher-modal-btns">
+        <button class="btn-book active-target" onclick="openContactModal()">Записаться к этому преподавателю</button>
+        <button class="btn-back active-target" onclick="closeTeacherModal()">Назад</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-logo"><img src="assets/logo.png" alt="DoubleLang"></div>
+        <p class="footer-desc">Онлайн-школа нидерландского языка. Индивидуальные занятия с преподавателями из Нидерландов и Бельгии.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#goals">Цели</a></li>
+          <li><a href="#levels">Программа</a></li>
+          <li><a href="#teachers">Преподаватели</a></li>
+          <li><a href="#pricing">Цены</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="mailto:info@doublelang-online-school.com">info@doublelang-online-school.com</a></li>
+          <li><a href="tel:+995599435407">+995 599 435 407</a></li>
+          <li><a href="https://t.me/doublelang_online_school" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/995599435407" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 DoubleLang · Georgia · IE Denis Sulava</div>
+    </div>
+  </footer>
+
+  <button id="dl-chat-btn" onclick="dlToggle()" aria-label="Открыть чат">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+  <div id="dl-chat-window">
+    <div class="dl-ch"><h4>DoubleLang</h4><button class="dl-ch-close" onclick="dlToggle()">✕</button></div>
+    <div class="dl-msgs" id="dl-msgs"></div>
+    <div class="dl-btns" id="dl-btns"></div>
+  </div>
+
+  <script>
+    // Scroll progress bar (native scroll)
+    window.addEventListener('scroll', () => {
+      const sbar = document.getElementById('scroll-bar');
+      const h = document.body.scrollHeight - window.innerHeight;
+      sbar.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Magnetic buttons (subtle)
+    if (window.matchMedia('(pointer:fine)').matches) {
+      document.querySelectorAll('.active-target').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          gsap.to(btn, { x: (e.clientX - r.left - r.width/2) * 0.15, y: (e.clientY - r.top - r.height/2) * 0.15, duration: 0.3 });
+        });
+        btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.5 }));
+      });
+
+      // Bento spotlight tracking
+      document.querySelectorAll('.bento-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--x', (e.clientX - rect.left) + 'px');
+          card.style.setProperty('--y', (e.clientY - rect.top) + 'px');
+        });
+      });
+
+      // Hero floating widgets parallax
+      window.addEventListener('mousemove', (e) => {
+        const dx = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+        const dy = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+        gsap.to('.widget-1', { x: dx * 30, y: dy * 30, rotateX: -dy * 8, rotateY: dx * 8, duration: 0.6 });
+        gsap.to('.widget-2', { x: dx * -20, y: dy * -20, rotateX: -dy * 6, rotateY: dx * 6, duration: 0.7 });
+        gsap.to('.widget-3', { x: dx * 40, y: dy * 15, rotateX: -dy * 10, rotateY: dx * 10, duration: 0.8 });
+      });
+    }
+
+    // Ambient orb drift on scroll (scroll-driven, safe)
+    gsap.to('#orb-t', { scrollTrigger: { trigger: '#goals', start: 'top bottom', end: 'bottom top', scrub: 1 }, x: '30vw', y: '20vh', background: '#e0b34a' });
+
+    // Card reveal + level bars via IntersectionObserver (no rAF dependency)
+    var revealNodes = document.querySelectorAll('.reveal-card-node');
+    revealNodes.forEach(function(n){ n.classList.add('pre'); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.remove('pre');
+          if(e.target.classList.contains('level-card')){
+            var bar = e.target.querySelector('.level-bar');
+            if(bar) bar.style.width = e.target.getAttribute('data-level');
+          }
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealNodes.forEach(function(n){ io.observe(n); });
+    // Safety: if IO never fires (edge cases), un-hide after 2.5s
+    setTimeout(function(){ document.querySelectorAll('.reveal-card-node.pre').forEach(function(n){ n.classList.remove('pre'); document.querySelectorAll('.level-bar').forEach(function(b){ var c=b.closest('.level-card'); if(c) b.style.width=c.getAttribute('data-level'); }); }); }, 2500);
+
+    // Laptop lid open
+    const lw = document.getElementById('laptop-anim');
+    if(lw){
+      new IntersectionObserver(ents => {
+        ents.forEach(e => e.isIntersecting ? lw.classList.add('open') : lw.classList.remove('open'));
+      }, {threshold: .25}).observe(lw);
+    }
+
+    // Teacher data + modals
+    const TEACHERS_DATA = [
+      {"name":"Анастасия Сергеевна","full":"Окончила Hogeschool van Antwerpen по специальности «Филология: нидерландский и французский языки». Живёт в Бельгии более 20 лет. Специализируется на подготовке к NT2 и MVV.","tags":["NT2","MVV","A1–C1"]},
+      {"name":"Наталья Георгиевна","full":"Профессиональный психолого-педагогический подход. Стаж 19 лет. Умеет быстро снять языковой барьер и выстроить кратчайший путь к цели.","tags":["ВНЖ","Экзамены","A1–C1"]},
+      {"name":"Роберт Питер","full":"Аутентичный носитель нидерландского языка. Идеально говорит по-русски, детально объясняет логику языка «изнутри».","tags":["Носитель","Произношение","A1–B2"]},
+      {"name":"Лада Владимировна","full":"15 лет опыта преподавания голландского языка. Умеет превращать сложную грамматику в прочную понятную систему.","tags":["Разговорный","Барьер","A1–C1"]}
+    ];
+
+    function openTeacherModal(i){
+      window.__selectedTeacherIdx=i; const t=TEACHERS_DATA[i];
+      document.getElementById('tm-name').textContent=t.name;
+      document.getElementById('tm-bio').textContent=t.full;
+      document.getElementById('tm-tags').innerHTML=t.tags.map(tag=>'<span>'+tag+'</span>').join('');
+      document.getElementById('teacher-modal-overlay').classList.add('open');
+    }
+    function closeTeacherModal(){ document.getElementById('teacher-modal-overlay').classList.remove('open'); }
+    function openContactModal(){
+      closeTeacherModal(); const t=TEACHERS_DATA[window.__selectedTeacherIdx||0];
+      document.getElementById('modal-teacher-val').value = t ? t.name : '';
+      document.getElementById('modal-source-val').value = 'teacher_' + (t ? t.name : '');
+      document.getElementById('contact-modal').classList.add('open');
+    }
+    function openCtaModal(src) {
+      document.getElementById('modal-source-val').value = src;
+      document.getElementById('modal-teacher-val').value = '';
+      document.getElementById('contact-modal').classList.add('open');
+    }
+    function toggleCalltimeMenu() { const m = document.getElementById('calltime-menu'); m.style.display = m.style.display === 'block' ? 'none' : 'block'; }
+    function pickCalltime(v) { document.getElementById('modal-calltime').value = v; document.getElementById('calltime-label').textContent = v; document.getElementById('calltime-menu').style.display='none'; }
+    document.getElementById('modal-close').addEventListener('click', () => document.getElementById('contact-modal').classList.remove('open'));
+    document.getElementById('contact-modal').addEventListener('click', (e) => { if(e.target.id === 'contact-modal') e.currentTarget.classList.remove('open'); });
+
+    // Price switch
+    window.switchPrice = function(idx) {
+      const c0 = document.getElementById('pcard-0'), c1 = document.getElementById('pcard-1');
+      const t0 = document.getElementById('ptab-0'), t1 = document.getElementById('ptab-1');
+      if(idx === 0){ c0.style.display='grid'; c1.style.display='none'; t0.classList.add('active'); t1.classList.remove('active'); }
+      else { c0.style.display='none'; c1.style.display='grid'; t0.classList.remove('active'); t1.classList.add('active'); }
+    };
+
+    // Reviews slider
+    let _reviewsIdx = 0;
+    function reviewsCards(){ return document.getElementById('reviews-track').querySelectorAll('.review-card'); }
+    window.reviewsSlide = function(dir) {
+      const cards = reviewsCards();
+      _reviewsIdx = Math.max(0, Math.min(_reviewsIdx + dir, cards.length - 1));
+      document.getElementById('reviews-track').scrollTo({ left: cards[_reviewsIdx].offsetLeft - 4, behavior: 'smooth' });
+      reviewsUpdateDots();
+    };
+    function reviewsUpdateDots() {
+      const dots = document.getElementById('reviews-dots');
+      const cards = reviewsCards();
+      dots.innerHTML = '';
+      cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'reviews-dot' + (i === _reviewsIdx ? ' active' : '');
+        dot.onclick = () => { _reviewsIdx = i; document.getElementById('reviews-track').scrollTo({ left: cards[i].offsetLeft - 4, behavior: 'smooth' }); reviewsUpdateDots(); };
+        dots.appendChild(dot);
+      });
+    }
+    reviewsUpdateDots();
+
+    // Form submit → Telegram + Make
+    document.getElementById('modal-submit-btn').addEventListener('click', () => {
+      const tel = document.getElementById('modal-tel').value.trim();
+      const digits = tel.replace(/\D/g,'');
+      if(digits.length < 9) { document.getElementById('modal-phone-field').classList.add('invalid'); return; }
+      document.getElementById('modal-phone-field').classList.remove('invalid');
+
+      const name = document.getElementById('modal-name').value.trim();
+      const email = document.getElementById('modal-email').value.trim();
+      const teacher = document.getElementById('modal-teacher-val').value;
+      const src = document.getElementById('modal-source-val').value;
+      const calltime = document.getElementById('modal-calltime').value;
+
+      const tgText = '📩 Новая заявка DoubleLang (Нидерландский)\n📱 Телефон: ' + tel + '\n👤 Имя: ' + (name || '—') + '\n📧 Email: ' + (email || '—') + '\n👩‍🏫 Преподаватель: ' + (teacher || '—') + '\n🕐 Время звонка: ' + (calltime || '—') + '\n🌐 Блок: ' + src + '\n🔗 Сайт: ' + window.location.href;
+
+      fetch('https://api.telegram.org/bot8902775229:AAFhupnZiAS_W9aGIyx6rDaB9ta6kwtf7lM/sendMessage', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({chat_id:'5364646512', text:tgText})
+      }).catch(()=>{});
+
+      fetch('/api/lead', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({phone:tel, name:name, email:email, teacher:teacher, source:src, calltime:calltime, page:window.location.href})
+      }).finally(() => { window.location.href='thank-you.html'; });
+    });
+
+    IMask(document.getElementById('modal-tel'), { mask: '+{31} 0 000 000 00' });
+    document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('open')));
+
+    // Chat bot
+    const DL_MSGS = document.getElementById('dl-msgs');
+    const DL_BTNS = document.getElementById('dl-btns');
+    let dlStarted = false;
+    function dlAdd(text, who){ const d=document.createElement('div'); d.className='dl-msg '+who; d.textContent=text; DL_MSGS.appendChild(d); DL_MSGS.scrollTop=DL_MSGS.scrollHeight; }
+    function dlSetBtns(items){ DL_BTNS.innerHTML=''; items.forEach(it=>{ const b=document.createElement('button'); b.className='dl-btn'; b.textContent=it.label; b.onclick=it.action; DL_BTNS.appendChild(b); }); }
+    function dlStart(){
+      if(dlStarted) return; dlStarted=true;
+      dlAdd('Здравствуйте! 👋 Я помощник школы DoubleLang. Чем помочь?', 'bot');
+      dlMenu();
+    }
+    function dlMenu(){
+      dlSetBtns([
+        {label:'💶 Цены', action:()=>{ dlAdd('Цены','user'); dlAdd('Занятия с русскоязычным преподавателем — от 23 €, с носителем языка — от 26 €. Первый пробный урок — бесплатно.', 'bot'); dlLead(); }},
+        {label:'📝 Пробный урок', action:()=>{ dlAdd('Пробный урок','user'); dlAdd('Отлично! Оставьте заявку — преподаватель определит уровень и составит программу.', 'bot'); openCtaModal('chatbot'); }},
+        {label:'👩‍🏫 Преподаватели', action:()=>{ dlAdd('Преподаватели','user'); dlAdd('У нас преподаватели с опытом от 5 до 19 лет: русскоязычные эксперты и носители языка из Нидерландов и Бельгии.', 'bot'); dlLead(); }},
+        {label:'💬 Написать в WhatsApp', action:()=>{ window.open('https://wa.me/995599435407','_blank'); }}
+      ]);
+    }
+    function dlLead(){
+      dlSetBtns([
+        {label:'📝 Оставить заявку', action:()=>{ openCtaModal('chatbot'); }},
+        {label:'↩️ В меню', action:()=>{ dlMenu(); }}
+      ]);
+    }
+    function dlToggle(){
+      const w = document.getElementById('dl-chat-window');
+      w.classList.toggle('open');
+      if(w.classList.contains('open')) dlStart();
+    }
+    window.dlToggle = dlToggle;
+  </script>
+
+<div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif">
+  <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+    <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.82);flex:1 1 320px">Мы используем файлы cookie и сервисы аналитики (Google, Yandex, Meta) для корректной работы сайта и улучшения его удобства. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="/dutch/privacy.html" style="color:#e0b34a;text-decoration:underline">политикой конфиденциальности</a>.</p>
+    <button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Принять</button>
+  </div>
+</div>
+<script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
+
+</body>
+</html>
