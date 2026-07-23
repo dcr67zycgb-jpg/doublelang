@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -9 120 120" fill="#15211d">
-  <path d="M32 46 L60 59 L88 46 L88 66 Q88 79 60 79 Q32 79 32 66 Z"></path>
-  <polygon points="60,20 110,42 60,64 10,42"></polygon>
+  
+  <path class="ink" d="M32 46 L60 59 L88 46 L88 66 Q88 79 60 79 Q32 79 32 66 Z"></path>
+  <polygon class="ink" points="60,20 110,42 60,64 10,42"></polygon>
   <circle cx="60" cy="42" r="4.5" fill="#ffffff" opacity="0.9"></circle>
-  <line x1="60" y1="42" x2="16" y2="40" stroke="#15211d" stroke-width="3" stroke-linecap="round"></line>
-  <line x1="16" y1="40" x2="16" y2="64" stroke="#15211d" stroke-width="3" stroke-linecap="round"></line>
-  <ellipse cx="16" cy="67" rx="5" ry="3.5"></ellipse>
-  <g stroke="#15211d" stroke-width="2" stroke-linecap="round">
+  <line class="ink" x1="60" y1="42" x2="16" y2="40" stroke-width="3" stroke-linecap="round"></line>
+  <line class="ink" x1="16" y1="40" x2="16" y2="64" stroke-width="3" stroke-linecap="round"></line>
+  <ellipse class="ink" cx="16" cy="67" rx="5" ry="3.5"></ellipse>
+  <g class="ink" stroke-width="2" stroke-linecap="round">
     <line x1="12" y1="69" x2="11" y2="80"></line>
     <line x1="14.5" y1="70" x2="14" y2="82"></line>
     <line x1="16" y1="70" x2="16" y2="83"></line>
