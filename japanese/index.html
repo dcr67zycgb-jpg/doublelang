@@ -849,6 +849,12 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .footer-desc { text-align:center; }
   .footer-inner > div:first-child { text-align:center; }
   .footer-col { text-align:center; }
+  .footer-inner { display:flex; flex-direction:column; }
+  .footer-inner > *:nth-child(1) { order:1; }
+  .footer-inner > *:nth-child(2) { order:3; }
+  .footer-inner > *:nth-child(3) { order:2; }
+  .footer-inner > *:nth-child(4) { order:4; }
+  .footer-inner > *:nth-child(5) { order:5; }
   .footer-col ul { display:flex; flex-direction:column; align-items:center; }
   .footer-col ul li { justify-content:center; }
   .social-links { justify-content:center; }
