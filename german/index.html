@@ -1903,7 +1903,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         '🌐 Источник: 🇩🇪 Немецкий\n' +
         '⏰ Время: ' + new Date().toLocaleString('ru-RU', {timeZone:'Europe/Moscow'});
       Promise.all([
-        fetch('/api/lead', {
+        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
           method:'POST',
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
@@ -2097,7 +2097,7 @@ function closeModal(){
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
       Promise.all([
-        fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,source:mSource,page:window.location.href})}).catch(()=>{})
+        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,source:mSource,page:window.location.href})}).catch(()=>{})
       ]).finally(function(){
         submitBtn.style.background='var(--teal)';
         closeModal();
@@ -2527,7 +2527,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       +(userData.name?'Имя: '+userData.name+'\n':'')
       +'Страница: '+window.location.href;
     var xhr=new XMLHttpRequest();
-    xhr.open('POST','/api/lead',true);
+    xhr.open('POST','https://app.doublelang-online-school.com/api/crm/webhooks/lead',true);
     xhr.setRequestHeader('Content-Type','application/json');
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){

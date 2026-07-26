@@ -95,7 +95,7 @@ exports.handler = async function (event) {
 
   const TG_TOKEN = process.env.LEAD_TG_TOKEN;
   const TG_CHAT_ID = process.env.LEAD_TG_CHAT_ID;
-  const MAKE_WEBHOOK = process.env.LEAD_MAKE_WEBHOOK;
+  const MAKE_WEBHOOK = process.env.LEAD_MAKE_WEBHOOK || 'https://hook.eu1.make.com/qa8lfg4he5bkkekrxxhivuvy3rpk9v8y';
 
   if (!TG_TOKEN || !TG_CHAT_ID) {
     return { statusCode: 500, headers: cors(origin), body: JSON.stringify({ ok: false, error: 'server_not_configured' }) };

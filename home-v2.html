@@ -892,7 +892,7 @@
         method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({chat_id:'5364646512', text:tgText})
       }).catch(()=>{});
 
-      fetch('/api/lead', {
+      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({phone:tel, name:name, email:email, teacher:teacher, source:src, calltime:calltime, page:window.location.href})
       }).finally(() => { window.location.href='thank-you.html'; });
     });
