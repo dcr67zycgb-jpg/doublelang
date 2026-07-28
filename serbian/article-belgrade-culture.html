@@ -113,6 +113,7 @@ src="https://www.facebook.com/tr?id=3966627310252950&ev=PageView&noscript=1"
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-v2.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
 <link rel="icon" href="/favicon-v2.ico" sizes="any">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -239,5 +240,22 @@ window.addEventListener('scroll',()=>document.getElementById('main-nav').classLi
 </div>
 <script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
 
+
+<script>
+(function(){
+  function tsToken(){ var el=document.querySelector('[name="cf-turnstile-response"]'); return el?el.value:''; }
+  window.dlTsToken=tsToken;
+  var _f=window.fetch;
+  window.fetch=function(url,opts){
+    try{ if(typeof url==='string'&&url.indexOf('/api/crm/webhooks/lead')>-1&&opts&&opts.body){ var d=JSON.parse(opts.body); if(!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); opts.body=JSON.stringify(d);} } }catch(e){}
+    return _f.apply(this,arguments);
+  };
+  var _s=XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send=function(body){
+    try{ if(typeof body==='string'&&body.charAt(0)==='{'){ var d=JSON.parse(body); if(d.phone&&!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); body=JSON.stringify(d);} } }catch(e){}
+    return _s.call(this,body);
+  };
+})();
+</script>
 </body>
 </html>

@@ -318,6 +318,7 @@
       .section-sub { margin-inline: auto; }
     }
   </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -686,7 +687,8 @@
             <div onclick="pickCalltime('17:00–19:00')">17:00 – 19:00</div>
           </div>
         </div>
-        <button type="button" id="modal-submit-btn" class="btn btn-gold active-target" style="width:100%; margin-top:16px;">Записаться на пробный урок →</button>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
+      <button type="button" id="modal-submit-btn" class="btn btn-gold active-target" style="width:100%; margin-top:16px;">Записаться на пробный урок →</button>
       </form>
     </div>
   </div>
@@ -1001,6 +1003,39 @@
       return;
     }
     return origSend.apply(this, arguments);
+  };
+})();
+</script>
+
+<script>
+(function(){
+  function tsToken(scope){
+    var el=(scope||document).querySelector('[name="cf-turnstile-response"]');
+    if(!el){ el=document.querySelector('[name="cf-turnstile-response"]'); }
+    return el?el.value:'';
+  }
+  window.dlTsToken=tsToken;
+  // patch fetch to append token to lead webhook payloads
+  var _f=window.fetch;
+  window.fetch=function(url,opts){
+    try{
+      if(typeof url==='string' && url.indexOf('/api/crm/webhooks/lead')>-1 && opts && opts.body){
+        var d=JSON.parse(opts.body);
+        if(!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); opts.body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _f.apply(this,arguments);
+  };
+  // patch XHR (chat widget)
+  var _s=XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send=function(body){
+    try{
+      if(typeof body==='string' && body.charAt(0)==='{'){
+        var d=JSON.parse(body);
+        if(d.phone && !d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _s.call(this,body);
   };
 })();
 </script>

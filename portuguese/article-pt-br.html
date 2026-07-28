@@ -63,6 +63,7 @@ footer a{color:rgba(255,255,255,.42);}
 @media(max-width:640px){.nav-inner{gap:8px!important;height:88px!important;}.nav-logo img{height:42px!important;}.related-grid{grid-template-columns:1fr;}.cta-block{padding:36px 24px;}}
 </style>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon-v2.ico" sizes="any">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -107,4 +108,21 @@ footer a{color:rgba(255,255,255,.42);}
 <script>const sb=document.getElementById('scroll-bar');window.addEventListener('scroll',()=>{sb.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';},{passive:true});window.addEventListener('scroll',()=>document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>40),{passive:true});</script>
 <div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between"><p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.82);flex:1 1 320px">Мы используем файлы cookie и сервисы аналитики (Google, Yandex, Meta) для корректной работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="../privacy.html" style="color:#e0b34a;text-decoration:underline">политикой конфиденциальности</a>.</p><button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Принять</button></div></div>
 <script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
+
+<script>
+(function(){
+  function tsToken(){ var el=document.querySelector('[name="cf-turnstile-response"]'); return el?el.value:''; }
+  window.dlTsToken=tsToken;
+  var _f=window.fetch;
+  window.fetch=function(url,opts){
+    try{ if(typeof url==='string'&&url.indexOf('/api/crm/webhooks/lead')>-1&&opts&&opts.body){ var d=JSON.parse(opts.body); if(!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); opts.body=JSON.stringify(d);} } }catch(e){}
+    return _f.apply(this,arguments);
+  };
+  var _s=XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send=function(body){
+    try{ if(typeof body==='string'&&body.charAt(0)==='{'){ var d=JSON.parse(body); if(d.phone&&!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); body=JSON.stringify(d);} } }catch(e){}
+    return _s.call(this,body);
+  };
+})();
+</script>
 </body></html>

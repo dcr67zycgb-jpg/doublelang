@@ -926,6 +926,7 @@ src="https://www.facebook.com/tr?id=1379672934025257&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div id="cursor-dot"></div>
@@ -1207,6 +1208,7 @@ src="https://www.facebook.com/tr?id=1379672934025257&ev=PageView&noscript=1"
         <textarea name="text" required rows="4" placeholder="Расскажите об опыте обучения..." style="width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;font-family:var(--font-body);background:var(--surface);color:var(--ink);box-sizing:border-box;resize:vertical;outline:none" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='var(--line)'"></textarea>
       </div>
       <div id="review-msg" style="display:none;padding:12px;border-radius:10px;font-size:14px;margin-bottom:16px"></div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Отправить отзыв</button>
     </form>
   </div>
@@ -1450,6 +1452,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
         <input type="checkbox" id="modal-consent" style="margin-top:3px;accent-color:var(--teal);width:16px;height:16px;flex-shrink:0;">
         <label for="modal-consent" id="modal-consent-label" style="font-size:12px;color:var(--ink-3);line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="../privacy.html" style="color:var(--teal);">обработку персональных данных</a></label>
       </div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
       <button type="button" id="modal-submit-btn" class="btn btn-primary" style="width:100%;padding:14px;font-size:14px;">Записаться на пробный урок →</button>
     </form>
     <p style="font-size:11px;color:var(--ink-3);margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
@@ -2505,6 +2508,39 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       return;
     }
     return origSend.apply(this, arguments);
+  };
+})();
+</script>
+
+<script>
+(function(){
+  function tsToken(scope){
+    var el=(scope||document).querySelector('[name="cf-turnstile-response"]');
+    if(!el){ el=document.querySelector('[name="cf-turnstile-response"]'); }
+    return el?el.value:'';
+  }
+  window.dlTsToken=tsToken;
+  // patch fetch to append token to lead webhook payloads
+  var _f=window.fetch;
+  window.fetch=function(url,opts){
+    try{
+      if(typeof url==='string' && url.indexOf('/api/crm/webhooks/lead')>-1 && opts && opts.body){
+        var d=JSON.parse(opts.body);
+        if(!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); opts.body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _f.apply(this,arguments);
+  };
+  // patch XHR (chat widget)
+  var _s=XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send=function(body){
+    try{
+      if(typeof body==='string' && body.charAt(0)==='{'){
+        var d=JSON.parse(body);
+        if(d.phone && !d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _s.call(this,body);
   };
 })();
 </script>

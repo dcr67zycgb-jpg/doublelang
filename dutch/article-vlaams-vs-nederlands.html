@@ -188,6 +188,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-v2.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
 <link rel="icon" href="/favicon-v2.ico" sizes="any">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -345,6 +346,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
     <div style="margin-bottom:10px;"><input type="tel" id="art-tel" placeholder="Телефон / WhatsApp *" required style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
     <div style="margin-bottom:10px;"><input type="email" id="art-email" placeholder="E-mail (необязательно)" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
     <div style="margin-bottom:10px;"><select id="art-calltime" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;color:#6c7d76;background:#fff;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22><path d=%22M2 4l4 4 4-4%22 stroke=%22%236c7d76%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;"><option value="">Удобное время звонка (необязательно)</option><option>9:00 – 11:00</option><option>11:00 – 13:00</option><option>13:00 – 15:00</option><option>15:00 – 17:00</option><option>17:00 – 19:00</option><option>19:00 – 21:00</option></select></div><div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;"><input type="checkbox" id="art-consent" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-consent" id="art-consent-lbl" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:#21747a;">обработку персональных данных</a></label></div>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
     <button onclick="dlArtSend(this)" style="width:100%;padding:14px;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">Записаться на пробный урок</button>
     <p style="font-size:11px;color:#6c7d76;margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
   </div>
@@ -844,6 +846,39 @@ function artSubmit(btn){
       return;
     }
     return origSend.apply(this, arguments);
+  };
+})();
+</script>
+
+<script>
+(function(){
+  function tsToken(scope){
+    var el=(scope||document).querySelector('[name="cf-turnstile-response"]');
+    if(!el){ el=document.querySelector('[name="cf-turnstile-response"]'); }
+    return el?el.value:'';
+  }
+  window.dlTsToken=tsToken;
+  // patch fetch to append token to lead webhook payloads
+  var _f=window.fetch;
+  window.fetch=function(url,opts){
+    try{
+      if(typeof url==='string' && url.indexOf('/api/crm/webhooks/lead')>-1 && opts && opts.body){
+        var d=JSON.parse(opts.body);
+        if(!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); opts.body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _f.apply(this,arguments);
+  };
+  // patch XHR (chat widget)
+  var _s=XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send=function(body){
+    try{
+      if(typeof body==='string' && body.charAt(0)==='{'){
+        var d=JSON.parse(body);
+        if(d.phone && !d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _s.call(this,body);
   };
 })();
 </script>
