@@ -2445,4 +2445,67 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 </div>
 <script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
 
+
+<script>
+/* Anti-spam guard: honeypot + минимальное время заполнения */
+(function(){
+  var LOADED = Date.now();
+  var MIN_MS = 3000;
+  var HP_NAME = 'company_website';
+  // 1) вставляем honeypot во все формы + скрытую метку времени
+  function addHoneypots(){
+    document.querySelectorAll('form').forEach(function(f){
+      if(f.querySelector('input[name="'+HP_NAME+'"]')) return;
+      var w=document.createElement('div');
+      w.setAttribute('aria-hidden','true');
+      w.style.cssText='position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none';
+      w.innerHTML='<label>Company website<input type="text" name="'+HP_NAME+'" tabindex="-1" autocomplete="off" value=""></label>';
+      f.appendChild(w);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', addHoneypots);
+  setTimeout(addHoneypots, 1200);
+  new MutationObserver(addHoneypots).observe(document.documentElement,{childList:true,subtree:true});
+
+  function isSpam(){
+    var hp = document.querySelector('input[name="'+HP_NAME+'"]');
+    if (hp && hp.value.trim() !== '') return 'honeypot';
+    if (Date.now() - LOADED < MIN_MS) return 'too_fast';
+    return null;
+  }
+
+  // 2) перехват отправки на CRM-эндпоинт
+  var LEAD_URL = 'app.doublelang-online-school.com/api/crm/webhooks/lead';
+  var origFetch = window.fetch;
+  window.fetch = function(input, init){
+    var url = (typeof input === 'string') ? input : (input && input.url) || '';
+    if (url.indexOf(LEAD_URL) !== -1) {
+      var why = isSpam();
+      if (why) {
+        try{ console.warn('[guard] blocked:', why); }catch(e){}
+        return Promise.resolve(new Response(JSON.stringify({ok:true}), {status:200, headers:{'Content-Type':'application/json'}}));
+      }
+    }
+    return origFetch.apply(this, arguments);
+  };
+  var origOpen = XMLHttpRequest.prototype.open;
+  var origSend = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.open = function(m,u){ this.__u = u || ''; return origOpen.apply(this, arguments); };
+  XMLHttpRequest.prototype.send = function(){
+    if (this.__u && this.__u.indexOf(LEAD_URL) !== -1 && isSpam()) {
+      var self=this;
+      setTimeout(function(){
+        try{
+          Object.defineProperty(self,'status',{value:200});
+          Object.defineProperty(self,'readyState',{value:4});
+          if(typeof self.onload==='function') self.onload();
+          if(typeof self.onreadystatechange==='function') self.onreadystatechange();
+        }catch(e){}
+      },250);
+      return;
+    }
+    return origSend.apply(this, arguments);
+  };
+})();
+</script>
 </body>

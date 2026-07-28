@@ -33,6 +33,42 @@
 # Прокси формы заявок → серверная функция (токен скрыт в env Netlify)
 /api/lead              /.netlify/functions/lead              200
 
+# Clean-URL статьи блога → реальные файлы (canonical ведёт на эти адреса)
+/dutch/blog/inburgering-2026              /dutch/article-inburgering-2026.html          200
+/dutch/blog/mvv-2026                      /dutch/article-mvv-2026.html                  200
+/dutch/blog/vlaams-vs-nederlands          /dutch/article-vlaams-vs-nederlands.html      200
+/german/blog/oesd-guide                   /german/article-oesd-guide.html               200
+/german/blog/testdaf-2026                 /german/article-testdaf-2026.html             200
+/german/blog/german-austria               /german/article-german-austria.html           200
+/french/blog/delf-2026                    /french/article-delf-2026.html                200
+/french/blog/francophonie                 /french/article-francophonie.html             200
+/french/blog/tcf-canada                   /french/article-tcf-canada.html               200
+/english/blog/kak-podgotovitsya-k-ielts   /english/article-ielts-2026.html              200
+/english/blog/britanskiy-i-amerikanskiy-angliyskiy  /english/article-british-vs-american.html  200
+/english/blog/ielts-ili-toefl             /english/article-ielts-vs-toefl.html          200
+/spanish/blog/kak-podgotovitsya-k-dele    /spanish/article-dele-2026.html               200
+/spanish/blog/ispanskiy-ispanii-i-latam   /spanish/article-spain-vs-latam.html          200
+/spanish/blog/dele-ili-siele              /spanish/article-dele-vs-siele.html           200
+/serbian/blog/serbskaya-kirillica         /serbian/article-serbskaya-kirillica.html     200
+/serbian/blog/skolko-uchit-serbskiy       /serbian/article-skolko-uchit-serbskiy.html   200
+/serbian/blog/belgrade-culture            /serbian/article-belgrade-culture.html        200
+/greek/blog/kak-podgotovitsya-k-ellinomatheia  /greek/article-ellinomatheia-2026.html   200
+/greek/blog/grecheskiy-grecii-i-kipra     /greek/article-greek-cyprus.html              200
+/greek/blog/yazyk-dlya-grazhdanstva-grecii     /greek/article-greek-citizenship.html    200
+/portuguese/blog/kak-podgotovitsya-k-ciple     /portuguese/article-ciple-2026.html      200
+/portuguese/blog/portugalskiy-portugalii-i-brazilii  /portuguese/article-pt-br.html     200
+/portuguese/blog/yazyk-dlya-grazhdanstva-portugalii  /portuguese/article-pt-citizenship.html  200
+/japanese/blog/kak-podgotovitsya-k-jlpt   /japanese/article-jlpt-2026.html              200
+/japanese/blog/hiragana-katakana          /japanese/article-hiragana-katakana.html      200
+/japanese/blog/yaponskiy-dlya-pereezda    /japanese/article-japan-relocation.html       200
+
+# Старые URL с Тильды → 404-заглушки убираем на главную
+/umnica-school.online                     /                                             301
+/umnica-school.ru                         /                                             301
+/doublelang-online-school.com             /                                             301
+/blog                                     /#blog                                        301
+/css/*                                    /                                             301
+
 # Clean-URL летние акции по языкам
 /summergermany         /german/summer.html                   200
 /summerdutch           /dutch/summer.html                    200
