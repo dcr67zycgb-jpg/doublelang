@@ -644,6 +644,14 @@ function artSubmit(btn){
     card.style.cssText='background:#f0f8f7;border:1.5px solid rgba(33,116,122,.3);border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;max-width:90%;margin-bottom:4px;';
     card.innerHTML='<input id="dl-phone-inp" type="tel" placeholder="+31 6 12 34 56 78" style="flex:1;border:none;background:transparent;font-size:14px;font-family:Manrope,sans-serif;outline:none;color:#15211d;" onkeydown="if(event.key===\'Enter\')dlSubmitPhone()"><button onclick="dlSubmitPhone()" style="background:linear-gradient(135deg,#2aa39a,#21747a);border:none;border-radius:10px;color:#fff;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;white-space:nowrap;">Далее →</button>';
     c.appendChild(card);
+    var tsw=document.createElement('div');
+    tsw.id='dl-chat-ts';
+    tsw.className='cf-turnstile';
+    tsw.setAttribute('data-sitekey','0x4AAAAAAEAI2McenZ8Dd80i');
+    tsw.setAttribute('data-size','flexible');
+    tsw.style.cssText='margin:6px 0 4px;max-width:90%;';
+    c.appendChild(tsw);
+    try{ if(window.turnstile) window.turnstile.render(tsw,{sitekey:'0x4AAAAAAEAI2McenZ8Dd80i'}); }catch(e){}
     c.scrollTop=c.scrollHeight;
     setTimeout(function(){
       var i=document.getElementById('dl-phone-inp');
@@ -665,6 +673,10 @@ function artSubmit(btn){
   window.dlSubmitPhone=function(){
     var inp=document.getElementById('dl-phone-inp');
     if(!inp) return;
+    var tsEl=document.querySelector('#dl-chat-ts [name="cf-turnstile-response"]');
+    if(tsEl && !tsEl.value){ inp.style.borderColor='#e05a4a'; return; }
+    var tsEl=document.querySelector('#dl-chat-ts [name="cf-turnstile-response"]');
+    if(tsEl && !tsEl.value){ inp.style.borderColor='#e05a4a'; return; }
     var val=inp.value.trim();
     var digits=val.replace(/[^0-9]/g,'');
     if(digits.length<10){
