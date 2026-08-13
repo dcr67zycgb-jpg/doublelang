@@ -89,15 +89,15 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
 </head>
 <body>
 <div class="wrap">
-  <a href="index.html" class="back">← Вернуться на сайт</a>
+  <a href="index.html" class="back">← Back to site</a>
 
   <div class="head">
     <a href="index.html" class="logo-link" style="display:inline-block;line-height:0"><img src="../assets/logo-clean.png" alt="DoubleLang"></a>
-    <h1>Английский язык</h1>
-    <p style="font-weight:700;font-size:20px;text-align:center;color:var(--ink-2);margin-top:8px">Выберите пакет индивидуальных занятий</p>
+    <h1>English Language</h1>
+    <p style="font-weight:700;font-size:20px;text-align:center;color:var(--ink-2);margin-top:8px">Choose the right plan</p>
     <div class="toggle">
-      <button id="t-ru" class="on" onclick="setTeacher('ru')">Русскоязычный преподаватель</button>
-      <button id="t-native" onclick="setTeacher('native')">Носитель языка</button>
+      <button id="t-ru" class="on" onclick="setTeacher('ru')">Russian-speaking teacher</button>
+      <button id="t-native" onclick="setTeacher('native')">Native speaker</button>
     </div>
   </div>
 
@@ -109,31 +109,31 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
 <script>
 const PLANS = {
   ru: [
-    {name:'СТАРТ',      lessons:5,  total:105, per:21, popular:false},
-    {name:'БАЗИС',      lessons:10, total:190, per:19, popular:true,  savings:20},
-    {name:'ПРОРЫВ',     lessons:20, total:340, per:17, popular:false, savings:80},
-    {name:'МАСТЕРСТВО', lessons:30, total:420, per:14, popular:false, superBadge:true, savings:210},
+    {name:'START',      lessons:5,  total:105, per:21, popular:false},
+    {name:'BASIS',      lessons:10, total:190, per:19, popular:true,  savings:20},
+    {name:'BREAKTHROUGH', lessons:20, total:340, per:17, popular:false, savings:80},
+    {name:'MASTERY', lessons:30, total:420, per:14, popular:false, superBadge:true, savings:210},
   ],
   native: [
-    {name:'СТАРТ',      lessons:5,  total:175, per:35, popular:false},
-    {name:'БАЗИС',      lessons:10, total:320, per:32, popular:true,  savings:30},
-    {name:'ПРОРЫВ',     lessons:20, total:580, per:29, popular:false, savings:120},
-    {name:'МАСТЕРСТВО', lessons:30, total:780, per:26, popular:false, superBadge:true, savings:270},
+    {name:'START',      lessons:5,  total:175, per:35, popular:false},
+    {name:'BASIS',      lessons:10, total:320, per:32, popular:true,  savings:30},
+    {name:'BREAKTHROUGH', lessons:20, total:580, per:29, popular:false, savings:120},
+    {name:'MASTERY', lessons:30, total:780, per:26, popular:false, superBadge:true, savings:270},
   ],
 };
 
 const LINKS = {
   ru: {
-    'СТАРТ':      'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/299c1c26-b5ab-41d1-8b6b-ca2ec9f5417f?currency=EUR',
-    'БАЗИС':      'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/e070a4e8-12af-45a4-bb30-a4956be254a0?currency=EUR',
-    'ПРОРЫВ':     'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/b413b8c8-813d-44af-9c48-7d4516088539?currency=EUR',
-    'МАСТЕРСТВО': 'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/03583b9d-72d9-44c4-ac3a-3d46509ce4db?currency=EUR',
+    'START':      'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/299c1c26-b5ab-41d1-8b6b-ca2ec9f5417f?currency=EUR',
+    'BASIS':      'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/e070a4e8-12af-45a4-bb30-a4956be254a0?currency=EUR',
+    'BREAKTHROUGH':     'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/b413b8c8-813d-44af-9c48-7d4516088539?currency=EUR',
+    'MASTERY': 'https://app.lava.top/products/874a3483-c28e-4489-9047-f00c82d1225c/03583b9d-72d9-44c4-ac3a-3d46509ce4db?currency=EUR',
   },
   native: {
-    'СТАРТ':      'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/ca792ef1-7192-4852-9100-5dd06026f75f?currency=EUR',
-    'БАЗИС':      'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/f1a105e3-889b-4dc9-bdee-320b701252e5?currency=EUR',
-    'ПРОРЫВ':     'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/89c5e587-e47a-4bbd-98ed-7c98ffcd692b?currency=EUR',
-    'МАСТЕРСТВО': 'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/b4fe71c8-f087-4f81-affd-8f528c24764a?currency=EUR',
+    'START':      'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/ca792ef1-7192-4852-9100-5dd06026f75f?currency=EUR',
+    'BASIS':      'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/f1a105e3-889b-4dc9-bdee-320b701252e5?currency=EUR',
+    'BREAKTHROUGH':     'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/89c5e587-e47a-4bbd-98ed-7c98ffcd692b?currency=EUR',
+    'MASTERY': 'https://app.lava.top/products/1e11ad37-2bd1-4e09-9425-1e99dbaf7e06/b4fe71c8-f087-4f81-affd-8f528c24764a?currency=EUR',
   },
 };
 
@@ -143,26 +143,26 @@ const CK = '<span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="curren
 function render(){
   document.getElementById('grid').innerHTML = PLANS[teacher].map(p=>{
     const feats = [
-      p.lessons === 5  ? 'Познакомьтесь с форматом' :
-      p.lessons === 10 ? 'Почувствуйте реальный прогресс' :
-      p.lessons === 20 ? 'Перейдите на новый уровень' :
-                         'Максимальное погружение в язык',
-      p.lessons === 5  ? 'Идеально для начала' :
-      p.lessons === 10 ? 'Выстройте базу языка' :
+      p.lessons === 5  ? 'Get acquainted with the format' :
+      p.lessons === 10 ? 'Feel real progress' :
+      p.lessons === 20 ? 'Move up to a new level' :
+                         'Full immersion in the language',
+      p.lessons === 5  ? 'Perfect for starting out' :
+      p.lessons === 10 ? 'Build your language base' :
       p.lessons === 20 ? '' :
-                         'Готовность к экзаменам и жизни',
+                         'Ready for exams and life',
       p.lessons === 5  ? '' :
-      p.lessons === 10 ? 'Первые уверенные разговоры' :
-      p.lessons === 20 ? 'Заметный результат в обучении' :
-                         'Приоритет в расписании',
+      p.lessons === 10 ? 'First confident conversations' :
+      p.lessons === 20 ? 'Noticeable results' :
+                         'Priority scheduling',
     ].filter(Boolean);
     return `<div class="card${p.popular?' featured':''}">
-      ${p.popular?'<span class="badge">Популярный</span>':p.superBadge?'<span class="badge badge-gold">Супер выгодно</span>':''}
+      ${p.popular?'<span class="badge">Popular</span>':p.superBadge?'<span class="badge badge-gold">Best value</span>':''}
       <div class="name">${p.name}</div>
-      <div class="per-wrap"><div class="per"><b>${p.per} €</b> <span>/ занятие</span></div>${p.savings?'<span class="savings">Экономия '+p.savings+' €</span>':'<span class="savings" style="visibility:hidden">Экономия</span>'}</div>
+      <div class="per-wrap"><div class="per"><b>${p.per} €</b> <span>/ lesson</span></div>${p.savings?'<span class="savings">Save '+p.savings+' €</span>':'<span class="savings" style="visibility:hidden">Save</span>'}</div>
       <ul class="feats">${feats.map(f=>`<li>${CK}${f}</li>`).join('')}</ul>
-      <div class="total"><span class="lbl">${p.lessons} занятий</span></div>
-      <a class="pay" href="${LINKS[teacher][p.name]}">Оплатить ${p.total} €</a>
+      <div class="total"><span class="lbl">${p.lessons} lessons</span></div>
+      <a class="pay" href="${LINKS[teacher][p.name]}">Pay ${p.total} €</a>
     </div>`;
   }).join('');
 }
@@ -182,8 +182,8 @@ render();
 
 <div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif">
   <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
-    <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.82);flex:1 1 320px">Мы используем файлы cookie и сервисы аналитики (Google, Yandex, Meta) для корректной работы сайта и улучшения его удобства. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="privacy.html" style="color:#e0b34a;text-decoration:underline">политикой конфиденциальности</a>.</p>
-    <button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Принять</button>
+    <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.82);flex:1 1 320px">We use cookies and analytics services (Google, Yandex, Meta) for the site to work properly and improve your experience. By continuing to use the site, you agree to our <a href="privacy.html" style="color:#e0b34a;text-decoration:underline">privacy policy</a>.</p>
+    <button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Accept</button>
   </div>
 </div>
 <script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
