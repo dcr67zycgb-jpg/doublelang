@@ -380,7 +380,7 @@ h2.section-title {
 
 /* ── GOALS ── */
 .goals-bg { background:var(--surface-2); }
-.goals-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.goals-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
 .goal-card {
   text-align:center;
   background:var(--surface); border-radius:var(--radius); padding:30px 26px;
@@ -799,6 +799,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .hero { padding:60px 0 44px; }
   .nav-inner { display:flex!important; justify-content:flex-end; align-items:center; position:relative; }
   .nav-logo { position:absolute; left:50%; top:calc(50% + 6px); transform:translate(-50%,-50%); pointer-events:auto; }
+  .lang-switch { position:fixed; top:12px; left:12px; z-index:1000; display:flex; gap:6px; }
   .hero-badge { display:inline-flex!important; width:auto!important; align-self:center; }
   .hero-inner { align-items:center; }
   .hero h1 { text-align:center; }
@@ -980,7 +981,7 @@ src="https://www.facebook.com/tr?id=1270960275121680&ev=PageView&noscript=1"
 nav:not(.scrolled) .lang-switch{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28)}
 nav:not(.scrolled) .lang-switch button{color:rgba(255,255,255,.85)}
 nav:not(.scrolled) .lang-switch button.active{background:#fff;color:var(--teal-deep)}
-@media(max-width:640px){.lang-switch{margin-right:8px}.lang-switch button{padding:6px 9px;font-size:11px}}
+@media(max-width:640px){.lang-switch{position:fixed;top:12px;left:12px;z-index:1000;margin-right:0}.lang-switch button{padding:6px 9px;font-size:11px}}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -1031,7 +1032,7 @@ nav:not(.scrolled) .lang-switch button.active{background:#fff;color:var(--teal-d
           с нуля до <em>уверенного</em><br>
           разговорного уровня
         </h1>
-        <p class="hero-sub-line">Индивидуальные занятия с опытными преподавателями русского языка. Подготовка к ТРКИ (TORFL) и экзаменам для гражданства и ВНЖ. Пробный урок бесплатно.</p>
+        <p class="hero-sub-line">Индивидуальные занятия с опытными преподавателями русского языка. Подготовка к ТРКИ (TORFL) и экзаменам для гражданства и ВНЖ.<br>Пробный урок бесплатно.</p>
         <div class="hero-ctas">
           <a href="#" onclick="event.preventDefault();openCtaModal('hero_button')" class="btn btn-gold btn-lg magnetic">Записаться на пробный урок</a>
           <a href="#levels" class="btn btn-ghost-dark btn-lg">Смотреть программу</a>
@@ -1063,7 +1064,10 @@ nav:not(.scrolled) .lang-switch button.active{background:#fff;color:var(--teal-d
       <div class="goal-card reveal s3 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/></svg></div><h3>Карьера и работа в РФ</h3><p>Деловой русский: переговоры, презентации и профессиональная переписка для работы в России и СНГ.</p></div>
       <div class="goal-card reveal s4 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Учёба в российском вузе</h3><p>Поступление в университеты России. Подготовка к ТРКИ уровня, необходимого для зачисления.</p></div>
       <div class="goal-card reveal s5 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h3>Путешествия и общение</h3><p>Разговорный курс для тех, кто хочет свободно общаться в русскоязычной среде без словаря и страха.</p></div>
-      <div class="goal-card reveal s6 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 019-9 9 9 0 016.7 3M21 12a9 9 0 01-9 9 9 9 0 01-6.7-3"/><path d="M21 3v5h-5M3 21v-5h5"/></svg></div><h3>Улучшить свой русский</h3><p>Для тех, кто уже знает базу, но хочет убрать акцент, говорить уверенно и писать грамотно.</p></div>
+      <div class="goal-card reveal s4 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><circle cx="7" cy="8" r="3"/><path d="M4 14c0-1 1-2 3-2s3 1 3 2v3H4v-3z"/><circle cx="17" cy="8" r="3"/><path d="M14 14c0-1 1-2 3-2s3 1 3 2v3h-6v-3z"/><path d="M7 18h10a1 1 0 011 1v2a1 1 0 01-1 1H7a1 1 0 01-1-1v-2a1 1 0 011-1z" fill="currentColor" opacity=".3"/></svg></div><h3>Русский для детей экспатов</h3><p>Чтобы дети не забывали язык и культуру. Занятия в игровом формате, адаптированные по возрасту и уровню.</p></div>
+      <div class="goal-card reveal s5 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Учёба в российском вузе</h3><p>Поступление в университеты России. Подготовка к ТРКИ уровня, необходимого для зачисления.</p></div>
+      <div class="goal-card reveal s6 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><h3>Путешествия и общение</h3><p>Разговорный курс для тех, кто хочет свободно общаться в русскоязычной среде без словаря и страха.</p></div>
+      <div class="goal-card reveal s7 tilt"><div class="goal-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 019-9 9 9 0 016.7 3M21 12a9 9 0 01-9 9 9 9 0 01-6.7-3"/><path d="M21 3v5h-5M3 21v-5h5"/></svg></div><h3>Улучшить свой русский</h3><p>Для тех, кто уже знает базу, но хочет убрать акцент, говорить уверенно и писать грамотно.</p></div>
     </div>
   </div>
 </section>
