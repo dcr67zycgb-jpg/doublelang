@@ -29,6 +29,13 @@
 /pricegreeknative      /greek/pricing.html?type=native       200
 /priceportuguese       /portuguese/pricing.html?type=russian 200
 /priceportuguesenative /portuguese/pricing.html?type=native  200
+/priceturkish          /turkish/pricing.html?type=russian    200
+/priceturkishnative    /turkish/pricing.html?type=native     200
+/turkishpricing        /turkish/pricing.html?type=russian    200
+/turkishpricingnative  /turkish/pricing.html?type=native     200
+/turkish/blog/tomer-2026                  /turkish/article-tomer-2026.html              200
+/turkish/blog/yos-guide                   /turkish/article-yos-guide.html               200
+/turkish/blog/tys-citizenship             /turkish/article-tys-citizenship.html         200
 
 # Прокси формы заявок → серверная функция (токен скрыт в env Netlify)
 /api/lead              /.netlify/functions/lead              200
