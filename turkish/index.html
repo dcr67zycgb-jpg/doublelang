@@ -169,7 +169,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
   position:relative; z-index:2;
   display:flex; flex-direction:column; align-items:center;
   gap:40px; align-items:flex-end;
-  padding:0 0 60px;
+  padding:96px 0 60px;
 }
 .hero-left { display:flex; flex-direction:column; align-items:center; max-width:620px; margin:0 auto; text-align:center; width:100%; }
 .hero-stats-row { display:flex; align-items:center; gap:0; margin-top:32px; flex-wrap:wrap; gap:8px; }
@@ -749,9 +749,10 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   section { padding:56px 0; }
-  .hero { min-height:100svh; height:100svh; }
-  .hero-inner { grid-template-columns:1fr; gap:16px; padding:0 0 40px; }
+  .hero { min-height:100svh; height:auto; justify-content:flex-start; }
+  .hero-inner { grid-template-columns:1fr; gap:16px; padding:96px 0 40px; }
   .hero-right { align-items:flex-start; }
+  .nav-links { display:none; }
   .hero h1 { font-size:clamp(26px,7vw,34px); letter-spacing:-.01em; margin-bottom:24px; }
   .hero-overline { font-size:10px; margin-bottom:14px; }
   .hero-ctas { flex-direction:column; gap:10px; }
@@ -781,12 +782,12 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .hero-stats { gap:24px; }
   .stat-num { font-size:26px; }
 }
-@media(max-width:640px){
+@media(max-width:768px){
   section { padding:44px 0; }
   .container { padding:0 16px; }
   .hero { padding:60px 0 44px; }
   .nav-inner { display:flex!important; justify-content:flex-end; align-items:center; position:relative; }
-  .nav-logo { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:auto; }
+  .nav-logo { position:absolute; left:50%; top:78%; transform:translate(-50%,-50%); pointer-events:auto; }
   .hero-badge { display:inline-flex!important; width:auto!important; align-self:center; }
   .hero-inner { align-items:center; }
   .hero h1 { text-align:center; }
@@ -807,7 +808,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 
   /* ── MOBILE SLIDERS ── */
   /* Goals */
-  .goals-grid { display:flex!important; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:14px; padding:4px 16px 12px; margin:0 -16px; }
+  .goals-grid { display:flex!important; flex-wrap:nowrap!important; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:14px; padding:4px 16px 12px; margin:0 -16px; }
   .goals-grid::-webkit-scrollbar { display:none; }
   .goals-grid .goal-card { scroll-snap-align:start; flex:0 0 84vw; max-width:84vw; opacity:1!important; transform:none!important; }
 
@@ -844,7 +845,6 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .teacher-photo img[alt="Людмила Николаевна"] { object-position:center 0%!important; }
   .stat-num { font-size:24px; }
   .stat-label { font-size:9px; letter-spacing:.02em; white-space:nowrap; }
-  .goals-grid{grid-template-columns:1fr}
   .levels-grid{grid-template-columns:repeat(2,1fr)}
   .teachers-grid{grid-template-columns:repeat(2,1fr)!important}
   .nav-links{display:none}
@@ -892,7 +892,6 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .hero h1 { font-size:22px; }
   .levels-grid{grid-template-columns:1fr}
   .teachers-grid{grid-template-columns:1fr!important}
-  .goals-grid{grid-template-columns:1fr}
   .hero-stats { gap:16px; }
   .stat-num { font-size:22px; }
   .nav-logo img { height:34px; }
@@ -2125,7 +2124,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 /* ── MOBILE ── */
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr;}
-  .goals-grid{grid-template-columns:repeat(2,1fr);}
   .levels-grid{grid-template-columns:repeat(3,1fr);}
   .exams-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
@@ -2145,7 +2143,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   .stat-num{font-size:28px;}
   .hero-ctas{flex-direction:column;}
   .hero-ctas .btn{width:100%;justify-content:center;}
-  .goals-grid{grid-template-columns:1fr;}
   .levels-grid{grid-template-columns:repeat(2,1fr);}
   .why-grid{grid-template-columns:1fr;}
   .blog-grid{grid-template-columns:1fr;}

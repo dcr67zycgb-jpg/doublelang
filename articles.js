@@ -10,6 +10,7 @@
     if (/\/french\//.test(p))  return 'fr';
     if (/\/english\//.test(p)) return 'en';
     if (/\/serbian\//.test(p)) return 'sr';
+    if (/\/turkish\//.test(p)) return 'tr';
     if (/home\.html/.test(p) || p === '/' || p === '') return 'all';
     return 'nl'; // index.html, dutch-general.html
   }
