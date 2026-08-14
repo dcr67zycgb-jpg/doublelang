@@ -1908,13 +1908,19 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         '🎯 Цель: ' + (goalVal||mGoal||'—') + '\n' +
         '🌐 Источник: 🇫🇷 Французский\n' +
         '⏰ Время: ' + new Date().toLocaleString('ru-RU', {timeZone:'Europe/Moscow'});
-      Promise.all([
-        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
-        }).catch(function(e){console.error('Make error:',e);})
-      ]).then(function(){ window.location.href='thank-you.html'; }).catch(function(){ window.location.href='thank-you.html'; });
+      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
+      }).then(function(r){
+        if(!r.ok) throw new Error('lead http '+r.status);
+        window.location.href='thank-you.html';
+      }).catch(function(e){
+        console.error('Lead submit failed:', e);
+        b.disabled=false;
+        b.textContent='Ошибка — нажмите ещё раз';
+        b.style.background='#e05555';
+      });
     });
   });
   if(back)back.addEventListener('click',()=>{
@@ -2099,15 +2105,18 @@ function closeModal(){
       const mGoal=(document.getElementById('modal-goal-val')?.value||'').trim();
       const mTeacher=(document.getElementById('modal-teacher-val')?.value||'').trim();
       const mSource='https://doublelang-online-school.com/french';
+      const mBlock=(document.getElementById('modal-source-val')?.value||'').trim();
       const mCalltime=(document.getElementById('modal-calltime')?.value||'').trim();
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
-      Promise.all([
-        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,source:mSource,page:window.location.href})}).catch(()=>{})
-      ]).finally(function(){
-        submitBtn.style.background='var(--teal)';
+      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href})}).then(function(r){
+        if(!r.ok) throw new Error('lead http '+r.status);
         closeModal();
         window.location.href='thank-you.html';
+      }).catch(function(e){
+        console.error('Lead submit failed:', e);
+        submitBtn.style.background='#e05555';
+        submitBtn.textContent='Ошибка — попробуйте ещё раз';
       });
     });
   }
@@ -2510,14 +2519,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        showSuccess();
+        if(xhr.status>=200&&xhr.status<300){ showSuccess(); }
+        else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
     xhr.onerror=function(){
       try{t.remove();}catch(e){}
-      showSuccess();
+      console.error('Chat lead submit network error');
+      showChatError();
     };
-    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'chat_widget',page:window.location.href}));
+    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'https://doublelang-online-school.com/french',page:window.location.href}));
   }
 
   function showSuccess(){
@@ -2528,6 +2539,20 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     var cls=document.getElementById('dl-cls');
     if(cls) cls.onclick=dlToggle;
   }
+
+  function showChatError(){
+    var lang=botLang();
+    var win=document.getElementById('dl-chat-window');
+    var hdr='<div class="dl-ch"><div class="dl-ch-av">🎓</div><div class="dl-ch-info"><h4>DoubleLang</h4><span>Online</span></div><button class="dl-ch-close" id="dl-cls">✕</button></div>';
+    var text=lang==='en'
+      ? {t:'Something went wrong',p:'Your request wasn\'t sent. Please try again or message us on WhatsApp.',btn:'Try again'}
+      : {t:'Что-то пошло не так',p:'Заявка не отправилась. Попробуйте ещё раз или напишите нам в WhatsApp.',btn:'Попробовать снова'};
+    var body='<div class="dl-msgs" style="justify-content:center;align-items:center;"><div class="dl-success"><div class="dl-s-icon">⚠️</div><h3>'+text.t+'</h3><p>'+text.p+'</p><a href="'+WA_LINK+'" target="_blank" rel="noopener" class="dl-wa-btn">WhatsApp</a><button onclick="dlRestartChat()" style="margin-top:10px;background:none;border:1.5px solid rgba(0,0,0,.15);border-radius:99px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;">'+text.btn+'</button></div></div>';
+    win.innerHTML=hdr+body;
+    var cls=document.getElementById('dl-cls');
+    if(cls) cls.onclick=dlToggle;
+  }
+  window.dlRestartChat=function(){ dlToggle(); dlToggle(); };
 
   function botMsg(html){
     var c=document.getElementById('dl-msgs');
