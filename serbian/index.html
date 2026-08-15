@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="Курсы сербского языка онлайн — Школа DoubleLang">
   <meta name="twitter:description" content="Индивидуальные занятия сербским с опытными преподавателями. Подготовка к экзаменам, язык для переезда и работы. Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-serbian-v3.png">
-  <meta name="keywords" content="сербский язык онлайн, курсы сербского, сербский с нуля, переезд в Сербию, экзамен на гражданство Сербии">
+  <meta name="keywords" content="сербский язык онлайн, курсы сербского, сербский с нуля, переезд в Сербию, экзамен на гражданство Сербии, вид на жительство Сербия, разговорный сербский, сербский для работы, сербский для бизнеса">
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1810,7 +1810,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_serbian', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         window.location.href='thank-you.html';

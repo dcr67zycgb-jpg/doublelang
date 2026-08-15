@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="Курсы французского языка онлайн — Школа DoubleLang">
   <meta name="twitter:description" content="Индивидуальные занятия французским с опытными преподавателями. Подготовка к DELF, DALF, TCF. Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-french-v3.png">
-  <meta name="keywords" content="французский язык онлайн, курсы французского, подготовка к DELF, DALF, TCF, французский с нуля">
+  <meta name="keywords" content="французский язык онлайн, курсы французского, подготовка к DELF, DALF, TCF, французский с нуля, переезд во Францию, переезд в Канаду, переезд в Бельгию, французский для работы, разговорный французский, деловой французский">
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1911,7 +1911,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_french', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         window.location.href='thank-you.html';

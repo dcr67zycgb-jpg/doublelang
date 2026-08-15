@@ -22,7 +22,7 @@
   <meta name="twitter:title" content="Онлайн-школа иностранных языков DoubleLang">
   <meta name="twitter:description" content="18 языков онлайн с носителями и опытными преподавателями. Индивидуальный подход, гибкое расписание, пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-main-v3.png">
-  <meta name="keywords" content="онлайн-школа языков, английский онлайн, немецкий онлайн, французский онлайн, испанский, нидерландский, турецкий, репетитор носитель языка">
+  <meta name="keywords" content="онлайн-школа языков, английский онлайн, немецкий онлайн, французский онлайн, испанский, нидерландский, турецкий, репетитор носитель языка, изучение языков онлайн, языковая школа для взрослых, репетитор для переезда, подготовка к экзаменам по языку, индивидуальные онлайн-уроки">
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2379,7 +2379,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_main', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         window.location.href='thank-you.html';

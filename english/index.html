@@ -21,7 +21,7 @@
   <meta name="twitter:title" content="Курсы английского языка онлайн — Школа DoubleLang">
   <meta name="twitter:description" content="Индивидуальные занятия английским с опытными преподавателями. Подготовка к IELTS, TOEFL, Cambridge. Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-english-v3.png">
-  <meta name="keywords" content="английский язык онлайн, курсы английского, подготовка к IELTS, TOEFL, Cambridge, английский с нуля">
+  <meta name="keywords" content="английский язык онлайн, курсы английского, подготовка к IELTS, TOEFL, Cambridge, английский с нуля, английский для работы, деловой английский, английский для переезда, разговорный английский, английский для собеседования">
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -896,23 +896,6 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1270960275121680');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1270960275121680&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -931,7 +914,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     ym(110852663, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110852663" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div style="display:none"><img src="https://mc.yandex.ru/watch/110852663" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <!-- Meta Pixel Code -->
 <script>
@@ -946,9 +929,9 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1270960275121680');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none" alt=""
+<noscript><div style="display:none"><img height="1" width="1" style="display:none" alt=""
 src="https://www.facebook.com/tr?id=1270960275121680&ev=PageView&noscript=1"
-/></noscript>
+/></div></noscript>
 <!-- End Meta Pixel Code -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
@@ -956,7 +939,7 @@ src="https://www.facebook.com/tr?id=1270960275121680&ev=PageView&noscript=1"
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden;position:absolute;"></iframe></noscript>
+<div style="display:none"><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden;position:absolute;"></iframe></noscript></div>
 <!-- End Google Tag Manager (noscript) -->
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
@@ -1869,13 +1852,16 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         '🎯 Цель: ' + (goalVal||mGoal||'—') + '\n' +
         '🌐 Источник: 🇬🇧 Английский\n' +
         '⏰ Время: ' + new Date().toLocaleString('ru-RU', {timeZone:'Europe/Moscow'});
-      Promise.all([
-        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
+            fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
           method:'POST',
           headers:{'Content-Type':'application/json'},
-          body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
-        }).catch(function(e){console.error('Make error:',e);})
-      ]).then(function(){ window.location.href='thank-you.html'; }).catch(function(){ window.location.href='thank-you.html'; });
+          body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_english', page:window.location.href})
+        }).then(function(r){
+        if(!r.ok) throw new Error('lead http '+r.status);
+        window.location.href='thank-you.html';
+      }).catch(function(e){
+        console.error('Lead submit failed:', e);
+      });
     });
   });
   if(back)back.addEventListener('click',()=>{
@@ -2058,15 +2044,22 @@ function closeModal(){
       const mGoal=(document.getElementById('modal-goal-val')?.value||'').trim();
       const mTeacher=(document.getElementById('modal-teacher-val')?.value||'').trim();
       const mSource='https://doublelang-online-school.com/english';
+      const mBlock=(document.getElementById('modal-source-val')?.value||'').trim();
       const mCalltime=(document.getElementById('modal-calltime')?.value||'').trim();
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
       Promise.all([
-        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,source:mSource,page:window.location.href})}).catch(()=>{})
-      ]).finally(function(){
+        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href})})
+      ]).then(function(r){
+        var res=r[0];
+        if(!res.ok) throw new Error('lead http '+res.status);
         submitBtn.style.background='var(--teal)';
         closeModal();
         window.location.href='thank-you.html';
+      }).catch(function(e){
+        console.error('Lead submit failed:', e);
+        submitBtn.style.background='#e05555';
+        submitBtn.textContent='Ошибка — попробуйте ещё раз';
       });
     });
   }
@@ -2457,14 +2450,16 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        showSuccess();
+        if(xhr.status>=200&&xhr.status<300){ showSuccess(); }
+        else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
     xhr.onerror=function(){
       try{t.remove();}catch(e){}
-      showSuccess();
+      console.error('Chat lead submit network error');
+      showChatError();
     };
-    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'chat_widget',page:window.location.href}));
+    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'https://doublelang-online-school.com/english',page:window.location.href}));
   }
 
   function showSuccess(){
@@ -2475,6 +2470,20 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     var cls=document.getElementById('dl-cls');
     if(cls) cls.onclick=dlToggle;
   }
+
+  function showChatError(){
+    var lang=botLang();
+    var win=document.getElementById('dl-chat-window');
+    var hdr='<div class="dl-ch"><div class="dl-ch-av">🎓</div><div class="dl-ch-info"><h4>DoubleLang</h4><span>Online</span></div><button class="dl-ch-close" id="dl-cls">✕</button></div>';
+    var text=lang==='en'
+      ? {t:'Something went wrong',p:'Your request wasn\'t sent. Please try again or message us on WhatsApp.',btn:'Try again'}
+      : {t:'Что-то пошло не так',p:'Заявка не отправилась. Попробуйте ещё раз или напишите нам в WhatsApp.',btn:'Попробовать снова'};
+    var body='<div class="dl-msgs" style="justify-content:center;align-items:center;"><div class="dl-success"><div class="dl-s-icon">⚠️</div><h3>'+text.t+'</h3><p>'+text.p+'</p><a href="'+WA_LINK+'" target="_blank" rel="noopener" class="dl-wa-btn">WhatsApp</a><button onclick="dlRestartChat()" style="margin-top:10px;background:none;border:1.5px solid rgba(0,0,0,.15);border-radius:99px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;">'+text.btn+'</button></div></div>';
+    win.innerHTML=hdr+body;
+    var cls=document.getElementById('dl-cls');
+    if(cls) cls.onclick=dlToggle;
+  }
+  window.dlRestartChat=function(){ dlToggle(); dlToggle(); };
 
   function botMsg(html){
     var c=document.getElementById('dl-msgs');

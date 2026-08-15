@@ -35,7 +35,7 @@
   <meta name="twitter:title" content="Русский язык онлайн — курсы русского для иностранцев">
   <meta name="twitter:description" content="Индивидуальные занятия русским языком онлайн с опытными преподавателями. Подготовка к ТРКИ (TORFL). Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-russian-v3.png">
-  <meta name="keywords" content="русский язык онлайн, курсы русского, подготовка к ТРКИ, TORFL, русский с нуля">
+  <meta name="keywords" content="русский язык онлайн, курсы русского, подготовка к ТРКИ, TORFL, русский с нуля, русский для экспатов, русский для эмигрантов, экзамен на гражданство РФ, экзамен на патент РВП, деловой русский, разговорный русский, русский для детей экспатов">
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1842,7 +1842,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_russian', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         window.location.href='thank-you.html';

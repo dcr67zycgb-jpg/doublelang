@@ -33,7 +33,7 @@
   <meta name="twitter:title" content="Курсы турецкого языка онлайн — Школа DoubleLang">
   <meta name="twitter:description" content="Индивидуальные занятия турецким с опытными преподавателями. Подготовка к TÖMER, YÖS, TYS. Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-turkish-v3.png">
-  <meta name="keywords" content="турецкий язык онлайн, курсы турецкого, подготовка к TÖMER, YÖS, TYS, турецкий с нуля">
+  <meta name="keywords" content="турецкий язык онлайн, курсы турецкого, подготовка к TÖMER, YÖS, TYS, турецкий с нуля, переезд в Турцию, гражданство Турции, вид на жительство Турция, разговорный турецкий, турецкий для бизнеса">
   <meta name="author" content="DoubleLang">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1378,15 +1378,15 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
     <p class="section-sub reveal">Гайды по экзаменам, переезду и изучению турецкого языка — пишем понятно и по делу.</p>
     <div class="blog-grid">
       <article class="blog-card reveal s1">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-tomer-cover.png" alt="TÖMER 2026" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-tomer-cover.png" alt="Обложка статьи: Подготовка к TÖMER 2026 — DoubleLang" style="width:100%;height:100%;object-fit:cover"></div>
         <div class="blog-body"><h3>Как подготовиться к TÖMER в 2026 году</h3><p>Разбираем структуру сертификата, уровни владения языком и пошаговый план подготовки.</p><div class="blog-meta"><span>7 мин чтения</span><a href="article-tomer-2026.html" class="blog-read">Читать →</a></div></div>
       </article>
       <article class="blog-card reveal s2">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-yos-cover.png" alt="YÖS" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-yos-cover.png" alt="Обложка статьи: Гид по поступлению YÖS — DoubleLang" style="width:100%;height:100%;object-fit:cover"></div>
         <div class="blog-body"><h3>YÖS: гид по поступлению в турецкий вуз</h3><p>Какие документы нужны, как проходит экзамен и сколько времени занимает подготовка с нуля.</p><div class="blog-meta"><span>9 мин чтения</span><a href="article-yos-guide.html" class="blog-read">Читать →</a></div></div>
       </article>
       <article class="blog-card reveal s3">
-        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-tys-cover.png" alt="TYS" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-tys-cover.png" alt="Обложка статьи: TYS для гражданства Турции — DoubleLang" style="width:100%;height:100%;object-fit:cover"></div>
         <div class="blog-body"><h3>TYS: турецкий для гражданства</h3><p>Какой уровень нужен для гражданства Турции и как готовиться к экзамену.</p><div class="blog-meta"><span>6 мин чтения</span><a href="article-tys-citizenship.html" class="blog-read">Читать →</a></div></div>
       </article>
     </div>
@@ -1789,7 +1789,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form', page:window.location.href})
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_turkish', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         window.location.href='thank-you.html';
