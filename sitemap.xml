@@ -72,4 +72,40 @@
   <url><loc>https://doublelang-online-school.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://doublelang-online-school.com/refund.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
+  <url>
+    <loc>https://doublelang-online-school.com/japanese/article-hiragana-katakana.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/japanese/article-japan-relocation.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/japanese/article-jlpt-2026.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/russian/article-russian-cases.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/russian/article-russian-citizenship.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/russian/article-torfl-2026.html</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
