@@ -1,5 +1,16 @@
 [
   {
+    "id": "de-het-artikli-niderlandskiy",
+    "lang": "nl",
+    "title": "De или het: как запомнить артикли в нидерландском языке раз и навсегда",
+    "excerpt": "Разбираем логику употребления артиклей de и het в нидерландском языке, даём практические правила, списки исключений и мнемотехники для быстрого запоми",
+    "cover": "/assets/blog-de-het-artikli-niderlandskiy-cover.png",
+    "url": "/dutch/article-de-het-artikli-niderlandskiy.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-08-17"
+  },
+  {
     "id": "russian-cases",
     "lang": "ru",
     "title": "Russian Cases Without Rote Memorization",
