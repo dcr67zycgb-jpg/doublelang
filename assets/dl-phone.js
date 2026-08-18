@@ -129,23 +129,82 @@
 
   /* --- отображение ошибки рядом с полем --- */
 
+  function isVisible(el) {
+    return !!(el && el.offsetParent !== null);
+  }
+
+  /* Форма многошаговая: телефон на первом шаге, кнопки цели на втором. Если
+   * ругаться на скрытое поле, снаружи выглядит так, будто ничего не произошло.
+   * Поэтому возвращаем человека на шаг с телефоном. */
+  function revealPhoneStep(input) {
+    if (isVisible(input)) return;
+    var back = document.getElementById('fstep-back');
+    if (back && isVisible(back)) { back.click(); return; }
+    var step1 = document.getElementById('fstep1');
+    var step2 = document.getElementById('fstep2');
+    if (step1) step1.style.display = '';
+    if (step2) step2.style.display = 'none';
+  }
+
   function showError(input, message) {
+    revealPhoneStep(input);
+
     input.style.borderColor = '#e05555';
+    input.style.background = '#fff6f6';
     var box = input.parentNode.querySelector('.dl-phone-error');
     if (!box) {
       box = document.createElement('div');
       box.className = 'dl-phone-error';
-      box.style.cssText = 'color:#e05555;font-size:13px;margin-top:6px;line-height:1.4';
+      box.style.cssText = 'color:#e05555;font-size:13px;margin-top:6px;' +
+                          'line-height:1.4;font-weight:600';
       input.parentNode.appendChild(box);
     }
     box.textContent = message;
-    try { input.focus({ preventScroll: false }); } catch (e) { input.focus(); }
+
+    /* Короткая подсветка привлекает внимание, если поле уже было на экране
+     * и человек его просто не заметил. */
+    input.style.transition = 'box-shadow .2s';
+    input.style.boxShadow = '0 0 0 4px rgba(224,85,85,.18)';
+    setTimeout(function () { input.style.boxShadow = ''; }, 900);
+
+    try {
+      input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (e) {
+      input.scrollIntoView();
+    }
+    setTimeout(function () {
+      try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); }
+    }, 150);
   }
 
   function clearError(input) {
     input.style.borderColor = '';
+    input.style.background = '';
+    input.style.boxShadow = '';
     var box = input.parentNode.querySelector('.dl-phone-error');
     if (box) box.remove();
+  }
+
+  /* Подсказка под полем, пока человек набирает: видно, сколько осталось.
+   * Показываем только после того, как введён код страны и хоть одна цифра -
+   * иначе подсказка мозолит глаза с первого символа. */
+  function showProgress(input) {
+    var p = parse(input.value);
+    var box = input.parentNode.querySelector('.dl-phone-hint-live');
+    if (p.empty || p.unknownCode || !p.rest || !p.rest.length ||
+        p.rest.length >= p.country.min) {
+      if (box) box.remove();
+      return;
+    }
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'dl-phone-hint-live';
+      box.style.cssText = 'color:#8a9691;font-size:12px;margin-top:5px;line-height:1.4';
+      input.parentNode.appendChild(box);
+    }
+    var need = p.country.min - p.rest.length;
+    box.textContent = p.country.name + ': осталось ввести ' + need + ' ' +
+                      plural(need, 'цифру', 'цифры', 'цифр');
   }
 
   /* Поле телефона той же формы, что и нажатый элемент. */
@@ -193,11 +252,22 @@
     }
   }, true);
 
-  /* Пока человек правит номер, ошибку убираем. */
+  /* Пока человек правит номер, ошибку убираем и показываем, сколько осталось. */
   document.addEventListener('input', function (event) {
-    if (event.target.matches && event.target.matches('input[type="tel"]')) {
-      clearError(event.target);
+    var input = event.target;
+    if (input.matches && input.matches('input[type="tel"]')) {
+      clearError(input);
+      showProgress(input);
     }
+  }, true);
+
+  /* Ушёл из поля с неполным номером - говорим сразу, не дожидаясь отправки. */
+  document.addEventListener('focusout', function (event) {
+    var input = event.target;
+    if (!input.matches || !input.matches('input[type="tel"]')) return;
+    if (!String(input.value || '').trim()) return;      // пустое поле не ругаем
+    var result = validate(input.value);
+    if (!result.ok) showError(input, result.message);
   }, true);
 
   window.DLPhone = { validate: validate, parse: parse };
