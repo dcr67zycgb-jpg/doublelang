@@ -1,5 +1,16 @@
 [
   {
+    "id": "padezhi-serbskogo-yazyka",
+    "lang": "sr",
+    "title": "Падежи в сербском языке: полное руководство с примерами для начинающих",
+    "excerpt": "Подробный разбор всех семи падежей сербского языка с таблицами склонений, типичными ошибками русскоязычных учащихся и практическими упражнениями для з",
+    "cover": "/assets/blog-padezhi-serbskogo-yazyka-cover.png",
+    "url": "/serbian/article-padezhi-serbskogo-yazyka.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-18"
+  },
+  {
     "id": "de-het-artikli-niderlandskiy",
     "lang": "nl",
     "title": "De или het: как запомнить артикли в нидерландском языке раз и навсегда",
