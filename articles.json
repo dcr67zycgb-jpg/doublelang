@@ -1,5 +1,16 @@
 [
   {
+    "id": "nemeckie-padezhi-guide",
+    "lang": "de",
+    "title": "Падежи в немецком языке: полное руководство для начинающих",
+    "excerpt": "Подробный разбор всех четырёх падежей немецкого языка с таблицами склонений, типичными ошибками русскоязычных учащихся и упражнениями для закрепления ",
+    "cover": "/assets/blog-nemeckie-padezhi-guide-cover.png",
+    "url": "/german/article-nemeckie-padezhi-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-18"
+  },
+  {
     "id": "de-het-artikli-niderlandskiy",
     "lang": "nl",
     "title": "De или het: как запомнить артикли в нидерландском языке раз и навсегда",
