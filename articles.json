@@ -1,5 +1,38 @@
 [
   {
+    "id": "nemeckie-padezhi-guide",
+    "lang": "de",
+    "title": "Падежи в немецком языке: полное руководство для начинающих",
+    "excerpt": "Подробный разбор всех четырёх падежей немецкого языка с таблицами склонений, типичными ошибками русскоязычных учащихся и упражнениями для закрепления ",
+    "cover": "/assets/blog-nemeckie-padezhi-guide-cover.png",
+    "url": "/german/article-nemeckie-padezhi-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-18"
+  },
+  {
+    "id": "padezhi-serbskogo-yazyka",
+    "lang": "sr",
+    "title": "Падежи в сербском языке: полное руководство с примерами для начинающих",
+    "excerpt": "Подробный разбор всех семи падежей сербского языка с таблицами склонений, типичными ошибками русскоязычных учащихся и практическими упражнениями для з",
+    "cover": "/assets/blog-padezhi-serbskogo-yazyka-cover.png",
+    "url": "/serbian/article-padezhi-serbskogo-yazyka.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-18"
+  },
+  {
+    "id": "subjuntivo-guide",
+    "lang": "es",
+    "title": "Subjuntivo в испанском языке: как наконец разобраться в самом сложном наклонении",
+    "excerpt": "Подробный разбор случаев употребления subjuntivo с примерами, таблицами спряжений и практическими упражнениями для русскоязычных студентов, которые бо",
+    "cover": "/assets/blog-subjuntivo-guide-cover.png",
+    "url": "/spanish/article-subjuntivo-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-18"
+  },
+  {
     "id": "scheidbare-werkwoorden-niderlandskiy",
     "lang": "nl",
     "title": "Разделяемые глаголы в нидерландском языке: полное руководство с примерами",
