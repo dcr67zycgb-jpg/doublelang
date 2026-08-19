@@ -1,5 +1,71 @@
 [
   {
+    "id": "staatsexamen-nt2-2026",
+    "lang": "nl",
+    "title": "Staatsexamen NT2 в 2026 году: как выбрать между Programma I и II и сдать с первого раза",
+    "excerpt": "Подробный разбор экзамена Staatsexamen NT2: чем отличаются Programma I и II, кому какой нужен, структура частей (чтение, письмо, аудирование, говорени",
+    "cover": "/assets/blog-staatsexamen-nt2-2026-cover.png",
+    "url": "/dutch/article-staatsexamen-nt2-2026.html",
+    "category": "Экзамены",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-19"
+  },
+  {
+    "id": "nemeckoe-rezjume-sobesedovanie",
+    "lang": "de",
+    "title": "Немецкое резюме и собеседование: как получить работу в Германии",
+    "excerpt": "Подробный гид по составлению Lebenslauf и Anschreiben по немецким стандартам, а также фразы и советы для успешного прохождения собеседования на немецк",
+    "cover": "/assets/blog-nemeckoe-rezjume-sobesedovanie-cover.png",
+    "url": "/german/article-nemeckoe-rezjume-sobesedovanie.html",
+    "category": "Работа",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-19"
+  },
+  {
+    "id": "predlogi-mesta-vremeni-francuzskiy",
+    "lang": "fr",
+    "title": "Французские предлоги места и времени: подробный гид с примерами и упражнениями",
+    "excerpt": "Разбор употребления французских предлогов места (à, en, dans, chez) и времени (depuis, pendant, il y a) с примерами, типичными ошибками русскоязычных ",
+    "cover": "/assets/blog-predlogi-mesta-vremeni-francuzskiy-cover.png",
+    "url": "/french/article-predlogi-mesta-vremeni-francuzskiy.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-19"
+  },
+  {
+    "id": "turkish-cases-guide",
+    "lang": "tr",
+    "title": "Падежи в турецком языке: полное руководство с примерами и упражнениями",
+    "excerpt": "Подробный разбор всех падежей турецкого языка (исходный, дательный, винительный, местный) с таблицами окончаний, правилами гармонии гласных и практиче",
+    "cover": "/assets/blog-turkish-cases-guide-cover.png",
+    "url": "/turkish/article-turkish-cases-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-19"
+  },
+  {
+    "id": "subjuntivo-portugues-guide",
+    "lang": "pt",
+    "title": "Subjuntivo в португальском языке: когда и как использовать сослагательное наклонение",
+    "excerpt": "Подробный гайд по одному из самых сложных грамматических явлений португальского языка: правила образования, случаи употребления и типичные ошибки русс",
+    "cover": "/assets/blog-subjuntivo-portugues-guide-cover.png",
+    "url": "/portuguese/article-subjuntivo-portugues-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-19"
+  },
+  {
+    "id": "russian-verbs-of-motion",
+    "lang": "ru",
+    "title": "Verbs of Motion in Russian: How to Stop Confusing идти and ходить",
+    "excerpt": "Подробный гид по глаголам движения с приставками и без — с таблицами, примерами и упражнениями для иностранцев, которые учат русский язык.",
+    "cover": "/assets/blog-russian-verbs-of-motion-cover.png",
+    "url": "/russian/article-russian-verbs-of-motion.html",
+    "category": "Язык",
+    "readtime": "12 min read",
+    "date": "2026-08-19"
+  },
+  {
     "id": "nemeckie-padezhi-guide",
     "lang": "de",
     "title": "Падежи в немецком языке: полное руководство для начинающих",
