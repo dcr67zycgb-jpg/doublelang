@@ -194,7 +194,7 @@
     "cover": "/assets/blog-greek-cyprus-cover.png",
     "url": "/greek/article-greek-cyprus.html",
     "category": "Язык",
-    "readtime": "8 мин чтения",
+    "readtime": "11 мин чтения",
     "date": "2026-07-19"
   },
   {
@@ -238,7 +238,7 @@
     "cover": "/assets/blog-pt-br-cover.png",
     "url": "/portuguese/article-pt-br.html",
     "category": "Язык",
-    "readtime": "8 мин чтения",
+    "readtime": "11 мин чтения",
     "date": "2026-07-19"
   },
   {
@@ -365,7 +365,7 @@
   {
     "id": "yos-guide",
     "lang": "tr",
-    "title": "YÖS: гид по поступлению в турецкий вуз",
+    "title": "YÖS экзамен: гид по поступлению в турецкий вуз",
     "excerpt": "Какие документы нужны, как проходит экзамен и сколько времени занимает подготовка с нуля.",
     "cover": "/assets/blog-yos-cover.png",
     "url": "/turkish/article-yos-guide.html",
@@ -376,12 +376,12 @@
   {
     "id": "tys-citizenship",
     "lang": "tr",
-    "title": "TYS: турецкий для гражданства",
+    "title": "Турецкий язык для гражданства: как сдать экзамен и получить паспорт",
     "excerpt": "Какой уровень нужен для гражданства Турции и как готовиться к экзамену.",
     "cover": "/assets/blog-tys-cover.png",
     "url": "/turkish/article-tys-citizenship.html",
     "category": "Экзамены",
-    "readtime": "6 мин чтения",
+    "readtime": "11 мин чтения",
     "date": "2026-02-06"
   },
   {
@@ -392,7 +392,7 @@
     "cover": "/assets/blog-oesd-cover.png",
     "url": "/german/article-oesd-guide.html",
     "category": "Экзамены",
-    "readtime": "8 мин чтения",
+    "readtime": "10 мин чтения",
     "date": "2026-02-05"
   },
   {
@@ -458,7 +458,7 @@
     "cover": "/assets/blog-german-austria-cover.png",
     "url": "/german/article-german-austria.html",
     "category": "Язык",
-    "readtime": "6 мин чтения",
+    "readtime": "11 мин чтения",
     "date": "2026-01-15"
   },
   {
