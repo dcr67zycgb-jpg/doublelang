@@ -1789,6 +1789,12 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       const nameVal = (_mf.querySelector('input[type="text"]')?.value || '').trim();
       const emailVal = (_mf.querySelector('input[type="email"]')?.value || '').trim();
       const goalVal = (document.getElementById('form-goal-val')?.value || '').trim();
+      /* dl-inline-phone-guard: страховка на случай, если dl-phone.js ещё не выполнился (он подключён с defer) или не загрузился. */
+      if(!phoneVal){
+        const _pi=_mf.querySelector('input[type="tel"]');
+        if(_pi){_pi.style.borderColor='#e05555';_pi.focus();_pi.scrollIntoView({block:'center',behavior:'smooth'});}
+        return;
+      }
       b.style.borderColor='var(--teal-bright)';
       b.style.background='rgba(42,163,154,.35)';
       b.textContent='Отправляем...';
