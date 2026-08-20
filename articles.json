@@ -1,5 +1,49 @@
 [
   {
+    "id": "cambridge-c1-advanced-2026",
+    "lang": "en",
+    "title": "Экзамен Cambridge C1 Advanced (CAE): полное руководство по подготовке в 2026",
+    "excerpt": "Подробный гид по структуре экзамена CAE, критериям оценки и стратегиям подготовки для тех, кто хочет подтвердить уровень C1 для учёбы или работы за гр",
+    "cover": "/assets/blog-cambridge-c1-advanced-2026-cover.png",
+    "url": "/english/article-cambridge-c1-advanced-2026.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
+    "id": "glagoly-dvizheniya-predlogi-francuzskiy",
+    "lang": "fr",
+    "title": "Французские глаголы движения и их сочетаемость с предлогами",
+    "excerpt": "Подробный гид по глаголам движения во французском языке (aller, venir, partir, arriver и др.) с правилами их сочетания с предлогами и типичными ошибка",
+    "cover": "/assets/blog-glagoly-dvizheniya-predlogi-francuzskiy-cover.png",
+    "url": "/french/article-glagoly-dvizheniya-predlogi-francuzskiy.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
+    "id": "isj-ispit-srpski-jezik-2026",
+    "lang": "sr",
+    "title": "Экзамен ISJ по сербскому языку: путь к гражданству Сербии",
+    "excerpt": "Подробный гид по экзамену ISJ для получения вида на жительство и гражданства Сербии: структура теста, уровни сложности, критерии оценки, где сдавать и",
+    "cover": "/assets/blog-isj-ispit-srpski-jezik-2026-cover.png",
+    "url": "/serbian/article-isj-ispit-srpski-jezik-2026.html",
+    "category": "Экзамены",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
+    "id": "ccse-nacionalidad-espanola",
+    "lang": "es",
+    "title": "Экзамен CCSE для получения испанского гражданства: что нужно знать и как подготовиться",
+    "excerpt": "Разбираем структуру экзамена CCSE (конституционные и социокультурные знания об Испании), необходимого для получения испанского гражданства, и даём пла",
+    "cover": "/assets/blog-ccse-nacionalidad-espanola-cover.png",
+    "url": "/spanish/article-ccse-nacionalidad-espanola.html",
+    "category": "Иммиграция",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
     "id": "staatsexamen-nt2-2026",
     "lang": "nl",
     "title": "Staatsexamen NT2 в 2026 году: как выбрать между Programma I и II и сдать с первого раза",
