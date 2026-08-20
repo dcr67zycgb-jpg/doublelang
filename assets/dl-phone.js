@@ -179,6 +179,7 @@
 
   function clearError(input) {
     input.style.borderColor = '';
+    input.style.boxShadow = '';
     input.style.background = '';
     input.style.boxShadow = '';
     var box = input.parentNode.querySelector('.dl-phone-error');
@@ -188,14 +189,28 @@
   /* Подсказка под полем, пока человек набирает: видно, сколько осталось.
    * Показываем только после того, как введён код страны и хоть одна цифра -
    * иначе подсказка мозолит глаза с первого символа. */
+  /* Незавершённый номер должен ВЫГЛЯДЕТЬ незавершённым.
+
+     Раньше подсказка про недостающие цифры была, а рамка оставалась той,
+     что даёт CSS сайта при фокусе - бирюзовой. Поле с половиной номера
+     читалось как одобренное, и человек жал «Записаться». Поэтому пока
+     цифр не хватает, рамка янтарная и перебивает стиль фокуса. */
+  var AMBER = '#e0a355';
+
   function showProgress(input) {
     var p = parse(input.value);
     var box = input.parentNode.querySelector('.dl-phone-hint-live');
     if (p.empty || p.unknownCode || !p.rest || !p.rest.length ||
         p.rest.length >= p.country.min) {
       if (box) box.remove();
+      if (input.style.borderColor === AMBER) {
+        input.style.borderColor = '';
+        input.style.boxShadow = '';
+      }
       return;
     }
+    input.style.borderColor = AMBER;
+    input.style.boxShadow = '0 0 0 3px rgba(224,163,85,.18)';
     if (!box) {
       box = document.createElement('div');
       box.className = 'dl-phone-hint-live';
@@ -269,6 +284,74 @@
     var result = validate(input.value);
     if (!result.ok) showError(input, result.message);
   }, true);
+
+  /* ------------------------------------------------------------------
+     Заслон на уровне запроса.
+
+     Проверки по кнопкам ненадёжны: на лендингах три разных отправителя
+     (обработчик .goal-btn, модалка, чат-бот), список триггеров совпадал
+     не со всеми, а кнопки .goal-btn вообще исчезли из вёрстки - остался
+     только код. Любой новый путь отправки снова оказался бы без проверки.
+
+     Поэтому правило «без телефона заявка не уходит» стоит там, где сходятся
+     все пути: на самом запросе к вебхуку. Payload читается, номер
+     проверяется тем же validate(), и при неполном номере запрос не
+     выполняется вовсе, а видимое поле телефона подсвечивается.
+     ------------------------------------------------------------------ */
+  var LEAD_ENDPOINT = '/api/crm/webhooks/lead';
+
+  function phoneFromBody(body) {
+    if (!body || typeof body !== 'string') return null;
+    try {
+      var data = JSON.parse(body);
+      return typeof data.phone === 'string' ? data.phone : '';
+    } catch (e) {
+      return null;                      // не JSON - не наше дело, пропускаем
+    }
+  }
+
+  function leadAllowed(body) {
+    var phone = phoneFromBody(body);
+    if (phone === null) return true;    // payload не разобрался - не мешаем
+    var result = validate(phone);
+    if (result.ok) return true;
+
+    /* Показываем причину на видимом поле, иначе отказ выглядит как «зависло». */
+    var inputs = document.querySelectorAll('input[type="tel"]');
+    for (var i = 0; i < inputs.length; i++) {
+      if (isVisible(inputs[i])) {
+        showError(inputs[i], result.message);
+        try { inputs[i].focus(); } catch (e) {}
+        break;
+      }
+    }
+    try {
+      console.warn('[dl-phone] заявка не отправлена: ' + result.message);
+    } catch (e) {}
+    return false;
+  }
+
+  var _fetch = window.fetch;
+  if (typeof _fetch === 'function') {
+    window.fetch = function (input, init) {
+      var url = (typeof input === 'string') ? input : (input && input.url) || '';
+      if (url.indexOf(LEAD_ENDPOINT) !== -1 && init && !leadAllowed(init.body)) {
+        return Promise.reject(new Error('dl-phone: номер телефона не заполнен'));
+      }
+      return _fetch.apply(this, arguments);
+    };
+  }
+
+  var _open = XMLHttpRequest.prototype.open;
+  var _send = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.open = function (method, url) {
+    this.__dlLead = String(url || '').indexOf(LEAD_ENDPOINT) !== -1;
+    return _open.apply(this, arguments);
+  };
+  XMLHttpRequest.prototype.send = function (body) {
+    if (this.__dlLead && !leadAllowed(body)) return;   // молча не отправляем
+    return _send.apply(this, arguments);
+  };
 
   window.DLPhone = { validate: validate, parse: parse };
 })();
