@@ -52,6 +52,32 @@
 
   function digits(value) { return String(value || '').replace(/\D/g, ''); }
 
+  /* Страна по разделу сайта.
+   *
+   * На лендингах в поле телефона стоит подсказка «+31 6 12 34 56 78», и люди
+   * пишут с кодом. В статьях поле называется просто «Телефон / WhatsApp» -
+   * там пишут местный номер: 06 12345678, 0532 ... . Пока проверки не было,
+   * такие заявки уходили; с включённой проверкой они стали упираться в
+   * «номер должен начинаться с кода страны», и заявки перестали доходить.
+   *
+   * Поэтому голый национальный номер трактуем по разделу, в котором человек
+   * находится. Это догадка, но верная в подавляющем большинстве случаев, и
+   * она заведомо лучше отказа. Явно введённый код всегда важнее. */
+  var SECTION_CODES = {
+    dutch: '31', german: '49', french: '33', serbian: '381', turkish: '90',
+    spanish: '34', portuguese: '351', greek: '30', japanese: '81',
+    english: '44', russian: '7'
+  };
+
+  function defaultCode() {
+    try {
+      var seg = String(location.pathname || '').split('/').filter(Boolean)[0];
+      return SECTION_CODES[seg] || null;
+    } catch (e) {
+      return null;
+    }
+  }
+
   /* Разбирает номер: код страны, национальная часть, отброшенный внутренний ноль. */
   function parse(value) {
     var d = digits(value);
@@ -100,6 +126,18 @@
       }
       return { code: code, rest: rest, country: country,
                trimmed: trimmed, localRu: localRu };
+    }
+    /* Кода нет - пробуем код раздела. Ведущий внутренний ноль при этом
+     * снимается: 06 12345678 в разделе /dutch/ это +31 6 12345678. */
+    var fallback = defaultCode();
+    if (fallback && COUNTRIES[fallback]) {
+      var fb = COUNTRIES[fallback];
+      var local = d;
+      if (fb.trunk && local.charAt(0) === fb.trunk) local = local.slice(1);
+      if (local.length >= fb.min && local.length <= fb.max) {
+        return { code: fallback, rest: local, country: fb,
+                 trimmed: local !== d, localRu: localRu, assumed: true };
+      }
     }
     return { unknownCode: true, raw: d };
   }
