@@ -2028,6 +2028,19 @@ function closeModal(){
       const consentLabel=document.getElementById('modal-consent-label');
       if(tel&&!tel.value.trim()){tel.style.borderColor='#e05555';tel.focus();return;}
       if(consent&&!consent.checked){if(consentLabel)consentLabel.style.color='#e05555';return;}
+      /* Капча должна ЗАПРЕЩАТЬ отправку, а не просто дописывать токен.
+         Токен берём внутри самой модалки: на странице два виджета, и
+         querySelector по документу возвращал токен первого - от формы,
+         с которой человек не взаимодействовал. */
+      var _mForm=document.getElementById('modal-form');
+      var _ts=_mForm&&_mForm.querySelector('[name="cf-turnstile-response"]');
+      var _tsVal=_ts?String(_ts.value||'').trim():'';
+      if(!_tsVal){
+        var _w=_mForm&&_mForm.querySelector('.cf-turnstile');
+        if(_w){_w.style.outline='2px solid #e05555';_w.style.borderRadius='8px';
+               _w.scrollIntoView({block:'center',behavior:'smooth'});}
+        return;
+      }
       const mPhone=(tel?.value||'').trim();
       const mName=(document.querySelector('#modal-form input[type="text"]')?.value||'').trim();
       const mEmail=(document.querySelector('#modal-form input[type="email"]')?.value||'').trim();
@@ -2039,7 +2052,7 @@ function closeModal(){
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
       Promise.all([
-        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href})})
+        fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({'cf-turnstile-response':_tsVal,phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href})})
       ]).then(function(r){
         var res=r[0];
         if(!res.ok) throw new Error('lead http '+res.status);
