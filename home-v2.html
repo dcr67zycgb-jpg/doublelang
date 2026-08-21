@@ -833,12 +833,16 @@ html{overflow-x:hidden;max-width:100%}/* Скролл вправо-влево н
     }
     function closeTeacherModal(){ document.getElementById('teacher-modal-overlay').classList.remove('open'); }
     function openContactModal(){
-      closeTeacherModal(); const t=TEACHERS_DATA[window.__selectedTeacherIdx||0];
+      closeTeacherModal(); /* Без явного выбора преподавателя поле остаётся пустым. Прежнее || 0 молча приписывало заявку первому в списке, и проверить это было нечем: имя в заявке выглядело достоверным. */
+    const _ti=window.__selectedTeacherIdx;
+    const t=(typeof _ti==='number'&&TEACHERS_DATA[_ti])?TEACHERS_DATA[_ti]:null;
       document.getElementById('modal-teacher-val').value = t ? t.name : '';
       document.getElementById('modal-source-val').value = 'teacher_' + (t ? t.name : '');
       document.getElementById('contact-modal').classList.add('open');
     }
     function openCtaModal(src) {
+    /* Сброс выбора: иначе следующая заявка по общей кнопке унаследовала бы преподавателя от прошлого просмотра. */
+    window.__selectedTeacherIdx=null;
       document.getElementById('modal-source-val').value = src;
       document.getElementById('modal-teacher-val').value = '';
       document.getElementById('contact-modal').classList.add('open');
