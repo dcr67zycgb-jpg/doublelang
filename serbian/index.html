@@ -1971,6 +1971,8 @@ function openLevelModal(btn){
 }
 window.openLevelModal = openLevelModal;
 function openCtaModal(sourceBlock){
+    /* Сброс выбора: иначе следующая заявка по общей кнопке унаследовала бы преподавателя от прошлого просмотра. */
+    window.__selectedTeacherIdx=null;
   const lb=document.getElementById('modal-level-badge');
   if(lb)lb.textContent='Пробный урок';
   const gv=document.getElementById('modal-goal-val');
@@ -2063,13 +2065,15 @@ function closeTeacherModal(){
 }
 function openContactModal(){
   closeTeacherModal();
-  const t=TEACHERS_DATA[window.__selectedTeacherIdx||0];
+  /* Без явного выбора преподавателя поле остаётся пустым. Прежнее || 0 молча приписывало заявку первому в списке, и проверить это было нечем: имя в заявке выглядело достоверным. */
+    const _ti=window.__selectedTeacherIdx;
+    const t=(typeof _ti==='number'&&TEACHERS_DATA[_ti])?TEACHERS_DATA[_ti]:null;
   const m=document.getElementById('contact-modal');
   if(m){
     const lb=document.getElementById('modal-level-badge');
-    if(lb)lb.textContent='Преподаватель: '+(t?t.name:'');
+    if(lb){lb.textContent=t?('Преподаватель: '+t.name):'';lb.style.display=t?'':'none';}
     const gv=document.getElementById('modal-goal-val');
-    if(gv)gv.value='Запись к преподавателю';
+    if(gv)gv.value=t?'Запись к преподавателю':'Пробный урок';
     const tv=document.getElementById('modal-teacher-val');
     if(tv)tv.value=(t?t.name:'');
     const sv=document.getElementById('modal-source-val');
