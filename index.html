@@ -68,6 +68,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+html{overflow-x:hidden;max-width:100%}/* Скролл вправо-влево на мобильном: overflow-x стоял только на body, а пока прокручивается html, страница всё равно едет. */
 a { color: var(--teal); text-decoration:none; }
 img { max-width:100%; display:block; }
 .container { max-width:1100px; margin:0 auto; padding:0 28px; }
@@ -790,7 +791,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .container { padding:0 16px; }
   .hero { padding:calc(76px + env(safe-area-inset-top,0px)) 0 44px; }
   .nav-inner { display:flex!important; justify-content:flex-end; align-items:center; position:relative; }
-  .nav-logo { position:absolute; left:50%; top:calc(50% + 12px); transform:translate(-50%,-50%); pointer-events:auto; }
+  .nav-logo { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:auto; }
   .hero-badge { display:inline-flex!important; width:auto!important; align-self:center; }
   .hero-inner { align-items:center; }
   .hero h1 { text-align:center; }
@@ -1128,7 +1129,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           Выберите <em>идеального</em><br>
           преподавателя<br class="br-mobile">для себя
         </h1>
-        <p class="hero-sub-line">Индивидуальное онлайн-обучение с носителями и экспертами. Своя интерактивная платформа, гибкое расписание<br>и программа под ваши цели.</p>
+        <p class="hero-sub-line">Индивидуальное онлайн-обучение с носителями и экспертами. Своя интерактивная платформа, гибкое расписание и программа под ваши цели.</p>
         <div class="hero-feats">
           <span class="hero-feat"><span class="hf-ic">✈️</span>Переезд</span>
           <span class="hero-feat"><span class="hf-ic">💼</span>Карьера</span>
