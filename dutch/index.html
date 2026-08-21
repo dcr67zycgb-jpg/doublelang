@@ -67,6 +67,7 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+html{overflow-x:hidden;max-width:100%}/* Скролл вправо-влево на мобильном: overflow-x стоял только на body, а пока прокручивается html, страница всё равно едет. */
 a { color: var(--teal); text-decoration:none; }
 img { max-width:100%; display:block; }
 .container { max-width:1100px; margin:0 auto; padding:0 28px; }
