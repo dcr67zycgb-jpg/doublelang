@@ -1,5 +1,82 @@
 [
   {
+    "id": "sobesedovanie-niderlandskiy-yazyk",
+    "lang": "nl",
+    "title": "Собеседование на нидерландском языке: подготовка, фразы и культурные коды",
+    "excerpt": "Пошаговое руководство для русскоязычных соискателей: как отвечать на типичные вопросы работодателя на нидерландском, какую лексику и фразы использоват",
+    "cover": "/assets/blog-sobesedovanie-niderlandskiy-yazyk-cover.png",
+    "url": "/dutch/article-sobesedovanie-niderlandskiy-yazyk.html",
+    "category": "Работа",
+    "readtime": "10 мин чтения",
+    "date": "2026-08-24"
+  },
+  {
+    "id": "blue-card-germany-2026",
+    "lang": "de",
+    "title": "Голубая карта ЕС (Blue Card) в Германии в 2026 году: как переехать по работе",
+    "excerpt": "Подробный гайд об условиях получения Blue Card в Германии в 2026 году: требования к зарплате, дипломам, языку и пошаговый процесс подачи документов дл",
+    "cover": "/assets/blog-blue-card-germany-2026-cover.png",
+    "url": "/german/article-blue-card-germany-2026.html",
+    "category": "Иммиграция",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-24"
+  },
+  {
+    "id": "campus-france-postuplenie-2026",
+    "lang": "fr",
+    "title": "Как поступить в университет Франции через Campus France в 2026 году",
+    "excerpt": "Подробный гид по процедуре Campus France: от регистрации личного кабинета и выбора программ до подготовки документов, собеседования и получения визы д",
+    "cover": "/assets/blog-campus-france-postuplenie-2026-cover.png",
+    "url": "/french/article-campus-france-postuplenie-2026.html",
+    "category": "Учёба",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-24"
+  },
+  {
+    "id": "ekzamen-serbskiy-vnzh-grazhdanstvo",
+    "lang": "sr",
+    "title": "Экзамен по сербскому языку для ВНЖ и гражданства: как подготовиться и что спрашивают",
+    "excerpt": "Подробный разбор требований к знанию сербского языка при подаче на вид на жительство и гражданство Сербии, форматы проверки, типичные вопросы и советы",
+    "cover": "/assets/blog-ekzamen-serbskiy-vnzh-grazhdanstvo-cover.png",
+    "url": "/serbian/article-ekzamen-serbskiy-vnzh-grazhdanstvo.html",
+    "category": "Экзамены",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-24"
+  },
+  {
+    "id": "ikamet-turkey-2026",
+    "lang": "tr",
+    "title": "Вид на жительство в Турции 2026: документы, язык и подводные камни",
+    "excerpt": "Пошаговое руководство для русскоязычных о получении вида на жительство в Турции: какие документы нужны, как записаться, какой уровень турецкого языка ",
+    "cover": "/assets/blog-ikamet-turkey-2026-cover.png",
+    "url": "/turkish/article-ikamet-turkey-2026.html",
+    "category": "Иммиграция",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-24"
+  },
+  {
+    "id": "rabota-v-gretsii-yazyk",
+    "lang": "el",
+    "title": "Как искать работу в Греции: резюме, собеседование и профессиональная лексика",
+    "excerpt": "Пошаговое руководство для русскоязычных о поиске работы в Греции: как составить резюме и сопроводительное письмо на греческом, пройти собеседование и ",
+    "cover": "/assets/blog-rabota-v-gretsii-yazyk-cover.png",
+    "url": "/greek/article-rabota-v-gretsii-yazyk.html",
+    "category": "Работа",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-24"
+  },
+  {
+    "id": "russian-verb-aspect",
+    "lang": "ru",
+    "title": "Russian Verb Aspect: How to Stop Confusing Делать and Сделать",
+    "excerpt": "Подробный разбор того, как устроен вид глагола в русском языке, с практическими правилами выбора между совершенным и несовершенным видом и живыми прим",
+    "cover": "/assets/blog-russian-verb-aspect-cover.png",
+    "url": "/russian/article-russian-verb-aspect.html",
+    "category": "Язык",
+    "readtime": "12 min read",
+    "date": "2026-08-24"
+  },
+  {
     "id": "staatsexamen-nt2-2026",
     "lang": "nl",
     "title": "Staatsexamen NT2 в 2026 году: как выбрать между Programma I и II и сдать с первого раза",
