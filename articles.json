@@ -77,6 +77,116 @@
     "date": "2026-08-24"
   },
   {
+    "id": "sobesedovanie-na-niderlandskom-yazyke",
+    "lang": "nl",
+    "title": "Собеседование на нидерландском языке: как подготовиться и получить работу в Нидерландах",
+    "excerpt": "Пошаговое руководство по подготовке к собеседованию на нидерландском языке: типичные вопросы, полезные фразы, культурные особенности делового общения ",
+    "cover": "/assets/blog-sobesedovanie-na-niderlandskom-yazyke-cover.png",
+    "url": "/dutch/article-sobesedovanie-na-niderlandskom-yazyke.html",
+    "category": "Работа",
+    "readtime": "10 мин чтения",
+    "date": "2026-08-21"
+  },
+  {
+    "id": "pte-academic-2026",
+    "lang": "en",
+    "title": "PTE Academic в 2026: полное руководство по подготовке и сдаче экзамена",
+    "excerpt": "Подробный разбор формата экзамена PTE Academic, отличий от IELTS и TOEFL, стратегий подготовки по всем секциям и советов по выбору этого экзамена для ",
+    "cover": "/assets/blog-pte-academic-2026-cover.png",
+    "url": "/english/article-pte-academic-2026.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-21"
+  },
+  {
+    "id": "subjonctif-francuzskiy-kogda-ispolzovat",
+    "lang": "fr",
+    "title": "Сюбжонктив во французском языке: когда и как использовать простыми словами",
+    "excerpt": "Подробный разбор одного из самых сложных наклонений французского языка: правила образования, ключевые триггеры-глаголы и выражения, требующие сюбжонкт",
+    "cover": "/assets/blog-subjonctif-francuzskiy-kogda-ispolzovat-cover.png",
+    "url": "/french/article-subjonctif-francuzskiy-kogda-ispolzovat.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-21"
+  },
+  {
+    "id": "postuplenie-universitet-serbia-2026",
+    "lang": "sr",
+    "title": "Поступление в университет Сербии: экзамены, документы и языковой уровень",
+    "excerpt": "Подробный гид по поступлению в сербские вузы: требования к знанию языка, нострификация документов, вступительные экзамены и советы по подготовке для р",
+    "cover": "/assets/blog-postuplenie-universitet-serbia-2026-cover.png",
+    "url": "/serbian/article-postuplenie-universitet-serbia-2026.html",
+    "category": "Учёба",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-21"
+  },
+  {
+    "id": "rabota-portugalia-resume-sobesedovanie",
+    "lang": "pt",
+    "title": "Резюме и собеседование на португальском: как найти работу в Португалии в 2026 году",
+    "excerpt": "Пошаговое руководство для русскоязычных о том, как составить резюме (currículo) и подготовиться к собеседованию на португальском языке, включая типичн",
+    "cover": "/assets/blog-rabota-portugalia-resume-sobesedovanie-cover.png",
+    "url": "/portuguese/article-rabota-portugalia-resume-sobesedovanie.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-21"
+  },
+  {
+    "id": "keigo-vezhlivaya-rech",
+    "lang": "ja",
+    "title": "Кэйго: вежливая речь в японском языке для работы и повседневной жизни",
+    "excerpt": "Подробный разбор системы кэйго (сонкэйго, кэндзёго, тэйнэйго) с примерами фраз для деловых переговоров, собеседований и общения со старшими — must-hav",
+    "cover": "/assets/blog-keigo-vezhlivaya-rech-cover.png",
+    "url": "/japanese/article-keigo-vezhlivaya-rech.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-21"
+  },
+  {
+    "id": "cambridge-c1-advanced-2026",
+    "lang": "en",
+    "title": "Экзамен Cambridge C1 Advanced (CAE): полное руководство по подготовке в 2026",
+    "excerpt": "Подробный гид по структуре экзамена CAE, критериям оценки и стратегиям подготовки для тех, кто хочет подтвердить уровень C1 для учёбы или работы за гр",
+    "cover": "/assets/blog-cambridge-c1-advanced-2026-cover.png",
+    "url": "/english/article-cambridge-c1-advanced-2026.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
+    "id": "glagoly-dvizheniya-predlogi-francuzskiy",
+    "lang": "fr",
+    "title": "Французские глаголы движения и их сочетаемость с предлогами",
+    "excerpt": "Подробный гид по глаголам движения во французском языке (aller, venir, partir, arriver и др.) с правилами их сочетания с предлогами и типичными ошибка",
+    "cover": "/assets/blog-glagoly-dvizheniya-predlogi-francuzskiy-cover.png",
+    "url": "/french/article-glagoly-dvizheniya-predlogi-francuzskiy.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
+    "id": "isj-ispit-srpski-jezik-2026",
+    "lang": "sr",
+    "title": "Экзамен ISJ по сербскому языку: путь к гражданству Сербии",
+    "excerpt": "Подробный гид по экзамену ISJ для получения вида на жительство и гражданства Сербии: структура теста, уровни сложности, критерии оценки, где сдавать и",
+    "cover": "/assets/blog-isj-ispit-srpski-jezik-2026-cover.png",
+    "url": "/serbian/article-isj-ispit-srpski-jezik-2026.html",
+    "category": "Экзамены",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
+    "id": "ccse-nacionalidad-espanola",
+    "lang": "es",
+    "title": "Экзамен CCSE для получения испанского гражданства: что нужно знать и как подготовиться",
+    "excerpt": "Разбираем структуру экзамена CCSE (конституционные и социокультурные знания об Испании), необходимого для получения испанского гражданства, и даём пла",
+    "cover": "/assets/blog-ccse-nacionalidad-espanola-cover.png",
+    "url": "/spanish/article-ccse-nacionalidad-espanola.html",
+    "category": "Иммиграция",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-20"
+  },
+  {
     "id": "staatsexamen-nt2-2026",
     "lang": "nl",
     "title": "Staatsexamen NT2 в 2026 году: как выбрать между Programma I и II и сдать с первого раза",
