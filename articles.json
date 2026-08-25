@@ -1,5 +1,148 @@
 [
   {
+    "id": "ucheba-universitet-niderlandy-yazyk",
+    "lang": "nl",
+    "title": "Учеба в университете Нидерландов на нидерландском языке: как поступить и не утонуть в лекциях",
+    "excerpt": "Разбираем требования к уровню нидерландского для поступления в вузы Нидерландов, тесты (NT2, TOEFL, IELTS), особенности академического языка лекций и ",
+    "cover": "/assets/blog-ucheba-universitet-niderlandy-yazyk-cover.png",
+    "url": "/dutch/article-ucheba-universitet-niderlandy-yazyk.html",
+    "category": "Учёба",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "vysshee-obrazovanie-niderlandy-postuplenie",
+    "lang": "nl",
+    "title": "Высшее образование в Нидерландах: как поступить на бакалавриат и магистратуру",
+    "excerpt": "Подробный гид по системе высшего образования Нидерландов: требования к уровню нидерландского языка, отличия HBO и WO, поступление для русскоязычных ст",
+    "cover": "/assets/blog-vysshee-obrazovanie-niderlandy-postuplenie-cover.png",
+    "url": "/dutch/article-vysshee-obrazovanie-niderlandy-postuplenie.html",
+    "category": "Учёба",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "dsh-exam-guide-2026",
+    "lang": "de",
+    "title": "Экзамен DSH для поступления в немецкий университет: полное руководство 2026",
+    "excerpt": "Подробный разбор экзамена DSH: структура, уровни, отличие от TestDaF, где сдавать и как готовиться самостоятельно для поступления в немецкий вуз.",
+    "cover": "/assets/blog-dsh-exam-guide-2026-cover.png",
+    "url": "/german/article-dsh-exam-guide-2026.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "studienkolleg-germany-guide",
+    "lang": "de",
+    "title": "Studienkolleg в Германии: как поступить в университет без немецкого аттестата",
+    "excerpt": "Подробный гид о том, что такое Studienkolleg, кому он нужен, как выбрать профиль, подготовиться к вступительному экзамену Feststellungsprüfung и посту",
+    "cover": "/assets/blog-studienkolleg-germany-guide-cover.png",
+    "url": "/german/article-studienkolleg-germany-guide.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "business-english-job-interview-2026",
+    "lang": "en",
+    "title": "Английский для собеседования: как получить оффер от международной компании",
+    "excerpt": "Разбор ключевой лексики, типичных вопросов и стратегий ответов на собеседовании на английском языке для тех, кто ищет работу за границей или в междуна",
+    "cover": "/assets/blog-business-english-job-interview-2026-cover.png",
+    "url": "/english/article-business-english-job-interview-2026.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "glagoly-dvizheniya-serbskiy-yazyk",
+    "lang": "sr",
+    "title": "Глаголы движения в сербском языке: как не путать ići, ходити и путовати",
+    "excerpt": "Разбор употребления сербских глаголов движения с примерами предложений и типичными ошибками русскоязычных учащихся.",
+    "cover": "/assets/blog-glagoly-dvizheniya-serbskiy-yazyk-cover.png",
+    "url": "/serbian/article-glagoly-dvizheniya-serbskiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "rabota-serbia-uroven-yazyka-sobesedovanie",
+    "lang": "sr",
+    "title": "Работа в Сербии для русскоязычных: уровень языка, резюме и собеседование",
+    "excerpt": "Статья о том, какой уровень сербского языка требуют работодатели в разных сферах, как составить резюме и подготовиться к собеседованию на сербском.",
+    "cover": "/assets/blog-rabota-serbia-uroven-yazyka-sobesedovanie-cover.png",
+    "url": "/serbian/article-rabota-serbia-uroven-yazyka-sobesedovanie.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "rabota-v-ispanii-yazyk",
+    "lang": "es",
+    "title": "Как найти работу в Испании: гид по резюме, собеседованию и деловому испанскому",
+    "excerpt": "Практическое руководство по поиску работы в Испании: составление CV по местным стандартам, прохождение собеседования на испанском и полезная деловая л",
+    "cover": "/assets/blog-rabota-v-ispanii-yazyk-cover.png",
+    "url": "/spanish/article-rabota-v-ispanii-yazyk.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "eju-postuplenie-universitet-yaponiya",
+    "lang": "ja",
+    "title": "Экзамен EJU: как поступить в японский университет иностранцу",
+    "excerpt": "Подробный разбор структуры экзамена EJU (японский язык, математика, естественные науки, обществознание), требования вузов и стратегия подготовки для р",
+    "cover": "/assets/blog-eju-postuplenie-universitet-yaponiya-cover.png",
+    "url": "/japanese/article-eju-postuplenie-universitet-yaponiya.html",
+    "category": "Учёба",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "grecheskie-padezhi-rukovodstvo",
+    "lang": "el",
+    "title": "Падежи в греческом языке: полное руководство для начинающих",
+    "excerpt": "Подробный разбор системы из четырёх падежей греческого языка с примерами, таблицами склонений и типичными ошибками русскоязычных учащихся.",
+    "cover": "/assets/blog-grecheskie-padezhi-rukovodstvo-cover.png",
+    "url": "/greek/article-grecheskie-padezhi-rukovodstvo.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "delf-tcf-tef-sravnenie-2026",
+    "lang": "fr",
+    "title": "DELF vs TCF vs TEF: какой французский экзамен выбрать для переезда",
+    "excerpt": "Сравнение популярных экзаменов по французскому языку с разбором целей, форматов, стоимости и сроков действия, чтобы помочь выбрать подходящий тест для",
+    "cover": "/assets/blog-delf-tcf-tef-sravnenie-2026-cover.png",
+    "url": "/french/article-delf-tcf-tef-sravnenie-2026.html",
+    "category": "Экзамены",
+    "readtime": "10 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "russkiy-rechevoy-etiket-ty-vy",
+    "lang": "ru",
+    "title": "Russian Ty and Vy: Mastering Formal and Informal Address",
+    "excerpt": "Статья объясняет тонкости русского речевого этикета — когда переходить на «ты», как обращаться к незнакомцам, коллегам и старшим, а также разбирает ти",
+    "cover": "/assets/blog-russkiy-rechevoy-etiket-ty-vy-cover.png",
+    "url": "/russian/article-russkiy-rechevoy-etiket-ty-vy.html",
+    "category": "Культура",
+    "readtime": "9 min read",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "turkish-verb-tenses-guide",
+    "lang": "tr",
+    "title": "Времена глаголов в турецком языке: подробный разбор",
+    "excerpt": "Пошаговое объяснение всех основных времён турецкого глагола (настоящее, прошедшее, будущее и их формы) с примерами предложений, таблицами спряжений и ",
+    "cover": "/assets/blog-turkish-verb-tenses-guide-cover.png",
+    "url": "/turkish/article-turkish-verb-tenses-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
     "id": "sobesedovanie-niderlandskiy-yazyk",
     "lang": "nl",
     "title": "Собеседование на нидерландском языке: подготовка, фразы и культурные коды",
