@@ -1,5 +1,49 @@
 [
   {
+    "id": "poryadok-slov-niderlandskiy-yazyk",
+    "lang": "nl",
+    "title": "Порядок слов в нидерландском языке: правила построения простых и сложных предложений",
+    "excerpt": "Подробный разбор правил порядка слов в главных и придаточных предложениях нидерландского языка с примерами и упражнениями для разных уровней.",
+    "cover": "/assets/blog-poryadok-slov-niderlandskiy-yazyk-cover.png",
+    "url": "/dutch/article-poryadok-slov-niderlandskiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
+    "id": "postuplenie-universitet-niderlandy-2026",
+    "lang": "nl",
+    "title": "Поступление в университет Нидерландов: языковые требования, документы и подготовка в 2026 году",
+    "excerpt": "Подробный гид для русскоязычных абитуриентов о том, как поступить в нидерландский вуз: языковые сертификаты (NT2, IELTS), список документов, дедлайны ",
+    "cover": "/assets/blog-postuplenie-universitet-niderlandy-2026-cover.png",
+    "url": "/dutch/article-postuplenie-universitet-niderlandy-2026.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
+    "id": "studienkolleg-germany-guide",
+    "lang": "de",
+    "title": "Штудиенколлег в Германии: как поступить в университет без немецкого аттестата",
+    "excerpt": "Подробный гид о том, что такое Studienkolleg, кому он нужен, как выбрать профиль (T, W, M, G, S), какие экзамены сдавать и как подготовиться к поступл",
+    "cover": "/assets/blog-studienkolleg-germany-guide-cover.png",
+    "url": "/german/article-studienkolleg-germany-guide.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
+    "id": "goethe-zertifikat-b1-guide-2026",
+    "lang": "de",
+    "title": "Goethe-Zertifikat B1: полное руководство по подготовке и сдаче в 2026 году",
+    "excerpt": "Подробный разбор структуры экзамена Goethe-Zertifikat B1, требований для получения ПМЖ и гражданства Германии, а также практические советы и ресурсы д",
+    "cover": "/assets/blog-goethe-zertifikat-b1-guide-2026-cover.png",
+    "url": "/german/article-goethe-zertifikat-b1-guide-2026.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
     "id": "sobesedovanie-niderlandskiy-yazyk",
     "lang": "nl",
     "title": "Собеседование на нидерландском языке: подготовка, фразы и культурные коды",
