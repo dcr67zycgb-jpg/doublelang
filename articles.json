@@ -1,5 +1,49 @@
 [
   {
+    "id": "poryadok-slov-niderlandskiy-yazyk",
+    "lang": "nl",
+    "title": "Порядок слов в нидерландском языке: правила построения простых и сложных предложений",
+    "excerpt": "Подробный разбор правил порядка слов в главных и придаточных предложениях нидерландского языка с примерами и упражнениями для разных уровней.",
+    "cover": "/assets/blog-poryadok-slov-niderlandskiy-yazyk-cover.png",
+    "url": "/dutch/article-poryadok-slov-niderlandskiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
+    "id": "postuplenie-universitet-niderlandy-2026",
+    "lang": "nl",
+    "title": "Поступление в университет Нидерландов: языковые требования, документы и подготовка в 2026 году",
+    "excerpt": "Подробный гид для русскоязычных абитуриентов о том, как поступить в нидерландский вуз: языковые сертификаты (NT2, IELTS), список документов, дедлайны ",
+    "cover": "/assets/blog-postuplenie-universitet-niderlandy-2026-cover.png",
+    "url": "/dutch/article-postuplenie-universitet-niderlandy-2026.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
+    "id": "studienkolleg-germany-guide",
+    "lang": "de",
+    "title": "Штудиенколлег в Германии: как поступить в университет без немецкого аттестата",
+    "excerpt": "Подробный гид о том, что такое Studienkolleg, кому он нужен, как выбрать профиль (T, W, M, G, S), какие экзамены сдавать и как подготовиться к поступл",
+    "cover": "/assets/blog-studienkolleg-germany-guide-cover.png",
+    "url": "/german/article-studienkolleg-germany-guide.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
+    "id": "goethe-zertifikat-b1-guide-2026",
+    "lang": "de",
+    "title": "Goethe-Zertifikat B1: полное руководство по подготовке и сдаче в 2026 году",
+    "excerpt": "Подробный разбор структуры экзамена Goethe-Zertifikat B1, требований для получения ПМЖ и гражданства Германии, а также практические советы и ресурсы д",
+    "cover": "/assets/blog-goethe-zertifikat-b1-guide-2026-cover.png",
+    "url": "/german/article-goethe-zertifikat-b1-guide-2026.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-26"
+  },
+  {
     "id": "ucheba-universitet-niderlandy-yazyk",
     "lang": "nl",
     "title": "Учеба в университете Нидерландов на нидерландском языке: как поступить и не утонуть в лекциях",
@@ -22,6 +66,28 @@
     "date": "2026-08-25"
   },
   {
+    "id": "business-english-job-interview-2026",
+    "lang": "en",
+    "title": "Английский для собеседования: как получить оффер от международной компании",
+    "excerpt": "Разбор ключевой лексики, типичных вопросов и стратегий ответов на собеседовании на английском языке для тех, кто ищет работу за границей или в междуна",
+    "cover": "/assets/blog-business-english-job-interview-2026-cover.png",
+    "url": "/english/article-business-english-job-interview-2026.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "delf-tcf-tef-sravnenie-2026",
+    "lang": "fr",
+    "title": "DELF vs TCF vs TEF: какой французский экзамен выбрать для переезда",
+    "excerpt": "Сравнение популярных экзаменов по французскому языку с разбором целей, форматов, стоимости и сроков действия, чтобы помочь выбрать подходящий тест для",
+    "cover": "/assets/blog-delf-tcf-tef-sravnenie-2026-cover.png",
+    "url": "/french/article-delf-tcf-tef-sravnenie-2026.html",
+    "category": "Экзамены",
+    "readtime": "10 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
     "id": "dsh-exam-guide-2026",
     "lang": "de",
     "title": "Экзамен DSH для поступления в немецкий университет: полное руководство 2026",
@@ -33,25 +99,36 @@
     "date": "2026-08-25"
   },
   {
-    "id": "studienkolleg-germany-guide",
-    "lang": "de",
-    "title": "Studienkolleg в Германии: как поступить в университет без немецкого аттестата",
-    "excerpt": "Подробный гид о том, что такое Studienkolleg, кому он нужен, как выбрать профиль, подготовиться к вступительному экзамену Feststellungsprüfung и посту",
-    "cover": "/assets/blog-studienkolleg-germany-guide-cover.png",
-    "url": "/german/article-studienkolleg-germany-guide.html",
-    "category": "Учёба",
-    "readtime": "11 мин чтения",
+    "id": "grecheskie-padezhi-rukovodstvo",
+    "lang": "el",
+    "title": "Падежи в греческом языке: полное руководство для начинающих",
+    "excerpt": "Подробный разбор системы из четырёх падежей греческого языка с примерами, таблицами склонений и типичными ошибками русскоязычных учащихся.",
+    "cover": "/assets/blog-grecheskie-padezhi-rukovodstvo-cover.png",
+    "url": "/greek/article-grecheskie-padezhi-rukovodstvo.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
     "date": "2026-08-25"
   },
   {
-    "id": "business-english-job-interview-2026",
-    "lang": "en",
-    "title": "Английский для собеседования: как получить оффер от международной компании",
-    "excerpt": "Разбор ключевой лексики, типичных вопросов и стратегий ответов на собеседовании на английском языке для тех, кто ищет работу за границей или в междуна",
-    "cover": "/assets/blog-business-english-job-interview-2026-cover.png",
-    "url": "/english/article-business-english-job-interview-2026.html",
-    "category": "Работа",
-    "readtime": "11 мин чтения",
+    "id": "eju-postuplenie-universitet-yaponiya",
+    "lang": "ja",
+    "title": "Экзамен EJU: как поступить в японский университет иностранцу",
+    "excerpt": "Подробный разбор структуры экзамена EJU (японский язык, математика, естественные науки, обществознание), требования вузов и стратегия подготовки для р",
+    "cover": "/assets/blog-eju-postuplenie-universitet-yaponiya-cover.png",
+    "url": "/japanese/article-eju-postuplenie-universitet-yaponiya.html",
+    "category": "Учёба",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-25"
+  },
+  {
+    "id": "russkiy-rechevoy-etiket-ty-vy",
+    "lang": "ru",
+    "title": "Russian Ty and Vy: Mastering Formal and Informal Address",
+    "excerpt": "Статья объясняет тонкости русского речевого этикета — когда переходить на «ты», как обращаться к незнакомцам, коллегам и старшим, а также разбирает ти",
+    "cover": "/assets/blog-russkiy-rechevoy-etiket-ty-vy-cover.png",
+    "url": "/russian/article-russkiy-rechevoy-etiket-ty-vy.html",
+    "category": "Культура",
+    "readtime": "9 min read",
     "date": "2026-08-25"
   },
   {
@@ -85,50 +162,6 @@
     "url": "/spanish/article-rabota-v-ispanii-yazyk.html",
     "category": "Работа",
     "readtime": "11 мин чтения",
-    "date": "2026-08-25"
-  },
-  {
-    "id": "eju-postuplenie-universitet-yaponiya",
-    "lang": "ja",
-    "title": "Экзамен EJU: как поступить в японский университет иностранцу",
-    "excerpt": "Подробный разбор структуры экзамена EJU (японский язык, математика, естественные науки, обществознание), требования вузов и стратегия подготовки для р",
-    "cover": "/assets/blog-eju-postuplenie-universitet-yaponiya-cover.png",
-    "url": "/japanese/article-eju-postuplenie-universitet-yaponiya.html",
-    "category": "Учёба",
-    "readtime": "12 мин чтения",
-    "date": "2026-08-25"
-  },
-  {
-    "id": "grecheskie-padezhi-rukovodstvo",
-    "lang": "el",
-    "title": "Падежи в греческом языке: полное руководство для начинающих",
-    "excerpt": "Подробный разбор системы из четырёх падежей греческого языка с примерами, таблицами склонений и типичными ошибками русскоязычных учащихся.",
-    "cover": "/assets/blog-grecheskie-padezhi-rukovodstvo-cover.png",
-    "url": "/greek/article-grecheskie-padezhi-rukovodstvo.html",
-    "category": "Язык",
-    "readtime": "12 мин чтения",
-    "date": "2026-08-25"
-  },
-  {
-    "id": "delf-tcf-tef-sravnenie-2026",
-    "lang": "fr",
-    "title": "DELF vs TCF vs TEF: какой французский экзамен выбрать для переезда",
-    "excerpt": "Сравнение популярных экзаменов по французскому языку с разбором целей, форматов, стоимости и сроков действия, чтобы помочь выбрать подходящий тест для",
-    "cover": "/assets/blog-delf-tcf-tef-sravnenie-2026-cover.png",
-    "url": "/french/article-delf-tcf-tef-sravnenie-2026.html",
-    "category": "Экзамены",
-    "readtime": "10 мин чтения",
-    "date": "2026-08-25"
-  },
-  {
-    "id": "russkiy-rechevoy-etiket-ty-vy",
-    "lang": "ru",
-    "title": "Russian Ty and Vy: Mastering Formal and Informal Address",
-    "excerpt": "Статья объясняет тонкости русского речевого этикета — когда переходить на «ты», как обращаться к незнакомцам, коллегам и старшим, а также разбирает ти",
-    "cover": "/assets/blog-russkiy-rechevoy-etiket-ty-vy-cover.png",
-    "url": "/russian/article-russkiy-rechevoy-etiket-ty-vy.html",
-    "category": "Культура",
-    "readtime": "9 min read",
     "date": "2026-08-25"
   },
   {
