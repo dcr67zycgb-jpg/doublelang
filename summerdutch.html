@@ -187,5 +187,76 @@ a{text-decoration:none}
 </div>
 <script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
 
+
+<!-- dl-sale-deadline: гасит кнопки оплаты по окончании распродажи -->
+<style>
+  a.buy.buy--off {
+    pointer-events: none;
+    cursor: default;
+    opacity: .45;
+    filter: grayscale(1);
+  }
+  .sale-over {
+    margin: 24px auto;
+    max-width: 640px;
+    padding: 14px 18px;
+    border: 1px solid rgba(0, 0, 0, .12);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, .04);
+    font: 500 15px/1.5 system-ui, sans-serif;
+    text-align: center;
+  }
+</style>
+<script>
+(function () {
+  var DEADLINE = new Date("2026-08-31T00:00:00+02:00").getTime();
+
+  function over() { return Date.now() >= DEADLINE; }
+
+  function shut() {
+    var buttons = document.querySelectorAll("a.buy[href]");
+    for (var i = 0; i < buttons.length; i++) {
+      var b = buttons[i];
+      // Адрес снимаем, а не прячем: ссылка не должна открываться ни кликом,
+      // ни из контекстного меню, ни средней кнопкой мыши.
+      b.setAttribute("data-href", b.getAttribute("href"));
+      b.removeAttribute("href");
+      b.removeAttribute("target");
+      b.setAttribute("aria-disabled", "true");
+      b.setAttribute("tabindex", "-1");
+      b.classList.add("buy--off");
+    }
+    if (!document.querySelector(".sale-over") && document.body) {
+      var note = document.createElement("div");
+      note.className = "sale-over";
+      note.textContent = "Летнее предложение завершено. "
+        + "Написать нам можно в Telegram - ссылка ниже.";
+      var first = document.querySelector("a.buy");
+      if (first && first.parentNode) {
+        first.parentNode.insertBefore(note, first);
+      } else {
+        document.body.appendChild(note);
+      }
+    }
+  }
+
+  // Клик перехватываем на всякий случай: если разметку кнопок поменяют и
+  // селектор перестанет попадать, оплата всё равно не откроется.
+  document.addEventListener("click", function (e) {
+    var link = e.target && e.target.closest && e.target.closest("a[href*='lava.top']");
+    if (link && over()) { e.preventDefault(); e.stopPropagation(); shut(); }
+  }, true);
+
+  function tick() { if (over()) { shut(); } }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", tick);
+  } else {
+    tick();
+  }
+  // Страница может быть открыта с вечера: проверяем и без перезагрузки.
+  setInterval(tick, 30000);
+})();
+</script>
 </body>
 </html>
