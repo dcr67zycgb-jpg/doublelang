@@ -1,5 +1,82 @@
 [
   {
+    "id": "arenda-zhilya-niderlandy-leksika",
+    "lang": "nl",
+    "title": "Аренда жилья в Нидерландах: нидерландская лексика и фразы для общения с арендодателем",
+    "excerpt": "Практический гид по поиску и съёму жилья в Нидерландах: ключевые слова, шаблоны писем и разговорные фразы для общения с риелторами и арендодателями на",
+    "cover": "/assets/blog-arenda-zhilya-niderlandy-leksika-cover.png",
+    "url": "/dutch/article-arenda-zhilya-niderlandy-leksika.html",
+    "category": "Иммиграция",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-31"
+  },
+  {
+    "id": "nemeckie-modalnye-glagoly-guide",
+    "lang": "de",
+    "title": "Модальные глаголы немецкого языка: полное руководство с примерами и упражнениями",
+    "excerpt": "Подробный разбор всех модальных глаголов немецкого языка (können, müssen, dürfen, sollen, wollen, mögen) с правилами спряжения, употребления в разных ",
+    "cover": "/assets/blog-nemeckie-modalnye-glagoly-guide-cover.png",
+    "url": "/german/article-nemeckie-modalnye-glagoly-guide.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-31"
+  },
+  {
+    "id": "arenda-zhilya-francia-leksika-gid",
+    "lang": "fr",
+    "title": "Аренда жилья во Франции: пошаговый гид и полезная лексика для переезда",
+    "excerpt": "Статья объясняет, как найти и снять жильё во Франции — от поиска объявлений и сбора документов до подписания договора, а также даёт ключевую французск",
+    "cover": "/assets/blog-arenda-zhilya-francia-leksika-gid-cover.png",
+    "url": "/french/article-arenda-zhilya-francia-leksika-gid.html",
+    "category": "Иммиграция",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-31"
+  },
+  {
+    "id": "vidy-glagola-serbskiy-yazyk",
+    "lang": "sr",
+    "title": "Виды глагола в сербском языке: как правильно выбрать совершенный или несовершенный вид",
+    "excerpt": "Подробный разбор совершенного и несовершенного вида сербских глаголов с примерами, таблицами и типичными ошибками русскоязычных учащихся.",
+    "cover": "/assets/blog-vidy-glagola-serbskiy-yazyk-cover.png",
+    "url": "/serbian/article-vidy-glagola-serbskiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-31"
+  },
+  {
+    "id": "business-turkish-communication",
+    "lang": "tr",
+    "title": "Деловой турецкий язык: как вести переписку и переговоры с турецкими партнёрами",
+    "excerpt": "Разбираем структуру деловых писем на турецком, устойчивые фразы для переговоров и переписки, а также культурные особенности делового общения в Турции ",
+    "cover": "/assets/blog-business-turkish-communication-cover.png",
+    "url": "/turkish/article-business-turkish-communication.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-08-31"
+  },
+  {
+    "id": "ecpe-michigan-greek-exam-2026",
+    "lang": "el",
+    "title": "Экзамен ECPE (Michigan) по греческому языку: полное руководство по подготовке в 2026 году",
+    "excerpt": "Разбираем структуру экзамена ECPE (Michigan) на знание греческого языка, требования к уровню, типичные ошибки и стратегии подготовки для русскоязычных",
+    "cover": "/assets/blog-ecpe-michigan-greek-exam-2026-cover.png",
+    "url": "/greek/article-ecpe-michigan-greek-exam-2026.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-08-31"
+  },
+  {
+    "id": "kompleksnyy-ekzamen-russkiy-istoriya-zakonodatelstvo-2026",
+    "lang": "ru",
+    "title": "Russian Comprehensive Exam for Foreigners: Your 2026 Preparation Guide",
+    "excerpt": "Подробный разбор структуры и заданий комплексного экзамена для получения патента, РВП или гражданства, а также практические советы и материалы для сам",
+    "cover": "/assets/blog-kompleksnyy-ekzamen-russkiy-istoriya-zakonodatelstvo-2026-cover.png",
+    "url": "/russian/article-kompleksnyy-ekzamen-russkiy-istoriya-zakonodatelstvo-2026.html",
+    "category": "Экзамены",
+    "readtime": "11 min read",
+    "date": "2026-08-31"
+  },
+  {
     "id": "modalnye-chastitsy-niderlandskiy-yazyk",
     "lang": "nl",
     "title": "Модальные частицы в нидерландском языке: toch, wel, maar, eens и как звучать как носитель",
