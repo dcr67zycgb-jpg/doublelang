@@ -1,5 +1,148 @@
 [
   {
+    "id": "voorwaardelijke-zinnen-niderlandskiy",
+    "lang": "nl",
+    "title": "Voorwaardelijke zinnen: как строить условные предложения в нидерландском языке",
+    "excerpt": "Разбор всех типов условных предложений в нидерландском языке (реальных, нереальных, гипотетических) с примерами, союзом als и порядком слов.",
+    "cover": "/assets/blog-voorwaardelijke-zinnen-niderlandskiy-cover.png",
+    "url": "/dutch/article-voorwaardelijke-zinnen-niderlandskiy.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "knm-ekzamen-znanie-obshchestva-niderlandy",
+    "lang": "nl",
+    "title": "Экзамен KNM (Kennis van de Nederlandse Maatschappij): что нужно знать о культуре и обществе Нидерландов",
+    "excerpt": "Разбор структуры экзамена KNM, входящего в Inburgering: какие темы по истории, политике и повседневной жизни Нидерландов встречаются на экзамене и как",
+    "cover": "/assets/blog-knm-ekzamen-znanie-obshchestva-niderlandy-cover.png",
+    "url": "/dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy.html",
+    "category": "Экзамены",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "modalverben-nemeckogo-guide",
+    "lang": "de",
+    "title": "Модальные глаголы в немецком языке: полное руководство с примерами и упражнениями",
+    "excerpt": "Подробный разбор модальных глаголов немецкого языка (können, müssen, dürfen, sollen, wollen, mögen) с правилами спряжения, употребления и практическим",
+    "cover": "/assets/blog-modalverben-nemeckogo-guide-cover.png",
+    "url": "/german/article-modalverben-nemeckogo-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "nemeckie-modalnye-glagoly-guide",
+    "lang": "de",
+    "title": "Модальные глаголы немецкого языка: как правильно использовать können, müssen, dürfen и другие",
+    "excerpt": "Подробный разбор всех модальных глаголов немецкого языка с правилами употребления, спряжением и типичными ошибками русскоязычных учащихся.",
+    "cover": "/assets/blog-nemeckie-modalnye-glagoly-guide-cover.png",
+    "url": "/german/article-nemeckie-modalnye-glagoly-guide.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "english-for-cv-linkedin-work-visa-2026",
+    "lang": "en",
+    "title": "Как найти работу мечты за границей: английский для резюме, LinkedIn и рабочей визы",
+    "excerpt": "Пошаговое руководство по составлению резюме и профиля LinkedIn на английском, а также ключевая лексика для собеседований и оформления рабочей визы.",
+    "cover": "/assets/blog-english-for-cv-linkedin-work-visa-2026-cover.png",
+    "url": "/english/article-english-for-cv-linkedin-work-visa-2026.html",
+    "category": "Работа",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "otkrytie-scheta-bank-birokratiya-serbia",
+    "lang": "sr",
+    "title": "Открытие счета в банке и общение с бюрократией в Сербии: нужная лексика и фразы",
+    "excerpt": "Статья о том, как русскоязычным открыть счёт в сербском банке, оформить документы в госучреждениях и какие фразы и слова понадобятся для успешного общ",
+    "cover": "/assets/blog-otkrytie-scheta-bank-birokratiya-serbia-cover.png",
+    "url": "/serbian/article-otkrytie-scheta-bank-birokratiya-serbia.html",
+    "category": "Переезд",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "bankovskiy-schet-dokumenty-serbiya-leksika",
+    "lang": "sr",
+    "title": "Открытие банковского счета в Сербии: нужная лексика на сербском",
+    "excerpt": "Статья разбирает пошаговый процесс открытия счёта в сербском банке и оформления официальных документов, а также ключевые слова и фразы, которые понадо",
+    "cover": "/assets/blog-bankovskiy-schet-dokumenty-serbiya-leksika-cover.png",
+    "url": "/serbian/article-bankovskiy-schet-dokumenty-serbiya-leksika.html",
+    "category": "Переезд",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "viza-cifrovoy-kochevnik-ispaniya",
+    "lang": "es",
+    "title": "Виза цифрового кочевника Испания: как оформить и какой испанский нужен для жизни",
+    "excerpt": "Подробный гид по визе для цифровых кочевников в Испании: требования, документы, налоги и минимальный уровень испанского для комфортной адаптации.",
+    "cover": "/assets/blog-viza-cifrovoy-kochevnik-ispaniya-cover.png",
+    "url": "/spanish/article-viza-cifrovoy-kochevnik-ispaniya.html",
+    "category": "Иммиграция",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "kanji-sistema-izucheniya-vzroslye",
+    "lang": "ja",
+    "title": "Кандзи без стресса: система изучения иероглифов для взрослых с нуля",
+    "excerpt": "Практическая методика запоминания кандзи для взрослых учащихся: мнемотехники, радикалы, интервальное повторение и ошибки, которые тормозят прогресс.",
+    "cover": "/assets/blog-kanji-sistema-izucheniya-vzroslye-cover.png",
+    "url": "/japanese/article-kanji-sistema-izucheniya-vzroslye.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "grecheskie-glagoly-spryazhenie",
+    "lang": "el",
+    "title": "Греческие глаголы: спряжение и основные группы для начинающих",
+    "excerpt": "Подробное руководство по спряжению греческих глаголов первой и второй группы с примерами и таблицами для самостоятельного изучения.",
+    "cover": "/assets/blog-grecheskie-glagoly-spryazhenie-cover.png",
+    "url": "/greek/article-grecheskie-glagoly-spryazhenie.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "medicinskaya-strahovka-zdravoohranenie-francia",
+    "lang": "fr",
+    "title": "Медицинская страховка и система здравоохранения во Франции: что нужно знать эмигранту",
+    "excerpt": "Подробный гид по системе Sécurité sociale, получению карты Vitale, выбору дополнительной страховки (mutuelle) и лексике, необходимой для посещения вра",
+    "cover": "/assets/blog-medicinskaya-strahovka-zdravoohranenie-francia-cover.png",
+    "url": "/french/article-medicinskaya-strahovka-zdravoohranenie-francia.html",
+    "category": "Иммиграция",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "russkie-predlogi-mesta-napravleniya",
+    "lang": "ru",
+    "title": "Russian Prepositions V Na K: How to Stop Confusing Them",
+    "excerpt": "Разбор логики употребления предлогов «в», «на» и «к» с падежами на примерах, чтобы иностранцы перестали делать типичные ошибки в повседневной речи.",
+    "cover": "/assets/blog-russkie-predlogi-mesta-napravleniya-cover.png",
+    "url": "/russian/article-russkie-predlogi-mesta-napravleniya.html",
+    "category": "Язык",
+    "readtime": "9 min read",
+    "date": "2026-09-01"
+  },
+  {
+    "id": "business-turkish-language-guide",
+    "lang": "tr",
+    "title": "Деловой турецкий язык: как вести переписку и переговоры с турецкими партнёрами",
+    "excerpt": "Разбираем особенности деловой лексики, этикета переписки и переговоров на турецком для тех, кто работает или планирует работать с турецкими компаниями",
+    "cover": "/assets/blog-business-turkish-language-guide-cover.png",
+    "url": "/turkish/article-business-turkish-language-guide.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-01"
+  },
+  {
     "id": "modalnye-chastitsy-niderlandskiy-yazyk",
     "lang": "nl",
     "title": "Модальные частицы в нидерландском языке: toch, wel, maar, eens и как звучать как носитель",
