@@ -387,14 +387,61 @@
     return false;
   }
 
+
+  /* ------------------------------------------------------------------
+     dl-lead-event: событие заявки в dataLayer.
+
+     GA4 подключён через GTM и видит визиты, но не видит заявок: dataLayer на
+     сайте не заполнял никто. Без этого события нельзя сказать, какая статья
+     приводит учеников, а какая только просмотры.
+
+     Событие висит на ЗАПРОСЕ, а не на форме. Разметка форм на сайте разная,
+     обработчики тоже, а адрес у всех один - и fetch с XMLHttpRequest здесь
+     уже перехвачены строкой ниже. Одно место вместо десятка.
+
+     Шлём только на успешный ответ: неудачная отправка не заявка.
+     Личные данные не передаём - в GA4 это запрещено правилами.
+     ------------------------------------------------------------------ */
+  function leadSection(body) {
+    /* Раздел нужен, чтобы отличать заявку с французского лендинга от заявки
+       со статьи про сербский. Берём из payload, а если его там нет - из
+       адреса страницы: /french/article-x.html -> french. */
+    try {
+      var data = JSON.parse(body || '{}');
+      var named = data.section || data.language || data.lang;
+      if (named) return String(named);
+    } catch (e) {}
+    var parts = (location.pathname || '').split('/').filter(Boolean);
+    return parts.length ? parts[0] : 'root';
+  }
+
+  function pushLead(body) {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'lead_submit',
+        form_section: leadSection(body),
+        page_path: location.pathname
+      });
+      console.info('[dl-phone] заявка отправлена, событие lead_submit');
+    } catch (e) {}
+  }
+
   var _fetch = window.fetch;
   if (typeof _fetch === 'function') {
     window.fetch = function (input, init) {
       var url = (typeof input === 'string') ? input : (input && input.url) || '';
-      if (url.indexOf(LEAD_ENDPOINT) !== -1 && init && !leadAllowed(init.body)) {
+      var isLead = url.indexOf(LEAD_ENDPOINT) !== -1;
+      if (isLead && init && !leadAllowed(init.body)) {
         return Promise.reject(new Error('dl-phone: номер телефона не заполнен'));
       }
-      return _fetch.apply(this, arguments);
+      if (!isLead) return _fetch.apply(this, arguments);
+      /* .then пропускает отказы дальше сам, ловить их здесь не нужно:
+         неуспешный запрос заявкой не считается и события не даёт. */
+      return _fetch.apply(this, arguments).then(function (response) {
+        if (response && response.ok) pushLead(init && init.body);
+        return response;
+      });
     };
   }
 
@@ -406,6 +453,11 @@
   };
   XMLHttpRequest.prototype.send = function (body) {
     if (this.__dlLead && !leadAllowed(body)) return;   // молча не отправляем
+    if (this.__dlLead) {
+      this.addEventListener('load', function () {
+        if (this.status >= 200 && this.status < 300) pushLead(body);
+      });
+    }
     return _send.apply(this, arguments);
   };
 
