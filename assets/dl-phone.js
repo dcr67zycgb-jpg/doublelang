@@ -377,13 +377,15 @@
     for (var i = 0; i < inputs.length; i++) {
       if (isVisible(inputs[i])) {
         showError(inputs[i], result.message);
-        try { inputs[i].focus(); } catch (e) {}
+        /* Молчим осознанно: фокус — украшение, а сообщение об ошибке уже показано
+            строкой выше. Падать тут может только на отсоединённом поле. */
+        try { inputs[i].focus(); } catch (e) { void e; }
         break;
       }
     }
     try {
       console.warn('[dl-phone] заявка не отправлена: ' + result.message);
-    } catch (e) {}
+    } catch (e) { void e; }   /* упал сам логгер — писать об этом некуда */
     return false;
   }
 
@@ -406,11 +408,13 @@
     /* Раздел нужен, чтобы отличать заявку с французского лендинга от заявки
        со статьи про сербский. Берём из payload, а если его там нет - из
        адреса страницы: /french/article-x.html -> french. */
-    try {
-      var data = JSON.parse(body || '{}');
-      var named = data.section || data.language || data.lang;
-      if (named) return String(named);
-    } catch (e) {}
+    /* ⚠️ Здесь стояла первая ветка: искала section/language/lang в теле заявки и
+       откатывалась на путь. Ни одна форма сайта таких полей не шлёт — там
+       `source:'main_form_german'`, — поэтому ветка не срабатывала НИ РАЗУ, а читалась
+       как работающая: «секция из тела, иначе из пути». Дохлое объяснение вреднее
+       дохлого кода, и на нём чуть не выбрали form_section вместо Page Path в GTM,
+       приняв два имени одного значения за два разных источника.
+       Путь даёт правильный ответ сам: /german/article-x.html → german. */
     var parts = (location.pathname || '').split('/').filter(Boolean);
     return parts.length ? parts[0] : 'root';
   }
@@ -424,7 +428,12 @@
         page_path: location.pathname
       });
       console.info('[dl-phone] заявка отправлена, событие lead_submit');
-    } catch (e) {}
+    } catch (e) {
+      /* dataLayer недоступен (GTM не загрузился, блокировщик). Заявка при этом уже
+         ушла — рвать отправку из-за аналитики нельзя, но и молчать нельзя: без этой
+         строки «конверсий нет» неотличимо от «заявок нет». */
+      try { console.warn('[dl-phone] lead_submit не отправлен: ' + e); } catch (_) { void _; }
+    }
   }
 
   var _fetch = window.fetch;
