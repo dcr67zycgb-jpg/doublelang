@@ -1,5 +1,16 @@
 [
   {
+    "id": "poryadok-slov-nemeckij-guide",
+    "lang": "de",
+    "title": "Порядок слов в немецком предложении",
+    "excerpt": "Разбор правил построения немецких предложений с примерами. Рамочная конструкция, место глагола, придаточные и типичные ошибки русскоязычных.",
+    "cover": "/assets/blog-poryadok-slov-nemeckij-guide-cover.png",
+    "url": "/german/article-poryadok-slov-nemeckij-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-03"
+  },
+  {
     "id": "knm-ekzamen-niderlandskoe-obshchestvo-2026",
     "lang": "nl",
     "title": "Экзамен KNM в Нидерландах: что нужно знать для сдачи в 2026",
