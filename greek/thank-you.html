@@ -28,7 +28,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '2259790901441947');
   fbq('track', 'PageView');
-  fbq('track', 'Lead');
+  (function(){/* Один идентификатор на пиксель и CAPI: без него Meta считает
+  одно событие дважды. И перезагрузка страницы благодарности — тоже новая конверсия,
+  потому что fbq висит на загрузке. Читаем НАПРЯМУЮ из localStorage, а не через
+  dl-utm.js: пиксель в <head> сработает раньше, чем загрузится скрипт из конца body. */
+  var o={};try{var r=JSON.parse(localStorage.getItem('dl_eid')||'null');
+  if(r&&r.id&&(Date.now()-r.t)<3600000)o.eventID=r.id;}
+  catch(e){/* приватный режим или испорченное значение: шлём без склейки —
+  событие без eventID лучше, чем отсутствующее событие */}
+  fbq('track','Lead',{},o);})();
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2259790901441947&ev=Lead&noscript=1"
