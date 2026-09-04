@@ -80,3 +80,9 @@
 /summergermany         /german/summer.html                   200
 /summerdutch           /dutch/summer.html                    200
 /summer                /summer-offer.html                    200
+
+# Дубли французских статей, лежавшие в корне. Файлы удалены, адреса ведут на
+# канонические: страницы в выдаче Google, и без 301 набранный вес потерялся бы.
+/article-tcf-canada.html                 /french/article-tcf-canada.html           301
+/article-delf-2026.html                  /french/article-delf-2026.html            301
+/article-francophonie.html               /french/article-francophonie.html         301
