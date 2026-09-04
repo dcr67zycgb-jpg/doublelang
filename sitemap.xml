@@ -643,4 +643,16 @@
     <priority>0.7</priority>
   </url>
   <url><loc>https://doublelang-online-school.com/german/article-poryadok-slov-nemeckij-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://doublelang-online-school.com/dutch/article-otkrytie-biznesa-niderlandy-emigrant.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/dutch/article-golandskie-idiomy-vyrazheniya-razgovornaya-rech.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
