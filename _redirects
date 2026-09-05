@@ -3,6 +3,12 @@
 /index.html                            /                                          301
 /home.html                             /                                          301
 /article-inburgering-2026.html         /dutch/article-inburgering-2026.html       301
+# Старые французские URL (загружены руками 09.07 в корень, мимо конвейера).
+# Полные версии живут в /french/ и зарегистрированы в articles.json;
+# корневые были короткими устаревшими копиями и удалены этим же коммитом.
+/article-delf-2026.html                /french/article-delf-2026.html             301
+/article-francophonie.html             /french/article-francophonie.html          301
+/article-tcf-canada.html               /french/article-tcf-canada.html            301
 /article-mvv-2026.html                 /dutch/article-mvv-2026.html               301
 /article-vlaams-vs-nederlands.html     /dutch/article-vlaams-vs-nederlands.html   301
 # Clean-URL заготовки для статей блога
