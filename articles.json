@@ -1,5 +1,27 @@
 [
   {
+    "id": "otkrytie-biznesa-niderlandy-emigrant",
+    "lang": "nl",
+    "title": "Открытие бизнеса в Нидерландах как эмигрант: язык, документы и подводные камни",
+    "excerpt": "Разбираем, как русскоязычному эмигранту зарегистрировать бизнес в Нидерландах: нужные документы, языковые требования KVK, налоговая система и типичные",
+    "cover": "/assets/blog-otkrytie-biznesa-niderlandy-emigrant-cover.png",
+    "url": "/dutch/article-otkrytie-biznesa-niderlandy-emigrant.html",
+    "category": "Работа",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-04"
+  },
+  {
+    "id": "golandskie-idiomy-vyrazheniya-razgovornaya-rech",
+    "lang": "nl",
+    "title": "Голландские идиомы и устойчивые выражения: как понимать юмор и разговорную речь носителей",
+    "excerpt": "Разбор популярных нидерландских идиом и выражений с примерами использования, которые помогут понимать носителей и звучать естественно в разговоре.",
+    "cover": "/assets/blog-golandskie-idiomy-vyrazheniya-razgovornaya-rech-cover.png",
+    "url": "/dutch/article-golandskie-idiomy-vyrazheniya-razgovornaya-rech.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-04"
+  },
+  {
     "id": "poryadok-slov-nemeckij-guide",
     "lang": "de",
     "title": "Порядок слов в немецком предложении",
