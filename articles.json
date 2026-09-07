@@ -1,5 +1,71 @@
 [
   {
+    "id": "medicinskaya-leksika-niderlandskiy-vrach-apteka",
+    "lang": "nl",
+    "title": "Медицинская лексика на нидерландском: как объясниться у врача и в аптеке",
+    "excerpt": "Разбор ключевой медицинской лексики и фраз для приёма у врача, вызова скорой и общения в аптеке, а также культурные особенности голландской системы зд",
+    "cover": "/assets/blog-medicinskaya-leksika-niderlandskiy-vrach-apteka-cover.png",
+    "url": "/dutch/article-medicinskaya-leksika-niderlandskiy-vrach-apteka.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-07"
+  },
+  {
+    "id": "otkryt-schet-francuzskiy-bank-leksika",
+    "lang": "fr",
+    "title": "Как открыть счёт во французском банке и не запутаться в терминах",
+    "excerpt": "Пошаговая инструкция по открытию банковского счёта во Франции с разбором ключевой финансовой лексики и типичных сложностей для иностранцев.",
+    "cover": "/assets/blog-otkryt-schet-francuzskiy-bank-leksika-cover.png",
+    "url": "/french/article-otkryt-schet-francuzskiy-bank-leksika.html",
+    "category": "Иммиграция",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-07"
+  },
+  {
+    "id": "serbskiy-yazyk-medicinskie-rabotniki-leksika",
+    "lang": "sr",
+    "title": "Сербский язык для медицинских работников: лексика для работы в клиниках и больницах Сербии",
+    "excerpt": "Статья о специализированной медицинской лексике на сербском языке, необходимой для трудоустройства и общения с пациентами и коллегами в медицинских уч",
+    "cover": "/assets/blog-serbskiy-yazyk-medicinskie-rabotniki-leksika-cover.png",
+    "url": "/serbian/article-serbskiy-yazyk-medicinskie-rabotniki-leksika.html",
+    "category": "Работа",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-07"
+  },
+  {
+    "id": "turkish-slang-youth-language",
+    "lang": "tr",
+    "title": "Турецкий сленг и молодёжный язык: как понимать живую речь в Стамбуле",
+    "excerpt": "Разбор популярных сленговых выражений, молодёжных словечек и разговорных оборотов, которые помогут понимать турков в неформальном общении и социальных",
+    "cover": "/assets/blog-turkish-slang-youth-language-cover.png",
+    "url": "/turkish/article-turkish-slang-youth-language.html",
+    "category": "Культура",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-07"
+  },
+  {
+    "id": "arenda-zhilya-v-gretsii-yazyk",
+    "lang": "el",
+    "title": "Аренда жилья в Греции: как снять квартиру и понимать договор на греческом",
+    "excerpt": "Практическое руководство для русскоязычных: как искать жильё в Греции, читать договор аренды, общаться с арендодателем и разбираться в ключевой лексик",
+    "cover": "/assets/blog-arenda-zhilya-v-gretsii-yazyk-cover.png",
+    "url": "/greek/article-arenda-zhilya-v-gretsii-yazyk.html",
+    "category": "Переезд",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-07"
+  },
+  {
+    "id": "russkie-chislitelnye-v-rechi",
+    "lang": "ru",
+    "title": "Russian Numbers and Cases: How to Say Dates, Prices and Phone Numbers Without Mistakes",
+    "excerpt": "Статья объясняет, как правильно склонять числительные при указании дат, цен, номеров телефонов и возраста, с практическими примерами и упражнениями дл",
+    "cover": "/assets/blog-russkie-chislitelnye-v-rechi-cover.png",
+    "url": "/russian/article-russkie-chislitelnye-v-rechi.html",
+    "category": "Язык",
+    "readtime": "11 min",
+    "date": "2026-09-07"
+  },
+  {
     "id": "otkrytie-biznesa-niderlandy-emigrant",
     "lang": "nl",
     "title": "Открытие бизнеса в Нидерландах как эмигрант: язык, документы и подводные камни",
