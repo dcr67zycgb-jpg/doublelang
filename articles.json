@@ -1,5 +1,82 @@
 [
   {
+    "id": "predlogi-mesta-napravleniya-niderlandskiy",
+    "lang": "nl",
+    "title": "Голландские предлоги места и направления: как перестать путать in, op, naar и aan",
+    "excerpt": "Разбор самых частых ошибок русскоязычных учащихся в употреблении нидерландских предлогов места и направления с примерами и упражнениями.",
+    "cover": "/assets/blog-predlogi-mesta-napravleniya-niderlandskiy-cover.png",
+    "url": "/dutch/article-predlogi-mesta-napravleniya-niderlandskiy.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-14"
+  },
+  {
+    "id": "nemeckij-dlya-medikov-approbation-2026",
+    "lang": "de",
+    "title": "Апробация в Германии для врачей: язык и лицензирование в 2026 году",
+    "excerpt": "Статья о том, как врачам, медсёстрам и другим медработникам подготовиться к экзамену Fachsprachprüfung и получить признание квалификации (Approbation)",
+    "cover": "/assets/blog-nemeckij-dlya-medikov-approbation-2026-cover.png",
+    "url": "/german/article-nemeckij-dlya-medikov-approbation-2026.html",
+    "category": "Работа",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-14"
+  },
+  {
+    "id": "mestoimennye-narechiya-en-y-francuzskiy",
+    "lang": "fr",
+    "title": "Французские местоименные наречия en и y: как их не путать",
+    "excerpt": "Разбираем, чем отличаются местоименные наречия en и y, в каких конструкциях они заменяют дополнения и как избежать типичных ошибок русскоязычных учащи",
+    "cover": "/assets/blog-mestoimennye-narechiya-en-y-francuzskiy-cover.png",
+    "url": "/french/article-mestoimennye-narechiya-en-y-francuzskiy.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-14"
+  },
+  {
+    "id": "shkola-serbia-rebenok-dokumenty-adaptaciya",
+    "lang": "sr",
+    "title": "Запись ребёнка в сербскую школу: документы, лексика и адаптация",
+    "excerpt": "Статья о том, как записать ребёнка-иностранца в сербскую школу: необходимые документы, тестирование уровня языка, полезная лексика для общения с учите",
+    "cover": "/assets/blog-shkola-serbia-rebenok-dokumenty-adaptaciya-cover.png",
+    "url": "/serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-14"
+  },
+  {
+    "id": "turkish-slang-youth-language",
+    "lang": "tr",
+    "title": "Турецкий сленг и молодёжный язык: как понимать живую речь в Турции",
+    "excerpt": "Разбор популярных турецких сленговых выражений и молодёжного жаргона, которые не встретишь в учебниках, но которые критически важны для живого общения",
+    "cover": "/assets/blog-turkish-slang-youth-language-cover.png",
+    "url": "/turkish/article-turkish-slang-youth-language.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-14"
+  },
+  {
+    "id": "grecheskie-predlogi-rukovodstvo",
+    "lang": "el",
+    "title": "Греческие предлоги: полный гид по употреблению с примерами",
+    "excerpt": "Подробный разбор основных греческих предлогов, их значений и типичных ошибок русскоязычных учащихся при их использовании в речи.",
+    "cover": "/assets/blog-grecheskie-predlogi-rukovodstvo-cover.png",
+    "url": "/greek/article-grecheskie-predlogi-rukovodstvo.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-14"
+  },
+  {
+    "id": "delovoy-russkiy-pisma-perepiska-rabota",
+    "lang": "ru",
+    "title": "Russian Business Email Writing: How to Write Formal Letters and Communicate at Work",
+    "excerpt": "Разбираем структуру деловых писем, стандартные формулировки и типичные ошибки иностранцев при общении с российскими коллегами и работодателями.",
+    "cover": "/assets/blog-delovoy-russkiy-pisma-perepiska-rabota-cover.png",
+    "url": "/russian/article-delovoy-russkiy-pisma-perepiska-rabota.html",
+    "category": "Работа",
+    "readtime": "11 min read",
+    "date": "2026-09-14"
+  },
+  {
     "id": "medicinskaya-strahovka-vrach-niderlandy-leksika",
     "lang": "nl",
     "title": "Медицинская страховка и поход к врачу в Нидерландах: голландская лексика для здоровья",
