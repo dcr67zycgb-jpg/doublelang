@@ -1,5 +1,148 @@
 [
   {
+    "id": "glagoly-s-predlogami-niderlandskiy",
+    "lang": "nl",
+    "title": "Голландские глаголы с предлогами: как не путаться в устойчивых сочетаниях",
+    "excerpt": "Разбор частотных глаголов, требующих определённых предлогов в нидерландском языке, с примерами и упражнениями для запоминания.",
+    "cover": "/assets/blog-glagoly-s-predlogami-niderlandskiy-cover.png",
+    "url": "/dutch/article-glagoly-s-predlogami-niderlandskiy.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "delovaya-perepiska-niderlandskiy-email",
+    "lang": "nl",
+    "title": "Голландская деловая переписка: как писать формальные email и письма чиновникам",
+    "excerpt": "Разбор структуры формального письма на нидерландском, устойчивых фраз и этикета переписки с работодателями и государственными органами Нидерландов.",
+    "cover": "/assets/blog-delovaya-perepiska-niderlandskiy-email-cover.png",
+    "url": "/dutch/article-delovaya-perepiska-niderlandskiy-email.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "nemeckie-pristavochnye-glagoly-guide",
+    "lang": "de",
+    "title": "Приставочные глаголы в немецком языке: отделяемые и неотделяемые приставки",
+    "excerpt": "Подробное руководство о том, как распознавать отделяемые и неотделяемые приставки немецких глаголов, с таблицами, примерами и упражнениями для самосто",
+    "cover": "/assets/blog-nemeckie-pristavochnye-glagoly-guide-cover.png",
+    "url": "/german/article-nemeckie-pristavochnye-glagoly-guide.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "konjunktiv-2-nemeckij-guide",
+    "lang": "de",
+    "title": "Конъюнктив II в немецком языке: как правильно выражать вежливость, желания и гипотезы",
+    "excerpt": "Подробный разбор образования и употребления Konjunktiv II в немецком языке с примерами вежливых просьб, условных предложений и упражнениями для разных",
+    "cover": "/assets/blog-konjunktiv-2-nemeckij-guide-cover.png",
+    "url": "/german/article-konjunktiv-2-nemeckij-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "ielts-general-vs-academic-choice-2026",
+    "lang": "en",
+    "title": "IELTS General или Academic: как не ошибиться с выбором модуля",
+    "excerpt": "Статья разбирает различия между модулями IELTS General и Academic, для каких целей подходит каждый из них и как выбрать правильный вариант в зависимос",
+    "cover": "/assets/blog-ielts-general-vs-academic-choice-2026-cover.png",
+    "url": "/english/article-ielts-general-vs-academic-choice-2026.html",
+    "category": "Экзамены",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "shkola-serbiya-rebenok-leksika-adaptaciya",
+    "lang": "sr",
+    "title": "Запись ребёнка в школу в Сербии: лексика, документы и адаптация",
+    "excerpt": "Статья о том, как записать ребёнка-иностранца в сербскую школу, какие документы нужны, какая лексика пригодится при общении с учителями и как помочь р",
+    "cover": "/assets/blog-shkola-serbiya-rebenok-leksika-adaptaciya-cover.png",
+    "url": "/serbian/article-shkola-serbiya-rebenok-leksika-adaptaciya.html",
+    "category": "Переезд",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "serbskiy-rechevoy-etiket-obrashcheniya",
+    "lang": "sr",
+    "title": "Сербский речевой этикет: как обращаться к людям и не показаться грубым",
+    "excerpt": "Статья о формах вежливости, обращении на «ты» и «вы», правилах общения с незнакомцами и старшими в сербской культуре, с примерами фраз.",
+    "cover": "/assets/blog-serbskiy-rechevoy-etiket-obrashcheniya-cover.png",
+    "url": "/serbian/article-serbskiy-rechevoy-etiket-obrashcheniya.html",
+    "category": "Культура",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "glagoly-s-predlogami-ispanskiy",
+    "lang": "es",
+    "title": "Испанские глаголы с предлогами: как запомнить управление и не путать конструкции",
+    "excerpt": "Разбор самых частых испанских глаголов, требующих определённых предлогов (pensar en, soñar con, tratar de и др.), с примерами и таблицами для запомина",
+    "cover": "/assets/blog-glagoly-s-predlogami-ispanskiy-cover.png",
+    "url": "/spanish/article-glagoly-s-predlogami-ispanskiy.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "yaponskie-chastitsy-wa-ga-o-ni",
+    "lang": "ja",
+    "title": "Японские частицы は, が, を, に: как перестать путать их раз и навсегда",
+    "excerpt": "Подробный разбор самых сложных для русскоязычных грамматических частиц японского языка с примерами, таблицами сравнения и упражнениями на практику.",
+    "cover": "/assets/blog-yaponskie-chastitsy-wa-ga-o-ni-cover.png",
+    "url": "/japanese/article-yaponskie-chastitsy-wa-ga-o-ni.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "grecheskie-predlogi-rukovodstvo",
+    "lang": "el",
+    "title": "Греческие предлоги: полное руководство по употреблению с примерами",
+    "excerpt": "Разбор основных греческих предлогов, их сочетаемости с падежами и типичных ошибок русскоязычных учащихся с примерами из живой речи.",
+    "cover": "/assets/blog-grecheskie-predlogi-rukovodstvo-cover.png",
+    "url": "/greek/article-grecheskie-predlogi-rukovodstvo.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "mestoimeniya-en-y-francuzskiy",
+    "lang": "fr",
+    "title": "Французские местоимения EN и Y: как перестать путать их навсегда",
+    "excerpt": "Разбор правил использования местоимений EN и Y во французском языке с примерами, типичными ошибками русскоговорящих и практическими упражнениями.",
+    "cover": "/assets/blog-mestoimeniya-en-y-francuzskiy-cover.png",
+    "url": "/french/article-mestoimeniya-en-y-francuzskiy.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "delovoy-russkiy-email-perepiska-s-kollegami",
+    "lang": "ru",
+    "title": "Russian Business Email Writing: How to Communicate Professionally with Colleagues",
+    "excerpt": "Практическое руководство по деловому этикету в русскоязычной переписке: структура письма, вежливые формулировки, типичные ошибки иностранцев и готовые",
+    "cover": "/assets/blog-delovoy-russkiy-email-perepiska-s-kollegami-cover.png",
+    "url": "/russian/article-delovoy-russkiy-email-perepiska-s-kollegami.html",
+    "category": "Работа",
+    "readtime": "11 min read",
+    "date": "2026-09-15"
+  },
+  {
+    "id": "turkish-real-estate-vocabulary",
+    "lang": "tr",
+    "title": "Турецкий язык для покупки недвижимости: лексика и юридические термины",
+    "excerpt": "Статья разбирает ключевую лексику и юридические термины, связанные с покупкой недвижимости в Турции, а также типичные ошибки при переводе документов и",
+    "cover": "/assets/blog-turkish-real-estate-vocabulary-cover.png",
+    "url": "/turkish/article-turkish-real-estate-vocabulary.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-15"
+  },
+  {
     "id": "medicinskaya-strahovka-vrach-niderlandy-leksika",
     "lang": "nl",
     "title": "Медицинская страховка и поход к врачу в Нидерландах: голландская лексика для здоровья",
