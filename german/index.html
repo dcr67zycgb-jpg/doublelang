@@ -2115,7 +2115,26 @@ function closeModal(){
       const tel=document.getElementById('modal-tel');
       const consent=document.getElementById('modal-consent');
       const consentLabel=document.getElementById('modal-consent-label');
-      if(tel&&!tel.value.trim()){tel.style.borderColor='#e05555';tel.focus();return;}
+      /* Номер проверяем ДО отправки. Раньше проверялось только «непусто», а
+         автоподстановка кода страны кладёт в поле «+90» — оно непустое, запрос
+         уходил, dl-phone.js отклонял его уже на лету, и срабатывал общий catch:
+         кнопка краснела с «Ошибка — попробуйте ещё раз». Человек читал это как
+         поломку сайта, хотя причина в номере, и сказать надо именно её. */
+      if(tel){
+        var _v = window.DLPhone ? window.DLPhone.validate(tel.value)
+                                : {ok:!!tel.value.trim(), message:'Укажите номер телефона'};
+        if(!_v.ok){
+          var _f=document.getElementById('modal-phone-field');
+          if(_f){
+            _f.classList.add('invalid'); _f.classList.remove('valid');
+            var _h=_f.querySelector('.phone-hint');
+            if(_h) _h.textContent=_v.message||'Введите полный номер телефона';
+          }
+          tel.focus(); return;
+        }
+        var _ok=document.getElementById('modal-phone-field');
+        if(_ok){ _ok.classList.remove('invalid'); _ok.classList.add('valid'); }
+      }
       if(consent&&!consent.checked){if(consentLabel)consentLabel.style.color='#e05555';return;}
       const mPhone=(tel?.value||'').trim();
       const mName=(document.querySelector('#modal-form input[type="text"]')?.value||'').trim();
@@ -2144,7 +2163,13 @@ function closeModal(){
       }).catch(function(e){
         console.error('Lead submit failed:', e);
         submitBtn.style.background='#e05555';
-        submitBtn.textContent='Ошибка — попробуйте ещё раз';
+        submitBtn.textContent='Не отправилось — попробуйте ещё раз';
+        /* Возвращаем кнопку в рабочий вид: раньше она навсегда оставалась
+           красной, и повторная попытка выглядела бесполезной. */
+        setTimeout(function(){
+          submitBtn.style.background='';
+          submitBtn.textContent='Записаться на пробный урок →';
+        }, 4000);
       });
     });
   }
@@ -2491,6 +2516,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     tsw.setAttribute('data-size','flexible');
     tsw.style.cssText='margin:6px 0 4px;max-width:90%;';
     c.appendChild(tsw);
+    /* Согласие на сообщения в WhatsApp. Необязательное: согласие на обработку
+       данных человек уже дал, а это разрешение писать — требовать его нельзя. */
+    var wa=document.createElement('label');
+    wa.style.cssText='display:flex;gap:9px;align-items:flex-start;max-width:90%;margin:2px 0 6px;font-size:12.5px;line-height:1.5;color:#46554f;cursor:pointer;';
+    wa.innerHTML='<input type="checkbox" id="dl-wa-consent" style="margin-top:2px;width:15px;height:15px;accent-color:#8B2020;flex-shrink:0;cursor:pointer;">'
+      +'<span>Согласен получать сообщения о занятиях и расписании в WhatsApp</span>';
+    c.appendChild(wa);
     try{ if(window.turnstile) window.turnstile.render(tsw,{sitekey:'0x4AAAAAAEAI2McenZ8Dd80i'}); }catch(e){}
     c.scrollTop=c.scrollHeight;
     setTimeout(function(){
@@ -2519,6 +2551,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       return;
     }
     userData.phone=val;
+    var _wa=document.getElementById('dl-wa-consent');
+    userData.wa=!!(_wa&&_wa.checked);
     var card=document.getElementById('dl-phone-card');
     if(card) card.remove();
     userMsg(val);
@@ -2594,7 +2628,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       console.error('Chat lead submit network error');
       showChatError();
     };
-    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'https://doublelang-online-school.com/german',page:window.location.href}));
+    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',
+      source:'https://doublelang-online-school.com/german',
+      message:'Заявка из: чат на сайте',
+      wa_consent:userData.wa||false,
+      page:window.location.href}));
   }
 
   function showSuccess(){
