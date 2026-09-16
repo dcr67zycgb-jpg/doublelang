@@ -59,6 +59,10 @@
 }
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+noscript { display:none !important; }
+#cursor-dot, #cursor-ring { display:none !important; }
+body, .btn, .level-card, .faq-q { cursor:auto !important; }
+a, button, .btn, .level-card, .faq-q, .teacher-more-btn { cursor:pointer !important; }
 html { scroll-behavior:smooth; }
 body {
   font-family: var(--font-body);
@@ -68,7 +72,6 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
-html{overflow-x:hidden;max-width:100%}/* Скролл вправо-влево на мобильном: overflow-x стоял только на body, а пока прокручивается html, страница всё равно едет. */
 a { color: var(--teal); text-decoration:none; }
 img { max-width:100%; display:block; }
 .container { max-width:1100px; margin:0 auto; padding:0 28px; }
@@ -139,6 +142,8 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .btn-primary:hover { transform:translateY(-2px); box-shadow:var(--shadow-pop), 0 0 0 3px var(--teal-soft); color:#fff; }
 .btn-gold { background:linear-gradient(100deg,#cdac5f,#dcc890 30%,#bf9640 55%,#dcc890 75%,#cdac5f); background-size:220% auto; animation:btnShine 6s linear infinite; color:var(--ink); box-shadow:var(--shadow); }
 .btn-gold:hover { transform:translateY(-2px); box-shadow:var(--shadow-pop); color:var(--ink); }
+@keyframes seatPulseDot { 0%,100%{box-shadow:0 0 0 0 rgba(255,80,80,.6)} 50%{box-shadow:0 0 0 5px rgba(255,80,80,0)} }
+@keyframes seatBarFill { from{width:0%} to{width:75%} }
 .btn-ghost { background:var(--surface); color:var(--teal-deep); border:1.5px solid var(--line); }
 .btn-ghost:hover { background:var(--teal-soft); border-color:var(--teal); transform:translateY(-2px); color:var(--teal-deep); }
 .btn-ghost-dark { background:rgba(255,255,255,.09); color:#fff; border:1.5px solid rgba(255,255,255,.2); backdrop-filter:blur(6px); }
@@ -148,9 +153,9 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 /* ── HERO ── */
 /* ── HERO ── */
 .hero {
-  position:relative; width:100%; height:100vh; min-height:640px;
+  position:relative; width:100%; height:auto; min-height:100vh;
   display:flex; flex-direction:column; justify-content:flex-end;
-  overflow:hidden; color:#fff; padding:0;
+  overflow:visible; color:#fff; padding:0;
 }
 .hero-shade { display:none; }
 #hero-canvas { display:none!important; }
@@ -160,11 +165,11 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
   position:relative; z-index:2;
   display:flex; flex-direction:column; align-items:center;
   gap:40px; align-items:flex-end;
-  padding:0 0 60px;
+  padding:130px 0 60px;
 }
 .hero-left { display:flex; flex-direction:column; align-items:center; max-width:620px; margin:0 auto; text-align:center; width:100%; }
-.hero-stats-row { display:flex; align-items:center; gap:0; margin-top:32px; flex-wrap:wrap; gap:8px; }
-.hero-stat-item { display:flex; flex-direction:column; gap:2px; }
+.hero-stats-row { display:flex; align-items:center; justify-content:center; gap:0; margin-top:6px; flex-wrap:wrap; gap:8px; width:100%; }
+.hero-stat-item { display:flex; flex-direction:column; align-items:center; text-align:center; gap:2px; }
 .hero-stat-num { font-size:22px; font-weight:800; color:#fff; line-height:1; }
 .hero-stat-lbl { font-size:11px; color:rgba(255,255,255,.65); white-space:nowrap; }
 .hero-stat-sep { width:1px; height:32px; background:rgba(255,255,255,.2); margin:0 14px; }
@@ -182,7 +187,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 }
 .hero h1 em { color:#c8a96e; font-style:italic; font-weight:800; }
 .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; }
-.hero-sub-line { font-size:15px; color:#fff; margin-bottom:24px; line-height:1.7; max-width:540px; text-shadow:0 1px 6px rgba(0,0,0,.7); }
+.hero-sub-line { font-size:15px; color:#fff; margin-bottom:10px; line-height:1.7; max-width:620px; text-shadow:0 1px 6px rgba(0,0,0,.7); }
 .hero-right {
   display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end;
   padding-bottom:4px; gap:6px; text-align:right;
@@ -311,11 +316,11 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .goal-btns { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
 .goal-btn { padding:14px 12px; border:1.5px solid rgba(255,255,255,.15); background:rgba(255,255,255,.08); border-radius:var(--radius-sm); font-family:var(--font-body); font-size:13px; font-weight:600; color:#fff; cursor:pointer; transition:border-color .2s,background .2s,transform .2s var(--ease); text-align:left; line-height:1.4; display:flex; align-items:center; gap:9px; }
 .goal-btn svg { width:18px; height:18px; flex-shrink:0; opacity:.85; }
-.goal-btn:hover,.goal-btn:focus { border-color:var(--teal-bright); background:rgba(42,163,154,.22); transform:translateY(-2px); outline:none; color:#fff; }
+.goal-btn:hover,.goal-btn:focus { border-color:var(--teal-bright); background:rgba(192,57,43,.22); transform:translateY(-2px); outline:none; color:#fff; }
 .goal-btn:hover svg { opacity:1; stroke:var(--teal-bright); }
-.fstep2-goal { font-size:12px; color:#7edcd6; font-weight:700; margin-bottom:12px; }
+.fstep2-goal { font-size:12px; color:var(--teal-bright); font-weight:700; margin-bottom:12px; }
 .form-back { background:none; border:none; font-family:var(--font-body); font-size:12px; color:rgba(255,255,255,.40); cursor:pointer; margin-top:8px; padding:0; transition:color .2s; display:block; }
-.form-back:hover { color:#7edcd6; }
+.form-back:hover { color:var(--teal-bright); }
 
 /* ── SCROLL REVEAL ── */
 .reveal      { opacity:0; transform:translateY(36px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
@@ -330,12 +335,12 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .section-tag > span::after { content:''; position:absolute; inset:0 -8px; background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.6) 50%,transparent 100%); transform:translateX(-120%); animation:shimmer 4s ease-in-out infinite 1.2s; }
 @keyframes shimmer { 0%,70%,100%{transform:translateX(-120%)} 35%{transform:translateX(120%)} }
 @keyframes btnShine { 0%{background-position:200% center} 100%{background-position:-200% center} }
-.price-card .btn-primary { background:linear-gradient(135deg,#2aa39a,#21747a,#27948b,#21747a); background-size:250% auto; animation:btnShine 5s ease-in-out infinite; box-shadow:0 4px 12px rgba(42,163,154,0.28); }
-.price-card .btn-primary:hover { box-shadow:0 6px 20px rgba(42,163,154,0.45); }
+.price-card .btn-primary { background:linear-gradient(135deg,var(--teal-bright),var(--teal),#27948b,var(--teal)); background-size:250% auto; animation:btnShine 5s ease-in-out infinite; box-shadow:0 4px 12px rgba(192,57,43,0.28); }
+.price-card .btn-primary:hover { box-shadow:0 6px 20px rgba(192,57,43,0.45); }
 
 /* ── GOAL CARD GLOW ── */
 .goal-card { --glow-x:50%; --glow-y:50%; }
-.goal-card::after { content:''; position:absolute; inset:0; border-radius:inherit; background:radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(42,163,154,.10), transparent 60%); opacity:0; transition:opacity .3s; pointer-events:none; }
+.goal-card::after { content:''; position:absolute; inset:0; border-radius:inherit; background:radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(192,57,43,.10), transparent 60%); opacity:0; transition:opacity .3s; pointer-events:none; }
 .goal-card:hover::after { opacity:1; }
 
 /* ── FLOATING PARTICLES CSS ── */
@@ -366,7 +371,9 @@ h2.section-title {
 }
 .section-sub { font-size:16px; color:var(--ink-2); max-width:580px; margin:0 auto 52px; line-height:1.82; text-align:center; }
 
-/* ── GOALS ── */
+.goal-card { text-align:center; }
+.goal-card h3, .goal-card p { text-align:center; }
+.goal-icon { margin-left:auto; margin-right:auto; }
 .goals-bg { background:var(--surface-2); }
 .goals-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .goal-card {
@@ -375,9 +382,9 @@ h2.section-title {
   transition:transform var(--duration) var(--ease), box-shadow var(--duration), border-color var(--duration);
   transform-style:preserve-3d;
 }
-.goal-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-pop); border-color:rgba(33,116,122,.25); }
+.goal-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-pop); border-color:rgba(139,32,32,.25); }
 .goal-icon { font-size:26px; margin-bottom:16px; width:52px; height:52px; background:var(--teal-soft); border-radius:14px; display:flex; align-items:center; justify-content:center; transition:transform .35s var(--ease), background var(--duration); }
-.goal-card:hover .goal-icon { transform:scale(1.1) rotate(-5deg); background:rgba(33,116,122,.2); }
+.goal-card:hover .goal-icon { transform:scale(1.1) rotate(-5deg); background:rgba(139,32,32,.2); }
 .goal-card h3 { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:8px; }
 .goal-card p  { font-size:13px; color:var(--ink-2); line-height:1.68; }
 
@@ -393,22 +400,22 @@ h2.section-title {
 .level-card:hover { transform:translateY(-6px) scale(1.02); box-shadow:var(--shadow-pop); }
 .level-card::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.16),transparent); opacity:0; transition:opacity var(--duration); pointer-events:none; }
 .level-card:hover::after { opacity:1; }
-.level-a1 { background:rgba(15,20,24,0.03); border-color:rgba(33,116,122,0.18); backdrop-filter:blur(12px); } .level-a1::before { background:linear-gradient(90deg,#2aa39a,#21747a); }
-.level-a2 { background:rgba(15,20,24,0.04); border-color:rgba(33,116,122,0.22); backdrop-filter:blur(12px); } .level-a2::before { background:var(--gradient-accent); }
-.level-b1 { background:rgba(15,20,24,0.05); border-color:rgba(33,116,122,0.26); backdrop-filter:blur(12px); } .level-b1::before { background:linear-gradient(90deg,#2aa39a,#21747a); }
-.level-b2 { background:rgba(15,20,24,0.06); border-color:rgba(33,116,122,0.30); backdrop-filter:blur(12px); } .level-b2::before { background:linear-gradient(90deg,#2aa39a,#15545a); }
-.level-c1 { background:rgba(15,20,24,0.08); border-color:rgba(21,84,90,0.34); backdrop-filter:blur(12px); } .level-c1::before { background:linear-gradient(90deg,#15545a,#0e3a3e); }
+.level-a1 { background:rgba(15,20,24,0.03); border-color:rgba(139,32,32,0.18); backdrop-filter:blur(12px); } .level-a1::before { background:linear-gradient(90deg,var(--teal-bright),var(--teal)); }
+.level-a2 { background:rgba(15,20,24,0.04); border-color:rgba(139,32,32,0.22); backdrop-filter:blur(12px); } .level-a2::before { background:var(--gradient-accent); }
+.level-b1 { background:rgba(15,20,24,0.05); border-color:rgba(139,32,32,0.26); backdrop-filter:blur(12px); } .level-b1::before { background:linear-gradient(90deg,var(--teal-bright),var(--teal)); }
+.level-b2 { background:rgba(15,20,24,0.06); border-color:rgba(139,32,32,0.30); backdrop-filter:blur(12px); } .level-b2::before { background:linear-gradient(90deg,var(--teal-bright),var(--teal-deep)); }
+.level-c1 { background:rgba(15,20,24,0.08); border-color:rgba(21,84,90,0.34); backdrop-filter:blur(12px); } .level-c1::before { background:linear-gradient(90deg,var(--teal-deep),#0e3a3e); }
 .level-badge { font-size:26px; font-weight:800; margin-bottom:8px; transition:transform .3s var(--ease); }
 .level-card:hover .level-badge { transform:scale(1.12); }
-.level-a1 .level-badge{color:#2aa39a} .level-a2 .level-badge{color:#2aa39a} .level-b1 .level-badge{color:#2aa39a} .level-b2 .level-badge{color:#2aa39a} .level-c1 .level-badge{color:#2aa39a}
+.level-a1 .level-badge{color:var(--teal-bright)} .level-a2 .level-badge{color:var(--teal-bright)} .level-b1 .level-badge{color:var(--teal-bright)} .level-b2 .level-badge{color:var(--teal-bright)} .level-c1 .level-badge{color:var(--teal-bright)}
 .level-name  { font-size:12px; font-weight:700; color:var(--ink); margin-bottom:6px; width:100%; text-align:center; }
-.level-lessons { font-size:11px; color:var(--teal-deep); font-weight:600; margin-bottom:10px; width:100%; text-align:center; padding-bottom:8px; border-bottom:1px solid rgba(33,116,122,0.15); }
+.level-lessons { font-size:11px; color:var(--teal-deep); font-weight:600; margin-bottom:10px; width:100%; text-align:center; padding-bottom:8px; border-bottom:1px solid rgba(139,32,32,0.15); }
 .level-desc  { font-size:11px; color:var(--ink-2); line-height:1.55; text-align:center; flex:1; }
 .level-bar-wrap { margin-top:14px; height:4px; background:rgba(0,0,0,.07); border-radius:2px; overflow:hidden; }
 .level-bar   { height:100%; border-radius:2px; width:0%; transition:width 1.3s var(--ease); }
 .level-btn { display:inline-flex; align-items:center; justify-content:center; margin-top:12px; padding:12px 20px; min-height:44px; border-radius:99px; background:var(--gradient-accent); border:none; color:#fff; font-family:var(--font-body); font-size:11px; font-weight:700; cursor:pointer; text-decoration:none; transition:transform .2s var(--ease),box-shadow .2s; width:100%; box-shadow:var(--shadow); }
 .level-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-pop); color:#fff; }
-.level-a1 .level-bar{background:#2aa39a} .level-a2 .level-bar{background:var(--teal)} .level-b1 .level-bar{background:var(--teal-deep)} .level-b2 .level-bar{background:#15545a} .level-c1 .level-bar{background:#a855f7}
+.level-a1 .level-bar{background:var(--teal-bright)} .level-a2 .level-bar{background:var(--teal)} .level-b1 .level-bar{background:var(--teal-deep)} .level-b2 .level-bar{background:var(--teal-deep)} .level-c1 .level-bar{background:#a855f7}
 
 /* ── PLATFORM ── */
 .platform-bg { background:var(--surface-2); }
@@ -437,11 +444,11 @@ h2.section-title {
 .feat-list { display:flex; flex-direction:column; gap:16px; }
 .feat-item { display:flex; gap:16px; align-items:flex-start; }
 .feat-ic { width:46px; height:46px; border-radius:13px; background:var(--teal-soft); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; transition:transform .35s var(--ease), background .25s; }
-.feat-item:hover .feat-ic { transform:rotate(-7deg) scale(1.08); background:rgba(33,116,122,.18); }
-.feat-login-btn { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:12px; font-weight:700; color:var(--teal); border:1.5px solid rgba(33,116,122,.28); border-radius:99px; padding:6px 14px; transition:background .2s,color .2s,transform .2s; text-decoration:none; }
+.feat-item:hover .feat-ic { transform:rotate(-7deg) scale(1.08); background:rgba(139,32,32,.18); }
+.feat-login-btn { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:12px; font-weight:700; color:var(--teal); border:1.5px solid rgba(139,32,32,.28); border-radius:99px; padding:6px 14px; transition:background .2s,color .2s,transform .2s; text-decoration:none; }
 .feat-login-btn svg { width:13px; height:13px; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none; }
 .feat-login-btn:hover { background:var(--teal); color:#fff; transform:translateY(-2px); }
-.feat-login-btn { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:12px; font-weight:700; color:var(--teal); border:1.5px solid rgba(33,116,122,.28); border-radius:99px; padding:6px 14px; transition:background .2s,color .2s,transform .2s; text-decoration:none; }
+.feat-login-btn { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:12px; font-weight:700; color:var(--teal); border:1.5px solid rgba(139,32,32,.28); border-radius:99px; padding:6px 14px; transition:background .2s,color .2s,transform .2s; text-decoration:none; }
 .feat-login-btn svg { width:13px; height:13px; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none; }
 .feat-login-btn:hover { background:var(--teal); color:#fff; transform:translateY(-2px); }
 
@@ -460,7 +467,7 @@ h2.section-title {
 .floating-login-btn svg { width:14px; height:14px; stroke:var(--teal); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; }
 .platform-grid.arrow-show .floating-login-btn, .laptop-wrap.arrow-show .floating-login-btn { opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0) !important; }
 .floating-login-btn:hover { background:var(--teal-soft); border-color:var(--teal); transform:translateX(-50%) translateY(-3px) !important; }
-@keyframes floatPulse { 0%,100%{box-shadow:0 6px 24px rgba(33,116,122,.4)} 50%{box-shadow:0 10px 36px rgba(33,116,122,.65)} }
+@keyframes floatPulse { 0%,100%{box-shadow:0 6px 24px rgba(139,32,32,.4)} 50%{box-shadow:0 10px 36px rgba(139,32,32,.65)} }
 .laptop-wrap.arrow-show .floating-login-btn { animation:floatPulse 2.4s ease-in-out infinite 1s; }
 
 /* ── PLATFORM ARROW ── */
@@ -532,9 +539,9 @@ h2.section-title {
 
 /* ── EXAMS ── */
 .exams-bg { background:var(--ink); color:#fff; position:relative; overflow:hidden; }
-.exams-bg::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 80% 40%,rgba(42,163,154,.11) 0%,transparent 70%); }
-.exams-bg .section-tag { color:#7edcd6; }
-.exams-bg .section-tag::before { background:#7edcd6; }
+.exams-bg::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 80% 40%,rgba(192,57,43,.11) 0%,transparent 70%); }
+.exams-bg .section-tag { color:var(--teal-bright); }
+.exams-bg .section-tag::before { background:var(--teal-bright); }
 .exams-bg .section-sub { color:rgba(255,255,255,.55); }
 .exams-grid { position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
 .exam-card {
@@ -545,8 +552,8 @@ h2.section-title {
   display:flex; flex-direction:column;
 }
 .exam-card .exam-stat { margin-top:auto; }
-.exam-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(42,163,154,.08),transparent); opacity:0; transition:opacity var(--duration); }
-.exam-card:hover { background:rgba(255,255,255,.1); transform:translateY(-5px); border-color:rgba(42,163,154,.38); }
+.exam-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(192,57,43,.08),transparent); opacity:0; transition:opacity var(--duration); }
+.exam-card:hover { background:rgba(255,255,255,.1); transform:translateY(-5px); border-color:rgba(192,57,43,.38); }
 .exam-card:hover::before { opacity:1; }
 .exam-name { font-size:28px; font-weight:800; color:var(--teal-bright); margin-bottom:4px; letter-spacing:-.01em; transition:letter-spacing var(--duration); }
 .exam-card:hover .exam-name { letter-spacing:.02em; }
@@ -567,10 +574,10 @@ h2.section-title {
   position:relative; overflow:hidden;
 }
 .why-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gradient-accent); transform:scaleY(0); transform-origin:bottom; transition:transform .4s var(--ease); border-radius:0 2px 2px 0; }
-.why-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-pop); border-color:rgba(33,116,122,.22); }
+.why-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-pop); border-color:rgba(139,32,32,.22); }
 .why-card:hover::before { transform:scaleY(1); }
 .why-icon { font-size:22px; width:52px; height:52px; border-radius:14px; background:var(--teal-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .38s var(--ease), background var(--duration); }
-.why-card:hover .why-icon { transform:rotate(-8deg) scale(1.1); background:rgba(33,116,122,.2); }
+.why-card:hover .why-icon { transform:rotate(-8deg) scale(1.1); background:rgba(139,32,32,.2); }
 .why-card h3 { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:6px; }
 .why-card p  { font-size:13px; color:var(--ink-2); line-height:1.68; }
 
@@ -588,12 +595,12 @@ h2.section-title {
 }
 .teacher-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(0,0,0,.11); }
 .teacher-photo { height:300px; background:#f0f4f3; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.teacher-photo .teacher-avatar { width:72px; height:72px; border-radius:50%; background:var(--gradient-accent); margin:0; font-size:22px; font-weight:800; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 16px rgba(33,116,122,.3); }
+.teacher-photo .teacher-avatar { width:72px; height:72px; border-radius:50%; background:var(--gradient-accent); margin:0; font-size:22px; font-weight:800; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 16px rgba(139,32,32,.3); }
 .teacher-body { padding:18px 18px 18px; display:flex; flex-direction:column; flex:1; gap:6px; }
 .teacher-name { font-size:17px; font-weight:800; color:var(--ink); letter-spacing:-.01em; line-height:1.2; margin-bottom:2px; }
 .teacher-exp-badge { display:none; }
 .teacher-short { font-size:13px; color:#6b7b74; line-height:1.6; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; flex:1; margin-top:2px; }
-.teacher-more-btn { margin-top:14px; display:block; text-align:center; padding:11px; border-radius:10px; background:#f0f7f6; border:1.5px solid rgba(33,116,122,.15); color:var(--teal-deep); font-size:13px; font-weight:700; cursor:pointer; transition:background .2s,color .2s,border-color .2s; text-decoration:none; }
+.teacher-more-btn { margin-top:14px; display:block; text-align:center; padding:11px; border-radius:10px; background:#f0f7f6; border:1.5px solid rgba(139,32,32,.15); color:var(--teal-deep); font-size:13px; font-weight:700; cursor:pointer; transition:background .2s,color .2s,border-color .2s; text-decoration:none; }
 .teacher-more-btn:hover { background:var(--teal); color:#fff; border-color:var(--teal); }
 
 /* ── TEACHER MODAL ── */
@@ -604,10 +611,10 @@ h2.section-title {
 .teacher-modal h2 { font-size:clamp(24px,3vw,32px); font-weight:800; letter-spacing:-.02em; color:var(--ink); margin-bottom:16px; }
 .teacher-modal-bio { font-size:15px; color:var(--ink-2); line-height:1.8; margin-bottom:24px; }
 .teacher-modal-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
-.teacher-modal-tags span { background:var(--teal-soft); color:var(--teal-deep); border:1px solid rgba(33,116,122,.2); border-radius:99px; padding:4px 14px; font-size:12px; font-weight:700; }
+.teacher-modal-tags span { background:var(--teal-soft); color:var(--teal-deep); border:1px solid rgba(139,32,32,.2); border-radius:99px; padding:4px 14px; font-size:12px; font-weight:700; }
 .teacher-modal-btns { display:flex; gap:12px; flex-wrap:wrap; }
 .teacher-modal-btns .btn-book { flex:1; padding:14px; border-radius:var(--radius-pill); background:var(--gradient-accent); color:#fff; font-family:var(--font-body); font-size:15px; font-weight:800; border:none; cursor:pointer; transition:transform .2s,box-shadow .2s; text-align:center; }
-.teacher-modal-btns .btn-book:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(42,163,154,.4); }
+.teacher-modal-btns .btn-book:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(192,57,43,.4); }
 .teacher-modal-btns .btn-back { padding:14px 24px; border-radius:var(--radius-pill); background:var(--surface-2); color:var(--ink-2); font-family:var(--font-body); font-size:15px; font-weight:700; border:1.5px solid var(--line); cursor:pointer; white-space:nowrap; }
 
 /* ── REVIEWS SLIDER ── */
@@ -617,8 +624,8 @@ h2.section-title {
 .reviews-track { display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding:8px 4px 28px; }
 .reviews-track::-webkit-scrollbar { display:none; }
 .review-card { scroll-snap-align:start; background:var(--surface); border-radius:var(--radius-sm); padding:28px 24px; border:1px solid var(--line); box-shadow:var(--shadow); width:330px; flex-shrink:0; transition:transform var(--duration) var(--ease), box-shadow var(--duration), border-color var(--duration); }
-.review-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-pop); border-color:rgba(33,116,122,.25); }
-.reviews-arrow { display:none; }; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--ink); font-size:18px; transition:background var(--ease),box-shadow var(--ease),color var(--ease); z-index:3; }
+.review-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-pop); border-color:rgba(139,32,32,.25); }
+.reviews-arrow { display:none; }
 .reviews-arrow:hover { background:var(--teal); color:#fff; border-color:var(--teal); box-shadow:var(--shadow-pop); }
 .reviews-arrow.prev { left:0; }
 .reviews-arrow.next { right:0; }
@@ -641,13 +648,13 @@ h2.section-title {
 .pricing-grid { display:grid; grid-template-columns:repeat(2,minmax(0,420px)); gap:22px; justify-content:center; align-items:start; }
 .price-card {
   border-radius:var(--radius-lg); padding:38px 32px;
-  border:1.5px solid rgba(33,116,122,0.22); background:rgba(33,116,122,0.05);
+  border:1.5px solid rgba(139,32,32,0.22); background:rgba(139,32,32,0.05);
   backdrop-filter:blur(12px);
   position:relative; overflow:hidden;
   transition:transform .35s var(--ease), box-shadow var(--duration), border-color var(--duration);
-  box-shadow:0 8px 32px rgba(33,116,122,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow:0 8px 32px rgba(139,32,32,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
 }
-.price-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(33,116,122,0.18), inset 0 1px 0 rgba(255,255,255,0.5); border-color:rgba(33,116,122,0.4); }
+.price-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(139,32,32,0.18), inset 0 1px 0 rgba(255,255,255,0.5); border-color:rgba(139,32,32,0.4); }
 .price-card::after { content:''; position:absolute; inset:0; background:linear-gradient(145deg,var(--teal-soft),transparent); opacity:0; transition:opacity var(--duration); pointer-events:none; }
 .price-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-pop); }
 .price-card:hover::after { opacity:1; }
@@ -658,13 +665,13 @@ h2.section-title {
 .price-amount span { font-size:44px; font-weight:800; }
 .price-per    { font-size:12px; color:var(--ink-3); margin:6px 0 26px; position:relative; z-index:1; text-align:center; }
 .price-features { list-style:none; margin-bottom:28px; position:relative; z-index:1; }
-.price-features li { display:flex; align-items:flex-start; gap:10px; font-size:13px; padding:7px 0; border-bottom:1px solid rgba(33,116,122,.1); color:var(--ink-2); justify-content:center; }
+.price-features li { display:flex; align-items:flex-start; gap:10px; font-size:13px; padding:7px 0; border-bottom:1px solid rgba(139,32,32,.1); color:var(--ink-2); justify-content:center; }
 .price-features li .ok { color:var(--teal); font-weight:700; flex-shrink:0; }
 
 /* ── BLOG ── */
 .blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 .blog-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); transition:transform .35s var(--ease), box-shadow var(--duration), border-color var(--duration); display:flex; flex-direction:column; }
-.blog-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-pop); border-color:rgba(33,116,122,.25); }
+.blog-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-pop); border-color:rgba(139,32,32,.25); }
 .blog-thumb { height:160px; background:repeating-linear-gradient(135deg,var(--surface-2),var(--surface-2) 11px,#eef4f3 11px,#eef4f3 22px); display:flex; align-items:center; justify-content:center; position:relative; border-bottom:1px solid var(--line); }
 .blog-thumb > span { font-family:ui-monospace,monospace; font-size:10px; color:var(--ink-3); background:rgba(255,255,255,.8); padding:4px 10px; border-radius:6px; }
 .blog-cat { display:none!important; }
@@ -679,7 +686,7 @@ h2.section-title {
 .faq-bg { background:var(--surface-2); }
 .faq-list { max-width:740px; margin:0 auto; }
 .faq-item { background:var(--surface); border-radius:var(--radius-sm); border:1px solid var(--line); margin-bottom:10px; overflow:hidden; box-shadow:var(--shadow); transition:box-shadow var(--duration), border-color var(--duration); }
-.faq-item:hover { border-color:rgba(33,116,122,.25); box-shadow:var(--shadow-pop); }
+.faq-item:hover { border-color:rgba(139,32,32,.25); box-shadow:var(--shadow-pop); }
 .faq-q { padding:20px 24px; font-size:14px; font-weight:700; color:var(--ink); cursor:none; display:flex; justify-content:space-between; align-items:center; gap:16px; user-select:none; transition:background var(--duration); }
 .faq-q:hover { background:var(--teal-soft); }
 .faq-chevron { width:30px; height:30px; border-radius:50%; background:var(--teal-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .38s var(--ease), background var(--duration); }
@@ -693,7 +700,7 @@ h2.section-title {
 /* ── MODAL ── */
 .modal-overlay { position:fixed; inset:0; background:rgba(15,20,24,.65); backdrop-filter:blur(6px); z-index:9990; display:flex; align-items:flex-start; justify-content:center; padding-top:40px; overflow-y:auto; opacity:0; pointer-events:none; transition:opacity .3s var(--ease); }
 .modal-overlay.open { opacity:1; pointer-events:auto; }
-.modal-box { text-align:left; background:rgba(10,16,20,0.08); backdrop-filter:blur(40px) saturate(2); -webkit-backdrop-filter:blur(40px) saturate(2); border:1px solid rgba(255,255,255,0.18); border-radius:24px; padding:36px 32px; width:420px; max-width:calc(100vw - 32px); box-shadow:0 8px 32px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.18); color:#fff; transform:translateY(18px) scale(.97); transition:transform .35s var(--ease); position:relative; }
+.modal-box { text-align:left; background:rgba(18,26,24,0.92); backdrop-filter:blur(24px) saturate(1.4); -webkit-backdrop-filter:blur(24px) saturate(1.4); border:1px solid rgba(255,255,255,0.18); border-radius:24px; padding:36px 32px; width:420px; max-width:calc(100vw - 32px); box-shadow:0 8px 32px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.18); color:#fff; transform:translateY(18px) scale(.97); transition:transform .35s var(--ease); position:relative; }
 .modal-overlay.open .modal-box { transform:none; }
 .modal-close { position:absolute; top:14px; right:16px; width:30px; height:30px; background:rgba(255,255,255,.1); border:none; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.6); font-size:16px; transition:background .2s,color .2s; }
 .modal-close:hover { background:rgba(255,255,255,.2); color:#fff; }
@@ -739,8 +746,8 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   section { padding:56px 0; }
-  .hero { min-height:100svh; height:100svh; }
-  .hero-inner { grid-template-columns:1fr; gap:16px; padding:0 0 40px; }
+  .hero { min-height:100svh; height:auto; overflow:visible; }
+  .hero-inner { grid-template-columns:1fr; gap:16px; padding:48px 0 40px; }
   .hero-right { align-items:flex-start; }
   .hero h1 { font-size:clamp(26px,7vw,34px); letter-spacing:-.01em; margin-bottom:24px; }
   .hero-overline { font-size:10px; margin-bottom:14px; }
@@ -776,7 +783,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .container { padding:0 16px; }
   .hero { padding:60px 0 44px; }
   .nav-inner { display:flex!important; justify-content:flex-end; align-items:center; position:relative; }
-  .nav-logo { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:auto; }
+  .nav-logo { position:absolute; left:50%; top:62%; transform:translate(-50%,-50%); pointer-events:auto; }
   .hero-badge { display:inline-flex!important; width:auto!important; align-self:center; }
   .hero-inner { align-items:center; }
   .hero h1 { text-align:center; }
@@ -893,7 +900,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 .phone-hint { display:none; font-size:11px; color:#e05555; margin-top:4px; padding-left:2px; }
 .phone-field.invalid .phone-hint { display:block; }
 .phone-field.invalid input { border-color:#e05555 !important; }
-.phone-field.valid input { border-color:#2aa39a !important; }
+.phone-field.valid input { border-color:var(--teal-bright) !important; }
 .phone-field { position:relative; }
 #modal-phone-field input { display:block; width:100%; padding:13px 16px; border:1.5px solid #d0dbd8; border-radius:var(--radius-sm); font-size:14px; font-family:var(--font-body); color:var(--ink); background:#fff; outline:none; box-sizing:border-box; }
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
@@ -901,7 +908,17 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 @media(max-width:640px){.mob-br{display:block;height:0}}
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
-  <!-- Yandex.Metrika counter -->
+  
+
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-559PV245');</script>
+<!-- End Google Tag Manager -->
+<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -914,13 +931,6 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111680872" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-559PV245');</script>
-<!-- End Google Tag Manager -->
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -978,7 +988,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-photo" aria-hidden="true"></div>
+  <div style="position:absolute;inset:0;z-index:0;overflow:hidden;"><div class="hero-photo" aria-hidden="true"></div></div>
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-inner">
@@ -989,10 +999,20 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
           с нуля до <em>уверенного</em><br>
           разговорного уровня
         </h1>
-        <p class="hero-sub-line">Индивидуальные занятия с опытными преподавателями немецкого языка. Подготовка к ÖSD, EPD, TestDaF, интеграционным экзаменам A1 и B1, B2 Beruf.<span class="mob-br"></span> Пробный урок бесплатно.</p>
-        <div class="hero-ctas">
-          <a href="#" onclick="event.preventDefault();openCtaModal('hero_button')" class="btn btn-gold btn-lg magnetic">Записаться на пробный урок</a>
-          <a href="#levels" class="btn btn-ghost-dark btn-lg">Смотреть программу</a>
+        <p class="hero-sub-line">Индивидуальные занятия с опытными преподавателями. Подготовка к ÖSD, EPD, TestDaF, экзаменам A1, B1, B2 Beruf.</p>
+        </div>
+        <div style="margin:4px auto 0;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1.5px solid rgba(212,175,90,.55);border-radius:20px;padding:30px 36px;max-width:520px;box-shadow:0 24px 60px -16px rgba(0,0,0,.65), 0 0 0 1px rgba(212,175,90,.15), inset 0 1px 0 rgba(255,255,255,.35);">
+          <div style="font-size:19px;font-weight:800;color:#fff;margin-bottom:16px;text-align:center;">Запишитесь на бесплатный пробный урок</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">30 минут demo-урок</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc2b2b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">Оценим ваш текущий уровень языка</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0b13a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">Составим план обучения для вас</span></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="#" onclick="event.preventDefault();openCtaModal('hero_card')" class="btn btn-gold" style="flex:1 1 100%;text-align:center;justify-content:center;padding:13px;font-size:14px;animation:btnShine 2.4s linear infinite;">Записаться на урок</a>
+            <a href="https://t.me/doublelang_online_school" target="_blank" rel="noopener" class="btn" style="flex:1;min-width:130px;text-align:center;justify-content:center;padding:11px;font-size:13px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.35);">Telegram</a>
+            <a href="https://wa.me/995599435407" target="_blank" rel="noopener" class="btn" style="flex:1;min-width:130px;text-align:center;justify-content:center;padding:11px;font-size:13px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.35);">WhatsApp</a>
+          </div>
         </div>
         <div class="hero-stats-row">
           <div class="hero-stat-item"><span class="hero-stat-num">1000+</span><span class="hero-stat-lbl">выпускников</span></div>
@@ -1033,11 +1053,11 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
     <h2 class="section-title reveal">Путь от A1 до C1</h2>
     <p class="section-sub reveal">Каждый уровень — конкретные навыки и понятный результат. Преподаватель определит ваш стартовый уровень на пробном уроке.</p>
     <div class="levels-grid">
-      <div class="level-card level-a1 reveal s1"><div class="level-badge">A1</div><div class="level-name">Начинающий</div><div class="level-lessons">30 занятий</div><div class="level-desc">Приветствия, базовые фразы, числа, простые диалоги</div><div class="level-bar-wrap"><div class="level-bar" data-width="20%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Начать →</button></div>
-      <div class="level-card level-a2 reveal s2"><div class="level-badge">A2</div><div class="level-name">Элементарный</div><div class="level-lessons">60 занятий</div><div class="level-desc">Покупки, транспорт, семья, бытовые ситуации</div><div class="level-bar-wrap"><div class="level-bar" data-width="40%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Начать →</button></div>
-      <div class="level-card level-b1 reveal s3"><div class="level-badge">B1</div><div class="level-name">Средний</div><div class="level-lessons">90 занятий</div><div class="level-desc">Работа, новости, мнения, подготовка к ÖSD A2/B1</div><div class="level-bar-wrap"><div class="level-bar" data-width="60%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Начать →</button></div>
-      <div class="level-card level-b2 reveal s4"><div class="level-badge">B2</div><div class="level-name">Выше среднего</div><div class="level-lessons">120 занятий</div><div class="level-desc">Деловое общение, академические тексты, TestDaF</div><div class="level-bar-wrap"><div class="level-bar" data-width="80%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Начать →</button></div>
-      <div class="level-card level-c1 reveal s5"><div class="level-badge">C1</div><div class="level-name">Продвинутый</div><div class="level-lessons">150 занятий</div><div class="level-desc">Свободная речь, нюансы языка, профессиональный уровень</div><div class="level-bar-wrap"><div class="level-bar" data-width="100%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Начать →</button></div>
+      <div class="level-card level-a1 reveal s1"><div class="level-badge">A1</div><div class="level-name">Начинающий</div><div class="level-lessons">30 занятий</div><div class="level-desc">Приветствия, базовые фразы, числа, простые диалоги</div><div class="level-bar-wrap"><div class="level-bar" data-width="20%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Подробнее →</button></div>
+      <div class="level-card level-a2 reveal s2"><div class="level-badge">A2</div><div class="level-name">Элементарный</div><div class="level-lessons">60 занятий</div><div class="level-desc">Покупки, транспорт, семья, бытовые ситуации</div><div class="level-bar-wrap"><div class="level-bar" data-width="40%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Подробнее →</button></div>
+      <div class="level-card level-b1 reveal s3"><div class="level-badge">B1</div><div class="level-name">Средний</div><div class="level-lessons">90 занятий</div><div class="level-desc">Работа, новости, мнения, подготовка к ÖSD A2/B1</div><div class="level-bar-wrap"><div class="level-bar" data-width="60%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Подробнее →</button></div>
+      <div class="level-card level-b2 reveal s4"><div class="level-badge">B2</div><div class="level-name">Выше среднего</div><div class="level-lessons">120 занятий</div><div class="level-desc">Деловое общение, академические тексты, TestDaF</div><div class="level-bar-wrap"><div class="level-bar" data-width="80%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Подробнее →</button></div>
+      <div class="level-card level-c1 reveal s5"><div class="level-badge">C1</div><div class="level-name">Продвинутый</div><div class="level-lessons">150 занятий</div><div class="level-desc">Свободная речь, нюансы языка, профессиональный уровень</div><div class="level-bar-wrap"><div class="level-bar" data-width="100%"></div></div><button type="button" class="level-btn magnetic" onclick="openLevelModal(this)">Подробнее →</button></div>
     </div>
   </div>
 </section>
@@ -1052,9 +1072,9 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
       <div class="laptop-wrap" id="laptop-anim">
           <a href="https://app.doublelang-online-school.com" class="floating-login-btn" id="floating-login"><svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>Войти в кабинет</a>
           <div id="platform-arrow" class="chevron-arrows" style="position:absolute;top:-46px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;opacity:0;pointer-events:none;transition:opacity .4s ease .7s;z-index:20;">
-          <svg width="28" height="16" viewBox="0 0 28 16" fill="none" class="chev c1"><polyline points="3,3 14,13 25,3" stroke="#21747a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <svg width="22" height="13" viewBox="0 0 22 13" fill="none" class="chev c2"><polyline points="2,2 11,11 20,2" stroke="#21747a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" class="chev c3"><polyline points="2,2 8,8 14,2" stroke="#21747a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="28" height="16" viewBox="0 0 28 16" fill="none" class="chev c1"><polyline points="3,3 14,13 25,3" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="22" height="13" viewBox="0 0 22 13" fill="none" class="chev c2"><polyline points="2,2 11,11 20,2" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" class="chev c3"><polyline points="2,2 8,8 14,2" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="laptop">
           <div class="laptop-screen">
@@ -1107,6 +1127,8 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
     </div>
   </div>
 </section>
+
+
 
 <!-- TEACHERS -->
 <section id="teachers">
@@ -1427,12 +1449,12 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
     <div class="section-tag reveal-left">Вопросы и ответы</div>
     <h2 class="section-title reveal">Часто задают</h2>
     <div class="faq-list">
-      <div class="faq-item reveal s1"><div class="faq-q">Что будет на пробном занятии?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#21747a" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Преподаватель определит уровень, расскажет о программе и ответит на все вопросы.</div></div></div>
-      <div class="faq-item reveal s2"><div class="faq-q">Как проходят занятия?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#21747a" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Занятия проходят в онлайн-формате с видеосвязью с преподавателем на платформе DoubleLang. Нужен только компьютер или планшет.</div></div></div>
-      <div class="faq-item reveal s3"><div class="faq-q">Сколько длится занятие?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#21747a" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Занятие — 60 минут. Пробный урок — 30 минут.</div></div></div>
-      <div class="faq-item reveal s4"><div class="faq-q">Нужны ли учебники и материалы?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#21747a" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Нет — все материалы включены в стоимость и хранятся на платформе.</div></div></div>
-      <div class="faq-item reveal s5"><div class="faq-q">Можно ли перенести урок?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#21747a" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Да. При уведомлении за 24 часа урок переносится, но не более 2-х раз в неделю. При болезни с подтверждающим документом занятие не сгорает.</div></div></div>
-      <div class="faq-item reveal s6"><div class="faq-q">С чего начать?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="#21747a" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Оставьте заявку на пробный урок — менеджер свяжется и поможет подобрать удобную дату и время для урока.</div></div></div>
+      <div class="faq-item reveal s1"><div class="faq-q">Что будет на пробном занятии?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Преподаватель определит уровень, расскажет о программе и ответит на все вопросы.</div></div></div>
+      <div class="faq-item reveal s2"><div class="faq-q">Как проходят занятия?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Занятия проходят в онлайн-формате с видеосвязью с преподавателем на платформе DoubleLang. Нужен только компьютер или планшет.</div></div></div>
+      <div class="faq-item reveal s3"><div class="faq-q">Сколько длится занятие?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Занятие — 60 минут. Пробный урок — 30 минут.</div></div></div>
+      <div class="faq-item reveal s4"><div class="faq-q">Нужны ли учебники и материалы?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Нет — все материалы включены в стоимость и хранятся на платформе.</div></div></div>
+      <div class="faq-item reveal s5"><div class="faq-q">Можно ли перенести урок?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Да. При уведомлении за 24 часа урок переносится, но не более 2-х раз в неделю. При болезни с подтверждающим документом занятие не сгорает.</div></div></div>
+      <div class="faq-item reveal s6"><div class="faq-q">С чего начать?<span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/></svg></span></div><div class="faq-a"><div class="faq-a-inner">Оставьте заявку на пробный урок — менеджер свяжется и поможет подобрать удобную дату и время для урока.</div></div></div>
     </div>
   </div>
 </section>
@@ -1445,22 +1467,40 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
     <p class="section-sub reveal">Гайды по экзаменам, переезду и изучению немецкого языка — пишем понятно и по делу.</p>
     <div class="blog-grid">
       <!-- BLOG:START -->
-<article class="blog-card reveal s1"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-nemeckie-pristavochnye-glagoly-guide-cover.png" alt="Приставочные глаголы в немецком языке: отделяемые и неотделяемые приставки" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Приставочные глаголы в немецком языке: отделяемые и неотделяемые приставки</h3><p>Подробное руководство о том, как распознавать отделяемые и неотделяемые приставки немецких глаголов, с таблицами, примерами и упражнениями для самосто</p><div class="blog-meta"><span>10 мин чтения</span><a href="article-nemeckie-pristavochnye-glagoly-guide.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s2"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-konjunktiv-2-nemeckij-guide-cover.png" alt="Конъюнктив II в немецком языке: как правильно выражать вежливость, желания и гипотезы" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Конъюнктив II в немецком языке: как правильно выражать вежливость, желания и гипотезы</h3><p>Подробный разбор образования и употребления Konjunktiv II в немецком языке с примерами вежливых просьб, условных предложений и упражнениями для разных</p><div class="blog-meta"><span>12 мин чтения</span><a href="article-konjunktiv-2-nemeckij-guide.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s3"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-wohnungssuche-germany-guide-cover.png" alt="Как найти жильё в Германии: гид по Wohnungssuche для переезжающих" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Иммиграция</span></div><div class="blog-body"><h3>Как найти жильё в Германии: гид по Wohnungssuche для переезжающих</h3><p>Пошаговое руководство по поиску квартиры в Германии: где искать объявления, как составить Mieterselbstauskunft, пройти собеседование с арендодателем и</p><div class="blog-meta"><span>12 мин чтения</span><a href="article-wohnungssuche-germany-guide.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s1 blog-extra"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-passiv-nemeckij-guide-cover.png" alt="Пассивный залог в немецком языке: полное руководство с примерами" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Пассивный залог в немецком языке: полное руководство с примерами</h3><p>Подробный разбор образования и употребления пассивного залога в немецком языке (Vorgangspassiv и Zustandspassiv) с примерами и упражнениями для самопр</p><div class="blog-meta"><span>11 мин чтения</span><a href="article-passiv-nemeckij-guide.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s2 blog-extra"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-poryadok-slov-nemeckij-guide-cover.png" alt="Порядок слов в немецком предложении" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Порядок слов в немецком предложении</h3><p>Разбор правил построения немецких предложений с примерами. Рамочная конструкция, место глагола, придаточные и типичные ошибки русскоязычных.</p><div class="blog-meta"><span>12 мин чтения</span><a href="article-poryadok-slov-nemeckij-guide.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s3 blog-extra"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-modalnye-glagoly-nemeckij-guide-cover.png" alt="Модальные глаголы в немецком языке: полное руководство" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Модальные глаголы в немецком языке: полное руководство</h3><p>Подробный разбор всех модальных глаголов немецкого языка (können, müssen, dürfen, sollen, wollen, mögen) с правилами спряжения, употребления и практич</p><div class="blog-meta"><span>12 мин чтения</span><a href="article-modalnye-glagoly-nemeckij-guide.html" class="blog-read">Читать →</a></div></div></article>
-<!-- BLOG:END -->
-    </div>
+      <article class="blog-card reveal s1">
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-testdaf-cover.png" alt="TestDaF 2026" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-body"><h3>Как подготовиться к TestDaF в 2026 году</h3><p>Разбираем структуру экзамена, требования к уровню и пошаговый план подготовки для поступления в немецкий вуз.</p><div class="blog-meta"><span>8 мин чтения</span><a href="article-testdaf-2026.html" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s2">
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-german-austria-cover.png" alt="Немецкий в Австрии vs Германии" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-body"><h3>Немецкий в Австрии и Германии: в чём разница</h3><p>Один язык или два? Объясняем различия в произношении, лексике и акцентах простыми словами.</p><div class="blog-meta"><span>7 мин чтения</span><a href="article-german-austria.html" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s3">
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-oesd-cover.png" alt="ÖSD экзамен" style="width:100%;height:100%;object-fit:cover"></div>
+        <div class="blog-body"><h3>ÖSD: пошаговый гид для переезда в Германию</h3><p>Какие документы нужны, как проходит экзамен и сколько времени занимает подготовка с нуля.</p><div class="blog-meta"><span>10 мин чтения</span><a href="article-oesd-guide.html" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s4 blog-extra" style="display:none">
+        <div class="blog-thumb"></div>
+        <div class="blog-body"><h3>10 немецких слов, которые сложно перевести</h3><p>От «Gemütlichkeit» до «Weltschmerz» — слова, которые лучше всего описывают немецкую культуру.</p><div class="blog-meta"><span>5 мин чтения</span><a href="https://doublelang-online-school.com/blog" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s5 blog-extra" style="display:none">
+        <div class="blog-thumb"></div>
+        <div class="blog-body"><h3>Сколько времени нужно, чтобы выучить немецкий</h3><p>Реалистичные сроки до A2, B1 и B2 — и от чего зависит скорость прогресса.</p><div class="blog-meta"><span>7 мин чтения</span><a href="https://doublelang-online-school.com/blog" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s6 blog-extra" style="display:none">
+        <div class="blog-thumb"></div>
+        <div class="blog-body"><h3>ÖSD или Goethe: какой сертификат выбрать</h3><p>Сравниваем два главных немецких сертификата — кому какой подойдёт и где принимают.</p><div class="blog-meta"><span>9 мин чтения</span><a href="https://doublelang-online-school.com/blog" class="blog-read">Читать →</a></div></div>
+      </article>
+    <!-- BLOG:END -->
+      </div>
     <p style="text-align:center;margin-top:36px">
-      <button id="blog-toggle" class="btn btn-ghost magnetic" data-open="0" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){el.style.display=open?'none':'flex';if(!open)el.classList.add('visible');});btn.dataset.open=open?'0':'1';btn.textContent=open?('Показать ещё '+extras.length+' →'):'Свернуть';})()">Показать ещё 3 →</button>
+      <button id="blog-toggle" class="btn btn-ghost magnetic" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){el.style.display=open?'none':'flex';if(!open)el.classList.add('visible');});btn.dataset.open=open?'0':'1';btn.textContent=open?'Показать ещё →':'Свернуть ↑'})()">Показать ещё →</button>
     </p>
   </div>
 
-    <div class="tg-inline" style="display:flex;gap:14px;align-items:center;max-width:640px;margin:32px auto 0;padding:16px 20px;background:rgba(33,116,122,.07);border-left:4px solid #21747a;border-radius:0 12px 12px 0;">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="#21747a" style="flex-shrink:0;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-      <div style="font-size:15px;line-height:1.55;color:#46554f;">💡 Разборы, лексика и лайфхаки по немецкому языку — в нашем <a href="https://t.me/doublelang_onlineschool/5" target="_blank" rel="noopener" style="color:#21747a;font-weight:700;">Telegram-канале</a>.</div>
+    <div class="tg-inline" style="display:flex;gap:14px;align-items:center;max-width:640px;margin:32px auto 0;padding:16px 20px;background:rgba(139,32,32,.07);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="var(--teal)" style="flex-shrink:0;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      <div style="font-size:15px;line-height:1.55;color:#46554f;">💡 Разборы, лексика и лайфхаки по немецкому языку — в нашем <a href="https://t.me/doublelang_onlineschool/5" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;">Telegram-канале</a>.</div>
     </div>
   </section>
 
@@ -1476,11 +1516,11 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
 <!-- FOOTER -->
 <!-- MODAL -->
 <div class="modal-overlay" id="contact-modal">
-  <div class="modal-box" style="color:var(--ink);">
+  <div class="modal-box" style="color:#fff;">
     <button class="modal-close" id="modal-close">✕</button>
-    <div class="modal-level-badge" id="modal-level-badge" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);border:1px solid rgba(33,116,122,.25);border-radius:99px;padding:6px 16px;font-size:12px;font-weight:800;color:var(--teal);letter-spacing:.06em;margin-bottom:16px;"></div>
+    <div class="modal-level-badge" id="modal-level-badge" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);border:1px solid rgba(139,32,32,.25);border-radius:99px;padding:6px 16px;font-size:12px;font-weight:800;color:var(--teal);letter-spacing:.06em;margin-bottom:16px;"></div>
     <div class="form-card-title" style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;text-shadow:0 1px 4px rgba(0,0,0,.5);text-align:center;">Оставьте контакт</div>
-    <div style="font-size:13px;color:var(--ink-3);margin-bottom:18px;text-align:center;">Менеджер свяжется и согласует время пробного урока</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.72);margin-bottom:18px;text-align:center;">Менеджер свяжется и согласует время пробного урока</div>
     <form id="modal-form">
       <input type="hidden" id="modal-goal-val" name="goal">
       <input type="hidden" id="modal-teacher-val" name="teacher">
@@ -1495,21 +1535,17 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
           <span style="opacity:.6;font-size:11px;">▼</span>
         </div>
         <div id="calltime-menu" style="display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);background:rgba(15,25,30,0.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);border-radius:10px;overflow:hidden;z-index:100;">
-          <div onclick="pickCalltime('9:00–11:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">9:00 – 11:00</div><div onclick="pickCalltime('11:00–13:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">11:00 – 13:00</div><div onclick="pickCalltime('13:00–15:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">13:00 – 15:00</div><div onclick="pickCalltime('15:00–17:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">15:00 – 17:00</div><div onclick="pickCalltime('17:00–19:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">17:00 – 19:00</div><div onclick="pickCalltime('19:00–21:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">19:00 – 21:00</div>
+          <div onclick="pickCalltime('9:00–11:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(192,57,43,.25)'" onmouseout="this.style.background=''">9:00 – 11:00</div><div onclick="pickCalltime('11:00–13:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(192,57,43,.25)'" onmouseout="this.style.background=''">11:00 – 13:00</div><div onclick="pickCalltime('13:00–15:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(192,57,43,.25)'" onmouseout="this.style.background=''">13:00 – 15:00</div><div onclick="pickCalltime('15:00–17:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(192,57,43,.25)'" onmouseout="this.style.background=''">15:00 – 17:00</div><div onclick="pickCalltime('17:00–19:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(192,57,43,.25)'" onmouseout="this.style.background=''">17:00 – 19:00</div><div onclick="pickCalltime('19:00–21:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(192,57,43,.25)'" onmouseout="this.style.background=''">19:00 – 21:00</div>
         </div>
       </div>
       <div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;">
         <input type="checkbox" id="modal-consent" style="margin-top:3px;accent-color:var(--teal);width:16px;height:16px;flex-shrink:0;">
-        <label for="modal-consent" id="modal-consent-label" style="font-size:12px;color:var(--ink-3);line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:var(--teal);">обработку персональных данных</a></label>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin:0 0 16px;">
-        <input type="checkbox" id="modal-wa-consent" style="margin-top:3px;accent-color:var(--teal);width:16px;height:16px;flex-shrink:0;">
-        <label for="modal-wa-consent" style="font-size:12px;color:var(--ink-3);line-height:1.55;cursor:pointer;">Можно писать мне в WhatsApp</label>
+        <label for="modal-consent" id="modal-consent-label" style="font-size:12px;color:rgba(255,255,255,.72);line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:var(--teal);">обработку персональных данных</a></label>
       </div>
       <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
       <button type="button" id="modal-submit-btn" class="btn btn-primary" style="width:100%;padding:14px;font-size:14px;">Записаться на пробный урок →</button>
     </form>
-    <p style="font-size:11px;color:var(--ink-3);margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
+    <p style="font-size:11px;color:rgba(255,255,255,.6);margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
   </div>
 </div>
 <!-- TEACHER MODAL -->
@@ -1842,21 +1878,20 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
   if(next)next.addEventListener('click',goTo2);
   document.querySelectorAll('.goal-btn').forEach(b=>{
     b.addEventListener('click',()=>{
-      if(gv)gv.value=b.dataset.goal;
-      // submit → webhook → thank-you
       const _mf = document.getElementById('fstep1') || document.getElementById('lead-form') || document;
       const phoneVal = (_mf.querySelector('input[type="tel"]')?.value || '').trim();
+      if(!phoneVal){
+        const telInput = _mf.querySelector('input[type="tel"]');
+        if(telInput){ telInput.style.borderColor='#e05555'; telInput.focus(); }
+        return;
+      }
+      if(gv)gv.value=b.dataset.goal;
+      // submit → webhook → thank-you
       const nameVal = (_mf.querySelector('input[type="text"]')?.value || '').trim();
       const emailVal = (_mf.querySelector('input[type="email"]')?.value || '').trim();
       const goalVal = (document.getElementById('form-goal-val')?.value || '').trim();
-      /* dl-inline-phone-guard: страховка на случай, если dl-phone.js ещё не выполнился (он подключён с defer) или не загрузился. */
-      if(!phoneVal){
-        const _pi=_mf.querySelector('input[type="tel"]');
-        if(_pi){_pi.style.borderColor='#e05555';_pi.focus();_pi.scrollIntoView({block:'center',behavior:'smooth'});}
-        return;
-      }
       b.style.borderColor='var(--teal-bright)';
-      b.style.background='rgba(42,163,154,.35)';
+      b.style.background='rgba(192,57,43,.35)';
       b.textContent='Отправляем...';
       b.disabled=true;
       const source='Главная форма';
@@ -2026,8 +2061,6 @@ function openLevelModal(btn){
 }
 window.openLevelModal = openLevelModal;
 function openCtaModal(sourceBlock){
-    /* Сброс выбора: иначе следующая заявка по общей кнопке унаследовала бы преподавателя от прошлого просмотра. */
-    window.__selectedTeacherIdx=null;
   const lb=document.getElementById('modal-level-badge');
   if(lb)lb.textContent='Пробный урок';
   const gv=document.getElementById('modal-goal-val');
@@ -2041,6 +2074,23 @@ function openCtaModal(sourceBlock){
   const mt=document.getElementById('modal-tel'); if(mt){ if(window.IMask && !mt._masked){ mt._masked=true; mt.__mask = IMask(mt,{mask:'+{0000000000000}'}); } var _dc=window.__dlDial||''; if(mt.__mask){ mt.__mask.value=_dc; } else { mt.value=_dc; } mt.dataset.dlAuto='1'; mt.dataset.dlTyped=''; }
 }
 window.openCtaModal=openCtaModal;
+// Автопоказ формы при появлении блока "Подготовка к экзаменам" (раз за сессию)
+(function(){
+  var shown=false;
+  var target=document.getElementById('exams');
+  if(!target) return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(shown || !entry.isIntersecting) return;
+      shown=true;
+      obs.unobserve(target);
+      try{ if(sessionStorage.getItem('dl_mid_popup_v5')==='1') return; sessionStorage.setItem('dl_mid_popup_v5','1'); }catch(e){}
+      var overlay=document.getElementById('contact-modal');
+      if(overlay && !overlay.classList.contains('open')) openCtaModal('exams_section');
+    });
+  },{threshold:0.05});
+  obs.observe(target);
+})();
 // Открыть форму записи при переходе со статьи/внешней ссылки (#book или #hero-form)
 (function(){function _dlBookHash(){var h=location.hash;if(h==='#book'||h==='#hero-form'){setTimeout(function(){openCtaModal('article');},260);}}window.addEventListener('DOMContentLoaded',_dlBookHash);window.addEventListener('hashchange',_dlBookHash);})();
 function closeModal(){
@@ -2063,19 +2113,6 @@ function closeModal(){
       const consentLabel=document.getElementById('modal-consent-label');
       if(tel&&!tel.value.trim()){tel.style.borderColor='#e05555';tel.focus();return;}
       if(consent&&!consent.checked){if(consentLabel)consentLabel.style.color='#e05555';return;}
-      /* Капча должна ЗАПРЕЩАТЬ отправку, а не просто дописывать токен.
-         Токен берём внутри самой модалки: на странице два виджета, и
-         querySelector по документу возвращал токен первого - от формы,
-         с которой человек не взаимодействовал. */
-      var _mForm=document.getElementById('modal-form');
-      var _ts=_mForm&&_mForm.querySelector('[name="cf-turnstile-response"]');
-      var _tsVal=_ts?String(_ts.value||'').trim():'';
-      if(!_tsVal){
-        var _w=_mForm&&_mForm.querySelector('.cf-turnstile');
-        if(_w){_w.style.outline='2px solid #e05555';_w.style.borderRadius='8px';
-               _w.scrollIntoView({block:'center',behavior:'smooth'});}
-        return;
-      }
       const mPhone=(tel?.value||'').trim();
       const mName=(document.querySelector('#modal-form input[type="text"]')?.value||'').trim();
       const mEmail=(document.querySelector('#modal-form input[type="email"]')?.value||'').trim();
@@ -2084,13 +2121,9 @@ function closeModal(){
       const mSource='https://doublelang-online-school.com/german';
       const mBlock=(document.getElementById('modal-source-val')?.value||'').trim();
       const mCalltime=(document.getElementById('modal-calltime')?.value||'').trim();
-      /* Согласие на WhatsApp — ОТДЕЛЬНОЕ от согласия на обработку данных (#modal-consent).
-         Снято по умолчанию и необязательно: предзаполненная галочка для Meta согласием
-         не считается, а обязательная превратила бы поле в «у всех true». */
-      const mWaConsent=!!(document.getElementById('modal-wa-consent')||{}).checked;
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
-      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({'cf-turnstile-response':_tsVal,phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href,wa_consent:mWaConsent})}).then(function(r){
+      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href})}).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         closeModal();
         window.location.href='thank-you.html';
@@ -2126,15 +2159,13 @@ function closeTeacherModal(){
 }
 function openContactModal(){
   closeTeacherModal();
-  /* Без явного выбора преподавателя поле остаётся пустым. Прежнее || 0 молча приписывало заявку первому в списке, и проверить это было нечем: имя в заявке выглядело достоверным. */
-    const _ti=window.__selectedTeacherIdx;
-    const t=(typeof _ti==='number'&&TEACHERS_DATA[_ti])?TEACHERS_DATA[_ti]:null;
+  const t=TEACHERS_DATA[window.__selectedTeacherIdx||0];
   const m=document.getElementById('contact-modal');
   if(m){
     const lb=document.getElementById('modal-level-badge');
-    if(lb){lb.textContent=t?('Преподаватель: '+t.name):'';lb.style.display=t?'':'none';}
+    if(lb)lb.textContent='Преподаватель: '+(t?t.name:'');
     const gv=document.getElementById('modal-goal-val');
-    if(gv)gv.value=t?'Запись к преподавателю':'Пробный урок';
+    if(gv)gv.value='Запись к преподавателю';
     const tv=document.getElementById('modal-teacher-val');
     if(tv)tv.value=(t?t.name:'');
     const sv=document.getElementById('modal-source-val');
@@ -2186,15 +2217,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 
 <!-- CHAT LEAD WIDGET -->
 <style>
-#dl-chat-btn{position:fixed;bottom:24px;right:24px;z-index:9000;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2aa39a,#21747a);box-shadow:0 4px 20px rgba(33,116,122,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s;color:#fff;}
-#dl-chat-btn:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(33,116,122,.6);}
+#dl-chat-btn{position:fixed;bottom:24px;right:24px;z-index:9000;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--teal-bright),var(--teal));box-shadow:0 4px 20px rgba(139,32,32,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s;color:#fff;}
+#dl-chat-btn:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(139,32,32,.6);}
 @media(max-width:640px){footer{padding-bottom:118px;}}
 #dl-chat-btn .chat-notif{position:absolute;top:-2px;right:-2px;width:20px;height:20px;background:#e0b34a;border-radius:50%;border:2.5px solid #fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#15211d;animation:notifPulse 2s ease-in-out infinite;}
 @keyframes notifPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
 #dl-chat-window{position:fixed;bottom:100px;right:24px;z-index:8999;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:22px;box-shadow:0 8px 48px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;height:520px;max-height:calc(100vh - 120px);font-family:'Manrope',system-ui,sans-serif;}
 #dl-chat-window.open{display:flex;animation:chatIn .32s cubic-bezier(.22,.61,.36,1);}
 @keyframes chatIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
-.dl-ch{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.dl-ch{background:linear-gradient(135deg,var(--teal-bright),var(--teal));color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
 .dl-ch-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
 .dl-ch-info h4{font-size:14px;font-weight:700;margin:0 0 2px;}
 .dl-ch-info span{font-size:11px;opacity:.8;display:flex;align-items:center;gap:5px;}
@@ -2203,29 +2234,29 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 .dl-ch-close:hover{background:rgba(255,255,255,.3);}
 .dl-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
 .dl-msgs::-webkit-scrollbar{width:3px;}
-.dl-msgs::-webkit-scrollbar-thumb{background:rgba(33,116,122,.2);border-radius:2px;}
+.dl-msgs::-webkit-scrollbar-thumb{background:rgba(139,32,32,.2);border-radius:2px;}
 .dl-msg{max-width:85%;display:flex;flex-direction:column;gap:3px;}
 .dl-msg.bot{align-self:flex-start;}
 .dl-msg.user{align-self:flex-end;}
 .dl-bubble{padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.6;}
 .dl-msg.bot .dl-bubble{background:#f0f8f7;color:#15211d;border-bottom-left-radius:4px;}
-.dl-msg.user .dl-bubble{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border-bottom-right-radius:4px;}
+.dl-msg.user .dl-bubble{background:linear-gradient(135deg,var(--teal-bright),var(--teal));color:#fff;border-bottom-right-radius:4px;}
 .dl-time{font-size:10px;color:#9ca3af;}
 .dl-msg.bot .dl-time{align-self:flex-start;}
 .dl-msg.user .dl-time{align-self:flex-end;}
 .dl-typing{align-self:flex-start;background:#f0f8f7;padding:10px 16px;border-radius:16px 16px 16px 4px;display:flex;gap:5px;align-items:center;}
-.dl-typing span{width:7px;height:7px;border-radius:50%;background:#2aa39a;animation:dlDot 1.2s ease-in-out infinite;}
+.dl-typing span{width:7px;height:7px;border-radius:50%;background:var(--teal-bright);animation:dlDot 1.2s ease-in-out infinite;}
 .dl-typing span:nth-child(2){animation-delay:.2s}.dl-typing span:nth-child(3){animation-delay:.4s}
 @keyframes dlDot{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-5px);opacity:1}}
 .dl-btns{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 12px;}
-.dl-btn{background:#f0f8f7;border:1.5px solid rgba(33,116,122,.3);color:#21747a;border-radius:20px;padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'Manrope',system-ui,sans-serif;transition:all .2s;}
-.dl-btn:hover{background:#21747a;color:#fff;border-color:#21747a;transform:translateY(-1px);}
-.dl-btn.accent{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border-color:transparent;}
+.dl-btn{background:#f0f8f7;border:1.5px solid rgba(139,32,32,.3);color:var(--teal);border-radius:20px;padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'Manrope',system-ui,sans-serif;transition:all .2s;}
+.dl-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal);transform:translateY(-1px);}
+.dl-btn.accent{background:linear-gradient(135deg,var(--teal-bright),var(--teal));color:#fff;border-color:transparent;}
 .dl-btn.accent:hover{opacity:.9;transform:translateY(-1px);}
 .dl-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #f0f0f0;flex-shrink:0;}
 .dl-input-row input{flex:1;border:1.5px solid #e5e7eb;border-radius:24px;padding:9px 16px;font-size:13.5px;font-family:'Manrope',system-ui,sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;}
-.dl-input-row input:focus{border-color:#2aa39a;box-shadow:0 0 0 3px rgba(42,163,154,.12);}
-.dl-send{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#2aa39a,#21747a);border:none;color:#fff;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:transform .2s,opacity .2s;}
+.dl-input-row input:focus{border-color:var(--teal-bright);box-shadow:0 0 0 3px rgba(192,57,43,.12);}
+.dl-send{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--teal-bright),var(--teal));border:none;color:#fff;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:transform .2s,opacity .2s;}
 .dl-send:hover{transform:scale(1.08);}
 .dl-send:disabled{opacity:.4;cursor:default;transform:none;}
 .dl-success{text-align:center;padding:28px 20px;color:#15211d;}
@@ -2326,7 +2357,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     if(path.indexOf('/french')!==-1||path.indexOf('french/')!==-1) ruPrice='18';
     if(path.indexOf('/serbian')!==-1||path.indexOf('serbian/')!==-1) ruPrice='16';
     var pricingUrl=dlGetPricingUrl();
-    return 'Занятия с русскоязычным преподавателем — <b>от '+ruPrice+' €</b>, с носителем языка — <b>от 26 €</b>.<br>Пакеты на 5, 10, 20, 30 и 50 занятий — чем больше, тем выгоднее.<br><b>Первый пробный урок — бесплатно!</b><br><a href="'+pricingUrl+'" style="color:#2aa39a;font-weight:700;">📋 Посмотреть все тарифы →</a>';
+    return 'Занятия с русскоязычным преподавателем — <b>от '+ruPrice+' €</b>, с носителем языка — <b>от 26 €</b>.<br>Пакеты на 5, 10, 20, 30 и 50 занятий — чем больше, тем выгоднее.<br><b>Первый пробный урок — бесплатно!</b><br><a href="'+pricingUrl+'" style="color:var(--teal-bright);font-weight:700;">📋 Посмотреть все тарифы →</a>';
   }
   function dlGetPricingUrl(){
     return 'pricing.html';
@@ -2436,8 +2467,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     var c=document.getElementById('dl-msgs');
     var card=document.createElement('div');
     card.id='dl-phone-card';
-    card.style.cssText='background:#f0f8f7;border:1.5px solid rgba(33,116,122,.3);border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;max-width:90%;margin-bottom:4px;';
-    card.innerHTML='<input id="dl-phone-inp" type="tel" placeholder="+49 151 12 34 56 78" style="flex:1;border:none;background:transparent;font-size:14px;font-family:Manrope,sans-serif;outline:none;color:#15211d;" onkeydown="if(event.key===\'Enter\')dlSubmitPhone()"><button onclick="dlSubmitPhone()" style="background:linear-gradient(135deg,#2aa39a,#21747a);border:none;border-radius:10px;color:#fff;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;white-space:nowrap;">Далее →</button>';
+    card.style.cssText='background:#f0f8f7;border:1.5px solid rgba(139,32,32,.3);border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;max-width:90%;margin-bottom:4px;';
+    card.innerHTML='<input id="dl-phone-inp" type="tel" placeholder="+49 151 12 34 56 78" style="flex:1;border:none;background:transparent;font-size:14px;font-family:Manrope,sans-serif;outline:none;color:#15211d;" onkeydown="if(event.key===\'Enter\')dlSubmitPhone()"><button onclick="dlSubmitPhone()" style="background:linear-gradient(135deg,var(--teal-bright),var(--teal));border:none;border-radius:10px;color:#fff;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;white-space:nowrap;">Далее →</button>';
     c.appendChild(card);
     var tsw=document.createElement('div');
     tsw.id='dl-chat-ts';
@@ -2486,8 +2517,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       var c=document.getElementById('dl-msgs');
       var card=document.createElement('div');
       card.id='dl-name-card';
-      card.style.cssText='background:#f0f8f7;border:1.5px solid rgba(33,116,122,.3);border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;max-width:90%;margin-bottom:4px;';
-      card.innerHTML='<input id="dl-name-inp" type="text" placeholder="Ваше имя" style="flex:1;border:none;background:transparent;font-size:14px;font-family:Manrope,sans-serif;outline:none;color:#15211d;" onkeydown="if(event.key===\'Enter\')dlSubmitName()"><button onclick="dlSubmitName()" style="background:linear-gradient(135deg,#2aa39a,#21747a);border:none;border-radius:10px;color:#fff;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;white-space:nowrap;">Готово →</button>';
+      card.style.cssText='background:#f0f8f7;border:1.5px solid rgba(139,32,32,.3);border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;max-width:90%;margin-bottom:4px;';
+      card.innerHTML='<input id="dl-name-inp" type="text" placeholder="Ваше имя" style="flex:1;border:none;background:transparent;font-size:14px;font-family:Manrope,sans-serif;outline:none;color:#15211d;" onkeydown="if(event.key===\'Enter\')dlSubmitName()"><button onclick="dlSubmitName()" style="background:linear-gradient(135deg,var(--teal-bright),var(--teal));border:none;border-radius:10px;color:#fff;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;white-space:nowrap;">Готово →</button>';
       c.appendChild(card);
       c.scrollTop=c.scrollHeight;
       // Skip button
@@ -2609,12 +2640,58 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   }
 })();
 </script>
+
+<script>
+/* Метки кампании для CRM.
+   Обработчик вебхука берёт utm_source из ПЕРВОГО непустого среди
+   (utm_source, utm, source, источник). Формы слали в source то название формы
+   («main_form_german»), то адрес страницы — и в источник заявки попадало это,
+   а не то, откуда человек пришёл. Читаем метки из URL и передаём явно:
+   utm_source есть — он и выигрывает, нет — поведение прежнее. */
+(function(){
+  function fromUrl(){
+    var p = new URLSearchParams(location.search), out = {};
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){
+      var v = p.get(k); if (v) out[k] = v;
+    });
+    try {
+      if (Object.keys(out).length) sessionStorage.setItem('dl_utm', JSON.stringify(out));
+      else { var s = sessionStorage.getItem('dl_utm'); if (s) out = JSON.parse(s); }
+    } catch(e){}
+    return out;
+  }
+  var UTM = fromUrl();
+  window.dlUtm = UTM;
+  var _f = window.fetch;
+  window.fetch = function(url, opts){
+    try {
+      if (typeof url === 'string' && url.indexOf('/api/crm/webhooks/lead') > -1 && opts && opts.body) {
+        var d = JSON.parse(opts.body);
+        Object.keys(UTM).forEach(function(k){ if (!d[k]) d[k] = UTM[k]; });
+        opts.body = JSON.stringify(d);
+      }
+    } catch(e){}
+    return _f.apply(this, arguments);
+  };
+  var _s = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send = function(body){
+    try {
+      if (typeof body === 'string' && body.charAt(0) === '{') {
+        var d = JSON.parse(body);
+        if (d.phone) { Object.keys(UTM).forEach(function(k){ if (!d[k]) d[k] = UTM[k]; }); body = JSON.stringify(d); }
+      }
+    } catch(e){}
+    return _s.call(this, body);
+  };
+})();
+</script>
+<script src="/assets/dl-phone.js" defer></script>
 <script src="/articles.js" defer></script>
 
 <div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif">
   <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
     <p style="margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.82);flex:1 1 320px">Мы используем файлы cookie и сервисы аналитики (Google, Yandex, Meta) для корректной работы сайта и улучшения его удобства. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="privacy.html" style="color:#e0b34a;text-decoration:underline">политикой конфиденциальности</a>.</p>
-    <button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Принять</button>
+    <button id="dl-cookie-ok" style="flex:0 0 auto;background:linear-gradient(135deg,var(--teal-bright),var(--teal));color:#fff;border:none;border-radius:99px;padding:12px 28px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer">Принять</button>
   </div>
 </div>
 <script>(function(){try{var K='dl_cookie_consent';var b=document.getElementById('dl-cookie-banner');if(!b)return;if(localStorage.getItem(K)==='1'){b.remove();return;}b.style.display='block';document.getElementById('dl-cookie-ok').addEventListener('click',function(){try{localStorage.setItem(K,'1');}catch(e){}b.remove();});}catch(e){}})();</script>
@@ -2642,8 +2719,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   new MutationObserver(addHoneypots).observe(document.documentElement,{childList:true,subtree:true});
 
   function isSpam(){
-    var hp = document.querySelector('input[name="'+HP_NAME+'"]');
-    if (hp && hp.value.trim() !== '') return 'honeypot';
+    /* Проверяем ВСЕ honeypot-поля, а не первое: их несколько (форма отзывов,
+       модалка, чат), и querySelector возвращал поле отзывов независимо от
+       того, откуда шлют. Автозаполнение браузера, попав в него, глушило бы
+       заявки со всей страницы. */
+    var filled = false;
+    document.querySelectorAll('input[name="'+HP_NAME+'"]').forEach(function(hp){
+      if (hp.value.trim() !== '') filled = true;
+    });
+    if (filled) return 'honeypot';
     if (Date.now() - LOADED < MIN_MS) return 'too_fast';
     return null;
   }
@@ -2657,7 +2741,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       var why = isSpam();
       if (why) {
         try{ console.warn('[guard] blocked:', why); }catch(e){}
-        return Promise.resolve(new Response(JSON.stringify({ok:true}), {status:200, headers:{'Content-Type':'application/json'}}));
+        /* Раньше здесь возвращался поддельный {"ok":true} со статусом 200.
+           Форма считала отправку успешной, закрывалась и уводила на
+           thank-you.html — а заявка не уходила никуда. Человек был уверен,
+           что записался. Настоящий отказ показывает ошибку и даёт повторить. */
+        return Promise.reject(new Error('lead blocked: ' + why));
       }
     }
     return origFetch.apply(this, arguments);
@@ -2715,6 +2803,4 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   };
 })();
 </script>
-  <script src="/assets/dl-phone.js" defer></script>
-  <script src="/assets/dl-utm.js" defer></script>
 </body>
