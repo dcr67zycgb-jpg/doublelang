@@ -1,5 +1,104 @@
 [
   {
+    "id": "detskie-sady-shkoly-niderlandy-yazyk",
+    "lang": "nl",
+    "title": "Голландские детские сады и школы: как выбрать и что говорить учителям на родительских встречах",
+    "excerpt": "Статья о системе дошкольного и школьного образования в Нидерландах для семей с детьми, включая нидерландскую лексику для общения с воспитателями и учи",
+    "cover": "/assets/blog-detskie-sady-shkoly-niderlandy-yazyk-cover.png",
+    "url": "/dutch/article-detskie-sady-shkoly-niderlandy-yazyk.html",
+    "category": "Иммиграция",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "sokrascheniya-smstaal-niderlandskiy",
+    "lang": "nl",
+    "title": "Голландские сокращения и SMS-язык: как понимать переписку с носителями в мессенджерах",
+    "excerpt": "Разбор популярных нидерландских сокращений, интернет-сленга и стиля переписки в WhatsApp, чтобы русскоязычные учащиеся понимали неформальное общение с",
+    "cover": "/assets/blog-sokrascheniya-smstaal-niderlandskiy-cover.png",
+    "url": "/dutch/article-sokrascheniya-smstaal-niderlandskiy.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "nemeckie-vremena-perfekt-prateritum-guide",
+    "lang": "de",
+    "title": "Прошедшие времена в немецком языке: Perfekt, Präteritum и Plusquamperfekt",
+    "excerpt": "Разбор различий между прошедшими временами в немецком языке с правилами употребления в устной и письменной речи, примерами и типичными ошибками русско",
+    "cover": "/assets/blog-nemeckie-vremena-perfekt-prateritum-guide-cover.png",
+    "url": "/german/article-nemeckie-vremena-perfekt-prateritum-guide.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "medicinskoe-strahovanie-germany-guide",
+    "lang": "de",
+    "title": "Медицинское страхование в Германии: как выбрать между государственной и частной страховкой",
+    "excerpt": "Разбор различий между gesetzliche и private Krankenversicherung, критерии выбора для переезжающих в Германию и типичные ошибки при оформлении страховк",
+    "cover": "/assets/blog-medicinskoe-strahovanie-germany-guide-cover.png",
+    "url": "/german/article-medicinskoe-strahovanie-germany-guide.html",
+    "category": "Иммиграция",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "english-for-university-study-abroad-2026",
+    "lang": "en",
+    "title": "Английский для учебы за границей: как подготовиться к обучению в университете",
+    "excerpt": "Статья о том, какой уровень английского нужен для поступления и учёбы в зарубежном university, как развить академическую лексику, писать эссе и участв",
+    "cover": "/assets/blog-english-for-university-study-abroad-2026-cover.png",
+    "url": "/english/article-english-for-university-study-abroad-2026.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "cambridge-b2-first-fce-2026-guide",
+    "lang": "en",
+    "title": "Cambridge B2 First (FCE) в 2026 году: полное руководство по подготовке и сдаче",
+    "excerpt": "Подробный разбор формата экзамена Cambridge B2 First: структура частей, критерии оценки, типичные ошибки русскоязычных учащихся и пошаговый план подго",
+    "cover": "/assets/blog-cambridge-b2-first-fce-2026-guide-cover.png",
+    "url": "/english/article-cambridge-b2-first-fce-2026-guide.html",
+    "category": "Экзамены",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "poisk-raboty-francia-sobesedovanie-yazyk",
+    "lang": "fr",
+    "title": "Как искать работу во Франции: французский для собеседования и деловая переписка",
+    "excerpt": "Разбираем, как готовиться к собеседованию на французском, какие фразы использовать и как правильно вести деловую переписку с работодателем.",
+    "cover": "/assets/blog-poisk-raboty-francia-sobesedovanie-yazyk-cover.png",
+    "url": "/french/article-poisk-raboty-francia-sobesedovanie-yazyk.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "rabota-francia-bez-diploma-strategii",
+    "lang": "fr",
+    "title": "Как найти работу во Франции без диплома, признанного во Франции: реальные стратегии на 2026 год",
+    "excerpt": "Статья разбирает пути трудоустройства во Франции для эмигрантов без нострификации диплома: востребованные профессии, переквалификация, VAE и языковые ",
+    "cover": "/assets/blog-rabota-francia-bez-diploma-strategii-cover.png",
+    "url": "/french/article-rabota-francia-bez-diploma-strategii.html",
+    "category": "Работа",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
+    "id": "turkish-proverbs-mentality",
+    "lang": "tr",
+    "title": "Турецкие пословицы и поговорки: как понять менталитет через язык",
+    "excerpt": "Разбор популярных турецких пословиц и поговорок с объяснением их культурного контекста и практическими примерами использования в речи.",
+    "cover": "/assets/blog-turkish-proverbs-mentality-cover.png",
+    "url": "/turkish/article-turkish-proverbs-mentality.html",
+    "category": "Культура",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-16"
+  },
+  {
     "id": "glagoly-s-predlogami-niderlandskiy",
     "lang": "nl",
     "title": "Голландские глаголы с предлогами: как не путаться в устойчивых сочетаниях",
