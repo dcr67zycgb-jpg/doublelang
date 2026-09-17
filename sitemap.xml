@@ -853,4 +853,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://doublelang-online-school.com/dutch/article-predlogi-mesta-napravleniya-niderlandskiy.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/french/article-mestoimennye-narechiya-en-y-francuzskiy.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/german/article-nemeckij-dlya-medikov-approbation-2026.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/russian/article-delovoy-russkiy-pisma-perepiska-rabota.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://doublelang-online-school.com/serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
