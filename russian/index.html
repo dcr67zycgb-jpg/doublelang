@@ -956,6 +956,20 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=923641720143752&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<script>
+/* ── Цели Метрики ────────────────────────────────────────────────────────────
+ * Счётчик писал только визиты: сколько человек зашло, видно, сколько оставило
+ * заявку - нет. Конверсию приходилось считать руками, сверяя CRM с рекламным
+ * кабинетом, и по блокам страницы она не разбивалась вовсе.
+ * block - откуда пришла заявка (main_form, modal и его блок, chat).
+ * ⚠️ Цель работает, только если заведена в интерфейсе Метрики: тип
+ * «JavaScript-событие», идентификатор - ровно `lead_submit`. */
+function dlGoal(name, block){
+  try{ if(window.ym) ym(111527546,'reachGoal',name,{block:block||''}); }catch(e){}
+  try{ (window.dataLayer=window.dataLayer||[]).push({event:name,form_block:block||''}); }catch(e){}
+}
+window.dlGoal=dlGoal;
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1842,6 +1856,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_russian', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
+        if(window.dlGoal) dlGoal('lead_submit','main_form');
         window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
@@ -2056,6 +2071,7 @@ function closeModal(){
       
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({'cf-turnstile-response':_tsVal,phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href,wa_consent:mWaConsent})}).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
+        if(window.dlGoal) dlGoal('lead_submit',mBlock||'modal');
         closeModal();
         window.location.href='thank-you.html';
       }).catch(function(e){
@@ -2494,7 +2510,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        if(xhr.status>=200&&xhr.status<300){ showSuccess(); }
+        if(xhr.status>=200&&xhr.status<300){ if(window.dlGoal) dlGoal('lead_submit','chat'); showSuccess(); }
         else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
