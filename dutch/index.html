@@ -5,7 +5,7 @@
   <meta name="yandex-verification" content="0b462f20c4d6f19b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Курсы нидерландского языка онлайн — Школа DoubleLang</title>
-  <meta name="description" content="Индивидуальные занятия нидерландским языком онлайн с преподавателями из Нидерландов и Бельгии. Подготовка к MVV, Inburgering, NT2. С нуля до уверенного разговорного уровня. Пробный урок бесплатно.">
+  <meta name="description" content="Индивидуальные занятия нидерландским онлайн с преподавателями из Нидерландов и Бельгии. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
   <link rel="canonical" href="https://doublelang-online-school.com/dutch/">
   <meta property="og:title" content="Курсы нидерландского языка онлайн — Школа DoubleLang">
   <meta property="og:description" content="Индивидуальные занятия нидерландским с преподавателями из Нидерландов. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
@@ -19,7 +19,7 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="DoubleLang">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Курсы голландского языка онлайн | DoubleLang">
+  <meta name="twitter:title" content="Курсы нидерландского языка онлайн — Школа DoubleLang">
   <meta name="twitter:description" content="Индивидуальные занятия нидерландским с преподавателями из Нидерландов. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-dutch-v3.png">
   <meta name="keywords" content="голландский язык онлайн, курсы нидерландского, подготовка к MVV, Inburgering, NT2, нидерландский с нуля, переезд в Нидерланды, репатриация в Нидерланды, работа в Нидерландах, разговорный нидерландский, нидерландский для начинающих, экзамен по интеграции Нидерланды">
@@ -946,6 +946,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden;position:absolute;"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<script>
+/* ── Цели Метрики ────────────────────────────────────────────────────────────
+ * ⚠️ До 18.09 на лендингах не было ни одной цели. Метрика писала визиты, а
+ * заявки не писала никуда - конверсию считали руками, сверяя CRM с кабинетом
+ * рекламы, и по блокам страницы она не разбивалась вовсе.
+ * block - откуда именно пришла заявка (hero_card, exams_section, teacher_card,
+ * чат). Без него все заявки сливаются в одно число, и непонятно, какой блок
+ * работает, а какой просто занимает экран. */
+function dlGoal(name, block){
+  try{ if(window.ym) ym(110288328,'reachGoal',name,{block:block||''}); }catch(e){}
+  try{ (window.dataLayer=window.dataLayer||[]).push({event:name,form_block:block||''}); }catch(e){}
+}
+window.dlGoal=dlGoal;
+</script>
+
 <div id="cursor-dot">DL</div>
 <div id="cursor-ring"></div>
 <div id="scroll-bar"></div>
@@ -971,6 +986,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
         Вход
       </a>
+      <a href="#" onclick="event.preventDefault();openCtaModal('header_button')" class="btn nav-cta" style="white-space:nowrap;color:#fff;border-color:#fff;">Заказать звонок</a>
 
     </div>
   </div>
@@ -1871,8 +1887,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_dutch', page:window.location.href})
       }).then(function(r){
-        if(!r.ok) throw new Error('lead http '+r.status);
-        window.location.href='thank-you.html';
+        \1dlGoal('lead_submit','main_form'); \2
       }).catch(function(e){
         console.error('Lead submit failed:', e);
         b.disabled=false;
@@ -2037,6 +2052,26 @@ function openCtaModal(sourceBlock){
   const mt=document.getElementById('modal-tel'); if(mt){ if(window.IMask && !mt._masked){ mt._masked=true; mt.__mask = IMask(mt,{mask:'+{0000000000000}'}); } var _dc=window.__dlDial||''; if(mt.__mask){ mt.__mask.value=_dc; } else { mt.value=_dc; } mt.dataset.dlAuto='1'; mt.dataset.dlTyped=''; }
 }
 window.openCtaModal=openCtaModal;
+// Автопоказ формы при появлении блока «Подготовка к экзаменам» (раз за сессию).
+// Открывает ту же модалку, что и кнопки, поэтому после отправки человек так же
+// уходит на thank-you.html - отдельного пути у попапа нет.
+(function(){
+  var shown=false;
+  var target=document.getElementById('exams');
+  if(!target) return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(shown || !entry.isIntersecting) return;
+      shown=true;
+      obs.unobserve(target);
+      try{ if(sessionStorage.getItem('dl_mid_popup_v8')==='1') return; sessionStorage.setItem('dl_mid_popup_v8','1'); }catch(e){}
+      var overlay=document.getElementById('contact-modal');
+      if(overlay && !overlay.classList.contains('open')){ openCtaModal('exams_section'); dlGoal('popup_shown','exams_section'); }
+    });
+  },{threshold:0.05});
+  obs.observe(target);
+})();
+
 // Открыть форму записи при переходе со статьи (#book или #hero-form)
 (function(){function _dlBookHash(){var h=location.hash;if(h==='#book'||h==='#hero-form'){setTimeout(function(){openCtaModal('article');},260);}}window.addEventListener('DOMContentLoaded',_dlBookHash);window.addEventListener('hashchange',_dlBookHash);})();
 function closeModal(){
@@ -2087,8 +2122,7 @@ function closeModal(){
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({'cf-turnstile-response':_tsVal,phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href,wa_consent:mWaConsent})}).then(function(r){
-        if(!r.ok) throw new Error('lead http '+r.status);
-        closeModal();
+        \1dlGoal('lead_submit',mBlock||'modal'); \2
         window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
@@ -2488,7 +2522,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        if(xhr.status>=200&&xhr.status<300){ showSuccess(); }
+        \1dlGoal('lead_submit','chat'); \2 }
         else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
