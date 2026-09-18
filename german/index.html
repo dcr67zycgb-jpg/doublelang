@@ -908,6 +908,17 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
 .mob-br{display:none}
 @media(max-width:640px){.mob-br{display:block;height:0}}
+/* ── Свайп в слайдерах не утягивает страницу ──────────────────────────────────
+ * На мобильных эти блоки становятся горизонтальными слайдерами (overflow-x:auto).
+ * Досвайпав до края, браузер передаёт прокрутку наружу - и вбок уезжает вся
+ * страница, а в iOS это ещё и жест «назад». overscroll-behavior-x:contain
+ * обрывает передачу на границе слайдера.
+ * Правило общее, не в медиазапросе: на десктопе эти блоки - обычные grid без
+ * прокрутки, и свойство там ничего не делает. */
+.goals-grid, .levels-grid, .exams-grid, .teachers-grid, .blog-grid,
+.why-grid, .reviews-track, .plans-grid, .pricing-tabs {
+  overscroll-behavior-x: contain;
+}
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
   
