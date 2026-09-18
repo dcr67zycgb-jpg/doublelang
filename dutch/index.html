@@ -5,7 +5,7 @@
   <meta name="yandex-verification" content="0b462f20c4d6f19b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Курсы нидерландского языка онлайн — Школа DoubleLang</title>
-  <meta name="description" content="Индивидуальные занятия нидерландским онлайн с преподавателями из Нидерландов и Бельгии. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
+  <meta name="description" content="Индивидуальные занятия нидерландским языком онлайн с преподавателями из Нидерландов и Бельгии. Подготовка к MVV, Inburgering, NT2. С нуля до уверенного разговорного уровня. Пробный урок бесплатно.">
   <link rel="canonical" href="https://doublelang-online-school.com/dutch/">
   <meta property="og:title" content="Курсы нидерландского языка онлайн — Школа DoubleLang">
   <meta property="og:description" content="Индивидуальные занятия нидерландским с преподавателями из Нидерландов. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
@@ -19,7 +19,7 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="DoubleLang">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Курсы нидерландского языка онлайн — Школа DoubleLang">
+  <meta name="twitter:title" content="Курсы голландского языка онлайн | DoubleLang">
   <meta name="twitter:description" content="Индивидуальные занятия нидерландским с преподавателями из Нидерландов. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-dutch-v3.png">
   <meta name="keywords" content="голландский язык онлайн, курсы нидерландского, подготовка к MVV, Inburgering, NT2, нидерландский с нуля, переезд в Нидерланды, репатриация в Нидерланды, работа в Нидерландах, разговорный нидерландский, нидерландский для начинающих, экзамен по интеграции Нидерланды">
@@ -59,6 +59,7 @@
 }
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+noscript { display:none !important; }
 html { scroll-behavior:smooth; }
 body {
   font-family: var(--font-body);
@@ -67,14 +68,15 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-html{overflow-x:hidden;max-width:100%}/* Скролл вправо-влево на мобильном: overflow-x стоял только на body, а пока прокручивается html, страница всё равно едет. */
 a { color: var(--teal); text-decoration:none; }
 img { max-width:100%; display:block; }
 .container { max-width:1100px; margin:0 auto; padding:0 28px; }
 
 /* ── CURSOR ── */
 #cursor-dot, #cursor-ring { position:fixed; border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); will-change:transform; }
-#cursor-dot, #cursor-ring { display:none; }
+#cursor-dot, #cursor-ring { display:none !important; }
+body, .btn, .level-card, .faq-q { cursor:auto !important; }
+a, button, .btn, .level-card, .faq-q, .teacher-more-btn { cursor:pointer !important; }
 #cursor-ring { width:34px; height:34px; border:1.5px solid var(--teal-bright); z-index:9998; opacity:.55; transition:width .3s var(--ease),height .3s var(--ease),opacity .3s; }
 body:has(.btn:hover) #cursor-dot  { width:32px; height:32px; }
 body:has(.btn:hover) #cursor-ring { width:52px; height:52px; opacity:.25; }
@@ -157,11 +159,11 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-scene { display:none!important; }
 .hero-inner {
   position:relative; z-index:2;
-  display:flex; flex-direction:column; align-items:center;
-  gap:40px; align-items:flex-end;
-  padding:0 0 60px;
+  display:grid; grid-template-columns:1.05fr .95fr; align-items:center;
+  gap:40px;
+  padding:130px 0 60px;
 }
-.hero-left { display:flex; flex-direction:column; align-items:center; max-width:620px; margin:0 auto; text-align:center; width:100%; }
+.hero-left { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; max-width:720px; text-align:center; width:100%; margin:0 auto; }
 .hero-stats-row { display:flex; align-items:center; gap:0; margin-top:32px; flex-wrap:wrap; gap:8px; }
 .hero-stat-item { display:flex; flex-direction:column; gap:2px; }
 .hero-stat-num { font-size:22px; font-weight:800; color:#fff; line-height:1; }
@@ -176,14 +178,15 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-overline::before { content:''; display:block; width:36px; height:1.5px; background:#fff; }
 .hero-overline::after { content:''; display:block; width:36px; height:1.5px; background:#fff; }
 .hero h1 {
-  font-size:clamp(34px,5vw,66px); font-weight:800; line-height:1.06;
-  letter-spacing:-.025em; color:#fff; margin-bottom:36px;
+  font-size:clamp(56px,9vw,132px); font-weight:800; line-height:1.05;
+  letter-spacing:-.025em; color:#fff; margin-bottom:36px; text-align:center; max-width:1320px;
+  text-shadow:0 2px 20px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.5);
 }
-.hero h1 em { color:#c8a96e; font-style:italic; font-weight:800; }
+.hero h1 em { color:#f4d78a; font-style:italic; font-weight:800; text-shadow:0 0 24px rgba(244,215,138,.75), 0 0 48px rgba(224,179,74,.5); }
 .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; }
 .hero-sub-line { font-size:15px; color:#fff; margin-bottom:24px; line-height:1.7; max-width:540px; text-shadow:0 1px 6px rgba(0,0,0,.7); }
 .hero-right {
-  display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end;
+  display:flex; flex-direction:column; align-items:stretch; justify-content:center;
   padding-bottom:4px; gap:6px; text-align:right;
 }
 .hero-stars { color:#e0b34a; font-size:17px; letter-spacing:2px; }
@@ -260,7 +263,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 
 /* FORM CARD */
 .form-card {
-  background:rgba(10,15,18,.35); border-radius:var(--radius-lg);
+  background:rgba(10,15,18,.18); border-radius:var(--radius-lg);
   padding:36px 32px; box-shadow:0 32px 80px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.08);
   backdrop-filter:blur(28px) saturate(1.6);
   -webkit-backdrop-filter:blur(28px) saturate(1.6);
@@ -270,14 +273,14 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .form-card-title { font-size:19px; font-weight:800; color:#fff; margin-bottom:5px; letter-spacing:-.01em; }
 .form-card-sub { font-size:13px; color:rgba(255,255,255,.55); margin-bottom:22px; }
 .checklist { list-style:none; margin-bottom:22px; }
-.checklist li { display:flex; align-items:center; gap:10px; font-size:13px; color:rgba(255,255,255,.72); padding:5px 0; animation:checkIn .5s var(--ease) both; }
+.checklist li { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:rgba(255,255,255,.72); padding:5px 0; text-align:left; animation:checkIn .5s var(--ease) both; }
 .checklist li:nth-child(1){animation-delay:.55s} .checklist li:nth-child(2){animation-delay:.68s}
 .checklist li:nth-child(3){animation-delay:.81s} .checklist li:nth-child(4){animation-delay:.94s}
 @keyframes checkIn { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:none; } }
 .checklist li::before {
   content:'✓'; width:20px; height:20px; border-radius:50%;
-  background:var(--teal-soft); color:var(--teal); font-size:10px; font-weight:800;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  background:var(--checklist-mark-bg, var(--teal-soft)); color:var(--checklist-mark-color, var(--teal)); font-size:10px; font-weight:800;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;
   transition:background .2s, transform .2s;
 }
 .checklist li:hover::before { background:var(--teal); color:#fff; transform:scale(1.14) rotate(10deg); }
@@ -741,15 +744,15 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 calc
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   section { padding:56px 0; }
-  .hero { min-height:100svh; height:100svh; }
-  .hero-inner { grid-template-columns:1fr; gap:16px; padding:0 0 40px; }
+  .hero { min-height:100svh; height:auto; overflow:visible; }
+  .hero-inner { grid-template-columns:1fr; gap:16px; padding:70px 0 40px; }
   .hero-right { align-items:flex-start; }
-  .hero h1 { font-size:clamp(26px,7vw,34px); letter-spacing:-.01em; margin-bottom:24px; }
+  .hero h1 { font-size:clamp(36px,10vw,48px); letter-spacing:-.01em; margin-bottom:24px; }
   .hero-overline { font-size:10px; margin-bottom:14px; }
   .hero-ctas { flex-direction:column; gap:10px; }
   .hero-ctas .btn { width:100%; justify-content:center; }
   .hero-inner{grid-template-columns:1fr}
-  .hero h1 { font-size:clamp(26px,5vw,40px); }
+  .hero h1 { font-size:clamp(36px,8vw,54px); }
   .hero-sub { font-size:15px; }
   .form-card{max-width:100%}
   .goals-grid{grid-template-columns:repeat(2,1fr)}
@@ -778,11 +781,17 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 calc
   .mob-br { display:inline; }
   section { padding:44px 0; }
   .container { padding:0 16px; }
-  .hero { padding:150px 0 44px; justify-content:flex-start!important; }
+  .hero { padding:60px 0 30px; justify-content:flex-start!important; }
+  .hero-inner{padding:0!important;gap:16px!important;}
+  .checklist{margin-bottom:14px;}
+  .checklist li{padding:3px 0;font-size:12.5px;}
+  .form-card{padding:20px 18px;}
+  .form-card-title{font-size:16px;margin-bottom:3px;}
+  .form-card-sub{font-size:12px;margin-bottom:14px;}
   .nav-inner { justify-content:flex-end; position:relative; }
   .nav-logo { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:auto; }
   .hero-badge { display:inline-flex!important; width:auto!important; align-self:center; }
-  .hero-inner { align-items:center; }
+  .hero-inner { align-items:flex-end; }
   .hero h1 { text-align:center; }
   .hero-sub { text-align:center; }
   .hero-sub-line { text-align:center; }
@@ -881,7 +890,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 calc
   .price-card { padding:24px 20px; }
 }
 @media(max-width:400px){
-  .hero h1 { font-size:22px; }
+  .hero h1 { font-size:32px; }
   .levels-grid{grid-template-columns:1fr}
   .teachers-grid{grid-template-columns:1fr!important}
   .goals-grid{grid-template-columns:1fr}
@@ -938,6 +947,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/110288328" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1073538998318404');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -946,21 +972,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden;position:absolute;"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<script>
-/* ── Цели Метрики ────────────────────────────────────────────────────────────
- * ⚠️ До 18.09 на лендингах не было ни одной цели. Метрика писала визиты, а
- * заявки не писала никуда - конверсию считали руками, сверяя CRM с кабинетом
- * рекламы, и по блокам страницы она не разбивалась вовсе.
- * block - откуда именно пришла заявка (hero_card, exams_section, teacher_card,
- * чат). Без него все заявки сливаются в одно число, и непонятно, какой блок
- * работает, а какой просто занимает экран. */
-function dlGoal(name, block){
-  try{ if(window.ym) ym(110288328,'reachGoal',name,{block:block||''}); }catch(e){}
-  try{ (window.dataLayer=window.dataLayer||[]).push({event:name,form_block:block||''}); }catch(e){}
-}
-window.dlGoal=dlGoal;
-</script>
-
 <div id="cursor-dot">DL</div>
 <div id="cursor-ring"></div>
 <div id="scroll-bar"></div>
@@ -1038,6 +1049,9 @@ window.dlGoal=dlGoal;
           <div class="hero-stat-item"><span class="hero-stat-num">94%</span><span class="hero-stat-lbl">сдали с первого раза</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
     </div>
   </div>
 </section>
@@ -1477,16 +1491,34 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
     <p class="section-sub reveal">Гайды по экзаменам, переезду и изучению языка — пишем понятно и по делу.</p>
     <div class="blog-grid">
       <!-- BLOG:START -->
-<article class="blog-card reveal s1"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-diminutivy-niderlandskiy-je-tje-cover.png" alt="Голландские диминутивы: почему всё вокруг вдруг становится «маленьким»" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Голландские диминутивы: почему всё вокруг вдруг становится «маленьким»</h3><p>Правила образования диминутивов в нидерландском: как выбрать суффикс -je, -tje или -pje, почему голландцы используют уменьшительные формы и упражнения для практики.</p><div class="blog-meta"><span>10 мин чтения</span><a href="article-diminutivy-niderlandskiy-je-tje.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s2"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-nalogi-belastingdienst-niderlandy-deklaraciya-cover.png" alt="Голландские налоги для новичков: как разобраться в Belastingdienst и подать первую декларацию" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Иммиграция</span></div><div class="blog-body"><h3>Голландские налоги для новичков: как разобраться в Belastingdienst и подать первую декларацию</h3><p>Как разобраться в Belastingdienst и подать первую налоговую декларацию в Нидерландах: пошаговая инструкция, нидерландская лексика и типичные ошибки новичков.</p><div class="blog-meta"><span>10 мин чтения</span><a href="article-nalogi-belastingdienst-niderlandy-deklaraciya.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s3"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-detskie-sady-shkoly-niderlandy-yazyk-cover.png" alt="Голландские детские сады и школы: как выбрать и что говорить учителям на родительских встречах" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Иммиграция</span></div><div class="blog-body"><h3>Голландские детские сады и школы: как выбрать и что говорить учителям на родительских встречах</h3><p>Статья о системе дошкольного и школьного образования в Нидерландах для семей с детьми, включая нидерландскую лексику для общения с воспитателями и учи</p><div class="blog-meta"><span>10 мин чтения</span><a href="article-detskie-sady-shkoly-niderlandy-yazyk.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s1 blog-extra"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-sokrascheniya-smstaal-niderlandskiy-cover.png" alt="Голландские сокращения и SMS-язык: как понимать переписку с носителями в мессенджерах" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Голландские сокращения и SMS-язык: как понимать переписку с носителями в мессенджерах</h3><p>Разбор популярных нидерландских сокращений, интернет-сленга и стиля переписки в WhatsApp, чтобы русскоязычные учащиеся понимали неформальное общение с</p><div class="blog-meta"><span>12 мин чтения</span><a href="article-sokrascheniya-smstaal-niderlandskiy.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s2 blog-extra"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-glagoly-s-predlogami-niderlandskiy-cover.png" alt="Голландские глаголы с предлогами: как не путаться в устойчивых сочетаниях" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div><div class="blog-body"><h3>Голландские глаголы с предлогами: как не путаться в устойчивых сочетаниях</h3><p>Разбор частотных глаголов, требующих определённых предлогов в нидерландском языке, с примерами и упражнениями для запоминания.</p><div class="blog-meta"><span>10 мин чтения</span><a href="article-glagoly-s-predlogami-niderlandskiy.html" class="blog-read">Читать →</a></div></div></article>
-<article class="blog-card reveal s3 blog-extra"><div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-delovaya-perepiska-niderlandskiy-email-cover.png" alt="Голландская деловая переписка: как писать формальные email и письма чиновникам" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Работа</span></div><div class="blog-body"><h3>Голландская деловая переписка: как писать формальные email и письма чиновникам</h3><p>Разбор структуры формального письма на нидерландском, устойчивых фраз и этикета переписки с работодателями и государственными органами Нидерландов.</p><div class="blog-meta"><span>11 мин чтения</span><a href="article-delovaya-perepiska-niderlandskiy-email.html" class="blog-read">Читать →</a></div></div></article>
-<!-- BLOG:END -->
-    </div>
+      <article class="blog-card reveal s1">
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-inburgering-cover.png" alt="Экзамен Inburgering 2026" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Экзамены</span></div>
+        <div class="blog-body"><h3>Как подготовиться к экзамену Inburgering в 2026 году</h3><p>Разбираем структуру экзамена, требования к уровню и пошаговый план подготовки с нуля.</p><div class="blog-meta"><span>8 мин чтения</span><a href="article-inburgering-2026.html" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s2">
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-vlaams-cover.png" alt="Нидерландский или фламандский" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Язык</span></div>
+        <div class="blog-body"><h3>Нидерландский или фламандский: в чём разница</h3><p>Один язык или два? Объясняем различия в произношении, лексике и письме простыми словами.</p><div class="blog-meta"><span>7 мин чтения</span><a href="article-vlaams-vs-nederlands.html" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s3">
+        <div class="blog-thumb" style="padding:0;overflow:hidden"><img src="../assets/blog-mvv-cover.png" alt="Виза MVV в Нидерланды 2026" style="width:100%;height:100%;object-fit:cover"><span class="blog-cat" style="position:absolute;top:14px;left:14px">Переезд</span></div>
+        <div class="blog-body"><h3>MVV: пошаговый гид для переезда в Нидерланды</h3><p>Какие документы нужны, как проходит экзамен в посольстве и сколько времени занимает подготовка.</p><div class="blog-meta"><span>10 мин чтения</span><a href="article-mvv-2026.html" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s4 blog-extra" style="display:none">
+        <div class="blog-thumb"><span>изображение: голландские слова</span></div>
+        <div class="blog-body"><h3>10 голландских слов, которые невозможно перевести</h3><p>От «gezellig» до «uitwaaien» — слова, которые лучше всего описывают голландскую культуру.</p><div class="blog-meta"><span>5 мин чтения</span><a href="https://doublelang-online-school.com/blog" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s5 blog-extra" style="display:none">
+        <div class="blog-thumb"><span>изображение: сколько учить язык</span></div>
+        <div class="blog-body"><h3>Сколько времени нужно, чтобы выучить нидерландский</h3><p>Реалистичные сроки до A2, B1 и B2 — и от чего зависит скорость вашего прогресса.</p><div class="blog-meta"><span>7 мин чтения</span><a href="https://doublelang-online-school.com/blog" class="blog-read">Читать →</a></div></div>
+      </article>
+      <article class="blog-card reveal s6 blog-extra" style="display:none">
+        <div class="blog-thumb"><span>изображение: экзамен NT2</span></div>
+        <div class="blog-body"><h3>NT2 Programma I и II: какой экзамен выбрать</h3><p>Чем отличаются уровни B1 и B2, кому какой нужен и как выбрать программу под свою цель.</p><div class="blog-meta"><span>9 мин чтения</span><a href="https://doublelang-online-school.com/blog" class="blog-read">Читать →</a></div></div>
+      </article>
+    <!-- BLOG:END -->
+      </div>
     <p style="text-align:center;margin-top:36px">
-      <button id="blog-toggle" class="btn btn-ghost magnetic" data-open="0" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){el.style.display=open?'none':'flex';if(!open)el.classList.add('visible');});btn.dataset.open=open?'0':'1';btn.textContent=open?('Показать ещё '+extras.length+' →'):'Свернуть';})()">Показать ещё 3 →</button>
+      <button id="blog-toggle" class="btn btn-ghost magnetic" onclick="(function(){var extras=document.querySelectorAll('.blog-extra');var btn=document.getElementById('blog-toggle');var open=btn.dataset.open==='1';extras.forEach(function(el){el.style.display=open?'none':'flex';if(!open)el.classList.add('visible');});btn.dataset.open=open?'0':'1';btn.textContent=open?'Показать ещё →':'Свернуть ↑'})()">Показать ещё →</button>
     </p>
   </div>
 
@@ -1520,7 +1552,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
       <div class="form-group"><input type="text" placeholder="Ваше имя (необязательно)" autocomplete="name" style="border:1.5px solid #d0dbd8;"></div>
       <div class="form-group phone-field" id="modal-phone-field"><input type="tel" id="modal-tel" placeholder="+31 6 12 34 56 78 *" required autocomplete="off" style="border:1.5px solid #d0dbd8;width:100%;"><div class="phone-hint">Введите полный номер телефона</div></div>
       <div class="form-group"><input type="email" placeholder="E-mail (необязательно)" autocomplete="email" style="border:1.5px solid #d0dbd8;"></div>
-      <div class="form-group" style="position:relative;">
+      <div class="form-group" style="position:relative;display:none;">
         <input type="hidden" id="modal-calltime" name="calltime" value="">
         <div id="calltime-display" onclick="toggleCalltimeMenu()" style="border:1.5px solid rgba(255,255,255,.25);border-radius:10px;padding:12px 14px;font-size:14px;width:100%;color:rgba(255,255,255,.55);background:rgba(255,255,255,.12);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;">
           <span id="calltime-label">Время звонка (необязательно)</span>
@@ -1530,13 +1562,13 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
           <div onclick="pickCalltime('9:00–11:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">9:00 – 11:00</div><div onclick="pickCalltime('11:00–13:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">11:00 – 13:00</div><div onclick="pickCalltime('13:00–15:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">13:00 – 15:00</div><div onclick="pickCalltime('15:00–17:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">15:00 – 17:00</div><div onclick="pickCalltime('17:00–19:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">17:00 – 19:00</div><div onclick="pickCalltime('19:00–21:00')" style="padding:11px 14px;color:#fff;font-size:14px;cursor:pointer;transition:background .15s;" onmouseover="this.style.background='rgba(42,163,154,.25)'" onmouseout="this.style.background=''">19:00 – 21:00</div>
         </div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 10px;">
         <input type="checkbox" id="modal-consent" style="margin-top:3px;accent-color:var(--teal);width:16px;height:16px;flex-shrink:0;">
         <label for="modal-consent" id="modal-consent-label" style="font-size:12px;color:var(--ink-3);line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:var(--teal);">обработку персональных данных</a></label>
       </div>
       <div style="display:flex;align-items:flex-start;gap:10px;margin:0 0 16px;">
-        <input type="checkbox" id="modal-wa-consent" style="margin-top:3px;accent-color:var(--teal);width:16px;height:16px;flex-shrink:0;">
-        <label for="modal-wa-consent" style="font-size:12px;color:var(--ink-3);line-height:1.55;cursor:pointer;">Можно писать мне в WhatsApp</label>
+        <input type="checkbox" id="modal-consent-wa" style="margin-top:3px;accent-color:var(--teal);width:16px;height:16px;flex-shrink:0;">
+        <label for="modal-consent-wa" style="font-size:12px;color:var(--ink-3);line-height:1.55;cursor:pointer;">Согласен на информирование в WhatsApp</label>
       </div>
       <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
       <button type="button" id="modal-submit-btn" class="btn btn-primary" style="width:100%;padding:14px;font-size:14px;">Записаться на пробный урок →</button>
@@ -1748,7 +1780,8 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
   function initMask(){
     const tels = [
       document.querySelector('#lead-form input[type="tel"]'),
-      document.getElementById('modal-tel')
+      document.getElementById('modal-tel'),
+      document.getElementById('hero-tel')
     ];
     tels.forEach(function(tel){
       if(!tel || tel._masked) return;
@@ -1832,14 +1865,16 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
     }
   }, true);
   function start(){
+    var pageDefault = '+31';
     try{ apply(TZ[Intl.DateTimeFormat().resolvedOptions().timeZone] || ''); }catch(e){}
+    if(!dial) apply(pageDefault);
     try{
       fetch('https://ipwho.is/?fields=success,country_code,calling_code').then(function(r){ return r.json(); }).then(function(j){
         if(!j) return;
         var code = (j.calling_code ? '+' + String(j.calling_code).replace(/^\+/,'') : '') || CC[j.country_code] || '';
         if(code) apply(code);
-      }).catch(function(){});
-    }catch(e){}
+      }).catch(function(){ if(!dial) apply(pageDefault); });
+    }catch(e){ if(!dial) apply(pageDefault); }
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(start, 90); });
   else setTimeout(start, 90);
@@ -1871,19 +1906,18 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
   if(next)next.addEventListener('click',goTo2);
   document.querySelectorAll('.goal-btn').forEach(b=>{
     b.addEventListener('click',()=>{
-      if(gv)gv.value=b.dataset.goal;
-      // submit → webhook → thank-you
       const _mf = document.getElementById('fstep1') || document.getElementById('lead-form') || document;
       const phoneVal = (_mf.querySelector('input[type="tel"]')?.value || '').trim();
+      if(!phoneVal){
+        const telInput = _mf.querySelector('input[type="tel"]');
+        if(telInput){ telInput.style.borderColor='#e05555'; telInput.focus(); }
+        return;
+      }
+      if(gv)gv.value=b.dataset.goal;
+      // submit → webhook → thank-you
       const nameVal = (_mf.querySelector('input[type="text"]')?.value || '').trim();
       const emailVal = (_mf.querySelector('input[type="email"]')?.value || '').trim();
       const goalVal = (document.getElementById('form-goal-val')?.value || '').trim();
-      /* dl-inline-phone-guard: страховка на случай, если dl-phone.js ещё не выполнился (он подключён с defer) или не загрузился. */
-      if(!phoneVal){
-        const _pi=_mf.querySelector('input[type="tel"]');
-        if(_pi){_pi.style.borderColor='#e05555';_pi.focus();_pi.scrollIntoView({block:'center',behavior:'smooth'});}
-        return;
-      }
       b.style.borderColor='var(--teal-bright)';
       b.style.background='rgba(42,163,154,.35)';
       b.textContent='Отправляем...';
@@ -1904,7 +1938,8 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_dutch', page:window.location.href})
       }).then(function(r){
-        \1dlGoal('lead_submit','main_form'); \2
+        if(!r.ok) throw new Error('lead http '+r.status);
+        window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
         b.disabled=false;
@@ -2054,8 +2089,6 @@ function openLevelModal(btn){
 }
 window.openLevelModal = openLevelModal;
 function openCtaModal(sourceBlock){
-    /* Сброс выбора: иначе следующая заявка по общей кнопке унаследовала бы преподавателя от прошлого просмотра. */
-    window.__selectedTeacherIdx=null;
   const lb=document.getElementById('modal-level-badge');
   if(lb)lb.textContent='Пробный урок';
   const gv=document.getElementById('modal-goal-val');
@@ -2069,9 +2102,7 @@ function openCtaModal(sourceBlock){
   const mt=document.getElementById('modal-tel'); if(mt){ if(window.IMask && !mt._masked){ mt._masked=true; mt.__mask = IMask(mt,{mask:'+{0000000000000}'}); } var _dc=window.__dlDial||''; if(mt.__mask){ mt.__mask.value=_dc; } else { mt.value=_dc; } mt.dataset.dlAuto='1'; mt.dataset.dlTyped=''; }
 }
 window.openCtaModal=openCtaModal;
-// Автопоказ формы при появлении блока «Подготовка к экзаменам» (раз за сессию).
-// Открывает ту же модалку, что и кнопки, поэтому после отправки человек так же
-// уходит на thank-you.html - отдельного пути у попапа нет.
+// Автопоказ формы при появлении блока "Подготовка к экзаменам" (раз за сессию)
 (function(){
   var shown=false;
   var target=document.getElementById('exams');
@@ -2083,12 +2114,11 @@ window.openCtaModal=openCtaModal;
       obs.unobserve(target);
       try{ if(sessionStorage.getItem('dl_mid_popup_v8')==='1') return; sessionStorage.setItem('dl_mid_popup_v8','1'); }catch(e){}
       var overlay=document.getElementById('contact-modal');
-      if(overlay && !overlay.classList.contains('open')){ openCtaModal('exams_section'); dlGoal('popup_shown','exams_section'); }
+      if(overlay && !overlay.classList.contains('open')) openCtaModal('exams_section');
     });
   },{threshold:0.05});
   obs.observe(target);
 })();
-
 // Открыть форму записи при переходе со статьи (#book или #hero-form)
 (function(){function _dlBookHash(){var h=location.hash;if(h==='#book'||h==='#hero-form'){setTimeout(function(){openCtaModal('article');},260);}}window.addEventListener('DOMContentLoaded',_dlBookHash);window.addEventListener('hashchange',_dlBookHash);})();
 function closeModal(){
@@ -2108,22 +2138,11 @@ function closeModal(){
     submitBtn.addEventListener('click',function(){
       const tel=document.getElementById('modal-tel');
       const consent=document.getElementById('modal-consent');
+      const consentWa=document.getElementById('modal-consent-wa');
       const consentLabel=document.getElementById('modal-consent-label');
       if(tel&&!tel.value.trim()){tel.style.borderColor='#e05555';tel.focus();return;}
       if(consent&&!consent.checked){if(consentLabel)consentLabel.style.color='#e05555';return;}
-      /* Капча должна ЗАПРЕЩАТЬ отправку, а не просто дописывать токен.
-         Токен берём внутри самой модалки: на странице два виджета, и
-         querySelector по документу возвращал токен первого - от формы,
-         с которой человек не взаимодействовал. */
-      var _mForm=document.getElementById('modal-form');
-      var _ts=_mForm&&_mForm.querySelector('[name="cf-turnstile-response"]');
-      var _tsVal=_ts?String(_ts.value||'').trim():'';
-      if(!_tsVal){
-        var _w=_mForm&&_mForm.querySelector('.cf-turnstile');
-        if(_w){_w.style.outline='2px solid #e05555';_w.style.borderRadius='8px';
-               _w.scrollIntoView({block:'center',behavior:'smooth'});}
-        return;
-      }
+      if(consentWa&&!consentWa.checked){return;}
       const mPhone=(tel?.value||'').trim();
       const mName=(document.querySelector('#modal-form input[type="text"]')?.value||'').trim();
       const mEmail=(document.querySelector('#modal-form input[type="email"]')?.value||'').trim();
@@ -2132,14 +2151,11 @@ function closeModal(){
       const mSource='https://doublelang-online-school.com/dutch-general';
       const mBlock=(document.getElementById('modal-source-val')?.value||'').trim();
       const mCalltime=(document.getElementById('modal-calltime')?.value||'').trim();
-      /* Согласие на WhatsApp — ОТДЕЛЬНОЕ от согласия на обработку данных (#modal-consent).
-         Снято по умолчанию и необязательно: предзаполненная галочка для Meta согласием
-         не считается, а обязательная превратила бы поле в «у всех true». */
-      const mWaConsent=!!(document.getElementById('modal-wa-consent')||{}).checked;
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
-      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({'cf-turnstile-response':_tsVal,phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href,wa_consent:mWaConsent})}).then(function(r){
-        \1dlGoal('lead_submit',mBlock||'modal'); \2
+      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href})}).then(function(r){
+        if(!r.ok) throw new Error('lead http '+r.status);
+        closeModal();
         window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
@@ -2152,6 +2168,34 @@ function closeModal(){
   document.querySelectorAll('.level-btn').forEach(function(btn){
     btn.removeAttribute('onclick');
     btn.addEventListener('click',function(e){e.stopPropagation();openLevelModal(btn);});
+  });
+})();
+
+/* HERO INLINE FORM SUBMIT */
+(function(){
+  const btn=document.getElementById('hero-submit-btn');
+  if(!btn) return;
+  btn.addEventListener('click',function(){
+    const tel=document.getElementById('hero-tel');
+    const consent=document.getElementById('hero-consent');
+    const consentLabel=document.getElementById('hero-consent-label');
+    if(tel&&!tel.value.trim()){tel.focus();return;}
+    if(consent&&!consent.checked){return;}
+    const hPhone=(tel?.value||'').trim();
+    const hName=(document.getElementById('hero-name')?.value||'').trim();
+    const hEmail=(document.getElementById('hero-email')?.value||'').trim();
+    const hSource='https://doublelang-online-school.com/dutch-general';
+    btn.disabled=true;
+    btn.textContent='Отправляем...';
+    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:hPhone,name:hName,email:hEmail,goal:'Пробный урок',teacher:'',calltime:'',block:'hero_form',source:hSource,page:window.location.href})}).then(function(r){
+      if(!r.ok) throw new Error('lead http '+r.status);
+      window.location.href='thank-you.html';
+    }).catch(function(e){
+      console.error('Hero lead submit failed:', e);
+      btn.disabled=false;
+      btn.textContent='Ошибка — нажмите ещё раз';
+      btn.style.background='#e05555';
+    });
   });
 })();
 
@@ -2173,15 +2217,13 @@ function closeTeacherModal(){
 }
 function openContactModal(){
   closeTeacherModal();
-  /* Без явного выбора преподавателя поле остаётся пустым. Прежнее || 0 молча приписывало заявку первому в списке, и проверить это было нечем: имя в заявке выглядело достоверным. */
-    const _ti=window.__selectedTeacherIdx;
-    const t=(typeof _ti==='number'&&TEACHERS_DATA[_ti])?TEACHERS_DATA[_ti]:null;
+  const t=TEACHERS_DATA[window.__selectedTeacherIdx||0];
   const m=document.getElementById('contact-modal');
   if(m){
     const lb=document.getElementById('modal-level-badge');
-    if(lb){lb.textContent=t?('Преподаватель: '+t.name):'';lb.style.display=t?'':'none';}
+    if(lb)lb.textContent='Преподаватель: '+(t?t.name:'');
     const gv=document.getElementById('modal-goal-val');
-    if(gv)gv.value=t?'Запись к преподавателю':'Пробный урок';
+    if(gv)gv.value='Запись к преподавателю';
     const tv=document.getElementById('modal-teacher-val');
     if(tv)tv.value=(t?t.name:'');
     const sv=document.getElementById('modal-source-val');
@@ -2217,6 +2259,8 @@ function validatePhone(input, fieldId){
 document.addEventListener('DOMContentLoaded', function(){
   const mainTel = document.querySelector('#main-phone-field input[type="tel"]');
   if(mainTel) mainTel.addEventListener('blur', function(){ validatePhone(this,'main-phone-field'); });
+  const heroTel = document.getElementById('hero-tel');
+  if(heroTel) heroTel.addEventListener('blur', function(){ validatePhone(this,'hero-phone-field'); });
   const modalTel = document.getElementById('modal-tel');
   if(modalTel) modalTel.addEventListener('blur', function(){ validatePhone(this,'modal-phone-field'); });
 });
@@ -2539,7 +2583,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        \1dlGoal('lead_submit','chat'); \2 }
+        if(xhr.status>=200&&xhr.status<300){ showSuccess(); }
         else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
@@ -2712,95 +2756,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     }catch(e){}
     return _s.call(this,body);
   };
-})();
-</script>
-  <script src="/assets/dl-phone.js" defer></script>
-  <script src="/assets/dl-utm.js" defer></script>
-
-<script>
-/* ── Заявка из формы первого экрана ──────────────────────────────────────────
- * ⚠️ source не отправляется намеренно. Платформа берёт utm_source из первого
- * непустого среди (utm_source, utm, source, источник); старые формы кладут туда
- * название формы или адрес страницы, и у органических заявок этот мусор
- * занимает место настоящего источника. При рекламе utm_source подставит
- * dl-utm.js, при органике поле честно останется пустым, а откуда пришла заявка
- * видно из message - его платформа тоже читает. */
-(function(){
-  var btn=document.getElementById('hero-submit-btn');
-  if(!btn) return;
-  btn.addEventListener('click',function(){
-    var tel=document.getElementById('hero-tel');
-    var consent=document.getElementById('hero-consent');
-    var lbl=document.getElementById('hero-consent-label');
-    var field=document.getElementById('hero-phone-field');
-    /* Семь цифр, а не «поле не пустое»: маска подставляет код страны сама, и
-       проверка на непустоту пропускала заявки из одного «+49». */
-    var digits=((tel&&tel.value)||'').replace(/\D/g,'');
-    if(!tel||digits.length<7){ if(field) field.classList.add('invalid'); if(tel) tel.focus(); return; }
-    if(field) field.classList.remove('invalid');
-    if(!consent||!consent.checked){ if(lbl) lbl.style.color='#ffb4b4'; return; }
-    if(lbl) lbl.style.color='';
-    var val=function(id){ return ((document.getElementById(id)||{}).value||'').trim(); };
-    btn.disabled=true; btn.textContent='Отправляем...';
-    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        phone:tel.value.trim(), name:val('hero-name'), email:val('hero-email'),
-        goal:'Пробный урок', block:'hero_form',
-        message:'Заявка из: форма в первом экране',
-        wa_consent:!!(document.getElementById('hero-consent-wa')||{}).checked,
-        page:window.location.href})
-    }).then(function(r){
-      if(!r.ok) throw new Error('lead http '+r.status);
-      if(window.dlGoal) dlGoal('lead_submit','hero_form');
-      window.location.href='thank-you.html';
-    }).catch(function(e){
-      console.error('Hero lead submit failed:', e);
-      btn.disabled=false; btn.textContent='Ошибка — нажмите ещё раз'; btn.style.background='#e05555';
-    });
-  });
-})();
-</script>
-
-<script>
-/* ── Заявка из формы первого экрана ──────────────────────────────────────────
- * Разметка формы — из присланного образца. Отправка НЕ из него: там в теле
- * заявки нет wa_consent, и галочка WhatsApp осталась бы украшением — человек
- * её ставит, а согласие до CRM не доходит.
- *
- * ⚠️ Телефон проверяется по семи цифрам, а не «поле не пустое»: маска сама
- * подставляет код страны, и проверка на непустоту пропускала заявки из
- * одного «+49». */
-(function(){
-  var btn=document.getElementById('hero-submit-btn');
-  if(!btn) return;
-  btn.addEventListener('click',function(){
-    var tel=document.getElementById('hero-tel');
-    var consent=document.getElementById('hero-consent');
-    var lbl=document.getElementById('hero-consent-label');
-    var field=document.getElementById('hero-phone-field');
-    var digits=((tel&&tel.value)||'').replace(/\D/g,'');
-    if(!tel||digits.length<7){ if(field) field.classList.add('invalid'); if(tel) tel.focus(); return; }
-    if(field) field.classList.remove('invalid');
-    if(!consent||!consent.checked){ if(lbl) lbl.style.color='#ffb4b4'; return; }
-    if(lbl) lbl.style.color='';
-    var val=function(id){ return ((document.getElementById(id)||{}).value||'').trim(); };
-    btn.disabled=true; btn.textContent='Отправляем...';
-    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        phone:tel.value.trim(), name:val('hero-name'), email:val('hero-email'),
-        goal:'Пробный урок', block:'hero_form',
-        message:'Заявка из: форма в первом экране',
-        wa_consent:!!(document.getElementById('hero-consent-wa')||{}).checked,
-        page:window.location.href})
-    }).then(function(r){
-      if(!r.ok) throw new Error('lead http '+r.status);
-      if(window.dlGoal) dlGoal('lead_submit','hero_form');
-      window.location.href='thank-you.html';
-    }).catch(function(e){
-      console.error('Hero lead submit failed:', e);
-      btn.disabled=false; btn.textContent='Ошибка — нажмите ещё раз'; btn.style.background='#e05555';
-    });
-  });
 })();
 </script>
 </body>
