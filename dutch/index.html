@@ -163,7 +163,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
   gap:40px;
   padding:130px 0 60px;
 }
-.hero-left { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; max-width:720px; text-align:center; width:100%; margin:0 auto; }
+.hero-left { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; max-width:720px; text-align:center; width:100%; margin:0 auto; padding-right:24px; }
 .hero-stats-row { display:flex; align-items:center; gap:0; margin-top:32px; flex-wrap:wrap; gap:8px; }
 .hero-stat-item { display:flex; flex-direction:column; gap:2px; }
 .hero-stat-num { font-size:22px; font-weight:800; color:#fff; line-height:1; }
@@ -177,8 +177,14 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 }
 .hero-overline::before { content:''; display:block; width:36px; height:1.5px; background:#fff; }
 .hero-overline::after { content:''; display:block; width:36px; height:1.5px; background:#fff; }
+/* ⚠️ Кегль подобран под ШИРИНУ КОЛОНКИ, а не под ширину экрана.
+   hero - двухколоночный grid 1.05fr .95fr внутри контейнера 1100px:
+   левая колонка выходит ~527px. При прежнем верхнем пределе 132px одно
+   слово «Немецкий»/«Голландский» занимало ~570px - заголовок вылезал из
+   колонки и наезжал на карточку формы. Множитель vw считает от окна, а
+   места столько нет. Менять кегль можно только вместе с сеткой. */
 .hero h1 {
-  font-size:clamp(56px,9vw,132px); font-weight:800; line-height:1.05;
+  font-size:clamp(32px,3.2vw,52px); font-weight:800; line-height:1.05;
   letter-spacing:-.025em; color:#fff; margin-bottom:36px; text-align:center; max-width:1320px;
   text-shadow:0 2px 20px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.5);
 }
