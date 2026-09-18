@@ -95,6 +95,10 @@ nav {
 nav.scrolled { background:rgba(10,15,12,.82); backdrop-filter:blur(18px); box-shadow:0 2px 24px rgba(0,0,0,.28); }
 .nav-inner { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; height:72px; gap:16px; }
 .nav-logo img { height:40px; width:auto; display:block; transition:transform var(--duration) var(--ease), filter .3s; }
+/* На десктопе навигация 72px - логотип 40px в ней терялся. 56px оставляет
+   по 8px сверху и снизу. Мобильные значения НЕ трогаем: там логотип
+   абсолютно отцентрован в узкой панели, 56px его бы распёрли. */
+@media (min-width:961px){ .nav-logo img { height:56px; } }
 nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .nav-logo:hover img { transform:scale(1.04); }
 .nav-links { display:flex; gap:28px; list-style:none; justify-content:center; }
@@ -163,11 +167,11 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-scene { display:none!important; }
 .hero-inner {
   position:relative; z-index:2;
-  display:grid; grid-template-columns:1.05fr .95fr; align-items:center;
+  display:grid; grid-template-columns:1.2fr .8fr; align-items:center;
   gap:40px;
   padding:130px 0 60px;
 }
-.hero-left { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; max-width:720px; text-align:center; width:100%; margin:0 auto; padding-right:24px; }
+.hero-left { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; max-width:720px; text-align:center; width:100%; margin:0 auto; }
 .hero-stats-row { display:flex; align-items:center; justify-content:center; gap:0; margin-top:6px; flex-wrap:wrap; gap:8px; width:100%; }
 .hero-stat-item { display:flex; flex-direction:column; align-items:center; text-align:center; gap:2px; }
 .hero-stat-num { font-size:22px; font-weight:800; color:#fff; line-height:1; }
@@ -188,7 +192,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
    колонки и наезжал на карточку формы. Множитель vw считает от окна, а
    места столько нет. Менять кегль можно только вместе с сеткой. */
 .hero h1 {
-  font-size:clamp(32px,3.2vw,52px); font-weight:800; line-height:1.05;
+  font-size:clamp(34px,4.5vw,52px); font-weight:800; line-height:1.05;
   letter-spacing:-.025em; color:#fff; margin-bottom:36px;
 }
 .hero h1 em { color:#f4d78a; font-style:italic; font-weight:800; text-shadow:0 0 24px rgba(244,215,138,.75), 0 0 48px rgba(224,179,74,.5); }
