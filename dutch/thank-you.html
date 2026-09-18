@@ -43,6 +43,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /></noscript>
   <!-- End Meta Pixel Code -->
 
+  <!-- ── Событие для GTM ──────────────────────────────────────────────────────
+   ⚠️ В контейнере GTM висят триггеры на адрес /thankyou и на событие thank_you.
+   Адрес не совпадёт никогда: страницы лежат как /german/thank-you.html - и
+   префикс языка, и дефис. Событие не отправлял никто. Из-за этого конверсии
+   Google Ads и ключевое событие GA4 не срабатывали ни разу, хотя теги настроены.
+
+   event_id берём тот же, что у пикселя (localStorage dl_eid): одна заявка -
+   одно событие во всех системах, включая перезагрузку страницы. -->
+  <script>
+  (function(){
+    var id='';
+    try{ var r=JSON.parse(localStorage.getItem('dl_eid')||'null');
+         if(r&&r.id&&(Date.now()-r.t)<3600000) id=r.id; }
+    catch(e){ /* приватный режим: шлём без идентификатора */ }
+    var parts=location.pathname.split('/').filter(Boolean);
+    var lang=(parts.length>1?parts[0]:'root');
+    try{
+      (window.dataLayer=window.dataLayer||[]).push({
+        event:'thank_you', form_language:lang, event_id:id, page_path:location.pathname
+      });
+    }catch(e){}
+  })();
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
