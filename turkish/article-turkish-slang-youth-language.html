@@ -15,6 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="canonical" href="https://doublelang-online-school.com/turkish/article-turkish-slang-youth-language.html">
   <!-- Проверка телефона: в статье есть живая форма заявки (#art-tel),
        без этого скрипта заявка уходила с любым номером. -->
+  <script src="/assets/dl-utm.js" defer></script>
   <script src="/assets/dl-phone.js" defer></script>
   <meta property="og:title" content="Турецкий сленг и молодёжный язык: как понимать живую речь в Турции">
   <meta property="og:description" content="Разбираем популярный турецкий молодёжный сленг, сленговые выражения и жаргон, которые критически важны для живого общения с носителями. Примеры, таблицы и реальные ситуации.">
@@ -305,13 +306,72 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
     <div style="margin-bottom:10px;"><input type="text" id="art-name" placeholder="Ваше имя (необязательно)" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
     <div style="margin-bottom:10px;"><input type="tel" id="art-tel" placeholder="Телефон / WhatsApp *" required style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
     <div style="margin-bottom:10px;"><input type="email" id="art-email" placeholder="E-mail (необязательно)" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
-    <div style="margin-bottom:10px;"><select id="art-calltime" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;color:#6c7d76;background:#fff;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22><path d=%22M2 4l4 4 4-4%22 stroke=%22%236c7d76%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;"><option value="">Удобное время звонка (необязательно)</option><option>9:00 – 11:00</option><option>11:00 – 13:00</option><option>13:00 – 15:00</option><option>15:00 – 17:00</option><option>17:00 – 19:00</option><option>19:00 – 21:00</option></select></div><div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;"><input type="checkbox" id="art-consent" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-consent" id="art-consent-lbl" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:#21747a;">обработку персональных данных</a></label></div>
+    <div style="margin-bottom:10px;"><select id="art-calltime" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;color:#6c7d76;background:#fff;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22><path d=%22M2 4l4 4 4-4%22 stroke=%22%236c7d76%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;"><option value="">Удобное время звонка (необязательно)</option><option>9:00 – 11:00</option><option>11:00 – 13:00</option><option>13:00 – 15:00</option><option>15:00 – 17:00</option><option>17:00 – 19:00</option><option>19:00 – 21:00</option></select></div><div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;"><input type="checkbox" id="art-consent" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-consent" id="art-consent-lbl" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:#21747a;">обработку персональных данных</a></label></div><div style="display:flex;align-items:flex-start;gap:10px;margin:0 0 16px;"><input type="checkbox" id="art-wa" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-wa" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Можно писать мне в WhatsApp</label></div>
     <button onclick="dlArtSend(this)" style="width:100%;padding:14px;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">Записаться на пробный урок</button>
     <p style="font-size:11px;color:#6c7d76;margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
   </div>
 </div>
 <script>
-function dlArtSend(btn){var tel=document.getElementById('art-tel');var consent=document.getElementById('art-consent');if(!tel||!tel.value.trim()||tel.value.replace(/\D/g,'').length<7){if(tel){tel.style.borderColor='#e05555';tel.focus();}return;}tel.style.borderColor='';if(!consent||!consent.checked){var l=document.getElementById('art-consent-lbl');if(l)l.style.color='#e05555';return;}var name=((document.getElementById('art-name')||{}).value||'').trim();var email=((document.getElementById('art-email')||{}).value||'').trim();var ct=((document.getElementById('art-calltime')||{}).value||'').trim();var phone=tel.value.trim();var tg='\u{1F4E9} Новая заявка DoubleLang\n\u{1F4F1} Телефон: '+phone+'\n\u{1F464} Имя: '+(name||'—')+'\n\u{1F4E7} Email: '+(email||'—')+'\n\u{1F550} Время звонка: '+(ct||'—')+'\n\u{1F310} Источник: Статья '+window.location.pathname;if(btn){btn.disabled=true;btn.textContent='Отправляем...';}fetch('https://api.telegram.org/bot{{LEAD_TG_TOKEN}}/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'{{LEAD_TG_CHAT_ID}}',text:tg})}).catch(function(){});fetch('{{LEAD_MAKE_WEBHOOK}}',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,calltime:ct,source:'article',page:window.location.href})}).catch(function(){});setTimeout(function(){window.location.href='thank-you.html';},500);}
+/* ── Заявка из статьи → CRM ───────────────────────────────────────────────────
+ * ⚠️ Было: обе отправки били в плейсхолдеры LEAD_TG_TOKEN и LEAD_MAKE_WEBHOOK
+ * (в двойных фигурных скобках), которые в статьях не подставлялись. Адреса не
+ * существует, ошибку глотал .catch(), а человека всё равно увозили на «спасибо».
+ * Заявка пропадала молча, и сразу на всех статьях. Теперь адрес тот же, что у
+ * лендингов; рекламные метки допишет dl-utm.js, направление платформа выведет
+ * из page_url (в нём лежит /dutch/article-...).
+ */
+var DL_LEAD_URL='https://app.doublelang-online-school.com/api/crm/webhooks/lead';
+
+/* Цель Метрики и событие dataLayer одним вызовом. Заявок из блога будут единицы,
+ * а кликов сотни: по кликам видно на месяцы раньше, какие темы вообще ведут
+ * человека дальше, а какие читают и уходят. */
+function dlArtGoal(goal){
+  try{if(window.ym)ym(111719318,'reachGoal',goal);}catch(e){}
+  try{(window.dataLayer=window.dataLayer||[]).push({event:goal,article:location.pathname});}catch(e){}
+}
+window.dlArtGoal=dlArtGoal;
+
+function dlArtName(){try{var h=document.querySelector('h1');return ((h&&h.textContent)||document.title||'').trim().slice(0,120);}catch(e){return '';}}
+
+/* ⚠️ keepalive обязателен: сразу после отправки мы уводим человека на «спасибо»,
+ * а обычный fetch браузер при уходе со страницы отменяет. Без него заявка
+ * терялась бы снова - уже по другой причине, но так же незаметно. */
+function dlLead(extra){
+  dlArtGoal('blog_lead');
+  var body={page:location.href,page_url:location.href,article:location.pathname,
+            message:'Заявка из: статья «'+dlArtName()+'»'};
+  for(var k in extra){if(extra[k]!==undefined&&extra[k]!=='')body[k]=extra[k];}
+  try{
+    return fetch(DL_LEAD_URL,{method:'POST',keepalive:true,
+      headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).catch(function(){});
+  }catch(e){return Promise.resolve();}
+}
+window.dlLead=dlLead;
+
+function dlArtSend(btn){
+  var tel=document.getElementById('art-tel');
+  var consent=document.getElementById('art-consent');
+  if(!tel||!tel.value.trim()||tel.value.replace(/\D/g,'').length<7){if(tel){tel.style.borderColor='#e05555';tel.focus();}return;}
+  tel.style.borderColor='';
+  if(!consent||!consent.checked){var l=document.getElementById('art-consent-lbl');if(l)l.style.color='#e05555';return;}
+  var val=function(id){return ((document.getElementById(id)||{}).value||'').trim();};
+  if(btn){btn.disabled=true;btn.textContent='Отправляем...';}
+  dlLead({phone:tel.value.trim(),name:val('art-name'),email:val('art-email'),
+          calltime:val('art-calltime'),
+          wa_consent:!!(document.getElementById('art-wa')||{}).checked});
+  setTimeout(function(){window.location.href='thank-you.html';},500);
+}
+
+/* Клик из статьи на лендинг языка - отдельная цель. Статья может не давать
+ * заявок сама и при этом исправно гнать людей туда, где их оставляют. Слушаем
+ * делегированно: ссылок на лендинг в статье несколько (CTA, меню, крошки),
+ * и вешать обработчик на каждую - лишний шанс какую-то забыть. */
+document.addEventListener('click',function(e){
+  try{
+    var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;
+    if(a&&/^\/[a-z-]+\/?$/.test(a.getAttribute('href')||''))dlArtGoal('blog_to_landing');
+  }catch(err){}
+},true);
 window.__dlArtDial=(function(){try{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';var m={'Europe/Amsterdam':'+31 ','Europe/Brussels':'+32 ','Europe/Moscow':'+7 ','Europe/Kiev':'+380 ','Europe/Istanbul':'+90 ','Europe/Berlin':'+49 ','Europe/Paris':'+33 '};return m[tz]||'+31 ';}catch(e){return '+31 ';}})();
 function openArtModal(){
   var m=document.getElementById('art-modal');
@@ -359,26 +419,11 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.ge
 })();
 </script>
 <script>
-function artSubmit(btn){
-  var tel=document.getElementById('art-tel');
-  var consent=document.getElementById('art-consent');
-  if(!tel||!tel.value.trim()){if(tel){tel.style.borderColor='#e05555';tel.focus();}return;}
-  tel.style.borderColor='';
-  if(!consent||!consent.checked){consent.closest('label').style.color='#e05555';return;}
-  var phone=tel.value.trim();
-  var name=(document.getElementById('art-name')?.value||'').trim();
-  var email=(document.getElementById('art-email')?.value||'').trim();
-  var src=window.location.pathname;
-  var tgText='\u{1F4E9} Новая заявка DoubleLang\n\u{1F4F1} Телефон: '+phone+'\n\u{1F464} Имя: '+(name||'—')+'\n\u{1F4E7} Email: '+(email||'—')+'\n\u{1F310} Источник: Статья '+src;
-  btn.disabled=true;
-  btn.textContent='Отправляем...';
-  fetch('https://api.telegram.org/bot{{LEAD_TG_TOKEN}}/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'{{LEAD_TG_CHAT_ID}}',text:tgText})}).catch(()=>{});
-  Promise.all([
-    fetch('{{LEAD_MAKE_WEBHOOK}}',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,source:'article',page:window.location.href})}).catch(()=>{})
-  ]).finally(function(){
-    window.location.href='thank-you.html';
-  });
-}
+/* Старый дубль отправки. К кнопке не привязан (она зовёт dlArtSend), но жил в
+ * разметке со своей копией мёртвых плейсхолдеров - то есть ждал момента, когда
+ * кто-нибудь повесит его на кнопку и заявки снова начнут пропадать. Оставляем
+ * имя, чтобы не ломать возможные внешние вызовы, а тело - одно. */
+function artSubmit(btn){ return dlArtSend(btn); }
 </script>
 
 
@@ -459,8 +504,9 @@ function artSubmit(btn){
 
 <script>
 (function(){
-  var TG_TOKEN='{{LEAD_TG_TOKEN}}';
-  var TG_CHAT_ID='{{LEAD_TG_CHAT_ID}}';
+  /* TG_TOKEN/TG_CHAT_ID убраны вместе с прямой отправкой в Telegram: заявка
+     теперь уходит в CRM через dlLead(), и держать в разметке заготовку под
+     боевой токен незачем. */
   var WA_LINK='https://wa.me/995599435407';
   var isOpen=false, inited=false;
   var userData={goal:'',phone:'',name:''};
@@ -668,29 +714,19 @@ function artSubmit(btn){
 
   function hideInput(){var r=document.getElementById('dl-input-row');if(r)r.style.display='none';}
 
+  /* ⚠️ Третий путь заявки в статье, и он терял её так же, как модалка: XHR уходил
+   * на api.telegram.org с неподставленным токеном, а showSuccess() показывался и
+   * по onreadystatechange, и по onerror - то есть при любом исходе. Человек видел
+   * «спасибо» ровно в том же виде, что при удачной отправке. */
   function submitLead(){
     clearBtns();
     hideInput();
     var t=showTyping();
-    var msg='🤖 Новая заявка — DoubleLang (чат-бот · из статьи)\n'
-      +(userData.goal?'Цель: '+userData.goal+'\n':'')
-      +'Телефон: '+userData.phone+'\n'
-      +(userData.name?'Имя: '+userData.name+'\n':'')
-      +'Страница: '+window.location.href;
-    var xhr=new XMLHttpRequest();
-    xhr.open('POST','https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage',true);
-    xhr.setRequestHeader('Content-Type','application/json');
-    xhr.onreadystatechange=function(){
-      if(xhr.readyState===4){
-        try{t.remove();}catch(e){}
-        showSuccess();
-      }
-    };
-    xhr.onerror=function(){
-      try{t.remove();}catch(e){}
-      showSuccess();
-    };
-    xhr.send(JSON.stringify({chat_id:TG_CHAT_ID,text:msg}));
+    var done=function(){try{t.remove();}catch(e){}showSuccess();};
+    var send=window.dlLead;
+    if(typeof send!=='function'){done();return;}
+    send({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',
+          message:'Заявка из: чат в статье'}).then(done,done);
   }
 
   function showSuccess(){
