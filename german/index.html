@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Курсы немецкого языка онлайн","description":"Индивидуальные онлайн-занятия немецким языком. Обучение с нуля до C1. Подготовка к ÖSD, EPD, TestDaF, интеграционным экзаменам A1, B1, B2 Beruf.","provider":{"@type":"Organization","name":"DoubleLang","url":"https://doublelang-online-school.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Что будет на пробном занятии?","acceptedAnswer":{"@type":"Answer","text":"Преподаватель определит уровень, расскажет о программе и ответит на вопросы. Бесплатно, без обязательств."}},{"@type":"Question","name":"Как проходят занятия?","acceptedAnswer":{"@type":"Answer","text":"Онлайн, в формате видеодиалога с преподавателем на платформе DoubleLang."}},{"@type":"Question","name":"Сколько длится занятие?","acceptedAnswer":{"@type":"Answer","text":"60 минут. По договорённости — 80 минут."}}]},{"@type":"AggregateRating","itemReviewed":{"@type":"Organization","name":"DoubleLang"},"ratingValue":"5","bestRating":"5","ratingCount":"1000"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог DoubleLang о немецком языке","url":"https://doublelang-online-school.com/german/blog","blogPost":[{"@type":"BlogPosting","headline":"Как подготовиться к TestDaF в 2026 году","articleSection":"Экзамены"},{"@type":"BlogPosting","headline":"Немецкий в Австрии и Германии: в чём разница","articleSection":"Язык"},{"@type":"BlogPosting","headline":"ÖSD: пошаговый гид для переезда в Германию","articleSection":"Переезд"},{"@type":"BlogPosting","headline":"B2 Beruf: как найти работу в Германии","articleSection":"Карьера"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Блог DoubleLang о немецком языке","url":"https://doublelang-online-school.com/blog","blogPost":[{"@type":"BlogPosting","headline":"Как подготовиться к TestDaF в 2026 году","articleSection":"Экзамены"},{"@type":"BlogPosting","headline":"Немецкий в Австрии и Германии: в чём разница","articleSection":"Язык"},{"@type":"BlogPosting","headline":"ÖSD: пошаговый гид для переезда в Германию","articleSection":"Переезд"},{"@type":"BlogPosting","headline":"B2 Beruf: как найти работу в Германии","articleSection":"Карьера"}]}</script>
 <style>
 /* ── DESIGN TOKENS (platform source of truth) ── */
 :root {
@@ -956,6 +956,21 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden;position:absolute;"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<script>
+/* ── Цели Метрики ────────────────────────────────────────────────────────────
+ * ⚠️ До 18.09 на лендингах не было ни одной цели. Метрика писала визиты, а
+ * заявки не писала никуда - конверсию считали руками, сверяя CRM с кабинетом
+ * рекламы, и по блокам страницы она не разбивалась вовсе.
+ * block - откуда именно пришла заявка (hero_card, exams_section, teacher_card,
+ * чат). Без него все заявки сливаются в одно число, и непонятно, какой блок
+ * работает, а какой просто занимает экран. */
+function dlGoal(name, block){
+  try{ if(window.ym) ym(111680872,'reachGoal',name,{block:block||''}); }catch(e){}
+  try{ (window.dataLayer=window.dataLayer||[]).push({event:name,form_block:block||''}); }catch(e){}
+}
+window.dlGoal=dlGoal;
+</script>
+
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 <div id="scroll-bar"></div>
@@ -981,6 +996,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
         Вход
       </a>
+      <a href="#" onclick="event.preventDefault();openCtaModal('header_button')" class="btn nav-cta" style="white-space:nowrap;color:#fff;border-color:#fff;">Заказать звонок</a>
 
     </div>
   </div>
@@ -1896,8 +1912,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_german', page:window.location.href})
       }).then(function(r){
-        if(!r.ok) throw new Error('lead http '+r.status);
-        window.location.href='thank-you.html';
+        \1dlGoal('lead_submit','main_form'); \2
       }).catch(function(e){
         console.error('Lead submit failed:', e);
         b.disabled=false;
@@ -2072,7 +2087,7 @@ window.openCtaModal=openCtaModal;
       obs.unobserve(target);
       try{ if(sessionStorage.getItem('dl_mid_popup_v5')==='1') return; sessionStorage.setItem('dl_mid_popup_v5','1'); }catch(e){}
       var overlay=document.getElementById('contact-modal');
-      if(overlay && !overlay.classList.contains('open')) openCtaModal('exams_section');
+      if(overlay && !overlay.classList.contains('open')){ openCtaModal('exams_section'); dlGoal('popup_shown','exams_section'); }
     });
   },{threshold:0.05});
   obs.observe(target);
@@ -2139,8 +2154,7 @@ function closeModal(){
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource+'\n'+'🧭 Откуда: '+mWhere+'\n'+'💬 WhatsApp: '+(mWaConsent?'согласен':'не отмечено');
       
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,message:'Заявка из: '+mWhere,wa_consent:mWaConsent,page:window.location.href})}).then(function(r){
-        if(!r.ok) throw new Error('lead http '+r.status);
-        closeModal();
+        \1dlGoal('lead_submit',mBlock||'modal'); \2
         window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
@@ -2601,7 +2615,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        if(xhr.status>=200&&xhr.status<300){ showSuccess(); }
+        \1dlGoal('lead_submit','chat'); \2 }
         else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
