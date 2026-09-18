@@ -1,5 +1,60 @@
 [
   {
+    "id": "diminutivy-niderlandskiy-je-tje",
+    "lang": "nl",
+    "title": "Голландские диминутивы: почему всё вокруг вдруг становится «маленьким»",
+    "excerpt": "Правила образования диминутивов в нидерландском: как выбрать суффикс -je, -tje или -pje, почему голландцы используют уменьшительные формы и упражнения для практики.",
+    "cover": "/assets/blog-diminutivy-niderlandskiy-je-tje-cover.png",
+    "url": "/dutch/article-diminutivy-niderlandskiy-je-tje.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-18"
+  },
+  {
+    "id": "nalogi-belastingdienst-niderlandy-deklaraciya",
+    "lang": "nl",
+    "title": "Голландские налоги для новичков: как разобраться в Belastingdienst и подать первую декларацию",
+    "excerpt": "Как разобраться в Belastingdienst и подать первую налоговую декларацию в Нидерландах: пошаговая инструкция, нидерландская лексика и типичные ошибки новичков.",
+    "cover": "/assets/blog-nalogi-belastingdienst-niderlandy-deklaraciya-cover.png",
+    "url": "/dutch/article-nalogi-belastingdienst-niderlandy-deklaraciya.html",
+    "category": "Иммиграция",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-18"
+  },
+  {
+    "id": "english-conditionals-complete-guide-2026",
+    "lang": "en",
+    "title": "Английские условные предложения (Conditionals): от нуля до профессионального владения",
+    "excerpt": "Полный разбор всех типов условных предложений: Zero, First, Second, Third и Mixed Conditionals. С примерами, таблицами, типичными ошибками русскоязычных и упражнениями.",
+    "cover": "/assets/blog-english-conditionals-complete-guide-2026-cover.png",
+    "url": "/english/article-english-conditionals-complete-guide-2026.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-18"
+  },
+  {
+    "id": "english-fiance-partner-visa-interview-2026",
+    "lang": "en",
+    "title": "Английский для собеседования на визу невесты/жениха и партнёрскую визу",
+    "excerpt": "Типичные вопросы на интервью для визы K-1 и партнерских виз, лексика для описания отношений и практические советы по уверенному общению на английском.",
+    "cover": "/assets/blog-english-fiance-partner-visa-interview-2026-cover.png",
+    "url": "/english/article-english-fiance-partner-visa-interview-2026.html",
+    "category": "Иммиграция",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-18"
+  },
+  {
+    "id": "francuzskie-artikli-polnoe-rukovodstvo",
+    "lang": "fr",
+    "title": "Французские артикли: полное руководство для тех, кто путается в le, la, les и du",
+    "excerpt": "Разбираем все типы французских артиклей: le, la, les, un, une, des, du, de la. Правила выбора, таблицы, примеры и типичные ошибки русскоязычных.",
+    "cover": "/assets/blog-francuzskie-artikli-polnoe-rukovodstvo-cover.png",
+    "url": "/french/article-francuzskie-artikli-polnoe-rukovodstvo.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-18"
+  },
+  {
     "id": "detskie-sady-shkoly-niderlandy-yazyk",
     "lang": "nl",
     "title": "Голландские детские сады и школы: как выбрать и что говорить учителям на родительских встречах",
