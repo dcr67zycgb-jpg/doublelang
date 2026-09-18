@@ -5,7 +5,7 @@
   <meta name="yandex-verification" content="0b462f20c4d6f19b" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Курсы нидерландского языка онлайн — Школа DoubleLang</title>
-  <meta name="description" content="Индивидуальные занятия нидерландским языком онлайн с преподавателями из Нидерландов и Бельгии. Подготовка к MVV, Inburgering, NT2. С нуля до уверенного разговорного уровня. Пробный урок бесплатно.">
+  <meta name="description" content="Индивидуальные занятия нидерландским онлайн с преподавателями из Нидерландов и Бельгии. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
   <link rel="canonical" href="https://doublelang-online-school.com/dutch/">
   <meta property="og:title" content="Курсы нидерландского языка онлайн — Школа DoubleLang">
   <meta property="og:description" content="Индивидуальные занятия нидерландским с преподавателями из Нидерландов. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
@@ -19,7 +19,7 @@
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="DoubleLang">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Курсы голландского языка онлайн | DoubleLang">
+  <meta name="twitter:title" content="Курсы нидерландского языка онлайн — Школа DoubleLang">
   <meta name="twitter:description" content="Индивидуальные занятия нидерландским с преподавателями из Нидерландов. Подготовка к MVV, Inburgering, NT2. Пробный урок бесплатно.">
   <meta name="twitter:image" content="https://doublelang-online-school.com/assets/og2-dutch-v3.png">
   <meta name="keywords" content="голландский язык онлайн, курсы нидерландского, подготовка к MVV, Inburgering, NT2, нидерландский с нуля, переезд в Нидерланды, репатриация в Нидерланды, работа в Нидерландах, разговорный нидерландский, нидерландский для начинающих, экзамен по интеграции Нидерланды">
@@ -60,7 +60,7 @@
 
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 noscript { display:none !important; }
-html { scroll-behavior:smooth; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
 body {
   font-family: var(--font-body);
   color: var(--ink); background: var(--surface);
@@ -247,9 +247,10 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-title-line:nth-child(2) span { animation-delay:.45s; }
 .hero-title-line:nth-child(3) span { animation-delay:.6s; }
 @keyframes lineUp { from { transform:translateY(110%); opacity:0; } to { transform:translateY(0); opacity:1; } }
-.hero h1 { font-size:clamp(30px,4vw,52px); font-weight:800; line-height:1.08; letter-spacing:-.02em; margin-bottom:24px; }
-.hero h1 em { font-style:normal; background:linear-gradient(100deg,#cdac5f,#dcc890 30%,#bf9640 55%,#dcc890 75%,#cdac5f); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; animation:goldFlow 6s linear infinite; }
-@keyframes goldFlow{to{background-position:220% center}}
+/* ⚠️ Здесь стояла вторая пара .hero h1 / .hero h1 em. Та же специфичность,
+   но ниже по тексту - поэтому побеждала она, и размеры из спецификации
+   (clamp(56px,9vw,132px) и золото #f4d78a со свечением) не применялись
+   вовсе. Пара снята; значения задаются одним местом выше. */
 .hero-sub { font-size:17px; color:var(--gold); max-width:520px; margin-bottom:36px; line-height:1.82; animation:fadeUp .9s var(--ease) .72s both; }
 .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:52px; animation:fadeUp .9s var(--ease) .86s both; }
 .hero-divider { height:1px; background:rgba(255,255,255,.08); margin-bottom:32px; animation:fadeUp .6s var(--ease) 1s both; }
@@ -908,6 +909,17 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 calc
 .phone-field { position:relative; }
 #modal-phone-field input { display:block; width:100%; padding:13px 16px; border:1.5px solid #d0dbd8; border-radius:var(--radius-sm); font-size:14px; font-family:var(--font-body); color:var(--ink); background:#fff; outline:none; box-sizing:border-box; }
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
+/* ── Свайп в слайдерах не утягивает страницу ──────────────────────────────────
+ * На мобильных эти блоки становятся горизонтальными слайдерами (overflow-x:auto).
+ * Досвайпав до края, браузер передаёт прокрутку наружу - и вбок уезжает вся
+ * страница, а в iOS это ещё и жест «назад». overscroll-behavior-x:contain
+ * обрывает передачу на границе слайдера.
+ * Правило общее, не в медиазапросе: на десктопе эти блоки - обычные grid без
+ * прокрутки, и свойство там ничего не делает. */
+.goals-grid, .levels-grid, .exams-grid, .teachers-grid, .blog-grid,
+.why-grid, .reviews-track, .plans-grid, .pricing-tabs {
+  overscroll-behavior-x: contain;
+}
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
   <!-- Meta Pixel Code -->
@@ -947,23 +959,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/110288328" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1073538998318404');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<!-- ⚠️ Здесь стоял немецкий пиксель (id 1073…404). На нидерландском он собирал
+     показы, а заявку не видел: на thank-you.html нидерландского стоит только
+     свой пиксель. Немецкая кампания училась на трафике, до конверсий которого
+     ей не дотянуться. Снят. -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -1948,7 +1947,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_dutch', page:window.location.href})
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_dutch', message:'Заявка из: главная форма', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         if(window.dlGoal) dlGoal('lead_submit','main_form'); window.location.href='thank-you.html';
@@ -2165,7 +2164,7 @@ function closeModal(){
       const mCalltime=(document.getElementById('modal-calltime')?.value||'').trim();
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
-      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href,wa_consent:!!(document.getElementById('modal-consent-wa')||{}).checked})}).then(function(r){
+      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,message:'Заявка из: '+(mBlock||'модалка'),page:window.location.href,wa_consent:!!(document.getElementById('modal-consent-wa')||{}).checked})}).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
         if(window.dlGoal) dlGoal('lead_submit',mBlock||'modal'); closeModal();
         window.location.href='thank-you.html';
@@ -2199,7 +2198,7 @@ function closeModal(){
     const hSource='https://doublelang-online-school.com/dutch-general';
     btn.disabled=true;
     btn.textContent='Отправляем...';
-    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:hPhone,name:hName,email:hEmail,goal:'Пробный урок',teacher:'',calltime:'',block:'hero_form',source:hSource,page:window.location.href,wa_consent:!!(document.getElementById('hero-consent-wa')||{}).checked})}).then(function(r){
+    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:hPhone,name:hName,email:hEmail,goal:'Пробный урок',teacher:'',calltime:'',block:'hero_form',source:hSource,message:'Заявка из: форма в первом экране',page:window.location.href,wa_consent:!!(document.getElementById('hero-consent-wa')||{}).checked})}).then(function(r){
       if(!r.ok) throw new Error('lead http '+r.status);
       if(window.dlGoal) dlGoal('lead_submit','hero_form'); window.location.href='thank-you.html';
     }).catch(function(e){
@@ -2604,7 +2603,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
       console.error('Chat lead submit network error');
       showChatError();
     };
-    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'https://doublelang-online-school.com/dutch',page:window.location.href}));
+    xhr.send(JSON.stringify({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',source:'https://doublelang-online-school.com/dutch',message:'Заявка из: чат на сайте',page:window.location.href}));
   }
 
   function showSuccess(){

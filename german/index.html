@@ -63,7 +63,7 @@ noscript { display:none !important; }
 #cursor-dot, #cursor-ring { display:none !important; }
 body, .btn, .level-card, .faq-q { cursor:auto !important; }
 a, button, .btn, .level-card, .faq-q, .teacher-more-btn { cursor:pointer !important; }
-html { scroll-behavior:smooth; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
 body {
   font-family: var(--font-body);
   color: var(--ink); background: var(--surface);
@@ -182,10 +182,10 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-overline::before { content:''; display:block; width:36px; height:1.5px; background:#fff; }
 .hero-overline::after { content:''; display:block; width:36px; height:1.5px; background:#fff; }
 .hero h1 {
-  font-size:clamp(34px,5vw,66px); font-weight:800; line-height:1.06;
+  font-size:clamp(56px,9vw,132px); font-weight:800; line-height:1.05;
   letter-spacing:-.025em; color:#fff; margin-bottom:36px;
 }
-.hero h1 em { color:#c8a96e; font-style:italic; font-weight:800; }
+.hero h1 em { color:#f4d78a; font-style:italic; font-weight:800; text-shadow:0 0 24px rgba(244,215,138,.75), 0 0 48px rgba(224,179,74,.5); }
 .hero-ctas { display:flex; gap:14px; flex-wrap:wrap; }
 .hero-sub-line { font-size:15px; color:#fff; margin-bottom:10px; line-height:1.7; max-width:620px; text-shadow:0 1px 6px rgba(0,0,0,.7); }
 .hero-right {
@@ -250,8 +250,10 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-title-line:nth-child(2) span { animation-delay:.45s; }
 .hero-title-line:nth-child(3) span { animation-delay:.6s; }
 @keyframes lineUp { from { transform:translateY(110%); opacity:0; } to { transform:translateY(0); opacity:1; } }
-.hero h1 { font-size:clamp(30px,4vw,52px); font-weight:800; line-height:1.08; letter-spacing:-.02em; margin-bottom:24px; }
-.hero h1 em { font-style:normal; background:linear-gradient(100deg,#cdac5f,#dcc890 30%,#bf9640 55%,#dcc890 75%,#cdac5f); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; animation:btnShine 6s linear infinite; }
+/* ⚠️ Здесь стояла вторая пара .hero h1 / .hero h1 em. Та же специфичность,
+   но ниже по тексту - поэтому побеждала она, и размеры из спецификации
+   (clamp(56px,9vw,132px) и золото #f4d78a со свечением) не применялись
+   вовсе. Пара снята; значения задаются одним местом выше. */
 .hero-sub { font-size:17px; color:var(--gold); max-width:520px; margin-bottom:36px; line-height:1.82; animation:fadeUp .9s var(--ease) .72s both; }
 .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:52px; animation:fadeUp .9s var(--ease) .86s both; }
 .hero-divider { height:1px; background:rgba(255,255,255,.08); margin-bottom:32px; animation:fadeUp .6s var(--ease) 1s both; }
@@ -747,14 +749,14 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 @media(max-width:960px){
   section { padding:56px 0; }
   .hero { min-height:100svh; height:auto; overflow:visible; }
-  .hero-inner { grid-template-columns:1fr; gap:16px; padding:48px 0 40px; }
+  .hero-inner { grid-template-columns:1fr; gap:16px; padding:70px 0 40px; }
   .hero-right { align-items:flex-start; }
-  .hero h1 { font-size:clamp(26px,7vw,34px); letter-spacing:-.01em; margin-bottom:24px; }
+  .hero h1 { font-size:clamp(36px,10vw,48px); letter-spacing:-.01em; margin-bottom:24px; }
   .hero-overline { font-size:10px; margin-bottom:14px; }
   .hero-ctas { flex-direction:column; gap:10px; }
   .hero-ctas .btn { width:100%; justify-content:center; }
   .hero-inner{grid-template-columns:1fr}
-  .hero h1 { font-size:clamp(26px,5vw,40px); }
+  .hero h1 { font-size:clamp(36px,8vw,54px); }
   .hero-sub { font-size:15px; }
   .form-card{max-width:100%}
   .goals-grid{grid-template-columns:repeat(2,1fr)}
@@ -886,7 +888,7 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   .price-card { padding:24px 20px; }
 }
 @media(max-width:400px){
-  .hero h1 { font-size:22px; }
+  .hero h1 { font-size:32px; }
   .levels-grid{grid-template-columns:1fr}
   .teachers-grid{grid-template-columns:1fr!important}
   .goals-grid{grid-template-columns:1fr}
@@ -906,6 +908,17 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 #modal-phone-field input::placeholder { color:#8fa09a; opacity:1; }
 .mob-br{display:none}
 @media(max-width:640px){.mob-br{display:block;height:0}}
+/* ── Свайп в слайдерах не утягивает страницу ──────────────────────────────────
+ * На мобильных эти блоки становятся горизонтальными слайдерами (overflow-x:auto).
+ * Досвайпав до края, браузер передаёт прокрутку наружу - и вбок уезжает вся
+ * страница, а в iOS это ещё и жест «назад». overscroll-behavior-x:contain
+ * обрывает передачу на границе слайдера.
+ * Правило общее, не в медиазапросе: на десктопе эти блоки - обычные grid без
+ * прокрутки, и свойство там ничего не делает. */
+.goals-grid, .levels-grid, .exams-grid, .teachers-grid, .blog-grid,
+.why-grid, .reviews-track, .plans-grid, .pricing-tabs {
+  overscroll-behavior-x: contain;
+}
 </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
   
@@ -1917,9 +1930,11 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_german', page:window.location.href})
+        body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_german', message:'Заявка из: главная форма', page:window.location.href})
       }).then(function(r){
-        \1dlGoal('lead_submit','main_form'); \2
+        if(!r.ok) throw new Error('lead http '+r.status);
+        if(window.dlGoal) dlGoal('lead_submit','main_form');
+        window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
         b.disabled=false;
@@ -2161,7 +2176,9 @@ function closeModal(){
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource+'\n'+'🧭 Откуда: '+mWhere+'\n'+'💬 WhatsApp: '+(mWaConsent?'согласен':'не отмечено');
       
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,message:'Заявка из: '+mWhere,wa_consent:mWaConsent,page:window.location.href})}).then(function(r){
-        \1dlGoal('lead_submit',mBlock||'modal'); \2
+        if(!r.ok) throw new Error('lead http '+r.status);
+        if(window.dlGoal) dlGoal('lead_submit',mBlock||'modal');
+        closeModal();
         window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
@@ -2622,7 +2639,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        \1dlGoal('lead_submit','chat'); \2 }
+        if(xhr.status>=200&&xhr.status<300){ if(window.dlGoal) dlGoal('lead_submit','chat'); showSuccess(); }
         else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
@@ -2821,49 +2838,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 })();
 </script>
 
-<script>
-/* ── Заявка из формы первого экрана ──────────────────────────────────────────
- * ⚠️ source не отправляется намеренно. Платформа берёт utm_source из первого
- * непустого среди (utm_source, utm, source, источник); старые формы кладут туда
- * название формы или адрес страницы, и у органических заявок этот мусор
- * занимает место настоящего источника. При рекламе utm_source подставит
- * dl-utm.js, при органике поле честно останется пустым, а откуда пришла заявка
- * видно из message - его платформа тоже читает. */
-(function(){
-  var btn=document.getElementById('hero-submit-btn');
-  if(!btn) return;
-  btn.addEventListener('click',function(){
-    var tel=document.getElementById('hero-tel');
-    var consent=document.getElementById('hero-consent');
-    var lbl=document.getElementById('hero-consent-label');
-    var field=document.getElementById('hero-phone-field');
-    /* Семь цифр, а не «поле не пустое»: маска подставляет код страны сама, и
-       проверка на непустоту пропускала заявки из одного «+49». */
-    var digits=((tel&&tel.value)||'').replace(/\D/g,'');
-    if(!tel||digits.length<7){ if(field) field.classList.add('invalid'); if(tel) tel.focus(); return; }
-    if(field) field.classList.remove('invalid');
-    if(!consent||!consent.checked){ if(lbl) lbl.style.color='#ffb4b4'; return; }
-    if(lbl) lbl.style.color='';
-    var val=function(id){ return ((document.getElementById(id)||{}).value||'').trim(); };
-    btn.disabled=true; btn.textContent='Отправляем...';
-    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        phone:tel.value.trim(), name:val('hero-name'), email:val('hero-email'),
-        goal:'Пробный урок', block:'hero_form',
-        message:'Заявка из: форма в первом экране',
-        wa_consent:!!(document.getElementById('hero-consent-wa')||{}).checked,
-        page:window.location.href})
-    }).then(function(r){
-      if(!r.ok) throw new Error('lead http '+r.status);
-      if(window.dlGoal) dlGoal('lead_submit','hero_form');
-      window.location.href='thank-you.html';
-    }).catch(function(e){
-      console.error('Hero lead submit failed:', e);
-      btn.disabled=false; btn.textContent='Ошибка — нажмите ещё раз'; btn.style.background='#e05555';
-    });
-  });
-})();
-</script>
+<!-- ⚠️ Здесь лежал второй обработчик кнопки первого экрана: он остался от
+     прошлой правки, а следующая добавила свой и старый не сняла. Оба висели
+     на одной кнопке - один клик отправлял ДВЕ заявки. Оставлен один, ниже. -->
+
 
 <script>
 /* ── Заявка из формы первого экрана ──────────────────────────────────────────
