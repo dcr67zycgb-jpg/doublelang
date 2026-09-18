@@ -63,7 +63,7 @@ noscript { display:none !important; }
 #cursor-dot, #cursor-ring { display:none !important; }
 body, .btn, .level-card, .faq-q { cursor:auto !important; }
 a, button, .btn, .level-card, .faq-q, .teacher-more-btn { cursor:pointer !important; }
-html { scroll-behavior:smooth; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
 body {
   font-family: var(--font-body);
   color: var(--ink); background: var(--surface);
@@ -1919,7 +1919,9 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_german', page:window.location.href})
       }).then(function(r){
-        \1dlGoal('lead_submit','main_form'); \2
+        if(!r.ok) throw new Error('lead http '+r.status);
+        if(window.dlGoal) dlGoal('lead_submit','main_form');
+        window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
         b.disabled=false;
@@ -2161,7 +2163,9 @@ function closeModal(){
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource+'\n'+'🧭 Откуда: '+mWhere+'\n'+'💬 WhatsApp: '+(mWaConsent?'согласен':'не отмечено');
       
       fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,message:'Заявка из: '+mWhere,wa_consent:mWaConsent,page:window.location.href})}).then(function(r){
-        \1dlGoal('lead_submit',mBlock||'modal'); \2
+        if(!r.ok) throw new Error('lead http '+r.status);
+        if(window.dlGoal) dlGoal('lead_submit',mBlock||'modal');
+        closeModal();
         window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
@@ -2622,7 +2626,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        \1dlGoal('lead_submit','chat'); \2 }
+        if(xhr.status>=200&&xhr.status<300){ if(window.dlGoal) dlGoal('lead_submit','chat'); showSuccess(); }
         else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
