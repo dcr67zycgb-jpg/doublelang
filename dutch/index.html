@@ -273,7 +273,7 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .form-card-title { font-size:19px; font-weight:800; color:#fff; margin-bottom:5px; letter-spacing:-.01em; }
 .form-card-sub { font-size:13px; color:rgba(255,255,255,.55); margin-bottom:22px; }
 .checklist { list-style:none; margin-bottom:22px; }
-.checklist li { display:flex; align-items:flex-start; gap:10px; font-size:13px; color:rgba(255,255,255,.72); padding:5px 0; text-align:left; animation:checkIn .5s var(--ease) both; }
+.checklist li { display:flex; align-items:flex-start; justify-content:flex-start; gap:10px; font-size:13px; color:rgba(255,255,255,.72); padding:5px 0; text-align:left; animation:checkIn .5s var(--ease) both; }
 .checklist li:nth-child(1){animation-delay:.55s} .checklist li:nth-child(2){animation-delay:.68s}
 .checklist li:nth-child(3){animation-delay:.81s} .checklist li:nth-child(4){animation-delay:.94s}
 @keyframes checkIn { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:none; } }
@@ -972,6 +972,18 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden;position:absolute;"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<script>
+/* ── Цели Метрики ────────────────────────────────────────────────────────────
+ * Метрика пишет визиты, а заявки без этого не пишет никуда: конверсию
+ * приходится считать руками, сверяя CRM с рекламным кабинетом, и по блокам
+ * страницы она не разбивается вовсе.
+ * block - откуда пришла заявка (hero_form, exams_section, teacher_card, чат). */
+function dlGoal(name, block){
+  try{ if(window.ym) ym(110288328,'reachGoal',name,{block:block||''}); }catch(e){}
+  try{ (window.dataLayer=window.dataLayer||[]).push({event:name,form_block:block||''}); }catch(e){}
+}
+window.dlGoal=dlGoal;
+</script>
 <div id="cursor-dot">DL</div>
 <div id="cursor-ring"></div>
 <div id="scroll-bar"></div>
@@ -1939,7 +1951,7 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
         body:JSON.stringify({phone:phoneVal, name:nameVal, email:emailVal, goal:goalVal, source:'main_form_dutch', page:window.location.href})
       }).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
-        window.location.href='thank-you.html';
+        if(window.dlGoal) dlGoal('lead_submit','main_form'); window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
         b.disabled=false;
@@ -2114,7 +2126,7 @@ window.openCtaModal=openCtaModal;
       obs.unobserve(target);
       try{ if(sessionStorage.getItem('dl_mid_popup_v8')==='1') return; sessionStorage.setItem('dl_mid_popup_v8','1'); }catch(e){}
       var overlay=document.getElementById('contact-modal');
-      if(overlay && !overlay.classList.contains('open')) openCtaModal('exams_section');
+      if(overlay && !overlay.classList.contains('open')){ openCtaModal('exams_section'); if(window.dlGoal) dlGoal('popup_shown','exams_section'); }
     });
   },{threshold:0.05});
   obs.observe(target);
@@ -2153,9 +2165,9 @@ function closeModal(){
       const mCalltime=(document.getElementById('modal-calltime')?.value||'').trim();
       const tgText='📩 Новая заявка DoubleLang\n'+'📱 Телефон: '+(mPhone||'—')+'\n'+'👤 Имя: '+(mName||'—')+'\n'+'📧 Email: '+(mEmail||'—')+'\n'+'🎯 Цель: '+(mGoal||'—')+'\n'+'🕐 Время звонка: '+(mCalltime||'не указано')+'\n'+(mTeacher?'👩‍🏫 Преподаватель: '+mTeacher+'\n':'')+'🌐 Источник: '+mSource;
       
-      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href})}).then(function(r){
+      fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:mPhone,name:mName,email:mEmail,goal:mGoal,teacher:mTeacher,calltime:mCalltime,block:mBlock,source:mSource,page:window.location.href,wa_consent:!!(document.getElementById('modal-consent-wa')||{}).checked})}).then(function(r){
         if(!r.ok) throw new Error('lead http '+r.status);
-        closeModal();
+        if(window.dlGoal) dlGoal('lead_submit',mBlock||'modal'); closeModal();
         window.location.href='thank-you.html';
       }).catch(function(e){
         console.error('Lead submit failed:', e);
@@ -2187,9 +2199,9 @@ function closeModal(){
     const hSource='https://doublelang-online-school.com/dutch-general';
     btn.disabled=true;
     btn.textContent='Отправляем...';
-    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:hPhone,name:hName,email:hEmail,goal:'Пробный урок',teacher:'',calltime:'',block:'hero_form',source:hSource,page:window.location.href})}).then(function(r){
+    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:hPhone,name:hName,email:hEmail,goal:'Пробный урок',teacher:'',calltime:'',block:'hero_form',source:hSource,page:window.location.href,wa_consent:!!(document.getElementById('hero-consent-wa')||{}).checked})}).then(function(r){
       if(!r.ok) throw new Error('lead http '+r.status);
-      window.location.href='thank-you.html';
+      if(window.dlGoal) dlGoal('lead_submit','hero_form'); window.location.href='thank-you.html';
     }).catch(function(e){
       console.error('Hero lead submit failed:', e);
       btn.disabled=false;
@@ -2583,7 +2595,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     xhr.onreadystatechange=function(){
       if(xhr.readyState===4){
         try{t.remove();}catch(e){}
-        if(xhr.status>=200&&xhr.status<300){ showSuccess(); }
+        if(xhr.status>=200&&xhr.status<300){ if(window.dlGoal) dlGoal('lead_submit','chat'); showSuccess(); }
         else { console.error('Chat lead submit failed, status', xhr.status); showChatError(); }
       }
     };
@@ -2652,6 +2664,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   }
 })();
 </script>
+<!-- ⚠️ dl-utm.js держит рекламные метки между переходами и дописывает их в
+     заявку: без него у платного трафика в CRM пусто в utm_source. dl-phone.js
+     проверяет номер. При загрузке файла через веб-интерфейс оба пропали. -->
+<script src="/assets/dl-utm.js" defer></script>
+<script src="/assets/dl-phone.js" defer></script>
 <script src="/articles.js" defer></script>
 
 <div id="dl-cookie-banner" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:760px;margin:0 auto;background:#15211d;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.35);padding:18px 20px;display:none;font-family:'Manrope',system-ui,-apple-system,sans-serif">
