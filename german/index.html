@@ -1020,12 +1020,29 @@ window.dlGoal=dlGoal;
         <div style="margin:4px auto 0;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1.5px solid rgba(212,175,90,.55);border-radius:20px;padding:30px 36px;max-width:520px;box-shadow:0 24px 60px -16px rgba(0,0,0,.65), 0 0 0 1px rgba(212,175,90,.15), inset 0 1px 0 rgba(255,255,255,.35);">
           <div style="font-size:19px;font-weight:800;color:#fff;margin-bottom:16px;text-align:center;">Запишитесь на бесплатный пробный урок</div>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
-            <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">30 минут demo-урок</span></div>
-            <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cc2b2b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">Оценим ваш текущий уровень языка</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0b13a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">30 минут demo-урок</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0b13a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">Оценим ваш текущий уровень языка</span></div>
             <div style="display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0b13a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M20 6L9 17l-5-5"/></svg><span style="font-size:14px;color:rgba(255,255,255,.9)">Составим план обучения для вас</span></div>
           </div>
+
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:14px;">
+            <input type="text" id="hero-name" placeholder="Ваше имя (необязательно)" autocomplete="name" style="width:100%;padding:12px 14px;border:1.5px solid rgba(255,255,255,.28);border-radius:12px;font-size:14px;font-family:inherit;color:#fff;outline:none;background:rgba(255,255,255,.12);box-sizing:border-box;">
+            <div class="phone-field" id="hero-phone-field">
+              <input type="tel" id="hero-tel" placeholder="+49 151 12 34 56 78" required autocomplete="off" style="width:100%;padding:12px 14px;border:1.5px solid rgba(255,255,255,.28);border-radius:12px;font-size:14px;font-family:inherit;color:#fff;outline:none;background:rgba(255,255,255,.12);box-sizing:border-box;">
+              <div class="phone-hint">Введите полный номер телефона</div>
+            </div>
+            <input type="email" id="hero-email" placeholder="E-mail (необязательно)" autocomplete="email" style="width:100%;padding:12px 14px;border:1.5px solid rgba(255,255,255,.28);border-radius:12px;font-size:14px;font-family:inherit;color:#fff;outline:none;background:rgba(255,255,255,.12);box-sizing:border-box;">
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:9px;margin-bottom:8px;">
+            <input type="checkbox" id="hero-consent" style="margin-top:3px;accent-color:#e0b34a;width:16px;height:16px;flex-shrink:0;">
+            <label for="hero-consent" id="hero-consent-label" style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.5;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:inherit;text-decoration:underline;">обработку персональных данных</a></label>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:9px;margin-bottom:8px;margin-bottom:14px;">
+            <input type="checkbox" id="hero-consent-wa" style="margin-top:3px;accent-color:#e0b34a;width:16px;height:16px;flex-shrink:0;">
+            <label for="hero-consent-wa" style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.5;cursor:pointer;">Согласен на информирование в WhatsApp</label>
+          </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <a href="#" onclick="event.preventDefault();openCtaModal('hero_card')" class="btn btn-gold" style="flex:1 1 100%;text-align:center;justify-content:center;padding:13px;font-size:14px;animation:btnShine 2.4s linear infinite;">Записаться на урок</a>
+            <button type="button" id="hero-submit-btn" class="btn btn-gold" style="flex:1 1 100%;text-align:center;justify-content:center;padding:13px;font-size:14px;animation:btnShine 2.4s linear infinite;">Записаться на урок</button>
             <a href="https://t.me/doublelang_online_school" target="_blank" rel="noopener" class="btn" style="flex:1;min-width:130px;text-align:center;justify-content:center;padding:11px;font-size:13px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.35);">Telegram</a>
             <a href="https://wa.me/995599435407" target="_blank" rel="noopener" class="btn" style="flex:1;min-width:130px;text-align:center;justify-content:center;padding:11px;font-size:13px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.35);">WhatsApp</a>
           </div>
@@ -2811,6 +2828,50 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     }catch(e){}
     return _s.call(this,body);
   };
+})();
+</script>
+
+<script>
+/* ── Заявка из формы первого экрана ──────────────────────────────────────────
+ * ⚠️ source не отправляется намеренно. Платформа берёт utm_source из первого
+ * непустого среди (utm_source, utm, source, источник); старые формы кладут туда
+ * название формы или адрес страницы, и у органических заявок этот мусор
+ * занимает место настоящего источника. При рекламе utm_source подставит
+ * dl-utm.js, при органике поле честно останется пустым, а откуда пришла заявка
+ * видно из message - его платформа тоже читает. */
+(function(){
+  var btn=document.getElementById('hero-submit-btn');
+  if(!btn) return;
+  btn.addEventListener('click',function(){
+    var tel=document.getElementById('hero-tel');
+    var consent=document.getElementById('hero-consent');
+    var lbl=document.getElementById('hero-consent-label');
+    var field=document.getElementById('hero-phone-field');
+    /* Семь цифр, а не «поле не пустое»: маска подставляет код страны сама, и
+       проверка на непустоту пропускала заявки из одного «+49». */
+    var digits=((tel&&tel.value)||'').replace(/\D/g,'');
+    if(!tel||digits.length<7){ if(field) field.classList.add('invalid'); if(tel) tel.focus(); return; }
+    if(field) field.classList.remove('invalid');
+    if(!consent||!consent.checked){ if(lbl) lbl.style.color='#ffb4b4'; return; }
+    if(lbl) lbl.style.color='';
+    var val=function(id){ return ((document.getElementById(id)||{}).value||'').trim(); };
+    btn.disabled=true; btn.textContent='Отправляем...';
+    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        phone:tel.value.trim(), name:val('hero-name'), email:val('hero-email'),
+        goal:'Пробный урок', block:'hero_form',
+        message:'Заявка из: форма в первом экране',
+        wa_consent:!!(document.getElementById('hero-consent-wa')||{}).checked,
+        page:window.location.href})
+    }).then(function(r){
+      if(!r.ok) throw new Error('lead http '+r.status);
+      if(window.dlGoal) dlGoal('lead_submit','hero_form');
+      window.location.href='thank-you.html';
+    }).catch(function(e){
+      console.error('Hero lead submit failed:', e);
+      btn.disabled=false; btn.textContent='Ошибка — нажмите ещё раз'; btn.style.background='#e05555';
+    });
+  });
 })();
 </script>
 </body>
