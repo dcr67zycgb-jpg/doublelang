@@ -211,8 +211,10 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
    (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111719318', 'ym');
    ym(111719318, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer",
       accurateTrackBounce:true, trackLinks:true});
+   ym(110367168, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer",
+      accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111719318" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/111719318" style="position:absolute; left:-9999px;" alt="" /><img src="https://mc.yandex.ru/watch/110367168" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
@@ -325,7 +327,7 @@ var DL_LEAD_URL='https://app.doublelang-online-school.com/api/crm/webhooks/lead'
  * а кликов сотни: по кликам видно на месяцы раньше, какие темы вообще ведут
  * человека дальше, а какие читают и уходят. */
 function dlArtGoal(goal){
-  try{if(window.ym)ym(111719318,'reachGoal',goal);}catch(e){}
+  try{if(window.ym)var _c=[111719318,110367168];for(var _i=0;_i<_c.length;_i++)ym(_c[_i],'reachGoal',goal);}catch(e){}
   try{(window.dataLayer=window.dataLayer||[]).push({event:goal,article:location.pathname});}catch(e){}
 }
 window.dlArtGoal=dlArtGoal;
