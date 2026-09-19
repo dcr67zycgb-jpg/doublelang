@@ -296,11 +296,14 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 @keyframes checkIn { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:none; } }
 .checklist li::before {
   content:'✓'; width:20px; height:20px; border-radius:50%;
-  background:var(--teal-soft); color:var(--teal); font-size:10px; font-weight:800;
+  box-shadow:0 0 0 1.5px var(--checklist-mark-ring, rgba(255,255,255,.45));
+  /* ⚠️ Светлый ободок обязателен: чёрная полоса немецкого флага и белая
+     нидерландского на полупрозрачной тёмной карточке иначе сливаются. */
+  background:var(--checklist-mark-bg, var(--teal-soft)); color:var(--checklist-mark-color, var(--teal)); font-size:10px; font-weight:800;
   display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;
   transition:background .2s, transform .2s;
 }
-.checklist li:hover::before { background:var(--teal); color:#fff; transform:scale(1.14) rotate(10deg); }
+.checklist li:hover::before { background:var(--checklist-mark-bg, var(--teal)); color:var(--checklist-mark-color, #fff); transform:scale(1.14) rotate(10deg); }
 .form-group { margin-bottom:10px; }
 .form-group input {
   width:100%; padding:13px 16px; border:1.5px solid rgba(255,255,255,.15); border-radius:var(--radius-sm);
@@ -1046,10 +1049,10 @@ window.dlGoal=dlGoal;
       <div class="hero-right">
         <form id="hero-form" class="form-card">
           <div class="form-card-title" style="text-align:center;">Записаться на пробный урок</div>
-          <ul class="checklist" style="color:#fff;--checklist-mark-bg:rgba(34,197,94,.2);--checklist-mark-color:#22c55e;margin-bottom:18px;">
-            <li style="color:#fff;">Пробное занятие бесплатно 30 минут</li>
-            <li style="color:#fff;">Проверим ваши знания</li>
-            <li style="color:#fff;">Составим индивидуальную программу обучения</li>
+          <ul class="checklist" style="color:#fff;margin-bottom:18px;">
+            <li style="color:#fff;--checklist-mark-bg:#000000;--checklist-mark-color:#ffffff;">Пробное занятие бесплатно 30 минут</li>
+            <li style="color:#fff;--checklist-mark-bg:#DD0000;--checklist-mark-color:#ffffff;">Проверим ваши знания</li>
+            <li style="color:#fff;--checklist-mark-bg:#FFCE00;--checklist-mark-color:#15211d;">Составим индивидуальную программу обучения</li>
           </ul>
           <div class="form-group"><input type="text" id="hero-name" placeholder="Ваше имя (необязательно)" autocomplete="name"></div>
           <div class="form-group phone-field" id="hero-phone-field"><input type="tel" id="hero-tel" placeholder="+49 151 12 34 56 78" required autocomplete="off"><div class="phone-hint">Введите полный номер телефона</div></div>
