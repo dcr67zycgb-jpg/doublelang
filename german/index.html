@@ -260,10 +260,13 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-title-line:nth-child(2) span { animation-delay:.45s; }
 .hero-title-line:nth-child(3) span { animation-delay:.6s; }
 @keyframes lineUp { from { transform:translateY(110%); opacity:0; } to { transform:translateY(0); opacity:1; } }
-/* ⚠️ Здесь стояла вторая пара .hero h1 / .hero h1 em. Та же специфичность,
-   но ниже по тексту - поэтому побеждала она, и размеры из спецификации
-   (clamp(56px,9vw,132px) и золото #f4d78a со свечением) не применялись
-   вовсе. Пара снята; значения задаются одним местом выше. */
+/* ⚠️ Здесь стояла пара .hero h1 / .hero h1 em, перебивавшая правила выше.
+   Правило РАЗМЕРА снято и не возвращается: при нём строка «с нуля до
+   уверенного» (547px) не влезала в колонку и заголовок наезжал на форму.
+   Правило АКЦЕНТА возвращено дословно из макета: золотой градиент с
+   мерцанием вместо статичного золота. Раскладку не меняет - только
+   заливку слова. Стоит ниже первого .hero h1 em и потому побеждает. */
+.hero h1 em { font-style:normal; background:linear-gradient(100deg,#cdac5f,#dcc890 30%,#bf9640 55%,#dcc890 75%,#cdac5f); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; animation:btnShine 6s linear infinite; }
 .hero-sub { font-size:17px; color:var(--gold); max-width:520px; margin-bottom:36px; line-height:1.82; animation:fadeUp .9s var(--ease) .72s both; }
 .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:52px; animation:fadeUp .9s var(--ease) .86s both; }
 .hero-divider { height:1px; background:rgba(255,255,255,.08); margin-bottom:32px; animation:fadeUp .6s var(--ease) 1s both; }
