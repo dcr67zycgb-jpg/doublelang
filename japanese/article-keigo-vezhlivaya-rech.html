@@ -599,9 +599,12 @@ function dlLead(extra){
             message:'Заявка из: статья «'+dlArtName()+'»'};
   for(var k in extra){if(extra[k]!==undefined&&extra[k]!=='')body[k]=extra[k];}
   try{
+    /* ⚠️ Возвращаем признак успеха, а не гасим ошибку. Раньше .catch()
+     * превращал отказ в удачу, и чат рапортовал «отправлено» всегда. */
     return fetch(DL_LEAD_URL,{method:'POST',keepalive:true,
-      headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).catch(function(){});
-  }catch(e){return Promise.resolve();}
+      headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return !!(r&&r.ok);},function(){return false;});
+  }catch(e){return Promise.resolve(false);}
 }
 window.dlLead=dlLead;
 
@@ -979,11 +982,11 @@ function artSubmit(btn){ return dlArtSend(btn); }
     clearBtns();
     hideInput();
     var t=showTyping();
-    var done=function(){try{t.remove();}catch(e){}showSuccess();};
+    var finish=function(ok){try{t.remove();}catch(e){}if(ok){showSuccess();}else{showChatError();}};
     var send=window.dlLead;
-    if(typeof send!=='function'){done();return;}
+    if(typeof send!=='function'){finish(false);return;}
     send({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',
-          message:'Заявка из: чат в статье'}).then(done,done);
+          message:'Заявка из: чат в статье'}).then(finish,function(){finish(false);});
   }
 
   function showSuccess(){
@@ -994,6 +997,19 @@ function artSubmit(btn){ return dlArtSend(btn); }
     var cls=document.getElementById('dl-cls');
     if(cls) cls.onclick=dlToggle;
   }
+
+  /* ⚠️ Отдельный экран отказа. Раньше его не было вовсе: человек видел
+   * «Заявка отправлена» и при сетевой ошибке, и при 500 от CRM - то есть
+   * ровно то же, что при удаче. Заявка терялась, и никто не узнавал. */
+  function showChatError(){
+    var win=document.getElementById('dl-chat-window');
+    var hdr='<div class="dl-ch"><div class="dl-ch-av">\u{1F393}</div><div class="dl-ch-info"><h4>DoubleLang</h4><span>Онлайн · отвечает быстро</span></div><button class="dl-ch-close" id="dl-cls">\u2715</button></div>';
+    var body='<div class="dl-msgs" style="justify-content:center;align-items:center;"><div class="dl-success"><div class="dl-s-icon">\u26A0\uFE0F</div><h3>Не получилось отправить</h3><p>Заявка не дошла до нас. Напишите в WhatsApp — ответим там же, — или попробуйте ещё раз.</p><a href="'+WA_LINK+'" target="_blank" rel="noopener" class="dl-wa-btn">Написать в WhatsApp</a><button onclick="dlRestartChat()" style="margin-top:10px;background:none;border:1.5px solid rgba(0,0,0,.15);border-radius:99px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;">Попробовать снова</button></div></div>';
+    win.innerHTML=hdr+body;
+    var cls=document.getElementById('dl-cls');
+    if(cls) cls.onclick=dlToggle;
+  }
+  window.dlRestartChat=function(){ dlToggle(); dlToggle(); };
 
   function botMsg(html){
     var c=document.getElementById('dl-msgs');
