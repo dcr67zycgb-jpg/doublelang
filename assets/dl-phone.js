@@ -462,7 +462,23 @@
     return _open.apply(this, arguments);
   };
   XMLHttpRequest.prototype.send = function (body) {
-    if (this.__dlLead && !leadAllowed(body)) return;   // молча не отправляем
+    /* ⚠️ Здесь стоял молчаливый return. XHR не доходил до readyState 4,
+     * onreadystatechange и onerror не вызывались никогда - и чат оставался
+     * на «печатает…» навсегда: ни успеха, ни ошибки. Человек с опечаткой в
+     * номере просто ждал. Теперь отказ выглядит как обычный неуспешный ответ
+     * сервера, и его обрабатывает тот же код, что любой другой отказ. */
+    if (this.__dlLead && !leadAllowed(body)) {
+      var blocked = this;
+      setTimeout(function () {
+        try {
+          Object.defineProperty(blocked, 'readyState', { value: 4, configurable: true });
+          Object.defineProperty(blocked, 'status', { value: 422, configurable: true });
+        } catch (e) { void e; }
+        if (typeof blocked.onreadystatechange === 'function') blocked.onreadystatechange();
+        else if (typeof blocked.onerror === 'function') blocked.onerror();
+      }, 0);
+      return;
+    }
     if (this.__dlLead) {
       this.addEventListener('load', function () {
         if (this.status >= 200 && this.status < 300) pushLead(body);
