@@ -17,6 +17,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        без этого скрипта заявка уходила с любым номером. -->
   <script src="/assets/dl-utm.js?v=2" defer></script>
   <script src="/assets/dl-phone.js?v=2" defer></script>
+  <!-- Turnstile. ⚠️ До 22.09 в статьях его не было вовсе, а сервер при
+       заданном TURNSTILE_SECRET считает отсутствие токена отказом: каждая
+       заявка со статьи ушла бы в карантин с ответом «ok» - незаметно. -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <meta property="og:title" content="Сербский речевой этикет: как обращаться к людям и не показаться грубым">
   <meta property="og:description" content="Полное руководство по правилам общения в Сербии: когда говорить «ты» и «вы», как обращаться к незнакомым людям и старшим, вежливые фразы на сербском с примерами. Практические советы для русскоязычных.">
   <meta property="og:type" content="article">
@@ -309,7 +313,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
     <div style="margin-bottom:10px;"><input type="tel" id="art-tel" placeholder="Телефон / WhatsApp *" required style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
     <div style="margin-bottom:10px;"><input type="email" id="art-email" placeholder="E-mail (необязательно)" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
     <div style="margin-bottom:10px;"><select id="art-calltime" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;color:#6c7d76;background:#fff;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22><path d=%22M2 4l4 4 4-4%22 stroke=%22%236c7d76%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;"><option value="">Удобное время звонка (необязательно)</option><option>9:00 – 11:00</option><option>11:00 – 13:00</option><option>13:00 – 15:00</option><option>15:00 – 17:00</option><option>17:00 – 19:00</option><option>19:00 – 21:00</option></select></div><div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;"><input type="checkbox" id="art-consent" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-consent" id="art-consent-lbl" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:#21747a;">обработку персональных данных</a></label></div><div style="display:flex;align-items:flex-start;gap:10px;margin:0 0 16px;"><input type="checkbox" id="art-wa" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-wa" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Можно писать мне в WhatsApp</label></div>
-    <button onclick="dlArtSend(this)" style="width:100%;padding:14px;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">Записаться на пробный урок</button>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div> <button onclick="dlArtSend(this)" style="width:100%;padding:14px;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">Записаться на пробный урок</button>
     <p style="font-size:11px;color:#6c7d76;margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
   </div>
 </div>
@@ -644,6 +648,17 @@ function artSubmit(btn){ return dlArtSend(btn); }
     card.style.cssText='background:#f0f8f7;border:1.5px solid rgba(33,116,122,.3);border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;max-width:90%;margin-bottom:4px;';
     card.innerHTML='<input id="dl-phone-inp" type="tel" placeholder="+31 6 12 34 56 78" style="flex:1;border:none;background:transparent;font-size:14px;font-family:Manrope,sans-serif;outline:none;color:#15211d;" onkeydown="if(event.key===\'Enter\')dlSubmitPhone()"><button onclick="dlSubmitPhone()" style="background:linear-gradient(135deg,#2aa39a,#21747a);border:none;border-radius:10px;color:#fff;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:Manrope,sans-serif;white-space:nowrap;">Далее →</button>';
     c.appendChild(card);
+    /* ⚠️ Свой виджет для чата, а не общий с формой: токен Turnstile одноразовый
+     * и привязан к виджету. Переиспользуя форменный, второй отправке отдали бы
+     * потраченный токен - Cloudflare ответит отказом, а сервер отправит заявку
+     * в карантин, и выглядеть это будет как «заявка пропала». */
+    var tsw=document.createElement('div');
+    tsw.id='dl-chat-ts'; tsw.className='cf-turnstile';
+    tsw.setAttribute('data-sitekey','0x4AAAAAAEAI2McenZ8Dd80i');
+    tsw.setAttribute('data-size','flexible');
+    tsw.style.cssText='margin:6px 0 4px;max-width:90%;';
+    c.appendChild(tsw);
+    try{ if(window.turnstile) window.turnstile.render(tsw,{sitekey:'0x4AAAAAAEAI2McenZ8Dd80i'}); }catch(e){}
     c.scrollTop=c.scrollHeight;
     setTimeout(function(){
       var i=document.getElementById('dl-phone-inp');
@@ -665,6 +680,13 @@ function artSubmit(btn){ return dlArtSend(btn); }
   window.dlSubmitPhone=function(){
     var inp=document.getElementById('dl-phone-inp');
     if(!inp) return;
+    /* ⚠️ Причину пишем в переписку, а не молча выходим: молчаливый return - это
+     * ровно та болезнь, из-за которой чат висел на «печатает…». */
+    var _ts=document.querySelector('#dl-chat-ts [name="cf-turnstile-response"]');
+    if(_ts && !_ts.value){
+      botMsg('Проверка «я не робот» ещё не завершилась. Подождите пару секунд и нажмите «Далее».');
+      return;
+    }
     var val=inp.value.trim();
     /* ⚠️ Спрашиваем тот же валидатор, что стоит на отправке (dl-phone.js).
      * Своя проверка «хотя бы 10 цифр» пропускала номера вроде
@@ -742,8 +764,9 @@ function artSubmit(btn){ return dlArtSend(btn); }
     var finish=function(ok){try{t.remove();}catch(e){}if(ok){showSuccess();}else{showChatError();}};
     var send=window.dlLead;
     if(typeof send!=='function'){finish(false);return;}
+    var _ct=(document.querySelector('#dl-chat-ts [name="cf-turnstile-response"]')||{}).value||'';
     send({phone:userData.phone,name:userData.name||'',goal:userData.goal||'',
-          message:'Заявка из: чат в статье'}).then(finish,function(){finish(false);});
+          message:'Заявка из: чат в статье','cf-turnstile-response':_ct}).then(finish,function(){finish(false);});
   }
 
   function showSuccess(){
@@ -800,6 +823,39 @@ function artSubmit(btn){ return dlArtSend(btn); }
     c.scrollTop=c.scrollHeight;
     return el;
   }
+})();
+</script>
+<script>
+/* Токен Turnstile в тело заявки. Тот же приём, что на лендингах: форма своего
+ * поля не имеет, поэтому дописываем перехватом. Чат подставляет токен сам -
+ * у него свой виджет, и условие `if(!d[...])` его не перетирает. */
+(function(){
+  function tsToken(scope){
+    var el=(scope||document).querySelector('[name="cf-turnstile-response"]');
+    if(!el){ el=document.querySelector('[name="cf-turnstile-response"]'); }
+    return el?el.value:'';
+  }
+  window.dlTsToken=tsToken;
+  var _f=window.fetch;
+  window.fetch=function(url,opts){
+    try{
+      if(typeof url==='string' && url.indexOf('/api/crm/webhooks/lead')>-1 && opts && opts.body){
+        var d=JSON.parse(opts.body);
+        if(!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); opts.body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _f.apply(this,arguments);
+  };
+  var _s=XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send=function(body){
+    try{
+      if(typeof body==='string' && body.charAt(0)==='{'){
+        var d=JSON.parse(body);
+        if(d.phone && !d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); body=JSON.stringify(d); }
+      }
+    }catch(e){}
+    return _s.call(this,body);
+  };
 })();
 </script>
 </body>
