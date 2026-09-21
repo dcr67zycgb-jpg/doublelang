@@ -1247,50 +1247,12 @@ window.dlGoal=dlGoal;
     </div>
     <div class="reviews-dots" id="reviews-dots"></div>
   </div>
-  <div class="container" style="padding-top:0;padding-bottom:52px;text-align:center">
-    <button onclick="document.getElementById('review-modal').style.display='flex'" class="btn btn-ghost magnetic" style="display:inline-flex;align-items:center;gap:8px">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="var(--gold)" stroke="var(--gold)" stroke-width="1.5" stroke-linejoin="round"/></svg>
-      Оставить отзыв
-    </button>
-  </div>
+<!-- Блок «Оставить отзыв» снят: форма отправляла на адрес-заглушку вида
+     YOUR_WEBHOOK, то есть никуда. Человек видел «Спасибо! Ваш отзыв появился
+     на сайте», а отзыв сохранялся только в его же localStorage. Отзывы сейчас
+     не собираем; вернуть — вместе с рабочим приёмником. -->
 </section>
 
-<!-- REVIEW MODAL -->
-<div id="review-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
-  <div style="background:var(--surface);border-radius:var(--radius-sm);padding:36px 32px;width:100%;max-width:480px;position:relative;box-shadow:var(--shadow-pop)">
-    <button onclick="document.getElementById('review-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:22px;color:var(--ink-2);cursor:pointer;line-height:1">×</button>
-    <h3 style="font-family:var(--font-head);font-size:22px;margin:0 0 6px">Оставить отзыв</h3>
-    <p style="font-size:14px;color:var(--ink-2);margin:0 0 24px">Поделитесь впечатлениями об обучении</p>
-    <form id="review-form" onsubmit="submitReview(event)">
-      <div style="margin-bottom:16px">
-        <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--ink)">Ваше имя</label>
-        <input name="name" required placeholder="Имя и первая буква фамилии" style="width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;font-family:var(--font-body);background:var(--surface);color:var(--ink);box-sizing:border-box;outline:none" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='var(--line)'">
-      </div>
-      <div style="margin-bottom:16px">
-        <label style="display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--ink)">Оценка</label>
-        <div id="star-picker" style="display:flex;gap:6px;font-size:28px;cursor:pointer">
-          <span data-v="1" style="color:#ddd" onmouseover="hoverStars(1)" onmouseout="resetStars()" onclick="pickStar(1)">★</span>
-          <span data-v="2" style="color:#ddd" onmouseover="hoverStars(2)" onmouseout="resetStars()" onclick="pickStar(2)">★</span>
-          <span data-v="3" style="color:#ddd" onmouseover="hoverStars(3)" onmouseout="resetStars()" onclick="pickStar(3)">★</span>
-          <span data-v="4" style="color:#ddd" onmouseover="hoverStars(4)" onmouseout="resetStars()" onclick="pickStar(4)">★</span>
-          <span data-v="5" style="color:#ddd" onmouseover="hoverStars(5)" onmouseout="resetStars()" onclick="pickStar(5)">★</span>
-        </div>
-        <input type="hidden" id="review-rating" name="rating" value="">
-      </div>
-      <div style="margin-bottom:16px">
-        <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--ink)">Ваша цель</label>
-        <input name="goal" placeholder="Переезд, экзамен, работа..." style="width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;font-family:var(--font-body);background:var(--surface);color:var(--ink);box-sizing:border-box;outline:none" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='var(--line)'">
-      </div>
-      <div style="margin-bottom:16px">
-        <label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--ink)">Ваш отзыв</label>
-        <textarea name="text" required rows="4" placeholder="Расскажите об опыте обучения..." style="width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;font-family:var(--font-body);background:var(--surface);color:var(--ink);box-sizing:border-box;resize:vertical;outline:none" onfocus="this.style.borderColor='var(--teal)'" onblur="this.style.borderColor='var(--line)'"></textarea>
-      </div>
-      <div id="review-msg" style="display:none;padding:12px;border-radius:10px;font-size:14px;margin-bottom:16px"></div>
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Отправить отзыв</button>
-    </form>
-  </div>
-</div>
 
 <script>
 var _reviewsIdx = 0;
@@ -1378,33 +1340,6 @@ function loadSavedReviews(){
   } catch(e){}
 }
 
-function submitReview(e){
-  e.preventDefault();
-  var f=e.target, msg=document.getElementById('review-msg');
-  if(!_pickedStar){msg.style.display='block';msg.style.background='#fff3cd';msg.style.color='#856404';msg.textContent='Пожалуйста, выберите оценку.';return;}
-  var data={name:f.name.value, rating:_pickedStar, text:f.text.value, goal:f.goal.value, date: new Date().toLocaleDateString('ru-RU')};
-
-  // Сохранить в localStorage
-  try {
-    var saved = JSON.parse(localStorage.getItem('dl_reviews') || '[]');
-    saved.unshift(data);
-    localStorage.setItem('dl_reviews', JSON.stringify(saved));
-  } catch(e){}
-
-  // Добавить карточку в карусель
-  var track = document.getElementById('reviews-track');
-  if(track){
-    var card1 = buildReviewCard(data);
-    track.insertBefore(card1, track.firstChild);
-    reviewsUpdateDots();
-  }
-
-  fetch('https://hook.eu2.make.com/YOUR_WEBHOOK',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
-
-  msg.style.display='block';msg.style.background='#d1f5e0';msg.style.color='#0f5132';msg.textContent='Спасибо! Ваш отзыв появился на сайте.';
-  f.reset();_pickedStar=0;resetStars();
-  setTimeout(function(){document.getElementById('review-modal').style.display='none';msg.style.display='none'},2500);
-}
 
 document.addEventListener('DOMContentLoaded', loadSavedReviews);
 </script>
