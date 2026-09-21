@@ -2453,14 +2453,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     var tsEl=document.querySelector('#dl-chat-ts [name="cf-turnstile-response"]');
     if(tsEl && !tsEl.value){ inp.style.borderColor='#e05a4a'; return; }
     var val=inp.value.trim();
-    var digits=val.replace(/[^0-9]/g,'');
-    if(digits.length<10){
+    /* ⚠️ Спрашиваем тот же валидатор, что стоит на отправке (dl-phone.js).
+     * Своя проверка «хотя бы 10 цифр» пропускала номера вроде
+     * +90 000 000 00 00: отправку блокировали уже на выходе, а поле
+     * телефона к тому моменту из чата удалено - показать причину негде,
+     * и чат навсегда оставался на «печатает…». */
+    var _v=(window.DLPhone&&window.DLPhone.validate)?window.DLPhone.validate(val):{ok:true};
+    if(!_v.ok){
       inp.style.borderBottom='2px solid #ef4444';
-      inp.placeholder='Минимум 10 цифр, пример: +31 6 12 34 56 78';
-      inp.value='';
       inp.focus();
+      botMsg(_v.message+' Проверьте номер и нажмите «Далее» ещё раз.');
       return;
     }
+    inp.style.borderBottom='';
     userData.phone=val;
     var card=document.getElementById('dl-phone-card');
     if(card) card.remove();

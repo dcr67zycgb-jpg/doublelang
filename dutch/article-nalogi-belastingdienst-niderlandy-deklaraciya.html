@@ -522,7 +522,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
   </div>
 </div>
 <script>
-function dlArtSend(btn){var tel=document.getElementById('art-tel');var consent=document.getElementById('art-consent');if(!tel||!tel.value.trim()||tel.value.replace(/\D/g,'').length<7){if(tel){tel.style.borderColor='#e05555';tel.focus();}return;}tel.style.borderColor='';if(!consent||!consent.checked){var l=document.getElementById('art-consent-lbl');if(l)l.style.color='#e05555';return;}var name=((document.getElementById('art-name')||{}).value||'').trim();var email=((document.getElementById('art-email')||{}).value||'').trim();var ct=((document.getElementById('art-calltime')||{}).value||'').trim();var phone=tel.value.trim();if(btn){btn.disabled=true;btn.textContent='Отправляем...';}fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,calltime:ct,page:window.location.href,page_url:window.location.href,article:window.location.pathname,message:'Заявка из: статья «'+((((document.querySelector('h1')||{}).textContent)||document.title||'').trim().slice(0,120))+'»'})}).catch(function(){});setTimeout(function(){window.location.href='thank-you.html';},500);}
+function dlArtSend(btn){var tel=document.getElementById('art-tel');var consent=document.getElementById('art-consent');if(!tel||!tel.value.trim()||tel.value.replace(/\D/g,'').length<7){if(tel){tel.style.borderColor='#e05555';tel.focus();}return;}tel.style.borderColor='';if(!consent||!consent.checked){var l=document.getElementById('art-consent-lbl');if(l)l.style.color='#e05555';return;}var name=((document.getElementById('art-name')||{}).value||'').trim();var email=((document.getElementById('art-email')||{}).value||'').trim();var ct=((document.getElementById('art-calltime')||{}).value||'').trim();var phone=tel.value.trim();var _txt=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='Отправляем...';}fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone,name:name,email:email,calltime:ct,page:window.location.href,page_url:window.location.href,article:window.location.pathname,message:'Заявка из: статья «'+((((document.querySelector('h1')||{}).textContent)||document.title||'').trim().slice(0,120))+'»'})}).then(function(r){if(r&&r.ok){window.location.href='thank-you.html';return;}if(btn){btn.disabled=false;btn.textContent=_txt;}},function(){if(btn){btn.disabled=false;btn.textContent=_txt;}});}
 window.__dlArtDial=(function(){try{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';var m={'Europe/Amsterdam':'+31 ','Europe/Brussels':'+32 ','Europe/Moscow':'+7 ','Europe/Kiev':'+380 ','Europe/Istanbul':'+90 ','Europe/Berlin':'+49 ','Europe/Paris':'+33 '};return m[tz]||'+31 ';}catch(e){return '+31 ';}})();
 function openArtModal(){
   var m=document.getElementById('art-modal');
@@ -816,14 +816,19 @@ function artSubmit(btn){
     var inp=document.getElementById('dl-phone-inp');
     if(!inp) return;
     var val=inp.value.trim();
-    var digits=val.replace(/[^0-9]/g,'');
-    if(digits.length<10){
+    /* ⚠️ Спрашиваем тот же валидатор, что стоит на отправке (dl-phone.js).
+     * Своя проверка «хотя бы 10 цифр» пропускала номера вроде
+     * +90 000 000 00 00: отправку блокировали уже на выходе, а поле
+     * телефона к тому моменту из чата удалено - показать причину негде,
+     * и чат навсегда оставался на «печатает…». */
+    var _v=(window.DLPhone&&window.DLPhone.validate)?window.DLPhone.validate(val):{ok:true};
+    if(!_v.ok){
       inp.style.borderBottom='2px solid #ef4444';
-      inp.placeholder='Минимум 10 цифр, пример: +31 6 12 34 56 78';
-      inp.value='';
       inp.focus();
+      botMsg(_v.message+' Проверьте номер и нажмите «Далее» ещё раз.');
       return;
     }
+    inp.style.borderBottom='';
     userData.phone=val;
     var card=document.getElementById('dl-phone-card');
     if(card) card.remove();

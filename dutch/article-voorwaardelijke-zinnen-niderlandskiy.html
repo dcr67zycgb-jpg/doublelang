@@ -671,11 +671,18 @@ function dlArtSend(btn){
   tel.style.borderColor='';
   if(!consent||!consent.checked){var l=document.getElementById('art-consent-lbl');if(l)l.style.color='#e05555';return;}
   var val=function(id){return ((document.getElementById(id)||{}).value||'').trim();};
+  var _txt=btn?btn.textContent:'';
   if(btn){btn.disabled=true;btn.textContent='Отправляем...';}
+  /* ⚠️ Переход только после подтверждения, что заявка ушла. Раньше стоял
+   * setTimeout на 500 мс независимо от исхода: человек с опечаткой в номере
+   * видел «Спасибо за заявку», хотя отправку заблокировал валидатор. */
   dlLead({phone:tel.value.trim(),name:val('art-name'),email:val('art-email'),
           calltime:val('art-calltime'),
-          wa_consent:!!(document.getElementById('art-wa')||{}).checked});
-  setTimeout(function(){window.location.href='thank-you.html';},500);
+          wa_consent:!!(document.getElementById('art-wa')||{}).checked})
+    .then(function(ok){
+      if(ok){window.location.href='thank-you.html';return;}
+      if(btn){btn.disabled=false;btn.textContent=_txt||'Записаться на пробный урок';}
+    });
 }
 
 /* Клик из статьи на лендинг языка - отдельная цель. Статья может не давать
@@ -970,14 +977,19 @@ function artSubmit(btn){ return dlArtSend(btn); }
     var inp=document.getElementById('dl-phone-inp');
     if(!inp) return;
     var val=inp.value.trim();
-    var digits=val.replace(/[^0-9]/g,'');
-    if(digits.length<10){
+    /* ⚠️ Спрашиваем тот же валидатор, что стоит на отправке (dl-phone.js).
+     * Своя проверка «хотя бы 10 цифр» пропускала номера вроде
+     * +90 000 000 00 00: отправку блокировали уже на выходе, а поле
+     * телефона к тому моменту из чата удалено - показать причину негде,
+     * и чат навсегда оставался на «печатает…». */
+    var _v=(window.DLPhone&&window.DLPhone.validate)?window.DLPhone.validate(val):{ok:true};
+    if(!_v.ok){
       inp.style.borderBottom='2px solid #ef4444';
-      inp.placeholder='Минимум 10 цифр, пример: +31 6 12 34 56 78';
-      inp.value='';
       inp.focus();
+      botMsg(_v.message+' Проверьте номер и нажмите «Далее» ещё раз.');
       return;
     }
+    inp.style.borderBottom='';
     userData.phone=val;
     var card=document.getElementById('dl-phone-card');
     if(card) card.remove();
