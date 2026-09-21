@@ -1,5 +1,82 @@
 [
   {
+    "id": "poisk-raboty-niderlandy-vakansii-leksika",
+    "lang": "nl",
+    "title": "Нидерландский язык для работы: как читать вакансии и говорить в офисе",
+    "excerpt": "Разбираем типичные формулировки в голландских вакансиях, требования работодателей и лексику, которая поможет понять описание должности и условия работ",
+    "cover": "/assets/blog-poisk-raboty-niderlandy-vakansii-leksika-cover.png",
+    "url": "/dutch/article-poisk-raboty-niderlandy-vakansii-leksika.html",
+    "category": "Работа",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-21"
+  },
+  {
+    "id": "telc-deutsch-exam-guide-2026",
+    "lang": "de",
+    "title": "Экзамен telc Deutsch: какой уровень выбрать и как подготовиться в 2026 году",
+    "excerpt": "Разбираем различия между уровнями telc, форматы экзамена и стратегии подготовки для тех, кто планирует учёбу, работу или получение визы в Германии.",
+    "cover": "/assets/blog-telc-deutsch-exam-guide-2026-cover.png",
+    "url": "/german/article-telc-deutsch-exam-guide-2026.html",
+    "category": "Экзамены",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-21"
+  },
+  {
+    "id": "futur-simple-proche-anterieur-francuzskiy",
+    "lang": "fr",
+    "title": "Французские времена будущего: Futur simple, Futur proche и Futur antérieur без путаницы",
+    "excerpt": "Разбираем три формы будущего времени во французском языке, объясняем разницу в употреблении и даём упражнения для закрепления на практике.",
+    "cover": "/assets/blog-futur-simple-proche-anterieur-francuzskiy-cover.png",
+    "url": "/french/article-futur-simple-proche-anterieur-francuzskiy.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-21"
+  },
+  {
+    "id": "predlozi-mesta-serbskiy-yazyk",
+    "lang": "sr",
+    "title": "Сербские предлоги места и направления: как не путать у, на, из и с",
+    "excerpt": "Разбираем сложную систему сербских предлогов места и направления с падежами, показываем типичные ошибки русскоязычных и даём практику на живых примера",
+    "cover": "/assets/blog-predlozi-mesta-serbskiy-yazyk-cover.png",
+    "url": "/serbian/article-predlozi-mesta-serbskiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-21"
+  },
+  {
+    "id": "turkish-kids-school-adaptation",
+    "lang": "tr",
+    "title": "Турецкий для школы и детского сада: как помочь ребёнку адаптироваться в Турции",
+    "excerpt": "Статья о том, как русскоязычные семьи с детьми могут подготовиться к переезду в Турцию: лексика для школы и садика, особенности адаптации ребёнка к ту",
+    "cover": "/assets/blog-turkish-kids-school-adaptation-cover.png",
+    "url": "/turkish/article-turkish-kids-school-adaptation.html",
+    "category": "Учёба",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-21"
+  },
+  {
+    "id": "medicinskaya-leksika-grecheskiy-vrach",
+    "lang": "el",
+    "title": "Медицинская греческая лексика: как объясниться у врача и в больнице",
+    "excerpt": "Подробный разговорник и лексический гид по медицинской греческой терминологии для тех, кто живёт или переезжает в Грецию: как записаться к врачу, опис",
+    "cover": "/assets/blog-medicinskaya-leksika-grecheskiy-vrach-cover.png",
+    "url": "/greek/article-medicinskaya-leksika-grecheskiy-vrach.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-21"
+  },
+  {
+    "id": "pristavochnye-glagoly-dvizheniya-russkiy",
+    "lang": "ru",
+    "title": "Russian Verbs of Motion with Prefixes: Complete Guide",
+    "excerpt": "Статья объясняет систему приставок при глаголах движения (при-, у-, под-, в-, вы- и др.), помогая иностранцам понять логику образования и употребления",
+    "cover": "/assets/blog-pristavochnye-glagoly-dvizheniya-russkiy-cover.png",
+    "url": "/russian/article-pristavochnye-glagoly-dvizheniya-russkiy.html",
+    "category": "Язык",
+    "readtime": "11 min",
+    "date": "2026-09-21"
+  },
+  {
     "id": "diminutivy-niderlandskiy-je-tje",
     "lang": "nl",
     "title": "Голландские диминутивы: почему всё вокруг вдруг становится «маленьким»",
