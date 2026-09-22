@@ -147,6 +147,13 @@ td strong{color:var(--teal-deep);}
 .art-cta h2{font-size:25px;font-weight:800;margin-bottom:12px;color:#fff;}
 .art-cta h2::before{display:none;}
 .art-cta p{color:rgba(255,255,255,.85);margin-bottom:26px;font-size:16px;max-width:520px;margin-left:auto;margin-right:auto;}
+/* ⚠️ Ссылку внизу CTA красим явно. Без своего правила она брала глобальный
+   a{color:var(--teal)} - тёмно-бирюзовый #21747a поверх бирюзового градиента,
+   то есть была практически невидима. Соседний текст при этом читался: его
+   красит .art-cta p, а ссылка из этого правила выпадает. */
+.art-cta-more{color:rgba(255,255,255,.8);font-size:14px;margin-bottom:0;}
+.art-cta-more a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;}
+.art-cta-more a:hover{color:var(--gold);}
 .btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--ink);padding:15px 34px;border-radius:var(--radius-pill);font-weight:700;font-size:15px;box-shadow:var(--shadow);transition:transform var(--duration) var(--ease),box-shadow var(--duration);}
 .btn-gold:hover{background:#cfa140;transform:translateY(-2px);box-shadow:var(--shadow-pop);color:var(--ink);}
 
