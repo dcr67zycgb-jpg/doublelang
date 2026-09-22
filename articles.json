@@ -1,5 +1,148 @@
 [
   {
+    "id": "chislitelnye-daty-vremya-niderlandskiy",
+    "lang": "nl",
+    "title": "Голландские числительные, даты и время: как не путаться в счёте и назначать встречи",
+    "excerpt": "Разбор правил образования числительных, порядковых чисел, дат и выражений времени в нидерландском языке с практическими примерами для повседневного об",
+    "cover": "/assets/blog-chislitelnye-daty-vremya-niderlandskiy-cover.png",
+    "url": "/dutch/article-chislitelnye-daty-vremya-niderlandskiy.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "sravnitelnaya-prevoshodnaya-stepen-prilagatelnyh-niderlandskiy",
+    "lang": "nl",
+    "title": "Голландские сравнительные и превосходные степени прилагательных: как правильно сравнивать на нидерландском",
+    "excerpt": "Статья объясняет образование сравнительной и превосходной степени прилагательных в нидерландском языке, исключения и типичные ошибки русскоязычных уча",
+    "cover": "/assets/blog-sravnitelnaya-prevoshodnaya-stepen-prilagatelnyh-niderlandskiy-cover.png",
+    "url": "/dutch/article-sravnitelnaya-prevoshodnaya-stepen-prilagatelnyh-niderlandskiy.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "nemeckie-soyuzy-pridatochnye-predlozheniya-guide",
+    "lang": "de",
+    "title": "Немецкие союзы и придаточные предложения: как строить сложные фразы без ошибок",
+    "excerpt": "Разбор сочинительных и подчинительных союзов в немецком языке, правил порядка слов в придаточных предложениях и типичных ошибок русскоязычных учащихся",
+    "cover": "/assets/blog-nemeckie-soyuzy-pridatochnye-predlozheniya-guide-cover.png",
+    "url": "/german/article-nemeckie-soyuzy-pridatochnye-predlozheniya-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "nemeckie-predlogi-padezhi-guide",
+    "lang": "de",
+    "title": "Немецкие предлоги с падежами: полное руководство",
+    "excerpt": "Разбор немецких предлогов, требующих Akkusativ, Dativ, Genitiv и двойного управления, с таблицами, примерами и упражнениями для запоминания.",
+    "cover": "/assets/blog-nemeckie-predlogi-padezhi-guide-cover.png",
+    "url": "/german/article-nemeckie-predlogi-padezhi-guide.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "english-modal-verbs-complete-guide-2026",
+    "lang": "en",
+    "title": "Модальные глаголы английского языка: как правильно выражать возможность, совет и обязанность",
+    "excerpt": "Подробный разбор всех модальных глаголов английского языка с примерами, нюансами использования и типичными ошибками русскоязычных студентов.",
+    "cover": "/assets/blog-english-modal-verbs-complete-guide-2026-cover.png",
+    "url": "/english/article-english-modal-verbs-complete-guide-2026.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "chislitelnye-vremya-serbskiy-yazyk",
+    "lang": "sr",
+    "title": "Сербские числительные и обозначение времени: как правильно называть даты, цены и часы",
+    "excerpt": "Разбор образования и склонения количественных и порядковых числительных в сербском языке, а также правил называния времени, цен и дат с примерами для ",
+    "cover": "/assets/blog-chislitelnye-vremya-serbskiy-yazyk-cover.png",
+    "url": "/serbian/article-chislitelnye-vremya-serbskiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "12 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "razgovornye-klishe-serbskiy-yazyk",
+    "lang": "sr",
+    "title": "Сербские фразовые клише для повседневного общения: как звучать естественно, а не как учебник",
+    "excerpt": "Разбор популярных разговорных клише и устойчивых выражений сербского языка, которые помогают звучать естественно в магазине, кафе и с друзьями, с прим",
+    "cover": "/assets/blog-razgovornye-klishe-serbskiy-yazyk-cover.png",
+    "url": "/serbian/article-razgovornye-klishe-serbskiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "uchoba-v-universitete-ispaniya",
+    "lang": "es",
+    "title": "Учеба в Испании для русских: как поступить в университет и какой испанский нужен",
+    "excerpt": "Разбираем процесс поступления в испанские вузы для иностранцев: нострификацию диплома, языковые требования, экзамен UNEDasiss и стоимость обучения.",
+    "cover": "/assets/blog-uchoba-v-universitete-ispaniya-cover.png",
+    "url": "/spanish/article-uchoba-v-universitete-ispaniya.html",
+    "category": "Учёба",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "yaponskie-chislitelnye-schetnye-suffiksy",
+    "lang": "ja",
+    "title": "Японские числительные и счётные суффиксы: почему нельзя просто сказать «три яблока»",
+    "excerpt": "Разбор системы счётных суффиксов (助数詞) в японском языке — почему для разных предметов используются разные числительные, и как их запомнить без зубрёжк",
+    "cover": "/assets/blog-yaponskie-chislitelnye-schetnye-suffiksy-cover.png",
+    "url": "/japanese/article-yaponskie-chislitelnye-schetnye-suffiksy.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "grecheskie-chastitsy-na-tha-guide",
+    "lang": "el",
+    "title": "Греческие частицы να и θα: как правильно выражать намерение, желание и будущее время",
+    "excerpt": "Подробный разбор грамматических частиц να и θα в греческом языке: их функции, отличия и типичные ошибки русскоязычных учащихся с примерами и упражнени",
+    "cover": "/assets/blog-grecheskie-chastitsy-na-tha-guide-cover.png",
+    "url": "/greek/article-grecheskie-chastitsy-na-tha-guide.html",
+    "category": "Язык",
+    "readtime": "10 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "francuzskie-chislitelnye-70-100-schet",
+    "lang": "fr",
+    "title": "Французские числительные от 70 до 100: почему во Франции считают так странно",
+    "excerpt": "Разбор логики французской системы счёта (soixante-dix, quatre-vingts, quatre-vingt-dix) с примерами, упражнениями и лайфхаками для быстрого запоминани",
+    "cover": "/assets/blog-francuzskie-chislitelnye-70-100-schet-cover.png",
+    "url": "/french/article-francuzskie-chislitelnye-70-100-schet.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "prichastiya-deeprichastiya-russkiy-yazyk",
+    "lang": "ru",
+    "title": "Russian Participles and Gerunds: How to Understand and Use Book-Style Grammar Without Fear",
+    "excerpt": "Разбор образования и употребления причастий и деепричастий в русском языке с примерами, объясняющий, почему иностранцы боятся этих форм и как научитьс",
+    "cover": "/assets/blog-prichastiya-deeprichastiya-russkiy-yazyk-cover.png",
+    "url": "/russian/article-prichastiya-deeprichastiya-russkiy-yazyk.html",
+    "category": "Язык",
+    "readtime": "11 min read",
+    "date": "2026-09-22"
+  },
+  {
+    "id": "turkish-idioms-expressions-guide",
+    "lang": "tr",
+    "title": "Турецкие идиомы и устойчивые выражения: как говорить образно и понимать носителей",
+    "excerpt": "Разбор самых распространённых турецких идиом и устойчивых выражений с примерами употребления, которые помогут понимать живую речь и звучать естественн",
+    "cover": "/assets/blog-turkish-idioms-expressions-guide-cover.png",
+    "url": "/turkish/article-turkish-idioms-expressions-guide.html",
+    "category": "Язык",
+    "readtime": "11 мин чтения",
+    "date": "2026-09-22"
+  },
+  {
     "id": "poisk-raboty-niderlandy-vakansii-leksika",
     "lang": "nl",
     "title": "Нидерландский язык для работы: как читать вакансии и говорить в офисе",
