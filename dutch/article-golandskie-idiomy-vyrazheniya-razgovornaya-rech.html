@@ -150,6 +150,22 @@ td strong{color:var(--teal-deep);}
 .art-cta-more{color:rgba(255,255,255,.8);font-size:14px;margin-bottom:0;}
 .art-cta-more a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;}
 .art-cta-more a:hover{color:var(--gold);}
+/* ⚠️ Кнопка была ОДНА и стояла на 98% длины текста: до неё дочитывали единицы.
+   Теперь после вступления, в середине и в конце, плюс закреплённая на телефоне. */
+.art-cta-mini{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:34px 0;padding:20px 24px;background:var(--surface-2);border:1.5px solid rgba(33,116,122,.22);border-radius:var(--radius-sm);}
+.art-cta-mini p{margin:0;font-size:15px;color:var(--ink-2);flex:1 1 260px;}
+.art-cta-mini .btn-gold{white-space:nowrap;}
+#art-sticky{display:none;}
+@media(max-width:768px){
+  #art-sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:9100;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s var(--ease);}
+  #art-sticky.hidden{transform:translateY(130%);}
+  #art-sticky .btn-gold{display:block;width:100%;text-align:center;padding:13px;}
+  /* ⚠️ Чат поднимаем над полосой, иначе она его накрывает и до него не дотянуться. */
+  #dl-chat-btn{bottom:84px;}
+  footer{padding-bottom:160px;}
+  .art-cta-mini{flex-direction:column;align-items:stretch;text-align:center;}
+  .art-cta-mini .btn-gold{width:100%;}
+}
 .btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--ink);padding:15px 34px;border-radius:var(--radius-pill);font-weight:700;font-size:15px;box-shadow:var(--shadow);transition:transform var(--duration) var(--ease),box-shadow var(--duration);}
 .btn-gold:hover{background:#cfa140;transform:translateY(-2px);box-shadow:var(--shadow-pop);color:var(--ink);}
 
@@ -259,7 +275,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2>Что такое идиомы и почему они так важны для живого общения</h2>
 
-<p>Идиомы, это устойчивые словосочетания, значение которых не складывается из значений отдельных слов. В нидерландском языке их тысячи, и они отражают менталитет, историю и юмор голландцев. Когда носитель слышит от иностранца правильно употреблённую идиому, это сигнал: человек не просто зубрил грамматику, он погружён в культуру.</p>
+<p>Идиомы, это устойчивые словосочетания, значение которых не складывается из значений отдельных слов. В нидерландском языке их тысячи, и они отражают менталитет, историю и юмор голландцев. Когда носитель слышит от иностранца правильно употреблённую идиому, это сигнал: человек не просто зубрил грамматику, он погружён в культуру.</p><div class="art-cta-mini"><p>Первый урок бесплатно: преподаватель определит уровень и составит план под вашу цель.</p><a href="#" onclick="return dlCta('intro')" class="btn-gold">Записаться на пробный урок</a></div>
 
 <p>Проблема в том, что учебники обычно дают идиомы списком без контекста. Вы запоминаете «Nu komt de aap uit de mouw» (дословно «теперь обезьяна вылезает из рукава»), но не понимаете, когда это уместно сказать. А ведь это выражение означает «раскрыть истинные намерения», «вскрыть карты», и голландцы используют его, когда кто-то наконец признаётся в скрытом мотиве.</p>
 
@@ -342,7 +358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="steps"><div class="step"><h3>Записывайте идиомы с ситуациями, а не с переводами</h3><p>Когда встретили новое выражение, запишите не просто «dat slaat nergens op = это не имеет смысла», а целую фразу из реального диалога или текста. Например: «Zijn verhaal over aliens slaat nergens op» (Его история про инопланетян полная чушь). Мозг запоминает образы и ситуации лучше, чем абстрактные пары слов.</p></div><div class="step"><h3>Используйте карточки с картинками</h3><p>Для визуалов отлично работают карточки (Anki, Quizlet или бумажные). На одной стороне пишете идиому и рисуете или вставляете смешную картинку, буквально иллюстрирующую выражение. «Обезьяна вылезает из рукава», «кот в мешке». Абсурдные образы врезаются в память намертво.</p></div><div class="step"><h3>Вставляйте идиомы в свою речь на занятиях</h3><p>Договоритесь с преподавателем, что на каждом уроке будете использовать 2-3 новых выражения. Пусть даже искусственно вставите их в диалог. Главное, произнести вслух и получить обратную связь: правильно ли поняли контекст, естественно ли прозвучало.</p></div><div class="step"><h3>Смотрите голландские сериалы и подкасты</h3><p>Идиомы живут в разговорной речи. Включите любой современный нидерландский сериал (например, на <a href="https://www.npo.nl" target="_blank" rel="noopener">NPO</a>), и вы услышите десятки устойчивых выражений за серию. Записывайте незнакомые, гуглите значение, возвращайтесь к сцене и пересматривайте с пониманием.</p></div><div class="step"><h3>Практикуйте с носителями или на языковых встречах</h3><p>Идиомы нужно слышать и произносить в живом общении. Языковые встречи (taalcafé), tandem-партнёры или просто беседы с голландскими знакомыми, там вы быстро поймёте, какие выражения актуальны, а какие устарели или слишком формальны.</p></div></div>
 
-<h2>Особенности голландского юмора и почему идиомы в нём играют главную роль</h2>
+<div class="art-cta-mini"><p>Первый урок бесплатно: преподаватель определит уровень и составит план под вашу цель.</p><a href="#" onclick="return dlCta('middle')" class="btn-gold">Записаться на пробный урок</a></div><h2>Особенности голландского юмора и почему идиомы в нём играют главную роль</h2>
 
 <p>Голландский юмор, это отдельная история. Он сухой, часто построен на абсурде и самоиронии. Идиомы в шутках голландцев работают как культурный код: если вы поняли игру слов в идиоме, вы поняли шутку. Если нет, вы остаётесь в недоумении, пока все вокруг смеются.</p>
 
@@ -423,19 +439,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Идиомы, это не просто украшение речи. Это способ мышления, культурный код, который открывает доступ к настоящему пониманию языка. Когда вы начинаете чувствовать образы, юмор, подтекст, нидерландский перестаёт быть чужим. Не бойтесь экспериментировать, вставляйте новые выражения в речь, слушайте реакцию носителей. Ошибётесь, вас поправят и объяснят. Это нормальный путь. Главное, не застревать на уровне учебника. Живой язык ждёт вас за его страницами.</p>
 
-  <div class="tg-inline" style="display:flex;gap:14px;align-items:center;margin:30px 0;padding:16px 20px;background:rgba(33,116,122,.07);border-left:4px solid #21747a;border-radius:0 12px 12px 0;">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="#21747a" style="flex-shrink:0;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-      <div style="font-size:15px;line-height:1.55;color:#46554f;">💡 Больше разборов и лайфхаков по изучению языков в нашем <a href="https://t.me/doublelang_onlineschool" target="_blank" rel="noopener" style="color:#21747a;font-weight:700;">Telegram-канале</a>.</div>
-    </div>
-
   <div class="art-cta">
     <div class="art-cta-in">
       <h2>Сделайте первый шаг к вашей цели</h2>
       <p>Запишитесь на пробное занятие в DoubleLang и получите индивидуальный план подготовки к экзамену и переезду от наших методистов.</p>
-      <a href="#" onclick="openArtModal();return false;" class="btn-gold">Записаться на пробный урок</a>
+      <a href="#" onclick="return dlCta('end')" class="btn-gold">Записаться на пробный урок</a>
       <p class="art-cta-more">Или посмотрите, как проходят занятия: <a href="/dutch/">Нидерландский язык в DoubleLang</a>.</p>
     </div>
   </div>
+
+  <div class="tg-inline" style="display:flex;gap:14px;align-items:center;margin:30px 0;padding:16px 20px;background:rgba(33,116,122,.07);border-left:4px solid #21747a;border-radius:0 12px 12px 0;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#21747a" style="flex-shrink:0;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      <div style="font-size:15px;line-height:1.55;color:#46554f;">💡 Больше разборов и лайфхаков по изучению языков в нашем <a href="https://t.me/doublelang_onlineschool" target="_blank" rel="noopener" style="color:#21747a;font-weight:700;">Telegram-канале</a>.</div>
+    </div>
 
   <div class="related-articles">
     <h3 class="related-title">Читайте также</h3>
@@ -504,11 +520,23 @@ var DL_LEAD_URL='https://app.doublelang-online-school.com/api/crm/webhooks/lead'
 /* Цель Метрики и событие dataLayer одним вызовом. Заявок из блога будут единицы,
  * а кликов сотни: по кликам видно на месяцы раньше, какие темы вообще ведут
  * человека дальше, а какие читают и уходят. */
-function dlArtGoal(goal){
-  try{if(window.ym)var _c=[111719318,110288328];for(var _i=0;_i<_c.length;_i++)ym(_c[_i],'reachGoal',goal);}catch(e){}
-  try{(window.dataLayer=window.dataLayer||[]).push({event:goal,article:location.pathname});}catch(e){}
+function dlArtGoal(goal, params){
+  try{if(window.ym)var _c=[111719318,110288328];for(var _i=0;_i<_c.length;_i++)ym(_c[_i],'reachGoal',goal,params||{});}catch(e){}
+  try{(window.dataLayer=window.dataLayer||[]).push(Object.assign({event:goal,article:location.pathname},params||{}));}catch(e){}
 }
 window.dlArtGoal=dlArtGoal;
+
+/* Клик по кнопке записи. place — какая из четырёх: intro / middle / end / sticky.
+ * ⚠️ Событие уходит в dataLayer и целью Метрики. Напрямую в GA4 не шлём: на
+ * статьях GA4 нет ни в одной из 184 - проверено, gtag() отсутствует. Через
+ * dataLayer его подхватит GTM, если тег там настроен; иначе цифры хотя бы будут
+ * в Метрике, а не в никуда. */
+function dlCta(place){
+  try{ if(window.dlArtGoal) dlArtGoal('cta_click',{place:place}); }catch(e){}
+  try{ openArtModal(); }catch(e){}
+  return false;
+}
+window.dlCta=dlCta;
 
 function dlArtName(){try{var h=document.querySelector('h1');return ((h&&h.textContent)||document.title||'').trim().slice(0,120);}catch(e){return '';}}
 
@@ -1029,6 +1057,23 @@ function artSubmit(btn){ return dlArtSend(btn); }
     }catch(e){}
     return _s.call(this,body);
   };
+})();
+</script>
+<div id="art-sticky"><a href="#" onclick="return dlCta('sticky')" class="btn-gold">Записаться на пробный урок</a></div>
+<script>
+/* Закреплённая кнопка прячется, когда на экране виден любой CTA-блок: две
+ * кнопки разом читаются как навязчивость, а одна из них ещё и дублирует. */
+(function(){
+  var bar=document.getElementById('art-sticky');
+  var blocks=document.querySelectorAll('.art-cta, .art-cta-mini');
+  if(!bar||!blocks.length||!window.IntersectionObserver) return;
+  var seen=0;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ seen += e.isIntersecting ? 1 : -1; });
+    if(seen<0) seen=0;
+    bar.classList.toggle('hidden', seen>0);
+  },{threshold:0.2});
+  Array.prototype.forEach.call(blocks,function(b){ io.observe(b); });
 })();
 </script>
 </body>
