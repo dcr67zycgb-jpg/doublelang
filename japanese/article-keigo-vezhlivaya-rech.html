@@ -160,8 +160,14 @@ td strong{color:var(--teal-deep);}
   #art-sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:9100;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s var(--ease);}
   #art-sticky.hidden{transform:translateY(130%);}
   #art-sticky .btn-gold{display:block;width:100%;text-align:center;padding:13px;}
-  /* ⚠️ Чат поднимаем над полосой, иначе она его накрывает и до него не дотянуться. */
-  #dl-chat-btn{bottom:84px;}
+  /* ⚠️ Селектор с body, а не просто #dl-chat-btn. Собственное правило чата
+     (`#dl-chat-btn{position:fixed;bottom:24px}`) объявлено НИЖЕ по документу, в
+     его же <style> — при равной специфичности побеждает оно, и медиазапрос тут
+     не помогает. Проверено на проде: моё правило на позиции 13304, правило чата
+     на 53779, кнопка оставалась под полосой. `body.cta-bar` даёт 0,1,1 против
+     0,1,0 и выигрывает независимо от порядка.
+     Класс вешается, только пока полоса видна: скрылась — кнопка возвращается. */
+  body.cta-bar #dl-chat-btn{bottom:84px;}
   footer{padding-bottom:160px;}
   .art-cta-mini{flex-direction:column;align-items:stretch;text-align:center;}
   .art-cta-mini .btn-gold{width:100%;}
@@ -1160,9 +1166,31 @@ function artSubmit(btn){ return dlArtSend(btn); }
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){ seen += e.isIntersecting ? 1 : -1; });
     if(seen<0) seen=0;
-    bar.classList.toggle('hidden', seen>0);
+    var shown = seen<=0;
+    bar.classList.toggle('hidden', !shown);
+    document.body.classList.toggle('cta-bar', shown);
   },{threshold:0.2});
   Array.prototype.forEach.call(blocks,function(b){ io.observe(b); });
+})();
+</script>
+<script>
+/* ⚠️ Битая картинка не должна оставлять пустую рамку со значком «?». До 22.09
+ * так выглядели обложки 25 статей: файл переименовали, ссылку не поправили.
+ * Пути починены, но страховка нужна — картинка может не догрузиться и по сети. */
+(function(){
+  function hide(img){
+    var box = img.parentNode;
+    var cls = (box && box.className || '') + '';
+    if(box && /thumb|cover|photo/i.test(cls)) box.style.display='none';
+    else img.style.display='none';
+  }
+  var imgs = document.querySelectorAll('article.article img, .related-card img');
+  Array.prototype.forEach.call(imgs, function(img){
+    img.addEventListener('error', function(){ hide(img); });
+    /* Уже загружалась к моменту запуска скрипта: complete=true, но нулевая
+     * ширина — признак, что файла нет. Событие error для неё уже не придёт. */
+    if(img.complete && img.naturalWidth === 0) hide(img);
+  });
 })();
 </script>
 </body>
