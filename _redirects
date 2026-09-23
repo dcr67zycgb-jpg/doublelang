@@ -120,3 +120,38 @@
 /greek/article-*         /greek/article-:splat.html           301
 /japanese/article-*      /japanese/article-:splat.html        301
 /russian/article-*       /russian/article-:splat.html         301
+
+# ⚠️ То же самое для коммерческих и юридических страниц. Они НЕ подпадают
+# под шаблон article-*, и без этих строк сохранили бы ровно ту болезнь, ради
+# которой всё затевалось: /dutch/pricing и /dutch/pricing.html - две
+# индексируемые страницы. Для цен это важнее, чем для статей: по ним
+# приходит человек, готовый платить.
+# Страницы «спасибо», акции, черновики и файлы верификации намеренно НЕ
+# трогаем: индексировать их незачем, а верификацию ломать нельзя.
+/dutch/oferta                                /dutch/oferta.html                           301
+/dutch/pricing                               /dutch/pricing.html                          301
+/dutch/privacy                               /dutch/privacy.html                          301
+/dutch/refund                                /dutch/refund.html                           301
+/english/pricing                             /english/pricing.html                        301
+/french/oferta                               /french/oferta.html                          301
+/french/pricing                              /french/pricing.html                         301
+/french/privacy                              /french/privacy.html                         301
+/french/refund                               /french/refund.html                          301
+/german/oferta                               /german/oferta.html                          301
+/german/pricing                              /german/pricing.html                         301
+/german/privacy                              /german/privacy.html                         301
+/german/refund                               /german/refund.html                          301
+/greek/pricing                               /greek/pricing.html                          301
+/japanese/pricing                            /japanese/pricing.html                       301
+/oferta                                      /oferta.html                                 301
+/portuguese/pricing                          /portuguese/pricing.html                     301
+/pricing                                     /pricing.html                                301
+/privacy                                     /privacy.html                                301
+/refund                                      /refund.html                                 301
+/russian/pricing                             /russian/pricing.html                        301
+/serbian/pricing                             /serbian/pricing.html                        301
+/spanish/pricing                             /spanish/pricing.html                        301
+/turkish/oferta                              /turkish/oferta.html                         301
+/turkish/pricing                             /turkish/pricing.html                        301
+/turkish/privacy                             /turkish/privacy.html                        301
+/turkish/refund                              /turkish/refund.html                         301

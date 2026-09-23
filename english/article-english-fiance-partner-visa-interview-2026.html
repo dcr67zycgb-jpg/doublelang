@@ -15,6 +15,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="canonical" href="https://doublelang-online-school.com/english/article-english-fiance-partner-visa-interview-2026.html">
   <!-- Проверка телефона: в статье есть живая форма заявки (#art-tel),
        без этого скрипта заявка уходила с любым номером. -->
+  <!-- ⚠️ Метки рекламы. В этих пяти статьях скрипта не было: они старше
+       миграции #81 и под её якоря не подошли. Заявка доходила до CRM, но с
+       пустым utm_source - то есть «ниоткуда», и платный трафик по ним
+       посчитать было нельзя. Идёт ПЕРЕД dl-phone.js: модуль подменяет
+       fetch/XHR, и подмена должна встать раньше отправки. -->
+  <script src="/assets/dl-utm.js" defer></script>
   <script src="/assets/dl-phone.js?v=2" defer></script>
   <!-- Turnstile. ⚠️ До 22.09 в статьях его не было вовсе, а сервер при
        заданном TURNSTILE_SECRET считает отсутствие токена отказом: каждая
