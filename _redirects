@@ -109,17 +109,16 @@
 # только когда файла по запрошенному пути нет.
 # Каталоги языков (/dutch/, /greek/ …) шаблон не задевает: он требует
 # префикс «article-».
-/dutch/article-*         /dutch/article-:splat.html           301
-/german/article-*        /german/article-:splat.html          301
-/english/article-*       /english/article-:splat.html         301
-/french/article-*        /french/article-:splat.html          301
-/serbian/article-*       /serbian/article-:splat.html         301
-/turkish/article-*       /turkish/article-:splat.html         301
-/spanish/article-*       /spanish/article-:splat.html         301
-/portuguese/article-*    /portuguese/article-:splat.html      301
-/greek/article-*         /greek/article-:splat.html           301
-/japanese/article-*      /japanese/article-:splat.html        301
-/russian/article-*       /russian/article-:splat.html         301
+
+
+
+
+
+
+
+
+
+
 
 # ⚠️ То же самое для коммерческих и юридических страниц. Они НЕ подпадают
 # под шаблон article-*, и без этих строк сохранили бы ровно ту болезнь, ради
@@ -155,3 +154,197 @@
 /turkish/pricing                             /turkish/pricing.html                        301
 /turkish/privacy                             /turkish/privacy.html                        301
 /turkish/refund                              /turkish/refund.html                         301
+
+# ⚠️ Правила ЯВНЫЕ и с флагом «!». Шаблон /<язык>/article-* без флага не
+# срабатывал вовсе: Netlify сам отдаёт article-foo.html по адресу
+# /article-foo и считает, что файл есть, — до правил дело не доходит.
+# Проверено на проде 23.09: адрес без .html отвечал 200 без редиректа.
+# Флаг «!» заставляет правило победить файл. С ШАБЛОНОМ он был бы опасен:
+# article-foo.html тоже подходит под article-*, и цель стала бы
+# article-foo.html.html. С ЯВНЫМ адресом этого не может быть — строка
+# совпадает только с бесрасширенной формой.
+# Строк ровно столько, сколько статей (184); новую дописывает генератор.
+/dutch/article-arenda-zhilya-niderlandy-leksika                /dutch/article-arenda-zhilya-niderlandy-leksika.html           301!
+/dutch/article-de-het-artikli-niderlandskiy                    /dutch/article-de-het-artikli-niderlandskiy.html               301!
+/dutch/article-delovaya-perepiska-niderlandskiy-email          /dutch/article-delovaya-perepiska-niderlandskiy-email.html     301!
+/dutch/article-detskie-sady-shkoly-niderlandy-yazyk            /dutch/article-detskie-sady-shkoly-niderlandy-yazyk.html       301!
+/dutch/article-diminutivy-niderlandskiy-je-tje                 /dutch/article-diminutivy-niderlandskiy-je-tje.html            301!
+/dutch/article-glagoly-s-predlogami-niderlandskiy              /dutch/article-glagoly-s-predlogami-niderlandskiy.html         301!
+/dutch/article-golandskie-idiomy-vyrazheniya-razgovornaya-rech /dutch/article-golandskie-idiomy-vyrazheniya-razgovornaya-rech.html 301!
+/dutch/article-inburgering-2026                                /dutch/article-inburgering-2026.html                           301!
+/dutch/article-knm-ekzamen-niderlandskoe-obshchestvo-2026      /dutch/article-knm-ekzamen-niderlandskoe-obshchestvo-2026.html 301!
+/dutch/article-knm-ekzamen-znanie-obschestva-niderlandy        /dutch/article-knm-ekzamen-znanie-obschestva-niderlandy.html   301!
+/dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy       /dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy.html  301!
+/dutch/article-medicinskaya-leksika-niderlandskiy-vrach-apteka /dutch/article-medicinskaya-leksika-niderlandskiy-vrach-apteka.html 301!
+/dutch/article-medicinskaya-strahovka-vrach-niderlandy-leksika /dutch/article-medicinskaya-strahovka-vrach-niderlandy-leksika.html 301!
+/dutch/article-medicinskaya-strakhovka-vrach-niderlandy-leksika /dutch/article-medicinskaya-strakhovka-vrach-niderlandy-leksika.html 301!
+/dutch/article-modalnye-chastitsy-niderlandskiy-yazyk          /dutch/article-modalnye-chastitsy-niderlandskiy-yazyk.html     301!
+/dutch/article-mvv-2026                                        /dutch/article-mvv-2026.html                                   301!
+/dutch/article-nalogi-belastingdienst-niderlandy-deklaraciya   /dutch/article-nalogi-belastingdienst-niderlandy-deklaraciya.html 301!
+/dutch/article-otkrytie-biznesa-niderlandy-emigrant            /dutch/article-otkrytie-biznesa-niderlandy-emigrant.html       301!
+/dutch/article-perfectum-imperfectum-niderlandskiy             /dutch/article-perfectum-imperfectum-niderlandskiy.html        301!
+/dutch/article-poisk-raboty-niderlandy-vakansii-leksika        /dutch/article-poisk-raboty-niderlandy-vakansii-leksika.html   301!
+/dutch/article-poryadok-slov-niderlandskiy-yazyk               /dutch/article-poryadok-slov-niderlandskiy-yazyk.html          301!
+/dutch/article-postuplenie-universitet-niderlandy-2026         /dutch/article-postuplenie-universitet-niderlandy-2026.html    301!
+/dutch/article-predlogi-mesta-napravleniya-niderlandskiy       /dutch/article-predlogi-mesta-napravleniya-niderlandskiy.html  301!
+/dutch/article-scheidbare-werkwoorden-niderlandskiy            /dutch/article-scheidbare-werkwoorden-niderlandskiy.html       301!
+/dutch/article-sobesedovanie-na-niderlandskom-yazyke           /dutch/article-sobesedovanie-na-niderlandskom-yazyke.html      301!
+/dutch/article-sobesedovanie-niderlandskiy-yazyk               /dutch/article-sobesedovanie-niderlandskiy-yazyk.html          301!
+/dutch/article-sokrascheniya-smstaal-niderlandskiy             /dutch/article-sokrascheniya-smstaal-niderlandskiy.html        301!
+/dutch/article-staatsexamen-nt2-2026                           /dutch/article-staatsexamen-nt2-2026.html                      301!
+/dutch/article-ucheba-universitet-niderlandy-yazyk             /dutch/article-ucheba-universitet-niderlandy-yazyk.html        301!
+/dutch/article-vlaams-vs-nederlands                            /dutch/article-vlaams-vs-nederlands.html                       301!
+/dutch/article-voorwaardelijke-zinnen-niderlandskiy            /dutch/article-voorwaardelijke-zinnen-niderlandskiy.html       301!
+/dutch/article-vysshee-obrazovanie-niderlandy-postuplenie      /dutch/article-vysshee-obrazovanie-niderlandy-postuplenie.html 301!
+/english/article-british-vs-american                           /english/article-british-vs-american.html                      301!
+/english/article-business-english-job-interview-2026           /english/article-business-english-job-interview-2026.html      301!
+/english/article-cambridge-b2-first-fce-2026-guide             /english/article-cambridge-b2-first-fce-2026-guide.html        301!
+/english/article-cambridge-c1-advanced-2026                    /english/article-cambridge-c1-advanced-2026.html               301!
+/english/article-english-conditionals-complete-guide-2026      /english/article-english-conditionals-complete-guide-2026.html 301!
+/english/article-english-fiance-partner-visa-interview-2026    /english/article-english-fiance-partner-visa-interview-2026.html 301!
+/english/article-english-for-cv-linkedin-work-visa-2026        /english/article-english-for-cv-linkedin-work-visa-2026.html   301!
+/english/article-english-for-it-professionals-2026             /english/article-english-for-it-professionals-2026.html        301!
+/english/article-english-for-university-study-abroad-2026      /english/article-english-for-university-study-abroad-2026.html 301!
+/english/article-english-proof-work-visa-2026                  /english/article-english-proof-work-visa-2026.html             301!
+/english/article-english-tenses-complete-guide                 /english/article-english-tenses-complete-guide.html            301!
+/english/article-ielts-2026                                    /english/article-ielts-2026.html                               301!
+/english/article-ielts-general-vs-academic-choice-2026         /english/article-ielts-general-vs-academic-choice-2026.html    301!
+/english/article-ielts-vs-toefl                                /english/article-ielts-vs-toefl.html                           301!
+/english/article-phrasal-verbs-everyday-english-guide-2026     /english/article-phrasal-verbs-everyday-english-guide-2026.html 301!
+/english/article-phrasal-verbs-real-life-english-2026          /english/article-phrasal-verbs-real-life-english-2026.html     301!
+/english/article-pte-academic-2026                             /english/article-pte-academic-2026.html                        301!
+/english/article-toefl-ibt-2026-guide                          /english/article-toefl-ibt-2026-guide.html                     301!
+/french/article-arenda-zhilya-francia-dogovor-nayma            /french/article-arenda-zhilya-francia-dogovor-nayma.html       301!
+/french/article-arenda-zhilya-francia-leksika-gid              /french/article-arenda-zhilya-francia-leksika-gid.html         301!
+/french/article-arenda-zhilya-francia-yazyk-obyavleniya        /french/article-arenda-zhilya-francia-yazyk-obyavleniya.html   301!
+/french/article-campus-france-postuplenie-2026                 /french/article-campus-france-postuplenie-2026.html            301!
+/french/article-concordance-des-temps-francuzskiy              /french/article-concordance-des-temps-francuzskiy.html         301!
+/french/article-cv-lettre-motivation-francuzskiy-standart      /french/article-cv-lettre-motivation-francuzskiy-standart.html 301!
+/french/article-delf-2026                                      /french/article-delf-2026.html                                 301!
+/french/article-delf-tcf-tef-sravnenie-2026                    /french/article-delf-tcf-tef-sravnenie-2026.html               301!
+/french/article-francophonie                                   /french/article-francophonie.html                              301!
+/french/article-francuzskie-artikli-polnoe-rukovodstvo         /french/article-francuzskie-artikli-polnoe-rukovodstvo.html    301!
+/french/article-futur-simple-proche-anterieur-francuzskiy      /french/article-futur-simple-proche-anterieur-francuzskiy.html 301!
+/french/article-glagoly-dvizheniya-predlogi-francuzskiy        /french/article-glagoly-dvizheniya-predlogi-francuzskiy.html   301!
+/french/article-medicinskaya-strahovka-zdravoohranenie-francia /french/article-medicinskaya-strahovka-zdravoohranenie-francia.html 301!
+/french/article-mestoimeniya-en-y-francuzskiy                  /french/article-mestoimeniya-en-y-francuzskiy.html             301!
+/french/article-mestoimennye-narechiya-en-y-francuzskiy        /french/article-mestoimennye-narechiya-en-y-francuzskiy.html   301!
+/french/article-otkryt-schet-francuzskiy-bank-leksika          /french/article-otkryt-schet-francuzskiy-bank-leksika.html     301!
+/french/article-otkrytie-scheta-bank-francia-instrukcia        /french/article-otkrytie-scheta-bank-francia-instrukcia.html   301!
+/french/article-passe-compose-imparfait-francuzskiy            /french/article-passe-compose-imparfait-francuzskiy.html       301!
+/french/article-poisk-raboty-francia-sobesedovanie-yazyk       /french/article-poisk-raboty-francia-sobesedovanie-yazyk.html  301!
+/french/article-predlogi-mesta-vremeni-francuzskiy             /french/article-predlogi-mesta-vremeni-francuzskiy.html        301!
+/french/article-rabota-francia-bez-diploma-strategii           /french/article-rabota-francia-bez-diploma-strategii.html      301!
+/french/article-subjonctif-francuzskiy-kogda-ispolzovat        /french/article-subjonctif-francuzskiy-kogda-ispolzovat.html   301!
+/french/article-tcf-canada                                     /french/article-tcf-canada.html                                301!
+/german/article-anerkennung-diploma-germany-2026               /german/article-anerkennung-diploma-germany-2026.html          301!
+/german/article-blue-card-germany-2026                         /german/article-blue-card-germany-2026.html                    301!
+/german/article-dsh-exam-guide-2026                            /german/article-dsh-exam-guide-2026.html                       301!
+/german/article-german-austria                                 /german/article-german-austria.html                            301!
+/german/article-goethe-zertifikat-b1-guide-2026                /german/article-goethe-zertifikat-b1-guide-2026.html           301!
+/german/article-konjunktiv-2-nemeckij-guide                    /german/article-konjunktiv-2-nemeckij-guide.html               301!
+/german/article-medicinskoe-strahovanie-germany-guide          /german/article-medicinskoe-strahovanie-germany-guide.html     301!
+/german/article-modalnye-glagoly-nemeckij-guide                /german/article-modalnye-glagoly-nemeckij-guide.html           301!
+/german/article-modalverben-nemeckogo-guide                    /german/article-modalverben-nemeckogo-guide.html               301!
+/german/article-nemeckie-modalnye-glagoly-guide                /german/article-nemeckie-modalnye-glagoly-guide.html           301!
+/german/article-nemeckie-padezhi-guide                         /german/article-nemeckie-padezhi-guide.html                    301!
+/german/article-nemeckie-pristavochnye-glagoly-guide           /german/article-nemeckie-pristavochnye-glagoly-guide.html      301!
+/german/article-nemeckie-vremena-perfekt-prateritum-guide      /german/article-nemeckie-vremena-perfekt-prateritum-guide.html 301!
+/german/article-nemeckij-dlya-medikov-approbation-2026         /german/article-nemeckij-dlya-medikov-approbation-2026.html    301!
+/german/article-nemeckoe-rezjume-sobesedovanie                 /german/article-nemeckoe-rezjume-sobesedovanie.html            301!
+/german/article-oesd-guide                                     /german/article-oesd-guide.html                                301!
+/german/article-passiv-nemeckij-guide                          /german/article-passiv-nemeckij-guide.html                     301!
+/german/article-poryadok-slov-nemeckij-guide                   /german/article-poryadok-slov-nemeckij-guide.html              301!
+/german/article-studienkolleg-germany-guide                    /german/article-studienkolleg-germany-guide.html               301!
+/german/article-telc-deutsch-exam-guide-2026                   /german/article-telc-deutsch-exam-guide-2026.html              301!
+/german/article-testdaf-2026                                   /german/article-testdaf-2026.html                              301!
+/german/article-wohnungssuche-germany-guide                    /german/article-wohnungssuche-germany-guide.html               301!
+/greek/article-arenda-zhilya-v-gretsii-razgovornik             /greek/article-arenda-zhilya-v-gretsii-razgovornik.html        301!
+/greek/article-arenda-zhilya-v-gretsii-yazyk                   /greek/article-arenda-zhilya-v-gretsii-yazyk.html              301!
+/greek/article-ecpe-michigan-greek-exam-2026                   /greek/article-ecpe-michigan-greek-exam-2026.html              301!
+/greek/article-ellinomatheia-2026                              /greek/article-ellinomatheia-2026.html                         301!
+/greek/article-grecheskie-glagoly-spryazhenie                  /greek/article-grecheskie-glagoly-spryazhenie.html             301!
+/greek/article-grecheskie-padezhi-rukovodstvo                  /greek/article-grecheskie-padezhi-rukovodstvo.html             301!
+/greek/article-grecheskie-predlogi-rukovodstvo                 /greek/article-grecheskie-predlogi-rukovodstvo.html            301!
+/greek/article-greek-citizenship                               /greek/article-greek-citizenship.html                          301!
+/greek/article-greek-cyprus                                    /greek/article-greek-cyprus.html                               301!
+/greek/article-medicinskaya-leksika-grecheskiy-vrach           /greek/article-medicinskaya-leksika-grecheskiy-vrach.html      301!
+/greek/article-rabota-v-gretsii-yazyk                          /greek/article-rabota-v-gretsii-yazyk.html                     301!
+/greek/article-ucheba-v-universitetah-gretsii                  /greek/article-ucheba-v-universitetah-gretsii.html             301!
+/japanese/article-arenda-zhilya-yaponiya-dogovor-yazyk         /japanese/article-arenda-zhilya-yaponiya-dogovor-yazyk.html    301!
+/japanese/article-eju-postuplenie-universitet-yaponiya         /japanese/article-eju-postuplenie-universitet-yaponiya.html    301!
+/japanese/article-hiragana-katakana                            /japanese/article-hiragana-katakana.html                       301!
+/japanese/article-japan-relocation                             /japanese/article-japan-relocation.html                        301!
+/japanese/article-jft-basic-viza-tokutei-gino                  /japanese/article-jft-basic-viza-tokutei-gino.html             301!
+/japanese/article-jlpt-2026                                    /japanese/article-jlpt-2026.html                               301!
+/japanese/article-kanji-sistema-izucheniya-vzroslye            /japanese/article-kanji-sistema-izucheniya-vzroslye.html       301!
+/japanese/article-kanji-sistema-zapominaniya                   /japanese/article-kanji-sistema-zapominaniya.html              301!
+/japanese/article-keigo-vezhlivaya-rech                        /japanese/article-keigo-vezhlivaya-rech.html                   301!
+/japanese/article-rirekisho-sobesedovanie-yaponiya             /japanese/article-rirekisho-sobesedovanie-yaponiya.html        301!
+/japanese/article-yaponskie-chastitsy-wa-ga-o-ni               /japanese/article-yaponskie-chastitsy-wa-ga-o-ni.html          301!
+/portuguese/article-ciple-2026                                 /portuguese/article-ciple-2026.html                            301!
+/portuguese/article-nif-bankovsky-schet-portugalia-2026        /portuguese/article-nif-bankovsky-schet-portugalia-2026.html   301!
+/portuguese/article-postuplenie-universitet-portugalia-yazyk   /portuguese/article-postuplenie-universitet-portugalia-yazyk.html 301!
+/portuguese/article-preterito-perfeito-imperfeito-portugues    /portuguese/article-preterito-perfeito-imperfeito-portugues.html 301!
+/portuguese/article-pt-br                                      /portuguese/article-pt-br.html                                 301!
+/portuguese/article-pt-citizenship                             /portuguese/article-pt-citizenship.html                        301!
+/portuguese/article-rabota-portugalia-resume-sobesedovanie     /portuguese/article-rabota-portugalia-resume-sobesedovanie.html 301!
+/portuguese/article-siple-a2-podtverzhdenie-urovnya-portugalskogo /portuguese/article-siple-a2-podtverzhdenie-urovnya-portugalskogo.html 301!
+/portuguese/article-subjuntivo-portugues-guide                 /portuguese/article-subjuntivo-portugues-guide.html            301!
+/russian/article-delovoy-russkiy-email-perepiska-s-kollegami   /russian/article-delovoy-russkiy-email-perepiska-s-kollegami.html 301!
+/russian/article-delovoy-russkiy-pisma-perepiska-rabota        /russian/article-delovoy-russkiy-pisma-perepiska-rabota.html   301!
+/russian/article-kompleksnyy-ekzamen-russkiy-istoriya-zakonodatelstvo-2026 /russian/article-kompleksnyy-ekzamen-russkiy-istoriya-zakonodatelstvo-2026.html 301!
+/russian/article-pristavochnye-glagoly-dvizheniya-russkiy      /russian/article-pristavochnye-glagoly-dvizheniya-russkiy.html 301!
+/russian/article-russian-cases                                 /russian/article-russian-cases.html                            301!
+/russian/article-russian-citizenship                           /russian/article-russian-citizenship.html                      301!
+/russian/article-russian-verb-aspect                           /russian/article-russian-verb-aspect.html                      301!
+/russian/article-russian-verbs-of-motion                       /russian/article-russian-verbs-of-motion.html                  301!
+/russian/article-russkie-chislitelnye-v-rechi                  /russian/article-russkie-chislitelnye-v-rechi.html             301!
+/russian/article-russkie-padezhi-v-ustnoy-rechi-dословный-perevod /russian/article-russkie-padezhi-v-ustnoy-rechi-dословный-perevod.html 301!
+/russian/article-russkie-predlogi-mesta-i-napravleniya         /russian/article-russkie-predlogi-mesta-i-napravleniya.html    301!
+/russian/article-russkie-predlogi-mesta-napravleniya           /russian/article-russkie-predlogi-mesta-napravleniya.html      301!
+/russian/article-russkiy-rechevoy-etiket-ty-vy                 /russian/article-russkiy-rechevoy-etiket-ty-vy.html            301!
+/russian/article-torfl-2026                                    /russian/article-torfl-2026.html                               301!
+/serbian/article-arenda-zhilya-serbiya-leksika-frazy           /serbian/article-arenda-zhilya-serbiya-leksika-frazy.html      301!
+/serbian/article-bankovskiy-schet-dokumenty-serbiya-leksika    /serbian/article-bankovskiy-schet-dokumenty-serbiya-leksika.html 301!
+/serbian/article-belgrade-culture                              /serbian/article-belgrade-culture.html                         301!
+/serbian/article-ekzamen-serbskiy-vnzh-grazhdanstvo            /serbian/article-ekzamen-serbskiy-vnzh-grazhdanstvo.html       301!
+/serbian/article-glagoly-dvizheniya-serbskiy-yazyk             /serbian/article-glagoly-dvizheniya-serbskiy-yazyk.html        301!
+/serbian/article-isj-ispit-srpski-jezik-2026                   /serbian/article-isj-ispit-srpski-jezik-2026.html              301!
+/serbian/article-otkrytie-scheta-bank-birokratiya-serbia       /serbian/article-otkrytie-scheta-bank-birokratiya-serbia.html  301!
+/serbian/article-padezhi-serbskogo-yazyka                      /serbian/article-padezhi-serbskogo-yazyka.html                 301!
+/serbian/article-postuplenie-universitet-serbia-2026           /serbian/article-postuplenie-universitet-serbia-2026.html      301!
+/serbian/article-predlozi-mesta-serbskiy-yazyk                 /serbian/article-predlozi-mesta-serbskiy-yazyk.html            301!
+/serbian/article-rabota-serbia-uroven-yazyka-sobesedovanie     /serbian/article-rabota-serbia-uroven-yazyka-sobesedovanie.html 301!
+/serbian/article-serbskaya-kirillica                           /serbian/article-serbskaya-kirillica.html                      301!
+/serbian/article-serbskiy-rechevoy-etiket-obrashcheniya        /serbian/article-serbskiy-rechevoy-etiket-obrashcheniya.html   301!
+/serbian/article-serbskiy-yazyk-medicinskie-rabotniki-leksika  /serbian/article-serbskiy-yazyk-medicinskie-rabotniki-leksika.html 301!
+/serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya    /serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya.html 301!
+/serbian/article-shkola-serbiya-rebenok-leksika-adaptaciya     /serbian/article-shkola-serbiya-rebenok-leksika-adaptaciya.html 301!
+/serbian/article-skolko-uchit-serbskiy                         /serbian/article-skolko-uchit-serbskiy.html                    301!
+/serbian/article-vidy-glagola-serbskiy-yazyk                   /serbian/article-vidy-glagola-serbskiy-yazyk.html              301!
+/spanish/article-ccse-nacionalidad-espanola                    /spanish/article-ccse-nacionalidad-espanola.html               301!
+/spanish/article-dele-2026                                     /spanish/article-dele-2026.html                                301!
+/spanish/article-dele-vs-siele                                 /spanish/article-dele-vs-siele.html                            301!
+/spanish/article-glagoly-s-predlogami-ispanskiy                /spanish/article-glagoly-s-predlogami-ispanskiy.html           301!
+/spanish/article-por-vs-para-raznica                           /spanish/article-por-vs-para-raznica.html                      301!
+/spanish/article-preterito-indefinido-vs-imperfecto            /spanish/article-preterito-indefinido-vs-imperfecto.html       301!
+/spanish/article-rabota-v-ispanii-yazyk                        /spanish/article-rabota-v-ispanii-yazyk.html                   301!
+/spanish/article-ser-vs-estar-raznica                          /spanish/article-ser-vs-estar-raznica.html                     301!
+/spanish/article-spain-vs-latam                                /spanish/article-spain-vs-latam.html                           301!
+/spanish/article-subjuntivo-guide                              /spanish/article-subjuntivo-guide.html                         301!
+/spanish/article-viza-cifrovoy-kochevnik-ispaniya              /spanish/article-viza-cifrovoy-kochevnik-ispaniya.html         301!
+/turkish/article-business-turkish-communication                /turkish/article-business-turkish-communication.html           301!
+/turkish/article-business-turkish-language-guide               /turkish/article-business-turkish-language-guide.html          301!
+/turkish/article-ikamet-turkey-2026                            /turkish/article-ikamet-turkey-2026.html                       301!
+/turkish/article-tomer-2026                                    /turkish/article-tomer-2026.html                               301!
+/turkish/article-turkish-cases-guide                           /turkish/article-turkish-cases-guide.html                      301!
+/turkish/article-turkish-converbs-guide                        /turkish/article-turkish-converbs-guide.html                   301!
+/turkish/article-turkish-kids-school-adaptation                /turkish/article-turkish-kids-school-adaptation.html           301!
+/turkish/article-turkish-postpositions-guide                   /turkish/article-turkish-postpositions-guide.html              301!
+/turkish/article-turkish-proverbs-mentality                    /turkish/article-turkish-proverbs-mentality.html               301!
+/turkish/article-turkish-real-estate-vocabulary                /turkish/article-turkish-real-estate-vocabulary.html           301!
+/turkish/article-turkish-slang-youth-language                  /turkish/article-turkish-slang-youth-language.html             301!
+/turkish/article-turkish-verb-tenses-guide                     /turkish/article-turkish-verb-tenses-guide.html                301!
+/turkish/article-tys-citizenship                               /turkish/article-tys-citizenship.html                          301!
+/turkish/article-yos-guide                                     /turkish/article-yos-guide.html                                301!
