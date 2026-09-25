@@ -60,7 +60,7 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
 .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);
   background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;
   animation:iridescent 10s ease infinite;
-  color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;
+  color:#fff;font-size:12px;font-weight:800;letter-spacing:1px;
   padding:5px 16px;border-radius:var(--pill);text-transform:uppercase;white-space:nowrap;
   box-shadow:0 4px 12px rgba(42,163,154,.4);}
 .badge-gold{background:linear-gradient(135deg,#e0b34a,#e0b34a,#d4a840,#e0b34a)!important;background-size:200% 200%!important;box-shadow:0 4px 12px rgba(224,179,74,.45)!important;}
@@ -69,7 +69,7 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
 .per{margin:14px 0 0;text-align:center;}
 .per b{font-size:38px;letter-spacing:-.03em;}.per span{color:var(--ink-3);font-size:15px;margin-left:4px;}
 .savings{display:inline-block;margin-top:10px;background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;animation:iridescent 12s ease infinite;color:#fff;
-  font-size:11px;font-weight:800;padding:4px 14px;border-radius:99px;white-space:nowrap;box-shadow:0 3px 10px rgba(42,163,154,.3);}
+  font-size:12px;font-weight:800;padding:4px 14px;border-radius:99px;white-space:nowrap;box-shadow:0 3px 10px rgba(42,163,154,.3);}
 .feats{list-style:none;margin:16px auto 12px;flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:10px;width:fit-content;max-width:100%}
 .feats li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--ink-2);line-height:1.5;}
 .feats .ck{width:20px;height:20px;flex:none;border-radius:50%;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;display:grid;place-items:center;margin-top:1px;}
@@ -83,6 +83,9 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
   transition:transform .2s var(--ease),box-shadow .2s;letter-spacing:.02em;}
 .pay:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,163,154,.5);}
 .note{text-align:center;color:var(--ink-3);font-size:13px;margin-top:26px}
+
+/* ⚠️ Длинная строка без пробелов не должна распирать страницу: почта из 33 символов в подвале, Berufsqualifikationsfeststellungsgesetz в немецкой статье, слэш-перечисление в японской. Срабатывает только когда слово иначе не влезает. */
+footer a[href^="mailto:"]{overflow-wrap:anywhere;}
 </style>
 </head>
 <body>

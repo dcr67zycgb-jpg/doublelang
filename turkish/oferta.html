@@ -72,7 +72,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(233,237,238,.96);backdrop-
 .art-hero h1{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.14;letter-spacing:-.02em;margin-bottom:16px;}
 
 /* LANG SWITCHER */
-.lang-switch{display:inline-flex;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-pill);padding:4px;gap:4px;margin-top:24px;}
+.lang-switch{display:inline-flex;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-pill);padding:4px;gap:8px;margin-top:24px;}
 .lang-btn{padding:8px 22px;border-radius:var(--radius-pill);font-size:13px;font-weight:700;cursor:pointer;border:none;font-family:var(--font-body);background:transparent;color:rgba(255,255,255,.6);transition:all .2s;}
 .lang-btn.active{background:var(--teal-bright);color:#fff;}
 .lang-btn:hover:not(.active){color:#fff;}
@@ -125,7 +125,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.48);padding:40px 0 28px;mar
   .requisites{padding:22px 20px;}
   nav{padding-top:calc(env(safe-area-inset-top, 0px) + 18px);}
 }
-  </style>
+  
+/* ⚠️ Длинная строка без пробелов не должна распирать страницу: почта из 33 символов в подвале, Berufsqualifikationsfeststellungsgesetz в немецкой статье, слэш-перечисление в японской. Срабатывает только когда слово иначе не влезает. */
+footer a[href^="mailto:"]{overflow-wrap:anywhere;}
+</style>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)

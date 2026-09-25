@@ -78,7 +78,7 @@ nav.scrolled{box-shadow:0 4px 20px rgba(21,33,29,.08);}
 .art-hero-meta span{display:flex;align-items:center;gap:7px;}
 
 /* ARTICLE */
-.article{max-width:760px;margin:0 auto;padding:56px 28px 40px;}
+.article{max-width:760px;margin:0 auto;padding:56px 28px 40px;overflow-wrap:anywhere;}
 .lead{font-size:20px;line-height:1.7;color:var(--ink-2);margin-bottom:34px;font-weight:500;}
 .article h2{font-size:27px;font-weight:800;letter-spacing:-.01em;line-height:1.25;margin:46px 0 16px;color:var(--ink);scroll-margin-top:90px;}
 .article h2::before{content:'';display:block;width:42px;height:3px;background:var(--gradient-accent);border-radius:2px;margin-bottom:18px;}
@@ -176,7 +176,7 @@ td strong{color:var(--teal-deep);}
 .related-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-pop);}
 .related-img{width:96px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0;}
 .related-body{display:flex;flex-direction:column;gap:4px;}
-.related-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);}
+.related-cat{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--teal);}
 .related-body strong{font-size:15px;line-height:1.4;color:var(--ink);}
 .related-meta{font-size:12px;color:var(--muted);}
 
@@ -206,6 +206,9 @@ footer{text-align:center;}
 .footer-legal a:hover{color:var(--teal-bright);}
 .footer-legal span{color:rgba(255,255,255,.28);}
 .nav-back a{white-space:nowrap!important;}
+
+/* ⚠️ Длинная строка без пробелов не должна распирать страницу: почта из 33 символов в подвале, Berufsqualifikationsfeststellungsgesetz в немецкой статье, слэш-перечисление в японской. Срабатывает только когда слово иначе не влезает. */
+footer a[href^="mailto:"]{overflow-wrap:anywhere;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js"></script>
 <!-- Meta Pixel Code -->
@@ -535,7 +538,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
     <div style="margin-bottom:10px;"><input type="email" id="art-email" placeholder="E-mail (необязательно)" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;"></div>
     <div style="margin-bottom:10px;"><select id="art-calltime" style="width:100%;padding:13px 16px;border:1.5px solid #d0dbd8;border-radius:12px;font-size:14px;outline:none;font-family:inherit;color:#6c7d76;background:#fff;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22><path d=%22M2 4l4 4 4-4%22 stroke=%22%236c7d76%22 stroke-width=%221.6%22 fill=%22none%22 stroke-linecap=%22round%22/></svg>');background-repeat:no-repeat;background-position:right 16px center;"><option value="">Удобное время звонка (необязательно)</option><option>9:00 – 11:00</option><option>11:00 – 13:00</option><option>13:00 – 15:00</option><option>15:00 – 17:00</option><option>17:00 – 19:00</option><option>19:00 – 21:00</option></select></div><div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 16px;"><input type="checkbox" id="art-consent" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-consent" id="art-consent-lbl" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Я соглашаюсь на <a href="privacy.html" style="color:#21747a;">обработку персональных данных</a></label></div><div style="display:flex;align-items:flex-start;gap:10px;margin:0 0 16px;"><input type="checkbox" id="art-wa" style="margin-top:3px;accent-color:#21747a;flex-shrink:0;"><label for="art-wa" style="font-size:12px;color:#6c7d76;line-height:1.55;cursor:pointer;">Можно писать мне в WhatsApp</label></div>
     <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div> <button onclick="dlArtSend(this)" style="width:100%;padding:14px;background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border:none;border-radius:99px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;">Записаться на пробный урок</button>
-    <p style="font-size:11px;color:#6c7d76;margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
+    <p style="font-size:12px;color:#6c7d76;margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
   </div>
 </div>
 <script>
@@ -656,7 +659,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.ge
       if(tel.value.length>1&&digits.length<7){
         tel.style.borderColor='#e05555';
         var hint=tel.parentNode.querySelector('.ph-hint');
-        if(!hint){hint=document.createElement('div');hint.className='ph-hint';hint.style.cssText='font-size:11px;color:#e05555;margin-top:4px;';hint.textContent='Введите полный номер телефона';tel.parentNode.appendChild(hint);}
+        if(!hint){hint=document.createElement('div');hint.className='ph-hint';hint.style.cssText='font-size:12px;color:#e05555;margin-top:4px;';hint.textContent='Введите полный номер телефона';tel.parentNode.appendChild(hint);}
       } else if(digits.length>=7){
         tel.style.borderColor='#2aa39a';
         var h=tel.parentNode.querySelector('.ph-hint');if(h)h.remove();
@@ -680,7 +683,7 @@ function artSubmit(btn){ return dlArtSend(btn); }
 <style>
 #dl-chat-btn{position:fixed;bottom:24px;right:24px;z-index:9000;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2aa39a,#21747a);box-shadow:0 4px 20px rgba(33,116,122,.5);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s;color:#fff;}
 #dl-chat-btn:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(33,116,122,.6);}
-#dl-chat-btn .chat-notif{position:absolute;top:-2px;right:-2px;width:20px;height:20px;background:#e0b34a;border-radius:50%;border:2.5px solid #fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#15211d;animation:notifPulse 2s ease-in-out infinite;}
+#dl-chat-btn .chat-notif{position:absolute;top:-2px;right:-2px;width:20px;height:20px;background:#e0b34a;border-radius:50%;border:2.5px solid #fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;color:#15211d;animation:notifPulse 2s ease-in-out infinite;}
 @keyframes notifPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
 #dl-chat-window{position:fixed;bottom:100px;right:24px;z-index:8999;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:22px;box-shadow:0 8px 48px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;height:520px;max-height:calc(100vh - 120px);font-family:'Manrope',system-ui,sans-serif;}
 #dl-chat-window.open{display:flex;animation:chatIn .32s cubic-bezier(.22,.61,.36,1);}
@@ -688,7 +691,7 @@ function artSubmit(btn){ return dlArtSend(btn); }
 .dl-ch{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0;}
 .dl-ch-av{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
 .dl-ch-info h4{font-size:14px;font-weight:700;margin:0 0 2px;}
-.dl-ch-info span{font-size:11px;opacity:.8;display:flex;align-items:center;gap:5px;}
+.dl-ch-info span{font-size:12px;opacity:.8;display:flex;align-items:center;gap:5px;}
 .dl-ch-info span::before{content:'';width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;}
 .dl-ch-close{margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s;}
 .dl-ch-close:hover{background:rgba(255,255,255,.3);}
@@ -701,7 +704,7 @@ function artSubmit(btn){ return dlArtSend(btn); }
 .dl-bubble{padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.6;}
 .dl-msg.bot .dl-bubble{background:#f0f8f7;color:#15211d;border-bottom-left-radius:4px;}
 .dl-msg.user .dl-bubble{background:linear-gradient(135deg,#2aa39a,#21747a);color:#fff;border-bottom-right-radius:4px;}
-.dl-time{font-size:10px;color:#9ca3af;}
+.dl-time{font-size:12px;color:#9ca3af;}
 .dl-msg.bot .dl-time{align-self:flex-start;}
 .dl-msg.user .dl-time{align-self:flex-end;}
 .dl-typing{align-self:flex-start;background:#f0f8f7;padding:10px 16px;border-radius:16px 16px 16px 4px;display:flex;gap:5px;align-items:center;}

@@ -40,7 +40,7 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
 .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);
   background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;
   animation:iridescent 10s ease infinite;
-  color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;
+  color:#fff;font-size:12px;font-weight:800;letter-spacing:1px;
   padding:5px 16px;border-radius:var(--pill);text-transform:uppercase;white-space:nowrap;
   box-shadow:0 4px 12px rgba(42,163,154,.4);}
 .badge-gold{background:linear-gradient(135deg,#e0b34a,#e0b34a,#d4a840,#e0b34a)!important;background-size:200% 200%!important;animation:iridescent 10s ease infinite!important;box-shadow:0 4px 12px rgba(224,179,74,.45)!important;color:#fff!important;}
@@ -54,7 +54,7 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
 .feats .ck svg{width:11px;height:11px}
 
 .savings{display:inline-block;background:linear-gradient(135deg,#2aa39a,#21747a,#2aa39a,#21747a);background-size:200% 200%;animation:iridescent 12s ease infinite;color:#fff;
-  font-size:11px;font-weight:800;padding:4px 14px;border-radius:99px;
+  font-size:12px;font-weight:800;padding:4px 14px;border-radius:99px;
   margin:4px 0 8px;white-space:nowrap;box-shadow:0 3px 10px rgba(42,163,154,.3);}
 .total{display:flex;justify-content:center;align-items:baseline;padding-top:14px;border-top:1px solid var(--line);margin-top:auto;}
 .total .lbl{font-size:18px;color:var(--ink);font-weight:800;text-align:center;}
@@ -68,6 +68,9 @@ body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(
   letter-spacing:.02em;}
 .pay:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(42,163,154,.5);}
 .note{text-align:center;color:var(--ink-3);font-size:13px;margin-top:26px}
+
+/* ⚠️ Длинная строка без пробелов не должна распирать страницу: почта из 33 символов в подвале, Berufsqualifikationsfeststellungsgesetz в немецкой статье, слэш-перечисление в японской. Срабатывает только когда слово иначе не влезает. */
+footer a[href^="mailto:"]{overflow-wrap:anywhere;}
 </style>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-v2.png">

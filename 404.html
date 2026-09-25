@@ -48,6 +48,9 @@ p{font-size:16px;color:rgba(255,255,255,.62);line-height:1.7;margin-bottom:34px;
 .langs a{color:rgba(255,255,255,.85);text-decoration:none;padding:10px 20px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .25s,border-color .25s,color .25s,transform .25s;}
 .langs a:hover{color:#fff;background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35);transform:translateY(-2px);}
 @media(max-width:480px){.ctas{flex-direction:column;}.ctas .btn{width:100%;}}
+
+/* ⚠️ Длинная строка без пробелов не должна распирать страницу: почта из 33 символов в подвале, Berufsqualifikationsfeststellungsgesetz в немецкой статье, слэш-перечисление в японской. Срабатывает только когда слово иначе не влезает. */
+footer a[href^="mailto:"]{overflow-wrap:anywhere;}
 </style>
 </head>
 <body>
