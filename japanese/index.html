@@ -2567,9 +2567,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 <script>
 (function(){
   function tsToken(scope){
-    var el=(scope||document).querySelector('[name="cf-turnstile-response"]');
-    if(!el){ el=document.querySelector('[name="cf-turnstile-response"]'); }
-    return el?el.value:'';
+    /* ⚠️ Первый НЕПУСТОЙ токен, а не первый попавшийся элемент. Пустое поле
+       выигрывало у заполненного просто потому, что шло раньше в разметке:
+       так заявки с формы первого экрана уходили в карантин (ts_empty), а
+       человек видел «Спасибо». Сегодня на этой странице виджет один и разницы
+       нет — правка снимает ловушку на будущее, когда форм станет больше. */
+    var els=(scope||document).querySelectorAll('[name="cf-turnstile-response"]');
+    for(var i=0;i<els.length;i++){ if(els[i].value) return els[i].value; }
+    if(scope){ return tsToken(null); }
+    return '';
   }
   window.dlTsToken=tsToken;
   var _f=window.fetch;
