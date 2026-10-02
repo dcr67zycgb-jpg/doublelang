@@ -1127,19 +1127,51 @@ function artSubmit(btn){ return dlArtSend(btn); }
  * у него свой виджет, и условие `if(!d[...])` его не перетирает. */
 (function(){
   function tsToken(scope){
-    var el=(scope||document).querySelector('[name="cf-turnstile-response"]');
-    if(!el){ el=document.querySelector('[name="cf-turnstile-response"]'); }
-    return el?el.value:'';
+    /* ⚠️ Первый НЕПУСТОЙ токен, а не первый попавшийся элемент: виджетов на
+       странице два (форма и чат), и пустое поле выигрывало просто потому, что
+       шло раньше в разметке. */
+    var els=(scope||document).querySelectorAll('[name="cf-turnstile-response"]');
+    for(var i=0;i<els.length;i++){ if(els[i].value) return els[i].value; }
+    if(scope){ return tsToken(null); }
+    return '';
   }
   window.dlTsToken=tsToken;
   var _f=window.fetch;
+  /* ⚠️ С ПУСТЫМ ТОКЕНОМ ЗАЯВКУ НЕ ОТПРАВЛЯЕМ. Раньше отправляли что есть:
+     сервер считал пустой токен отказом, клал заявку в карантин (ts_empty), а
+     человек видел «Спасибо» и ждал ответа. Так терялись заявки с рекламных
+     лендингов 28.09 и 01.10; статьи используют тот же перехватчик.
+     Turnstile решается секунду-две после загрузки — ждём токен до 8 секунд,
+     опрашивая каждые 150 мс. Не дождались — запрос НЕ уходит, обещание
+     «Спасибо» не звучит, форма показывает ошибку. Видимый отказ лучше
+     молчаливой потери. */
+  function tsWait(ms){
+    return new Promise(function(res){
+      var t0=Date.now();
+      (function tick(){
+        var v=tsToken();
+        if(v) return res(v);
+        if(Date.now()-t0>ms) return res('');
+        setTimeout(tick,150);
+      })();
+    });
+  }
   window.fetch=function(url,opts){
+    var isLead=false, d=null;
     try{
-      if(typeof url==='string' && url.indexOf('/api/crm/webhooks/lead')>-1 && opts && opts.body){
-        var d=JSON.parse(opts.body);
-        if(!d['cf-turnstile-response']){ d['cf-turnstile-response']=tsToken(); opts.body=JSON.stringify(d); }
-      }
-    }catch(e){}
+      isLead = typeof url==='string' && url.indexOf('/api/crm/webhooks/lead')>-1
+               && opts && opts.body;
+      if(isLead){ d=JSON.parse(opts.body); }
+    }catch(e){ isLead=false; }
+    if(isLead && d && !d['cf-turnstile-response']){
+      var self=this, args=arguments;
+      return tsWait(8000).then(function(tok){
+        if(!tok){ throw new Error('turnstile: токен не получен, заявка не отправлена'); }
+        d['cf-turnstile-response']=tok;
+        opts.body=JSON.stringify(d);
+        return _f.apply(self,args);
+      });
+    }
     return _f.apply(this,arguments);
   };
   var _s=XMLHttpRequest.prototype.send;
