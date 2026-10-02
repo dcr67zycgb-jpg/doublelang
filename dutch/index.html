@@ -241,6 +241,12 @@ nav.scrolled .nav-logo img { filter:brightness(0) invert(1); }
 .hero-blob-tl { position:absolute; left:-8vw; top:-12vw; width:34vw; height:34vw; max-width:500px; max-height:500px; border-radius:42% 58% 56% 44% / 56% 44% 56% 44%; background:#e0b34a; opacity:.92; transform:rotate(-8deg); z-index:0; }
 @media (max-width:960px) { .hero-blob-tl { width:70vw; height:70vw; left:-30vw; top:-30vw; opacity:.8; } }
 .hero-collage { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+/* ⚠️ ВРЕМЕННО: файлов assets/collage-*.webp в репозитории нет, все семь
+   отдают 404, и на первом экране видны белые рамки со значком «?». Пока
+   картинки не загружены, карточки скрыты — остаётся фон и стикеры.
+   СНЯТЬ ЭТО ПРАВИЛО сразу после загрузки семи файлов, иначе коллажа не будет
+   видно никогда, а выглядеть это будет как «так и задумано». */
+.hero-cut { display:none !important; }
 .hero-cut { position:absolute; background:#fff; padding:8px 8px 22px; box-shadow:0 18px 40px rgba(0,0,0,.45), 0 2px 6px rgba(0,0,0,.3); animation:cutFloat 9s ease-in-out infinite alternate; }
 .hero-cut img { display:block; width:100%; height:100%; object-fit:cover; filter:grayscale(1) contrast(1.1); }
 .hero-cut.k1 { width:clamp(170px,15vw,260px); aspect-ratio:1/1; right:calc(50% + 440px); top:6vh; transform:rotate(-9deg); animation-delay:-2s; }
@@ -1123,10 +1129,10 @@ window.dlGoal=dlGoal;
       <div class="hero-right">
         <form id="hero-form" class="form-card">
           <div class="form-card-title" style="text-align:center;">Записаться на пробный урок</div>
-          <ul class="checklist" style="color:#fff;margin-bottom:18px;">
-            <li style="color:#fff;--checklist-mark-bg:#AE1C28;--checklist-mark-color:#ffffff;">Пробное занятие бесплатно 30 минут</li>
-            <li style="color:#fff;--checklist-mark-bg:#FFFFFF;--checklist-mark-color:#15211d;">Проверим ваши знания</li>
-            <li style="color:#fff;--checklist-mark-bg:#21468B;--checklist-mark-color:#ffffff;">Составим индивидуальную программу обучения</li>
+          <ul class="checklist" style="color:#fff;--checklist-mark-bg:rgba(0,230,110,.28);--checklist-mark-color:#00e66e;--checklist-mark-ring:rgba(0,230,110,.45);margin-bottom:18px;">
+            <li style="color:#fff;">Пробное занятие бесплатно 30 минут</li>
+            <li style="color:#fff;">Проверим ваши знания</li>
+            <li style="color:#fff;">Составим индивидуальную программу обучения</li>
           </ul>
           <div class="form-group"><input type="text" id="hero-name" placeholder="Ваше имя (необязательно)" autocomplete="name"></div>
           <div class="form-group phone-field" id="hero-phone-field"><input type="tel" id="hero-tel" placeholder="+31 6 12 34 56 78" required autocomplete="off"><div class="phone-hint">Введите полный номер телефона</div></div>
