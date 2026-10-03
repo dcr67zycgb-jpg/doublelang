@@ -995,6 +995,17 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 calc
   .modal-box { border-radius:16px 16px 0 0; padding:22px 16px; }
 }
 
+
+/* ⚠️ Горизонтальные слайдеры тянули за собой всю страницу: докрутив ленту до
+   края, палец продолжал двигать документ, и первый экран «уезжал». Лечится не
+   запретом прокрутки, а разрывом цепочки — overscroll-behavior-x:contain
+   останавливает прокрутку на самом слайдере и не передаёт её вверх.
+   html получает overflow-x:hidden в пару к body: без него iOS всё равно
+   позволяет сдвинуть документ вбок. */
+html { overflow-x:hidden; }
+.goals-grid, .levels-grid, .exams-grid, .teachers-grid, .blog-grid, .why-grid,
+.reviews-track { overscroll-behavior-x:contain; }
+
 .phone-hint { display:none; font-size:12px; color:#e05555; margin-top:4px; padding-left:2px; }
 .phone-field.invalid .phone-hint { display:block; }
 .phone-field.invalid input { border-color:#e05555 !important; }
