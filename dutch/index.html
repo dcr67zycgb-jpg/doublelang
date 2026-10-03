@@ -1142,7 +1142,7 @@ window.dlGoal=dlGoal;
           </div>
           <div class="cf-turnstile" id="dl-hero-ts" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
           <button type="button" id="hero-submit-btn" class="btn btn-gold" style="width:100%;padding:14px;font-size:14px;">Записаться на пробный урок</button>
-<p style="margin:8px 0 0;font-size:12px;line-height:1.4;color:var(--ink-3);text-align:center">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:inherit;text-decoration:underline">политикой обработки данных</a>.</p>
+<p style="margin:10px 0 0;font-size:12px;line-height:1.55;color:rgba(255,255,255,.55);text-align:left">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:inherit;text-decoration:underline">политикой обработки данных</a>.</p>
         </form>
       </div>
       <div class="hero-extra" style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:20px;margin-top:8px;">
@@ -1606,7 +1606,7 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
       </div>
       <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" style="margin-bottom:12px"></div>
       <button type="button" id="modal-submit-btn" class="btn btn-primary" style="width:100%;padding:14px;font-size:14px;">Записаться на пробный урок →</button>
-<p style="margin:8px 0 0;font-size:12px;line-height:1.4;color:var(--ink-3);text-align:center">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:inherit;text-decoration:underline">политикой обработки данных</a>.</p>
+<p style="margin:10px 0 0;font-size:12px;line-height:1.55;color:rgba(255,255,255,.55);text-align:left">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" style="color:inherit;text-decoration:underline">политикой обработки данных</a>.</p>
     </form>
     <p style="font-size:12px;color:var(--ink-3);margin-top:10px;text-align:center;">Пробный урок — бесплатно</p>
   </div>
@@ -1887,10 +1887,36 @@ document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{c
       if(raw === '' || t.dataset.dlAuto === '1') setVal(t, code);
     });
   }
+  /* ⚠️ Автозаполнение iPhone вставляет номер ЦЕЛИКОМ, со своим кодом страны, а
+     в поле уже стоит код, подставленный нами по IP. Два кода слипались:
+     «+995» + «+79688122828» давало «+99579688122828», такого кода страны нет,
+     проверка отбивала заявку, а подсказка «сколько цифр осталось» исчезала -
+     она не знает страну, когда префикс мусорный. Человек видел красную ошибку
+     и уходил.
+     Поэтому: если пришёл кусок с собственным «+» или сразу десяток цифр поверх
+     нашего префикса - наш префикс выбрасываем, оставляем то, что вставили. */
+  function dropAutoPrefix(t, before){
+    var v = t.value || '';
+    var plus = v.lastIndexOf('+');
+    if(plus > 0){ return v.slice(plus); }                 // второй «+» - всё до него наше
+    var beforeDigits = (before || '').replace(/\D/g,'');
+    var nowDigits = v.replace(/\D/g,'');
+    if(beforeDigits && nowDigits.indexOf(beforeDigits) === 0 &&
+       nowDigits.length - beforeDigits.length >= 10){      // вставили целый номер
+      return '+' + nowDigits.slice(beforeDigits.length);
+    }
+    return null;
+  }
   document.addEventListener('input', function(e){
     var t = e.target;
     if(prog) return;
-    if(t && t.matches && t.matches('input[type="tel"]') && t.id !== 'dl-phone-inp'){ t.dataset.dlTyped = '1'; t.dataset.dlAuto = ''; }
+    if(t && t.matches && t.matches('input[type="tel"]') && t.id !== 'dl-phone-inp'){
+      if(t.dataset.dlAuto === '1'){
+        var fixed = dropAutoPrefix(t, dial);
+        if(fixed){ prog = true; try{ if(t.__mask){ t.__mask.value = fixed; } else { t.value = fixed; } }catch(err){ t.value = fixed; } prog = false; }
+      }
+      t.dataset.dlTyped = '1'; t.dataset.dlAuto = '';
+    }
   }, true);
   document.addEventListener('focusin', function(e){
     var t = e.target;
