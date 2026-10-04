@@ -942,7 +942,12 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
   /* ⚠️ Верхний отступ обязан перекрывать фиксированную шапку (72px). В прошлой
      правке он был сжат до 18px ради «форму повыше» - и заголовок наехал на
      логотип. 88px = шапка плюс воздух; это всё ещё на 20px выше исходного. */
-  .hero-inner { grid-template-columns:1fr; gap:14px; padding:88px 0 32px; align-items:flex-start; }
+  /* ⚠️ Отступ считается ОДИН раз. У .hero есть свой padding:60px сверху (ниже
+     по файлу, для ≤640px), и вместе с прежними 88px выходило 148px пустого
+     неба под шапкой. Обнуляем свой у секции и держим ровно 80px у сетки:
+     шапка 72px плюс 8px воздуха - текст у логотипа, но не на нём. */
+  .hero { padding-top:0 !important; }
+  .hero-inner { grid-template-columns:1fr; gap:14px; padding:80px 0 32px; align-items:flex-start; }
   .hero-left { align-items:center; text-align:center; max-width:100%; }
   .hero h1 { margin-bottom:10px !important; }
   .hero-overline { margin-bottom:10px !important; }
