@@ -916,6 +916,14 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 .nav-cta:hover { background:transparent; color:#e0b34a; transform:none; box-shadow:none; }
 @media (max-width:1100px) { .nav-links { gap:18px; } .nav-cta { display:none; } }
 .hero-left { display:flex; flex-direction:column; justify-content:center; align-items:center; max-width:720px; text-align:center; width:100%; margin:0 auto; }
+/* ⚠️ Секция растёт под содержимое, а не держит ровно 100vh. С жёсткой высотой и
+   justify-content:flex-end форма (она выше прежних двух кнопок) выталкивала
+   верх за экран, и заголовок уезжал под фиксированную шапку. Проверено на
+   проде 04.10. На немецком и нидерландском это правило уже стоит. */
+@media (min-width:961px) {
+  .hero { height:auto; min-height:100vh; justify-content:center; }
+  .hero-inner { padding:120px 0 60px; }
+}
 .hero h1 { text-align:center; max-width:1320px; }
 .hero-stats-row { display:flex; align-items:center; justify-content:center; gap:0; margin-top:32px; flex-wrap:wrap; }
 .hero-stat-item { align-items:center; text-align:center; min-width:150px; }
