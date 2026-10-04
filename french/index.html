@@ -1537,7 +1537,10 @@ document.addEventListener('DOMContentLoaded', loadSavedReviews);
       <div class="form-group"><input type="text" placeholder="Ваше имя (необязательно)" autocomplete="name" style="border:1.5px solid #d0dbd8;"></div>
       <div class="form-group phone-field" id="modal-phone-field"><input type="tel" id="modal-tel" placeholder="+33 6 12 34 56 78" required autocomplete="off" style="border:1.5px solid #d0dbd8;width:100%;"><div class="phone-hint">Введите полный номер телефона</div></div>
       <div class="form-group"><input type="email" placeholder="E-mail (необязательно)" autocomplete="email" style="border:1.5px solid #d0dbd8;"></div>
-      <div class="form-group" style="position:relative;">
+      <!-- ⚠️ Поле «Время звонка» скрыто, как на /dutch/ и /german/: лишний шаг
+           перед отправкой. Разметку не удаляем - обработчик читает
+           #modal-calltime и без неё упал бы. -->
+      <div class="form-group" style="position:relative;display:none;">
         <input type="hidden" id="modal-calltime" name="calltime" value="">
         <div id="calltime-display" onclick="toggleCalltimeMenu()" style="border:1.5px solid rgba(255,255,255,.25);border-radius:10px;padding:12px 14px;font-size:14px;width:100%;color:rgba(255,255,255,.55);background:rgba(255,255,255,.12);cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;">
           <span id="calltime-label">Время звонка (необязательно)</span>
@@ -2107,6 +2110,25 @@ function openCtaModal(sourceBlock){
   const mt=document.getElementById('modal-tel'); if(mt){ if(window.IMask && !mt._masked){ mt._masked=true; mt.__mask = IMask(mt,{mask:'+{0000000000000}'}); } var _dc=window.__dlDial||''; if(mt.__mask){ mt.__mask.value=_dc; } else { mt.value=_dc; } mt.dataset.dlAuto='1'; mt.dataset.dlTyped=''; }
 }
 window.openCtaModal=openCtaModal;
+// Автопоказ формы при появлении блока «Подготовка к экзаменам» (раз за сессию)
+// ⚠️ sessionStorage, а не localStorage: попап должен появиться у каждого нового
+// визита, но один раз за сессию, а не преследовать человека на каждой странице.
+(function(){
+  var shown=false;
+  var target=document.getElementById('exams');
+  if(!target) return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(shown || !entry.isIntersecting) return;
+      shown=true;
+      obs.unobserve(target);
+      try{ if(sessionStorage.getItem('dl_mid_popup_v8')==='1') return; sessionStorage.setItem('dl_mid_popup_v8','1'); }catch(e){}
+      var overlay=document.getElementById('contact-modal');
+      if(overlay && !overlay.classList.contains('open')){ openCtaModal('exams_section'); if(window.dlGoal) dlGoal('popup_shown','exams_section'); }
+    });
+  },{threshold:0.05});
+  obs.observe(target);
+})();
 // Открыть форму записи при переходе со статьи (#book или #hero-form)
 (function(){function _dlBookHash(){var h=location.hash;if(h==='#book'||h==='#hero-form'){setTimeout(function(){openCtaModal('article');},260);}}window.addEventListener('DOMContentLoaded',_dlBookHash);window.addEventListener('hashchange',_dlBookHash);})();
 function closeModal(){
