@@ -922,7 +922,16 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
    проде 04.10. На немецком и нидерландском это правило уже стоит. */
 @media (min-width:961px) {
   .hero { height:auto; min-height:100vh; justify-content:center; }
-  .hero-inner { padding:120px 0 60px; }
+  /* ⚠️ Две колонки: текст слева, форма справа. В спецификации текст был по
+     центру, но по факту на десктопе он разъезжался на всю ширину и форма
+     повисала посередине - решение отменено по месту. */
+  .hero-inner { padding:120px 0 60px; grid-template-columns:1.05fr minmax(0,420px); gap:48px; align-items:center; }
+  .hero-left { align-items:flex-start; text-align:left; max-width:640px; margin:0; }
+  .hero-overline { align-self:flex-start !important; }
+  .hero h1 { text-align:left; max-width:100%; }
+  .hero-sub-line { text-align:left !important; max-width:560px; }
+  .hero-right { display:block; }
+  #hero-form { max-width:420px; margin-left:auto; }
 }
 .hero h1 { text-align:center; max-width:1320px; }
 .hero-stats-row { display:flex; align-items:center; justify-content:center; gap:0; margin-top:32px; flex-wrap:wrap; }
