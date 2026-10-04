@@ -929,10 +929,20 @@ footer { background:var(--ink); color:rgba(255,255,255,.48); padding:60px 0 32px
 .hero-stat-item { align-items:center; text-align:center; min-width:150px; }
 @media (max-width:960px) {
   .hero { min-height:100svh; height:auto; overflow:visible; }
-  .hero-inner { grid-template-columns:1fr; gap:16px; padding:48px 0 40px; align-items:flex-start; }
+  /* ⚠️ Форму поднимаем максимально высоко: на телефоне она и есть главное
+     действие первого экрана, а не продолжение текста. Отступы и зазор сжаты. */
+  .hero-inner { grid-template-columns:1fr; gap:10px; padding:18px 0 28px; align-items:flex-start; }
+  .hero { padding:0 !important; }
+  .hero h1 { margin-bottom:10px !important; }
+  .hero-overline { margin-bottom:10px !important; }
+  .hero-sub-line { margin-bottom:0 !important; }
   .hero-left { align-items:center; text-align:center; max-width:100%; }
   .checklist { align-items:flex-start; }
-  .checklist li { justify-content:flex-start; }
+  /* ⚠️ Пункт по левому краю, галочка - к ПЕРВОЙ строке. От .hero-left
+     наследовался text-align:center: пока пункт влезал в строку, это было
+     незаметно, а третий переносился - и текст уезжал от галочки вправо. */
+  .checklist li { justify-content:flex-start; align-items:flex-start; text-align:left; }
+  .checklist li::before { margin-top:2px; }
   /* ⚠️ Подзаголовок не должен быть шире экрана: при max-width:640px на телефоне
      строка вылезала за край и слово «французского» обрезалось. */
   .hero-sub-line { max-width:100% !important; }
