@@ -66,7 +66,10 @@
   var SECTION_CODES = {
     dutch: '31', german: '49', french: '33', serbian: '381', turkish: '90',
     spanish: '34', portuguese: '351', greek: '30', japanese: '81',
-    english: '44', russian: '7'
+    english: '44', russian: '7',
+    /* Квизы живут на своих адресах (/german-quiz, /french-quiz), а не в папке
+     * языка, и без этих строк номер без кода там не угадывался. */
+    'german-quiz': '49', 'french-quiz': '33'
   };
 
   function defaultCode() {
@@ -150,7 +153,9 @@
       return { ok: false, message: 'Укажите номер телефона' };
     }
     if (p.unknownCode) {
-      return { ok: false, message: 'Номер должен начинаться с кода страны, например +31' };
+      /* Пример — код раздела, где человек находится: «+31» на французской странице
+       * советовал чужую страну. Вне языковых разделов остаётся +31, как было. */
+      return { ok: false, message: 'Номер должен начинаться с кода страны, например +' + (defaultCode() || '31') };
     }
     if (!p.rest.length) {
       return { ok: false, message: 'После кода +' + p.code + ' введите сам номер' };
@@ -216,6 +221,10 @@
       input.parentNode.appendChild(box);
     }
     box.textContent = message;
+    /* Живая подсказка «осталось ввести N» рядом с ошибкой говорит то же самое второй
+     * строкой. Ошибка точнее и стоит последней — подсказку убираем. */
+    var live = input.parentNode.querySelector('.dl-phone-hint-live');
+    if (live) live.remove();
 
     /* Короткая подсветка привлекает внимание, если поле уже было на экране
      * и человек его просто не заметил. */
@@ -329,6 +338,61 @@
     if (input.matches && input.matches('input[type="tel"]')) {
       clearError(input);
       showProgress(input);
+    }
+  }, true);
+
+  /* Номер без кода страны.
+   *
+   * Маска сама ставит «+» перед первой цифрой. Человек, стёрший код и набравший
+   * 151 2345 6789, получал «+1 512…» — номер США: проверку он проходит, в CRM
+   * выглядит нормально, а дозвониться по нему нельзя никогда.
+   *
+   * Поэтому первая цифра в поле без кода — начало местного номера: перед ней
+   * встаёт код раздела сайта, внутренний ноль снимается (0151… → +49 151…).
+   * Исключения:
+   *   • «+» человек набрал сам — код он вводит сам, не мешаем;
+   *   • первая цифра 8 — так русскоязычные пишут российский номер: ставим +7,
+   *     а саму восьмёрку отбрасываем. Маска по карте «8 → +7» восьмёрку
+   *     ОСТАВЛЯЛА первой цифрой: 8 999 123 45 67 превращалось в +7 (899) 912-34-56
+   *     — номер со сдвигом и без последней цифры;
+   *   • 00… — международная запись, её разбирает parse();
+   *   • вне языковых разделов кода нет — ничего не подставляем. */
+  function setTel(input, value) {
+    try { if (input.__mask) { input.__mask.value = value; } else { input.value = value; } }
+    catch (e) { input.value = value; }
+    /* input-событие нужно соседям: автоподстановка кода по IP считает поле
+     * тронутым руками и больше его не перезапишет. */
+    try { input.dispatchEvent(new Event('input', { bubbles: true })); } catch (e) { void e; }
+    try { var n = input.value.length; input.setSelectionRange(n, n); } catch (e) { void e; }
+  }
+
+  document.addEventListener('beforeinput', function (event) {
+    var input = event.target;
+    if (!input.matches || !input.matches('input[type="tel"]')) return;
+    var data = event.data;
+    if (!data && event.dataTransfer) { try { data = event.dataTransfer.getData('text'); } catch (e) { data = ''; } }
+    if (!data) return;
+    if (/^\s*\+/.test(data)) { input.dataset.dlPlus = '1'; return; }
+    if (!/^\s*\d/.test(data)) return;
+    if (digits(input.value)) return;                  // код или часть номера уже есть
+    if (input.dataset.dlPlus === '1') return;         // свой «+» — код вводит сам
+    var code = defaultCode();
+    if (!code || !COUNTRIES[code]) return;
+    var d = digits(data);
+    if (d.indexOf('00') === 0) return;
+    if (d.charAt(0) === '8') { event.preventDefault(); setTel(input, '+7' + d.slice(1)); return; }
+    var trunk = COUNTRIES[code].trunk;
+    if (trunk && d.charAt(0) === trunk) d = d.slice(1);
+    event.preventDefault();
+    setTel(input, '+' + code + d);
+  }, true);
+
+  /* Поле очищено полностью — следующий ввод снова решает про код заново. */
+  document.addEventListener('input', function (event) {
+    var input = event.target;
+    if (input.matches && input.matches('input[type="tel"]') &&
+        !String(input.value || '').replace(/[\s+]/g, '')) {
+      if (!String(input.value || '').trim()) delete input.dataset.dlPlus;
     }
   }, true);
 

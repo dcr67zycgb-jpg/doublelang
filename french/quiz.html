@@ -146,7 +146,8 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
 .fq p{font-size:15px;line-height:1.6;color:#5b6472;padding:0 0 16px}
 .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
 </style>
-<script src="https://unpkg.com/imask@7.6.1/dist/imask.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
+<script src="/assets/dl-phone.js?v=3" defer></script>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -279,25 +280,54 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
   var msg='WhatsApp';
   var TS_TOKEN=''; window.dlTsOk=function(t){ TS_TOKEN=t||''; var e=document.getElementById('q-ts-err'); if(e) e.style.display='none'; }; window.dlTsExpired=function(){ TS_TOKEN=''; };
   function tsReset(){ TS_TOKEN=''; try{ if(window.turnstile) turnstile.reset(); }catch(e){} }
-  var telEl=document.getElementById('q-tel'), telErr=document.getElementById('q-tel-err'), telMask=null;
-  function initMask(){ if(telMask||!window.IMask) return; telMask=IMask(telEl,{mask:'{+}000000000000000',lazy:true,prepare:function(s){return s.replace(/[^\d+]/g,'');}}); }
+  /* Маска — та же карта, что на лендингах (index.html, блок PHONE MASK). */
+  var MASKS=[
+    { mask:'+{7} (000) 000-00-00', startsWith:'7' },
+    { mask:'+{7} (000) 000-00-00', startsWith:'8' },
+    { mask:'+{49} 000 0000 0000', startsWith:'49' },
+    { mask:'+{41} 00 000 00 00',  startsWith:'41' },
+    { mask:'+{33} 0 00 00 00 00', startsWith:'33' },
+    { mask:'+{352} 000 000 000',  startsWith:'352' },
+    { mask:'+{31} 0 000 000 00',   startsWith:'31' },
+    { mask:'+{32} 000 00 00 00',   startsWith:'32' },
+    { mask:'+{90} (000) 000 00 00',startsWith:'90' },
+    { mask:'+{380} (00) 000-00-00',startsWith:'380' },
+    { mask:'+{375} (00) 000-00-00',startsWith:'375' },
+    { mask:'+{371} 0000 0000',     startsWith:'371' },
+    { mask:'+{381} 00 000 0000',  startsWith:'381' },
+    { mask:'+{382} 00 000 000',   startsWith:'382' },
+    { mask:'+{385} 00 000 0000',  startsWith:'385' },
+    { mask:'+{387} 00 000 000',   startsWith:'387' },
+    { mask:'+{370} 000 00000',    startsWith:'370' },
+    { mask:'+{372} 0000 0000',    startsWith:'372' },
+    { mask:'+{995} 000 000 000',  startsWith:'995' },
+    { mask:'\\+{0000000000000}',   startsWith:'' }
+  ];
+  var telEl=document.getElementById('q-tel'), telErr=document.getElementById('q-tel-err'), telMask=null, DIAL='+33';
+  function initMask(){ if(telMask||!window.IMask) return; telMask=IMask(telEl,{mask:MASKS,dispatch:function(appended,dm){ var num=(dm.value+appended).replace(/\D/g,''); return dm.compiledMasks.find(function(m){ return m.startsWith&&num.indexOf(m.startsWith)===0; })||dm.compiledMasks[dm.compiledMasks.length-1]; }}); telEl.__mask=telMask; }
   if(window.IMask) initMask(); else document.addEventListener('DOMContentLoaded',initMask);
-  telEl.addEventListener('focus',function(){ initMask(); if(!telEl.value.trim()){ telEl.value='+33'; if(telMask) telMask.updateValue(); } });
-  telEl.addEventListener('input',function(){ telErr.style.display='none'; telEl.style.borderColor=''; });
+  telEl.addEventListener('focus',function(){ initMask(); if(!telEl.value.trim()){ if(telMask) telMask.value=DIAL; else telEl.value=DIAL; } });
+  /* Рамку здесь НЕ сбрасываем: пока цифр не хватает, dl-phone.js держит её янтарной,
+     и сброс на каждом вводе стирал бы ровно этот сигнал. */
+  telEl.addEventListener('input',function(){ telErr.style.display='none'; });
   function telDigits(){ return telEl.value.replace(/\D/g,''); }
-  function telValid(){ return telEl.value.trim().charAt(0)==='+' && telDigits().length>=10 && telDigits().length<=15 && !/^(\d)\1+$/.test(telDigits()); }
+  /* Проверка — та же, что на лендингах (DLPhone.validate): длина по стране, лишний ноль,
+     подсказка «не хватает N цифр». Своя проверка осталась только запасной, если общий
+     скрипт не загрузился. */
+  function telCheck(){ if(window.DLPhone&&window.DLPhone.validate) return window.DLPhone.validate(telEl.value); var d=telDigits(); return {ok: telEl.value.trim().charAt(0)==='+' && d.length>=10 && d.length<=15 && !/^(\d)\1+$/.test(d), message:'Введите номер полностью с кодом страны'}; }
   (function(){ var t=document.getElementById('q-tel'); if(!t) return; function c(){ track('QuizContact'); } t.addEventListener('focus',c,{once:true}); t.addEventListener('input',c,{once:true}); })();
   document.querySelectorAll('#q-msg .opt').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('#q-msg .opt').forEach(function(x){x.classList.remove('sel')}); b.classList.add('sel'); msg=b.dataset.v; }); });
   document.getElementById('qf').addEventListener('submit',function(e){
     e.preventDefault();
     var tel=document.getElementById('q-tel'), cons=document.getElementById('q-consent'), btn=document.getElementById('q-submit');
-    if(!telValid()){ telErr.style.display='block'; tel.style.borderColor='#c0392b'; tel.focus(); return; }
+    var tc=telCheck();
+    if(!tc.ok){ if(!window.DLPhone){ telErr.textContent=tc.message; telErr.style.display='block'; tel.style.borderColor='#c0392b'; } tel.focus(); return; }
     if(!cons.checked){ cons.focus(); return; }
     if(document.querySelector('.hp').value) return;
     var tsEl=document.querySelector('[name="cf-turnstile-response"]'); var tsVal=TS_TOKEN||(tsEl?tsEl.value:'');
     if(!tsVal){ document.getElementById('q-ts-err').style.display='block'; return; }
     var payload={
-      phone:'+'+telDigits(), name:document.getElementById('q-name').value.trim(), email:document.getElementById('q-email').value.trim(),
+      phone:(tc.normalized||('+'+telDigits())), name:document.getElementById('q-name').value.trim(), email:document.getElementById('q-email').value.trim(),
       goal:st.goal||'', level:st.level||'', start:st.start||'', calltime:'', messenger:(document.getElementById('q-wa').checked?'WhatsApp':'нет согласия на WhatsApp'),
       teacher:'', block:'quiz', source:SRC, page:location.href, query:qs,
       dl_first:cookie('dl_first'), dl_last:cookie('dl_last'), _fbc:cookie('_fbc'), _fbp:cookie('_fbp'), quiz_session:SID,
