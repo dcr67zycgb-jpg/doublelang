@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Квиз: подберём программу французского — DoubleLang</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-559PV245');</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3961184017525857');
+fbq('track', 'PageView');
+
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3961184017525857&ev=PageView&noscript=1"/></noscript>
+<!-- Yandex.Metrika -->
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=110367168','ym');
+ym(110367168,'init',{ssr:true,webvisor:true,clickmap:true,referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110367168" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<style>
+:root {
+  --teal:        #003189;
+  --teal-bright: #0055A4;
+  --teal-deep:   #001A4D;
+  --teal-soft:   rgba(0,49,137,.10);
+  --ink:         #15211d;
+  --ink-2:       #46554f;
+  --ink-3:       #6c7d76;
+  --surface:     #fff;
+  --surface-2:   #f5f9f8;
+  --line:        rgba(21,33,29,.09);
+  --glow:        rgba(0,49,137,.40);
+  --gradient-accent: linear-gradient(135deg, #0055A4, #003189);
+  --radius-lg:   26px;
+  --radius:      20px;
+  --radius-sm:   13px;
+  --radius-pill: 99px;
+  --shadow:      0 1px 2px rgba(15,30,26,.04), 0 12px 30px -16px rgba(15,30,26,.18);
+  --shadow-pop:  0 4px 6px rgba(15,30,26,.04), 0 20px 48px -12px rgba(15,30,26,.24);
+  --ease:        cubic-bezier(.22,.61,.36,1);
+  --duration:    .28s;
+  --font-body:   'Manrope', system-ui, -apple-system, sans-serif;
+  /* extra */
+  --gold: #e0b34a;
+  --gold-soft: rgba(224,179,74,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{font-family:'Manrope',system-ui,sans-serif;background:#f6f7f9;color:#1c2430;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--teal)}a:hover{color:var(--gold)}
+.hdr{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 1px 0 rgba(28,36,48,.06)}
+.hdr-in{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 20px}
+.hdr img{height:56px;width:auto;display:block}
+.hdr .lang{font-size:12px;color:#8a93a0;font-weight:600}
+.hdr b{font-size:17px;font-weight:800;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr .pct{margin-left:auto;font-size:13px;font-weight:700;color:#8a93a0;flex-shrink:0}
+.progress{height:4px;background:#e8ebef}
+.progress i{display:block;height:100%;width:0;background:var(--teal);transition:width .35s}
+.wrap{max-width:640px;margin:0 auto;padding:28px 20px 48px}
+.step{display:none;animation:in .3s ease}
+.step.on{display:block}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+@media (prefers-reduced-motion:reduce){.btn{animation:none}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.back{background:none;border:none;color:#8a93a0;font:inherit;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:0 0 22px}
+.back:hover{color:#1c2430}
+h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacing:-.02em;text-align:center;margin-bottom:28px;text-wrap:pretty}
+.sub{font-size:15px;line-height:1.6;color:#5b6472}
+.opts{display:grid;gap:14px}
+.opt{display:flex;align-items:center;gap:16px;width:100%;text-align:left;padding:22px 20px;border-radius:18px;border:1px solid #edf0f3;background:#fff;color:#1c2430;font:inherit;font-size:17px;font-weight:600;line-height:1.35;cursor:pointer;min-height:64px;box-shadow:0 2px 10px rgba(28,36,48,.05);transition:border-color .15s,transform .15s,box-shadow .15s}
+.opt:hover,.opt.sel{border-color:var(--teal);box-shadow:0 6px 18px rgba(28,36,48,.08);transform:translateY(-1px)}
+.opt .em{font-size:30px;line-height:1;flex-shrink:0;width:36px;text-align:center}
+.opt .tag{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;background:#fdecec;color:#d9342b}
+.opt .tag.pop{background:#fff1d6;color:#e07a10}
+.dark{background:linear-gradient(160deg,#0d1b2b,#11263c 60%,#0f2a40);color:#fff;border-radius:22px;padding:26px 22px;box-shadow:0 20px 50px rgba(13,27,43,.3)}
+.dark .pill{display:inline-block;font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);margin-bottom:22px}
+.dark h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.dark .sub{color:rgba(255,255,255,.72);margin-bottom:22px}
+.kv{border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 18px;margin-bottom:12px;background:rgba(255,255,255,.04)}
+.kv small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px;font-weight:600}
+.kv span{font-size:17px;font-weight:600;color:#7cc4ff}
+.offer{margin-top:10px;border-radius:16px;padding:20px;border:1px solid rgba(124,196,255,.35);background:linear-gradient(160deg,rgba(32,68,120,.6),rgba(18,45,85,.6))}
+.offer .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.offer .lbl{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#7cc4ff;background:rgba(124,196,255,.15);padding:7px 12px;border-radius:999px}
+.offer .pr{font-size:28px;font-weight:800;letter-spacing:-.02em}.offer .pr small{font-size:14px;font-weight:500;color:rgba(255,255,255,.7)}
+.offer p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:14px;line-height:1.5}
+.list{display:grid;gap:10px}
+.list li{list-style:none;display:flex;gap:12px;font-size:15px;line-height:1.5;align-items:flex-start}
+.list li::before{content:'✓';flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid #7cc4ff;color:#7cc4ff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;padding:16px 22px;border-radius:16px;border:none;background:linear-gradient(110deg,#2aa39a 0%,#2cc4b8 25%,#e0b34a 50%,#2cc4b8 75%,#2aa39a 100%);background-size:300% 100%;animation:shimmer 4s linear infinite;color:#fff;font:inherit;font-size:18px;font-weight:800;letter-spacing:.01em;cursor:pointer;margin-top:22px;box-shadow:0 12px 28px rgba(42,163,154,.38),0 2px 6px rgba(224,179,74,.2);transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+.card{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 2px 14px rgba(28,36,48,.06)}
+.info{display:flex;gap:16px;align-items:flex-start;border-radius:16px;padding:18px;background:color-mix(in srgb,var(--teal) 7%,#fff);border:1px solid color-mix(in srgb,var(--teal) 18%,#fff);margin-bottom:26px}
+.info .badge{flex-shrink:0;width:56px;height:56px;border-radius:14px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;line-height:1.1;text-align:center}
+.info b{display:block;font-size:17px;font-weight:800;margin-bottom:6px;line-height:1.3}
+@media (max-width:480px){.info{display:grid;grid-template-columns:52px 1fr;column-gap:14px;align-items:center;padding:18px 16px}.info .badge{width:52px;height:52px}.info>div{display:contents}.info b{font-size:16px;margin-bottom:0}.info p{grid-column:1/-1;margin-top:10px;font-size:13.5px;text-wrap:pretty}}
+.info p{font-size:14px;color:#5b6472;line-height:1.55}
+.card h1{text-align:left;font-size:26px;margin-bottom:8px}
+.card .sub{margin-bottom:22px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:17px;font-weight:700;margin-bottom:10px}
+.field input{width:100%;min-height:58px;padding:16px 18px;border-radius:16px;border:1.5px solid #dfe3e8;background:#fff;color:#1c2430;font:inherit;font-size:17px;outline:none}
+.field input:focus{border-color:var(--teal)}
+.field input::placeholder{color:#a3aab3}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0}
+.seg .opt{min-height:54px;justify-content:center;padding:14px;font-size:15px;box-shadow:none;border-color:#dfe3e8;border-radius:14px}
+.seg .opt.sel{background:color-mix(in srgb,var(--teal) 8%,#fff);color:var(--teal)}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:#5b6472;margin-top:6px;cursor:pointer}
+.chk input{margin-top:2px;width:20px;height:20px;accent-color:var(--teal);flex-shrink:0}
+.note{font-size:13px;color:#8a93a0;text-align:center;margin-top:14px}
+.pricing{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 2px 14px rgba(28,36,48,.06);margin-top:20px}
+.pr-head{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+.pr-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:#f0f2f5;border-radius:14px;padding:4px;margin-bottom:14px}
+.pr-tab{border:none;background:transparent;border-radius:11px;padding:11px 8px;font:inherit;font-size:13px;font-weight:700;color:#5b6472;cursor:pointer;min-height:44px}
+.pr-tab.sel{background:#fff;color:var(--teal);box-shadow:0 1px 4px rgba(28,36,48,.1)}
+.pr-row{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:14px 4px;border-bottom:1px solid #edf0f3;font-size:15px}
+.pr-row:last-child{border-bottom:none}
+.pr-row b{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.pr-row b s{font-size:13px;font-weight:600;color:#a3aab3;text-decoration-color:#c0392b}
+.pr-row>span:first-child{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pr-save{font-style:normal;font-size:12px;font-weight:800;color:#fff;background:linear-gradient(135deg,#2aa39a,#21747a);padding:3px 8px;border-radius:999px;white-space:nowrap;line-height:1.2}
+.pr-row>span:first-child{flex-wrap:nowrap}
+@media (max-width:480px){.pr-row{grid-template-columns:1fr auto auto;gap:8px;font-size:14px}.pr-row .pr-per{font-size:13px}.pr-row .pr-per small{display:none}.pr-row>span:first-child{gap:6px}}
+.pr-row.hot{background:linear-gradient(90deg,rgba(224,179,74,.14),rgba(224,179,74,.04));border-radius:14px;padding-left:12px;padding-right:12px;margin:4px -8px 0;border-bottom:none}
+.pr-row.hot .pr-save{background:linear-gradient(135deg,#e0b34a,#c9962a);color:#3a2a05}
+.pr-row.hot b{font-size:20px}
+.pr-row .pr-per{color:#5b6472;font-weight:600}.pr-row .pr-per small{font-size:12px;font-weight:500}
+.pr-row b{font-size:17px;font-weight:800;min-width:62px;text-align:right}
+.pr-row.hot .pr-per{color:var(--teal)}.pr-row.hot b{color:var(--teal)}
+.pr-note{font-size:13px;color:#8a93a0;line-height:1.5;margin-top:14px}
+.faq{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 2px 14px rgba(28,36,48,.06);margin-top:20px}
+.fq{border-bottom:1px solid #edf0f3}.fq:last-child{border-bottom:none}
+.fq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;font-size:16px;font-weight:700;cursor:pointer;min-height:44px}
+.fq summary::-webkit-details-marker{display:none}
+.fq-i{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#f0f2f5;color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:800;transition:transform .2s}
+.fq[open] .fq-i{transform:rotate(45deg)}
+.fq p{font-size:15px;line-height:1.6;color:#5b6472;padding:0 0 16px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+</style>
+<script src="https://unpkg.com/imask@7.6.1/dist/imask.min.js" defer></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header class="hdr"><div class="hdr-in"><a href="/french/"><img src="../assets/logo.png" alt="DoubleLang"></a></div><div class="progress"><i id="bar"></i></div></header>
+<main class="wrap">
+<button class="back" id="back" type="button" style="display:none">‹ Назад</button>
+
+<section class="step on" data-step="1" data-key="goal">
+  <h1>Какая у вас главная цель?</h1>
+  <div class="opts">
+    <button class="opt" type="button" data-v="Подготовка к экзамену"><span class="em">🎓</span><span>Подготовка к экзамену</span></button>
+    <button class="opt" type="button" data-v="Заговорить с нуля"><span class="em">🥐</span><span>Заговорить с нуля</span></button>
+    <button class="opt" type="button" data-v="Подтянуть разговорную речь"><span class="em">💬</span><span>Подтянуть разговорную речь</span></button>
+    <button class="opt" type="button" data-v="Французский для работы"><span class="em">💼</span><span>Французский для работы</span></button>
+  </div>
+</section>
+
+<section class="step" data-step="2" data-key="level">
+  <h1>Ваш уровень сейчас?</h1>
+  <div class="opts">
+    <button class="opt" type="button" data-v="С нуля"><span class="em">🌱</span><span>С нуля</span></button>
+    <button class="opt" type="button" data-v="Немного понимаю"><span class="em">📖</span><span>Немного понимаю</span></button>
+    <button class="opt" type="button" data-v="Могу объясняться"><span class="em">💬</span><span>Могу объясняться</span></button>
+    <button class="opt" type="button" data-v="Свободно, нужна практика"><span class="em">🚀</span><span>Свободно, нужна практика</span></button>
+  </div>
+</section>
+
+<section class="step" data-step="3" data-key="start">
+  <h1>Когда готовы начать обучение?</h1>
+  <div class="opts">
+    <button class="opt" type="button" data-v="Сразу после пробного урока"><span class="em">⚡</span><span>Сразу после пробного урока, если всё подойдёт</span></button>
+    <button class="opt" type="button" data-v="Через неделю"><span class="em">📅</span><span>Через неделю</span></button>
+    <button class="opt" type="button" data-v="Через 1 месяц"><span class="em">🗓️</span><span>Через 1 месяц</span></button>
+    <button class="opt" type="button" data-v="Не знаю, просто хочу пробный урок"><span class="em">👀</span><span>Не знаю, просто хочу пробный урок</span></button>
+  </div>
+</section>
+
+
+<section class="step" data-step="4">
+  <div class="card">
+    <div class="info"><div class="badge">0 €</div><div><b>Первый урок длится 30 минут и он бесплатен</b><p>Администратор школы свяжется с вами для согласования пробного урока.</p></div></div>
+    <form id="qf" autocomplete="on" novalidate>
+      <div class="field"><label for="q-name">Как вас зовут?</label><input id="q-name" name="name" type="text" placeholder="Ваше имя" autocomplete="name"></div>
+      <div class="field"><label for="q-tel">Ваш номер телефона</label>
+        <input id="q-tel" name="phone" type="tel" placeholder="+33 6 12 34 56 78" autocomplete="tel" required inputmode="tel">
+        <p id="q-tel-err" style="display:none;margin-top:8px;font-size:13px;color:#c0392b;font-weight:600">Введите номер полностью с кодом страны, например +33 6 12 34 56 78</p>
+      </div>
+      <div class="field"><label for="q-email">E-mail</label><input id="q-email" name="email" type="email" placeholder="name@example.com" autocomplete="email"></div>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+      <label class="chk"><input type="checkbox" id="q-consent" required><span>Я принимаю <a href="/french/privacy.html" target="_blank" rel="noopener">политику конфиденциальности</a>.</span></label>
+      <label class="chk" style="margin-top:12px"><input type="checkbox" id="q-wa" checked><span>Согласен получать уведомления об уроке в WhatsApp.</span></label>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" data-callback="dlTsOk" data-expired-callback="dlTsExpired" data-error-callback="dlTsExpired" style="margin-top:16px"></div>
+      <p id="q-ts-err" style="display:none;margin-top:8px;font-size:13px;color:#c0392b;font-weight:600">Подождите секунду — идёт проверка, что вы не робот.</p>
+      <button class="btn" type="submit" id="q-submit">Записаться на бесплатный урок</button>
+    </form>
+  </div>
+    <div class="pricing">
+      <div class="pr-head" style="text-align:center">Стоимость занятий французского после пробного</div>
+      <div class="pr-tabs"><button type="button" class="pr-tab sel" data-t="ru">Русскоязычный преподаватель</button><button type="button" class="pr-tab" data-t="nat">Носитель</button></div>
+      <div class="pr-list" data-t="ru"><div class="pr-row"><span>5 занятий</span><span class="pr-per">21 € <small>/ урок</small></span><b>105 €</b></div><div class="pr-row"><span>10 занятий<em class="pr-save">−20 €</em></span><span class="pr-per">19 € <small>/ урок</small></span><b><s>210 €</s>190 €</b></div><div class="pr-row"><span>20 занятий<em class="pr-save">−80 €</em></span><span class="pr-per">17 € <small>/ урок</small></span><b><s>420 €</s>340 €</b></div><div class="pr-row hot"><span>30 занятий<em class="pr-save">−210 €</em></span><span class="pr-per">14 € <small>/ урок</small></span><b><s>630 €</s>420 €</b></div></div>
+      <div class="pr-list" data-t="nat" style="display:none"><div class="pr-row"><span>5 занятий</span><span class="pr-per">30 € <small>/ урок</small></span><b>150 €</b></div><div class="pr-row"><span>10 занятий<em class="pr-save">−30 €</em></span><span class="pr-per">27 € <small>/ урок</small></span><b><s>300 €</s>270 €</b></div><div class="pr-row"><span>20 занятий<em class="pr-save">−100 €</em></span><span class="pr-per">25 € <small>/ урок</small></span><b><s>600 €</s>500 €</b></div><div class="pr-row hot"><span>30 занятий<em class="pr-save">−210 €</em></span><span class="pr-per">23 € <small>/ урок</small></span><b><s>900 €</s>690 €</b></div></div>
+      <p class="pr-note">Индивидуальные занятия 60 минут. Зелёный бейдж — ваша экономия по сравнению с разовой ценой урока. <a href="/french/pricing.html" target="_blank" rel="noopener">Подробнее о пакетах</a></p>
+    </div>
+
+    <div class="faq">
+      <div class="pr-head">Частые вопросы</div>
+      <details class="fq"><summary>Что будет на пробном занятии?<span class="fq-i">+</span></summary><p>Преподаватель определит уровень, расскажет о программе и ответит на все вопросы.</p></details>
+      <details class="fq"><summary>Как проходят занятия?<span class="fq-i">+</span></summary><p>Занятия проходят в онлайн-формате с видеосвязью с преподавателем на платформе DoubleLang. Нужен только компьютер или планшет.</p></details>
+      <details class="fq"><summary>Сколько длится занятие?<span class="fq-i">+</span></summary><p>Занятие — 60 минут. Пробный урок — 30 минут.</p></details>
+      <details class="fq"><summary>Нужны ли учебники и материалы?<span class="fq-i">+</span></summary><p>Нет — все материалы включены в стоимость и хранятся на платформе.</p></details>
+      <details class="fq"><summary>Можно ли перенести урок?<span class="fq-i">+</span></summary><p>Да. При уведомлении за 24 часа урок переносится, но не более 2-х раз в неделю. При болезни с подтверждающим документом занятие не сгорает.</p></details>
+      <details class="fq"><summary>С чего начать?<span class="fq-i">+</span></summary><p>Оставьте заявку на пробный урок — менеджер свяжется и поможет подобрать удобную дату и время для урока.</p></details>
+    </div>
+</section>
+</main>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+(function(){
+  var SRC='french_quiz', TOTAL=4, KEY='dlq_french_v5';
+  var qs=location.search.slice(1);
+  if(qs){ sessionStorage.setItem(KEY+'_qs',qs); }
+  qs=sessionStorage.getItem(KEY+'_qs')||'';
+  var P=new URLSearchParams(qs);
+  function clean(v){ v=(v||'').trim(); return (!v||v.indexOf('{{')===0)?'':v; }
+  var tags={};
+  P.forEach(function(v,k){ if(/^utm_/i.test(k)||['fbclid','ad_id','adset_id','campaign_id','placement','gclid','yclid'].indexOf(k)>-1){ v=clean(v); if(v) tags[k]=v; } });
+  if(tags.fbclid) sessionStorage.setItem(KEY+'_fbclid',tags.fbclid);
+  else if(sessionStorage.getItem(KEY+'_fbclid')) tags.fbclid=sessionStorage.getItem(KEY+'_fbclid');
+  function cookie(n){ var m=document.cookie.match('(?:^|; )'+n+'=([^;]*)'); return m?decodeURIComponent(m[1]):''; }
+  function setCookie(n,v,days){ var d=location.hostname.indexOf('doublelang-online-school.com')>-1?';domain=.doublelang-online-school.com':''; document.cookie=n+'='+encodeURIComponent(v)+';max-age='+(days*86400)+';path=/'+d+';SameSite=Lax'; }
+  (function(){ var t=Object.keys(tags).length?Object.keys(tags).map(function(k){return k+'='+tags[k]}).join('&'):('ref='+(document.referrer||'direct')); var stamp=new Date().toISOString().slice(0,10)+'|'+t; if(!cookie('dl_first')) setCookie('dl_first',stamp,180); setCookie('dl_last',stamp,180); })();
+  if(tags.fbclid&&!cookie('_fbc')) setCookie('_fbc','fb.1.'+Date.now()+'.'+tags.fbclid,90);
+  /* ── аналитика шагов: пиксель + своя база ── */
+  var SID=sessionStorage.getItem(KEY+'_sid'); if(!SID){ SID=Date.now().toString(36)+Math.random().toString(36).slice(2,8); sessionStorage.setItem(KEY+'_sid',SID); }
+  var STEP_EV={1:'QuizGoal',2:'QuizLevel',3:'QuizWhen'}, VIEW_EV={};
+  function track(name,extra){
+    if(sessionStorage.getItem(KEY+'_ev_'+name)) return; sessionStorage.setItem(KEY+'_ev_'+name,'1');
+    try{ if(window.fbq) fbq('trackCustom',name,extra||{}); }catch(e){}
+    try{ if(window.ym) ym(110367168,'reachGoal',name); }catch(e){}
+    var body=Object.assign({event:name,session:SID,source:SRC,ts:new Date().toISOString(),page:location.pathname,dl_first:cookie('dl_first'),dl_last:cookie('dl_last'),_fbc:cookie('_fbc'),_fbp:cookie('_fbp')},tags,extra||{});
+    try{ var blob=new Blob([JSON.stringify(body)],{type:'application/json'}); if(!(navigator.sendBeacon&&navigator.sendBeacon('/api/quiz-event',blob))) fetch('/api/quiz-event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).catch(function(){}); }catch(e){}
+  }
+  track('QuizStart');
+  var st={}; try{ st=JSON.parse(sessionStorage.getItem(KEY+'_st')||'{}'); }catch(e){}
+  var cur=st.step||1;
+  var steps=document.querySelectorAll('.step'), bar=document.getElementById('bar'), back=document.getElementById('back');
+  function save(){ st.step=cur; sessionStorage.setItem(KEY+'_st',JSON.stringify(st)); }
+  function show(n){
+    cur=Math.min(Math.max(n,1),TOTAL);
+    steps.forEach(function(s){ s.classList.toggle('on', +s.dataset.step===cur); });
+    bar.style.width=Math.round(cur/TOTAL*100)+'%';
+    back.style.display=cur>1?'inline-flex':'none';
+    window.scrollTo(0,0); save();
+    if(VIEW_EV[cur]) track(VIEW_EV[cur]); if(cur===TOTAL) track('QuizPrice');
+  }
+  steps.forEach(function(s){
+    var key=s.dataset.key;
+    s.querySelectorAll('.opts .opt').forEach(function(b){
+      if(key&&st[key]===b.dataset.v) b.classList.add('sel');
+      b.addEventListener('click',function(){
+        s.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel')}); b.classList.add('sel');
+        if(key){ st[key]=(b.dataset.v||b.textContent).trim(); if(STEP_EV[+s.dataset.step]) track(STEP_EV[+s.dataset.step],{answer:st[key]}); }
+        setTimeout(function(){ show(cur+1); },180);
+      });
+    });
+    var nx=s.querySelector('.next'); if(nx) nx.addEventListener('click',function(){ show(cur+1); });
+  });
+  back.addEventListener('click',function(){ show(cur-1); });
+  var msg='WhatsApp';
+  var TS_TOKEN=''; window.dlTsOk=function(t){ TS_TOKEN=t||''; var e=document.getElementById('q-ts-err'); if(e) e.style.display='none'; }; window.dlTsExpired=function(){ TS_TOKEN=''; };
+  function tsReset(){ TS_TOKEN=''; try{ if(window.turnstile) turnstile.reset(); }catch(e){} }
+  var telEl=document.getElementById('q-tel'), telErr=document.getElementById('q-tel-err'), telMask=null;
+  function initMask(){ if(telMask||!window.IMask) return; telMask=IMask(telEl,{mask:'{+}000000000000000',lazy:true,prepare:function(s){return s.replace(/[^\d+]/g,'');}}); }
+  if(window.IMask) initMask(); else document.addEventListener('DOMContentLoaded',initMask);
+  telEl.addEventListener('focus',function(){ initMask(); if(!telEl.value.trim()){ telEl.value='+33'; if(telMask) telMask.updateValue(); } });
+  telEl.addEventListener('input',function(){ telErr.style.display='none'; telEl.style.borderColor=''; });
+  function telDigits(){ return telEl.value.replace(/\D/g,''); }
+  function telValid(){ return telEl.value.trim().charAt(0)==='+' && telDigits().length>=10 && telDigits().length<=15 && !/^(\d)\1+$/.test(telDigits()); }
+  (function(){ var t=document.getElementById('q-tel'); if(!t) return; function c(){ track('QuizContact'); } t.addEventListener('focus',c,{once:true}); t.addEventListener('input',c,{once:true}); })();
+  document.querySelectorAll('#q-msg .opt').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('#q-msg .opt').forEach(function(x){x.classList.remove('sel')}); b.classList.add('sel'); msg=b.dataset.v; }); });
+  document.getElementById('qf').addEventListener('submit',function(e){
+    e.preventDefault();
+    var tel=document.getElementById('q-tel'), cons=document.getElementById('q-consent'), btn=document.getElementById('q-submit');
+    if(!telValid()){ telErr.style.display='block'; tel.style.borderColor='#c0392b'; tel.focus(); return; }
+    if(!cons.checked){ cons.focus(); return; }
+    if(document.querySelector('.hp').value) return;
+    var tsEl=document.querySelector('[name="cf-turnstile-response"]'); var tsVal=TS_TOKEN||(tsEl?tsEl.value:'');
+    if(!tsVal){ document.getElementById('q-ts-err').style.display='block'; return; }
+    var payload={
+      phone:'+'+telDigits(), name:document.getElementById('q-name').value.trim(), email:document.getElementById('q-email').value.trim(),
+      goal:st.goal||'', level:st.level||'', start:st.start||'', calltime:'', messenger:(document.getElementById('q-wa').checked?'WhatsApp':'нет согласия на WhatsApp'),
+      teacher:'', block:'quiz', source:SRC, page:location.href, query:qs,
+      dl_first:cookie('dl_first'), dl_last:cookie('dl_last'), _fbc:cookie('_fbc'), _fbp:cookie('_fbp'), quiz_session:SID,
+      'cf-turnstile-response': tsVal
+    };
+    for(var k in tags) payload[k]=tags[k];
+    btn.disabled=true; btn.textContent='Отправляем...';
+    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){ if(!r.ok) throw new Error('lead http '+r.status); sessionStorage.removeItem(KEY+'_st'); try{ sessionStorage.setItem(KEY+'_done',JSON.stringify({name:payload.name,sid:SID,source:SRC})); }catch(e){} location.href='/french-quiz/spasibo'; })
+    .catch(function(err){ console.error('quiz lead failed',err); btn.disabled=false; btn.textContent='Ошибка — нажмите ещё раз'; tsReset(); });
+  });
+  document.querySelectorAll('.pr-tab').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('.pr-tab').forEach(function(x){x.classList.toggle('sel',x===b)}); document.querySelectorAll('.pr-list').forEach(function(l){ l.style.display=l.dataset.t===b.dataset.t?'':'none'; }); }); });
+  show(cur);
+})();
+</script>
+</body>
+</html>

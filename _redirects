@@ -361,3 +361,10 @@
 /serbian/article-serbskiy-glagoly-sovershenniy-vid-praktika    /serbian/article-serbskiy-glagoly-sovershenniy-vid-praktika.html 301!
 /spanish/article-ispanskie-konnektory-slozhnye-predlozheniya   /spanish/article-ispanskie-konnektory-slozhnye-predlozheniya.html 301!
 /spanish/article-ucheba-v-universitete-ispanii                 /spanish/article-ucheba-v-universitete-ispanii.html            301!
+
+# Квиз-лендинги (чистые URL; страница «спасибо» — отдельная загрузка для пикселя)
+/german-quiz           /german/quiz.html                     200
+/german-quiz/spasibo   /german/quiz-spasibo.html             200
+/french-quiz           /french/quiz.html                     200
+/french-quiz/spasibo   /french/quiz-spasibo.html             200
+/api/quiz-event        /.netlify/functions/quiz-event        200
