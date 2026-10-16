@@ -17,23 +17,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '3966627310252950');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=3966627310252950&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
 
   <style>
 :root{
@@ -150,6 +133,7 @@ src="https://www.facebook.com/tr?id=1073538998318404&ev=PageView&noscript=1"
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-v2.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180-v2.png">
 <link rel="icon" href="/favicon-v2.ico" sizes="any">
+<script>(function(){try{var P=new URLSearchParams(location.search),t=[];P.forEach(function(v,k){v=(v||'').trim();if((/^utm_/i.test(k)||['fbclid','ad_id','adset_id','campaign_id','placement','gclid','yclid'].indexOf(k)>-1)&&v&&v.indexOf('{{')!==0)t.push(k+'='+v);});var r=document.referrer,ext=r&&r.indexOf(location.hostname)===-1;if(!t.length&&!ext)return;var s=new Date().toISOString().slice(0,10)+'|'+(t.length?t.join('&'):'ref='+r);function c(n){var m=document.cookie.match('(?:^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[1]):''}function w(n,v){var d=location.hostname.indexOf('doublelang-online-school.com')>-1?';domain=.doublelang-online-school.com':'';document.cookie=n+'='+encodeURIComponent(v)+';max-age=15552000;path=/'+d+';SameSite=Lax'}if(!c('dl_first'))w('dl_first',s);w('dl_last',s);if(P.get('fbclid')&&!c('_fbc'))w('_fbc','fb.1.'+Date.now()+'.'+P.get('fbclid'));}catch(e){}})();</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -252,7 +236,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="section-block">
       <h2><span class="sec-num">8</span>Использование файлов Cookie</h2>
-      <p>Наш сайт использует cookie для корректной работы, анализа трафика и персонализации. Вы можете настроить браузер на отказ от cookie, но некоторые функции сайта могут стать недоступны.</p>
+      <p>Наш сайт использует cookie и аналогичные технологии для корректной работы, анализа трафика и оценки эффективности рекламы. При первом посещении мы показываем баннер согласия; аналитические и рекламные инструменты работают на основании вашего согласия (ст. 6(1)(a) GDPR).</p>
+      <ul>
+        <li><strong>Собственные cookie (DoubleLang):</strong> <code>dl_first</code> и <code>dl_last</code> — дата и источник первого и последнего перехода на сайт (UTM-метки, идентификаторы рекламных кликов, домен-источник), срок хранения 180 дней; <code>dl_cookie_consent</code> — факт согласия с баннером. Нужны, чтобы понимать, какой канал привёл к заявке.</li>
+        <li><strong>Сторонние сервисы аналитики и рекламы:</strong> Meta Pixel (Meta Platforms Ireland Ltd; cookie <code>_fbp</code>, <code>_fbc</code>), Яндекс Метрика (ООО «Яндекс»; cookie <code>_ym_*</code>), Google Tag Manager (Google Ireland Ltd). Эти сервисы могут получать ваш IP-адрес, User-Agent (тип браузера и устройства), адрес страницы и идентификаторы кликов по рекламе. Они действуют на основании собственных политик конфиденциальности.</li>
+        <li><strong>Техническая статистика:</strong> при заполнении формы заявки или опроса на сайте мы сохраняем IP-адрес, User-Agent, адрес страницы, рекламные метки и шаги прохождения опроса. Эти данные хранятся на наших серверах не более 12 месяцев и используются только для анализа воронки и защиты от спама.</li>
+      </ul>
+      <p>Вы можете отозвать согласие в любой момент: удалите cookie сайта в настройках браузера — при следующем посещении баннер появится снова. Отказ от аналитических cookie не ограничивает доступ к сайту и услугам.</p>
     </div>
 
     <div class="section-block">
@@ -336,7 +326,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="section-block">
       <h2><span class="sec-num">8</span>Cookie Policy</h2>
-      <p>Our website uses cookies to ensure proper functionality, analyze traffic, and personalize the experience. You may configure your browser to refuse cookies, but some features may become unavailable.</p>
+      <p>Our website uses cookies and similar technologies to ensure proper functionality, analyze traffic, and measure advertising performance. On your first visit we display a consent banner; analytics and advertising tools run on the basis of your consent (Art. 6(1)(a) GDPR).</p>
+      <ul>
+        <li><strong>First-party cookies (DoubleLang):</strong> <code>dl_first</code> and <code>dl_last</code> — date and source of your first and most recent visit (UTM parameters, ad click identifiers, referring domain), stored for 180 days; <code>dl_cookie_consent</code> — the fact that you accepted the banner. These help us understand which channel led to an enquiry.</li>
+        <li><strong>Third-party analytics and advertising:</strong> Meta Pixel (Meta Platforms Ireland Ltd; cookies <code>_fbp</code>, <code>_fbc</code>), Yandex Metrica (Yandex LLC; cookies <code>_ym_*</code>), Google Tag Manager (Google Ireland Ltd). These services may receive your IP address, User-Agent (browser and device type), page URL and ad click identifiers, and operate under their own privacy policies.</li>
+        <li><strong>Technical statistics:</strong> when you submit an enquiry form or complete a quiz on the site, we store your IP address, User-Agent, page URL, advertising parameters and quiz steps. This data is kept on our servers for no more than 12 months and is used solely for funnel analysis and spam protection.</li>
+      </ul>
+      <p>You may withdraw consent at any time by deleting the site's cookies in your browser settings — the banner will appear again on your next visit. Refusing analytics cookies does not restrict access to the website or our services.</p>
     </div>
 
     <div class="section-block">
