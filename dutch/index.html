@@ -2203,7 +2203,8 @@ function closeModal(){
       const consentLabel=document.getElementById('modal-consent-label');
       if(tel&&!tel.value.trim()){tel.style.borderColor='#e05555';tel.focus();return;}
       if(consent&&!consent.checked){if(consentLabel)consentLabel.style.color='#e05555';return;}
-      if(consentWa&&!consentWa.checked){return;}
+      /* Согласие на WhatsApp — не условие заявки: голый return здесь молча глотал
+         заявки из модалки с 18.09. Значение уходит флагом wa_consent ниже. */
       const mPhone=(tel?.value||'').trim();
       const mName=(document.querySelector('#modal-form input[type="text"]')?.value||'').trim();
       const mEmail=(document.querySelector('#modal-form input[type="email"]')?.value||'').trim();

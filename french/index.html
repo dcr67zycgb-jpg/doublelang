@@ -2290,14 +2290,25 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
     var consent=document.getElementById('hero-consent');
     var consentWa=document.getElementById('hero-consent-wa');
     if(tel&&!tel.value.trim()){tel.focus();return;}
-    if(consent&&!consent.checked){return;}
-    if(consentWa&&!consentWa.checked){return;}
+    /* ⚠️ Отказ должен быть ВИДЕН. Здесь стояли два голых return: без галочки согласия
+       и без галочки WhatsApp кнопка молча не делала ничего, и человек уходил, решив,
+       что сайт сломан. Согласие на политику остаётся условием заявки — подсвечиваем
+       его. Согласие на WhatsApp — нет: это согласие на рассылку, и как условие
+       заявки оно перестаёт быть добровольным. Его значение уходит флагом wa_consent,
+       как на немецком лендинге. */
+    if(consent&&!consent.checked){
+      var _cl=document.getElementById('hero-consent-label');
+      if(_cl) _cl.style.color='#ff8a80';
+      try{ consent.focus(); }catch(e){}
+      if(!consent._dlReset){ consent._dlReset=true; consent.addEventListener('change',function(){ if(_cl) _cl.style.color=''; }); }
+      return;
+    }
     var hPhone=(tel&&tel.value||'').trim();
     var hName=((document.getElementById('hero-name')||{}).value||'').trim();
     var hEmail=((document.getElementById('hero-email')||{}).value||'').trim();
     var _txt=btn.textContent;
     btn.disabled=true; btn.textContent='Отправляем...';
-    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:hPhone,name:hName,email:hEmail,goal:'Пробный урок',teacher:'',calltime:'',block:'hero_form',source:'https://doublelang-online-school.com/french',page:window.location.href})}).then(function(r){
+    fetch('https://app.doublelang-online-school.com/api/crm/webhooks/lead',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:hPhone,name:hName,email:hEmail,goal:'Пробный урок',teacher:'',calltime:'',block:'hero_form',source:'https://doublelang-online-school.com/french',page:window.location.href,wa_consent:!!(consentWa&&consentWa.checked)})}).then(function(r){
       if(!r.ok) throw new Error('lead http '+r.status);
       window.location.href='thank-you.html';
     }).catch(function(e){
