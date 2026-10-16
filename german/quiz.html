@@ -148,6 +148,10 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/7.6.1/imask.min.js" defer></script>
 <script src="/assets/dl-phone.js?v=3" defer></script>
+<!-- Метки рекламы и first-touch: тот же механизм, что на лендингах. Он дописывает в
+     заявку fbc, fbp, first_source, fbclid_ts и event_id под именами, которые ждёт
+     сервер (_MARK_LIMITS). Без него квизовые заявки приходили без куков Meta. -->
+<script src="/assets/dl-utm.js?v=2" defer></script>
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-559PV245" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -330,7 +334,11 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
       phone:(tc.normalized||('+'+telDigits())), name:document.getElementById('q-name').value.trim(), email:document.getElementById('q-email').value.trim(),
       goal:st.goal||'', level:st.level||'', start:st.start||'', calltime:'', messenger:(document.getElementById('q-wa').checked?'WhatsApp':'нет согласия на WhatsApp'),
       teacher:'', block:'quiz', source:SRC, page:location.href, query:qs,
-      dl_first:cookie('dl_first'), dl_last:cookie('dl_last'), _fbc:cookie('_fbc'), _fbp:cookie('_fbp'), quiz_session:SID,
+      /* ⚠️ Имена — как в _MARK_LIMITS сервера: fbc и fbp, а НЕ _fbc и _fbp. С подчёркиванием
+         сервер поле не видит, и заявка уходила без куков Meta. dl_first/dl_last сервер не
+         читает (first_source дописывает dl-utm.js), оставлены для сырой записи заявки. */
+      dl_first:cookie('dl_first'), dl_last:cookie('dl_last'), fbc:cookie('_fbc'), fbp:cookie('_fbp'), quiz_session:SID,
+      wa_consent:document.getElementById('q-wa').checked,
       'cf-turnstile-response': tsVal
     };
     for(var k in tags) payload[k]=tags[k];
