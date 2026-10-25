@@ -98,6 +98,7 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
 .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;padding:16px 22px;border-radius:16px;border:none;background:linear-gradient(110deg,#2aa39a 0%,#2cc4b8 25%,#e0b34a 50%,#2cc4b8 75%,#2aa39a 100%);background-size:300% 100%;animation:shimmer 4s linear infinite;color:#fff;font:inherit;font-size:18px;font-weight:800;letter-spacing:.01em;cursor:pointer;margin-top:22px;box-shadow:0 12px 28px rgba(42,163,154,.38),0 2px 6px rgba(224,179,74,.2);transition:transform .15s,filter .15s}
 .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .btn:disabled{opacity:.6;cursor:default;transform:none}
+.btn[aria-disabled="true"]{opacity:.6;transform:none}
 .card{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 2px 14px rgba(28,36,48,.06)}
 .info{display:flex;gap:16px;align-items:flex-start;border-radius:16px;padding:18px;background:color-mix(in srgb,var(--teal) 7%,#fff);border:1px solid color-mix(in srgb,var(--teal) 18%,#fff);margin-bottom:26px}
 .info .badge{flex-shrink:0;width:56px;height:56px;border-radius:14px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;line-height:1.1;text-align:center}
@@ -116,6 +117,7 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
 .seg .opt.sel{background:color-mix(in srgb,var(--teal) 8%,#fff);color:var(--teal)}
 .chk{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:#5b6472;margin-top:6px;cursor:pointer}
 .chk input{margin-top:2px;width:20px;height:20px;accent-color:#2aa39a;flex-shrink:0}
+.chk.err{color:#c0392b}.chk.err input{outline:2px solid #c0392b;outline-offset:2px}
 .note{font-size:13px;color:#8a93a0;text-align:center;margin-top:14px}
 .pricing{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 2px 14px rgba(28,36,48,.06);margin-top:20px}
 .pr-head{font-size:20px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
@@ -202,6 +204,7 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
       <div class="field"><label for="q-email">E-mail</label><input id="q-email" name="email" type="email" placeholder="name@example.com" autocomplete="email"></div>
       <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
       <label class="chk"><input type="checkbox" id="q-consent" required><span>Я принимаю <a href="/german/privacy.html" target="_blank" rel="noopener">политику конфиденциальности</a>.</span></label>
+      <p id="q-consent-err" style="display:none;margin-top:8px;font-size:13px;color:#c0392b;font-weight:600">Отметьте согласие с политикой конфиденциальности, чтобы записаться.</p>
       <label class="chk" style="margin-top:12px"><input type="checkbox" id="q-wa" checked><span>Согласен получать уведомления об уроке в WhatsApp.</span></label>
       <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAI2McenZ8Dd80i" data-size="flexible" data-callback="dlTsOk" data-expired-callback="dlTsExpired" data-error-callback="dlTsExpired" style="margin-top:16px"></div>
       <p id="q-ts-err" style="display:none;margin-top:8px;font-size:13px;color:#c0392b;font-weight:600">Подождите секунду — идёт проверка, что вы не робот.</p>
@@ -311,6 +314,13 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
   function initMask(){ if(telMask||!window.IMask) return; telMask=IMask(telEl,{mask:MASKS,dispatch:function(appended,dm){ var num=(dm.value+appended).replace(/\D/g,''); return dm.compiledMasks.find(function(m){ return m.startsWith&&num.indexOf(m.startsWith)===0; })||dm.compiledMasks[dm.compiledMasks.length-1]; }}); telEl.__mask=telMask; }
   if(window.IMask) initMask(); else document.addEventListener('DOMContentLoaded',initMask);
   telEl.addEventListener('focus',function(){ initMask(); if(!telEl.value.trim()){ if(telMask) telMask.value=DIAL; else telEl.value=DIAL; } });
+  /* Номер с «+» — человек вводит код сам. Без этого «+» и следом цифры кода
+     дописывались к уже подставленному коду: +4934… превращалось в +49 493 4…,
+     а хвост номера маска отрезала. Набранный или вставленный «+» начинает поле заново. */
+  telEl.addEventListener('beforeinput',function(e){ var d=e.data; if(!d&&e.dataTransfer){ try{ d=e.dataTransfer.getData('text'); }catch(_){ d=''; } }
+    if(!d||!/^\s*\+/.test(d)) return; e.preventDefault(); initMask(); d=d.trim();
+    if(telMask) telMask.value=d; else telEl.value=d; telEl.dispatchEvent(new Event('input',{bubbles:true}));
+    try{ var n=telEl.value.length; telEl.setSelectionRange(n,n); }catch(_){} });
   /* Рамку здесь НЕ сбрасываем: пока цифр не хватает, dl-phone.js держит её янтарной,
      и сброс на каждом вводе стирал бы ровно этот сигнал. */
   telEl.addEventListener('input',function(){ telErr.style.display='none'; });
@@ -321,12 +331,17 @@ h1{font-size:clamp(26px,6vw,34px);font-weight:800;line-height:1.15;letter-spacin
   function telCheck(){ if(window.DLPhone&&window.DLPhone.validate) return window.DLPhone.validate(telEl.value); var d=telDigits(); return {ok: telEl.value.trim().charAt(0)==='+' && d.length>=10 && d.length<=15 && !/^(\d)\1+$/.test(d), message:'Введите номер полностью с кодом страны'}; }
   (function(){ var t=document.getElementById('q-tel'); if(!t) return; function c(){ track('QuizContact'); } t.addEventListener('focus',c,{once:true}); t.addEventListener('input',c,{once:true}); })();
   document.querySelectorAll('#q-msg .opt').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('#q-msg .opt').forEach(function(x){x.classList.remove('sel')}); b.classList.add('sel'); msg=b.dataset.v; }); });
+  /* Кнопка выглядит неактивной, пока нет согласия, но нажимается: настоящий disabled
+     глушит клик, и человек снова не узнал бы, чего не хватает. */
+  (function(){ var c=document.getElementById('q-consent'), b=document.getElementById('q-submit');
+    function sync(){ b.setAttribute('aria-disabled',c.checked?'false':'true'); if(c.checked){ c.closest('.chk').classList.remove('err'); document.getElementById('q-consent-err').style.display='none'; } }
+    c.addEventListener('change',sync); window.addEventListener('pageshow',sync); sync(); })();
   document.getElementById('qf').addEventListener('submit',function(e){
     e.preventDefault();
     var tel=document.getElementById('q-tel'), cons=document.getElementById('q-consent'), btn=document.getElementById('q-submit');
     var tc=telCheck();
     if(!tc.ok){ if(!window.DLPhone){ telErr.textContent=tc.message; telErr.style.display='block'; tel.style.borderColor='#c0392b'; } tel.focus(); return; }
-    if(!cons.checked){ cons.focus(); return; }
+    if(!cons.checked){ cons.closest('.chk').classList.add('err'); document.getElementById('q-consent-err').style.display='block'; cons.focus(); return; }
     if(document.querySelector('.hp').value) return;
     var tsEl=document.querySelector('[name="cf-turnstile-response"]'); var tsVal=TS_TOKEN||(tsEl?tsEl.value:'');
     if(!tsVal){ document.getElementById('q-ts-err').style.display='block'; return; }

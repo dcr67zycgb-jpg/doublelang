@@ -16,7 +16,7 @@
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '3961184017525857');
 fbq('track', 'PageView');
-(function(){ try{ var K='dlq_french_v5'; var d=sessionStorage.getItem(K+'_done'); if(d && !sessionStorage.getItem(K+'_ev_QuizComplete')){ sessionStorage.setItem(K+'_ev_QuizComplete','1'); fbq('trackCustom','QuizComplete'); } }catch(e){} })();
+(function(){ try{ var K='dlq_french_v5'; var d=sessionStorage.getItem(K+'_done'); if(d && !sessionStorage.getItem(K+'_ev_QuizComplete')){ sessionStorage.setItem(K+'_ev_QuizComplete','1'); fbq('trackCustom','QuizComplete'); var o={}; try{ var r=JSON.parse(localStorage.getItem('dl_eid')||'null'); if(r&&r.id&&(Date.now()-r.t)<3600000) o.eventID=r.id; }catch(e){} fbq('track','Lead',{},o); try{ localStorage.removeItem('dl_eid'); }catch(e){} } }catch(e){} })();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3961184017525857&ev=PageView&noscript=1"/></noscript>
 <!-- Yandex.Metrika -->
