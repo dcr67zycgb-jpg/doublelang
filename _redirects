@@ -109,6 +109,43 @@
 /article-delf-2026.html                  /french/article-delf-2026.html            301
 /article-francophonie.html               /french/article-francophonie.html         301
 
+# Слияние дублей (06.11.2026). Пары тем, где генератор написал одну статью дважды
+# (вплоть до одинакового H1). Слабая ведёт на сильную; сильная выбрана по Search
+# Console за 27.07–25.10, при пустых данных — по статусу индекса и объёму.
+# ⚠️ Флаг «!» обязателен: файлы слабых статей НЕ удалены (откат = убрать строки),
+# и без флага Netlify отдал бы файл раньше правила. Бесрасширенная форма ведёт
+# сразу на сильную, а не через .html слабой — иначе цепочка из двух 301.
+/english/article-phrasal-verbs-everyday-english-guide-2026.html         /english/article-phrasal-verbs-real-life-english-2026.html 301!
+/english/article-phrasal-verbs-everyday-english-guide-2026              /english/article-phrasal-verbs-real-life-english-2026.html 301!
+/russian/article-russkie-predlogi-mesta-i-napravleniya.html             /russian/article-russkie-predlogi-mesta-napravleniya.html 301!
+/russian/article-russkie-predlogi-mesta-i-napravleniya                  /russian/article-russkie-predlogi-mesta-napravleniya.html 301!
+/russian/article-delovoy-russkiy-pisma-perepiska-rabota.html            /russian/article-delovoy-russkiy-email-perepiska-s-kollegami.html 301!
+/russian/article-delovoy-russkiy-pisma-perepiska-rabota                 /russian/article-delovoy-russkiy-email-perepiska-s-kollegami.html 301!
+/dutch/article-medicinskaya-strahovka-vrach-niderlandy-leksika.html     /dutch/article-medicinskaya-strakhovka-vrach-niderlandy-leksika.html 301!
+/dutch/article-medicinskaya-strahovka-vrach-niderlandy-leksika          /dutch/article-medicinskaya-strakhovka-vrach-niderlandy-leksika.html 301!
+/dutch/article-knm-ekzamen-znanie-obschestva-niderlandy.html            /dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy.html 301!
+/dutch/article-knm-ekzamen-znanie-obschestva-niderlandy                 /dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy.html 301!
+/dutch/article-knm-ekzamen-niderlandskoe-obshchestvo-2026.html          /dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy.html 301!
+/dutch/article-knm-ekzamen-niderlandskoe-obshchestvo-2026               /dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy.html 301!
+/german/article-modalverben-nemeckogo-guide.html                        /german/article-nemeckie-modalnye-glagoly-guide.html 301!
+/german/article-modalverben-nemeckogo-guide                             /german/article-nemeckie-modalnye-glagoly-guide.html 301!
+/german/article-modalnye-glagoly-nemeckij-guide.html                    /german/article-nemeckie-modalnye-glagoly-guide.html 301!
+/german/article-modalnye-glagoly-nemeckij-guide                         /german/article-nemeckie-modalnye-glagoly-guide.html 301!
+/french/article-mestoimennye-narechiya-en-y-francuzskiy.html            /french/article-mestoimeniya-en-y-francuzskiy.html 301!
+/french/article-mestoimennye-narechiya-en-y-francuzskiy                 /french/article-mestoimeniya-en-y-francuzskiy.html 301!
+/french/article-arenda-zhilya-francia-leksika-gid.html                  /french/article-arenda-zhilya-francia-yazyk-obyavleniya.html 301!
+/french/article-arenda-zhilya-francia-leksika-gid                       /french/article-arenda-zhilya-francia-yazyk-obyavleniya.html 301!
+/serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya.html        /serbian/article-shkola-serbiya-rebenok-leksika-adaptaciya.html 301!
+/serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya             /serbian/article-shkola-serbiya-rebenok-leksika-adaptaciya.html 301!
+/serbian/article-bankovskiy-schet-dokumenty-serbiya-leksika.html        /serbian/article-otkrytie-scheta-bank-birokratiya-serbia.html 301!
+/serbian/article-bankovskiy-schet-dokumenty-serbiya-leksika             /serbian/article-otkrytie-scheta-bank-birokratiya-serbia.html 301!
+/greek/article-arenda-zhilya-v-gretsii-yazyk.html                       /greek/article-arenda-zhilya-v-gretsii-razgovornik.html 301!
+/greek/article-arenda-zhilya-v-gretsii-yazyk                            /greek/article-arenda-zhilya-v-gretsii-razgovornik.html 301!
+/turkish/article-business-turkish-communication.html                    /turkish/article-business-turkish-language-guide.html 301!
+/turkish/article-business-turkish-communication                         /turkish/article-business-turkish-language-guide.html 301!
+/japanese/article-kanji-sistema-izucheniya-vzroslye.html                /japanese/article-kanji-sistema-zapominaniya.html 301!
+/japanese/article-kanji-sistema-izucheniya-vzroslye                     /japanese/article-kanji-sistema-zapominaniya.html 301!
+
 # ⚠️ Шаблон /<язык>/article-* жил здесь до 23.09 и НЕ РАБОТАЛ ни дня:
 # Netlify сам отдаёт article-foo.html по адресу /article-foo, считает, что файл
 # найден, и до правил без флага дело не доходит. Подпись «без флага намеренно»
@@ -171,11 +208,8 @@
 /dutch/article-glagoly-s-predlogami-niderlandskiy              /dutch/article-glagoly-s-predlogami-niderlandskiy.html         301!
 /dutch/article-golandskie-idiomy-vyrazheniya-razgovornaya-rech /dutch/article-golandskie-idiomy-vyrazheniya-razgovornaya-rech.html 301!
 /dutch/article-inburgering-2026                                /dutch/article-inburgering-2026.html                           301!
-/dutch/article-knm-ekzamen-niderlandskoe-obshchestvo-2026      /dutch/article-knm-ekzamen-niderlandskoe-obshchestvo-2026.html 301!
-/dutch/article-knm-ekzamen-znanie-obschestva-niderlandy        /dutch/article-knm-ekzamen-znanie-obschestva-niderlandy.html   301!
 /dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy       /dutch/article-knm-ekzamen-znanie-obshchestva-niderlandy.html  301!
 /dutch/article-medicinskaya-leksika-niderlandskiy-vrach-apteka /dutch/article-medicinskaya-leksika-niderlandskiy-vrach-apteka.html 301!
-/dutch/article-medicinskaya-strahovka-vrach-niderlandy-leksika /dutch/article-medicinskaya-strahovka-vrach-niderlandy-leksika.html 301!
 /dutch/article-medicinskaya-strakhovka-vrach-niderlandy-leksika /dutch/article-medicinskaya-strakhovka-vrach-niderlandy-leksika.html 301!
 /dutch/article-modalnye-chastitsy-niderlandskiy-yazyk          /dutch/article-modalnye-chastitsy-niderlandskiy-yazyk.html     301!
 /dutch/article-mvv-2026                                        /dutch/article-mvv-2026.html                                   301!
@@ -209,12 +243,10 @@
 /english/article-ielts-2026                                    /english/article-ielts-2026.html                               301!
 /english/article-ielts-general-vs-academic-choice-2026         /english/article-ielts-general-vs-academic-choice-2026.html    301!
 /english/article-ielts-vs-toefl                                /english/article-ielts-vs-toefl.html                           301!
-/english/article-phrasal-verbs-everyday-english-guide-2026     /english/article-phrasal-verbs-everyday-english-guide-2026.html 301!
 /english/article-phrasal-verbs-real-life-english-2026          /english/article-phrasal-verbs-real-life-english-2026.html     301!
 /english/article-pte-academic-2026                             /english/article-pte-academic-2026.html                        301!
 /english/article-toefl-ibt-2026-guide                          /english/article-toefl-ibt-2026-guide.html                     301!
 /french/article-arenda-zhilya-francia-dogovor-nayma            /french/article-arenda-zhilya-francia-dogovor-nayma.html       301!
-/french/article-arenda-zhilya-francia-leksika-gid              /french/article-arenda-zhilya-francia-leksika-gid.html         301!
 /french/article-arenda-zhilya-francia-yazyk-obyavleniya        /french/article-arenda-zhilya-francia-yazyk-obyavleniya.html   301!
 /french/article-campus-france-postuplenie-2026                 /french/article-campus-france-postuplenie-2026.html            301!
 /french/article-concordance-des-temps-francuzskiy              /french/article-concordance-des-temps-francuzskiy.html         301!
@@ -227,7 +259,6 @@
 /french/article-glagoly-dvizheniya-predlogi-francuzskiy        /french/article-glagoly-dvizheniya-predlogi-francuzskiy.html   301!
 /french/article-medicinskaya-strahovka-zdravoohranenie-francia /french/article-medicinskaya-strahovka-zdravoohranenie-francia.html 301!
 /french/article-mestoimeniya-en-y-francuzskiy                  /french/article-mestoimeniya-en-y-francuzskiy.html             301!
-/french/article-mestoimennye-narechiya-en-y-francuzskiy        /french/article-mestoimennye-narechiya-en-y-francuzskiy.html   301!
 /french/article-otkryt-schet-francuzskiy-bank-leksika          /french/article-otkryt-schet-francuzskiy-bank-leksika.html     301!
 /french/article-otkrytie-scheta-bank-francia-instrukcia        /french/article-otkrytie-scheta-bank-francia-instrukcia.html   301!
 /french/article-passe-compose-imparfait-francuzskiy            /french/article-passe-compose-imparfait-francuzskiy.html       301!
@@ -243,8 +274,6 @@
 /german/article-goethe-zertifikat-b1-guide-2026                /german/article-goethe-zertifikat-b1-guide-2026.html           301!
 /german/article-konjunktiv-2-nemeckij-guide                    /german/article-konjunktiv-2-nemeckij-guide.html               301!
 /german/article-medicinskoe-strahovanie-germany-guide          /german/article-medicinskoe-strahovanie-germany-guide.html     301!
-/german/article-modalnye-glagoly-nemeckij-guide                /german/article-modalnye-glagoly-nemeckij-guide.html           301!
-/german/article-modalverben-nemeckogo-guide                    /german/article-modalverben-nemeckogo-guide.html               301!
 /german/article-nemeckie-modalnye-glagoly-guide                /german/article-nemeckie-modalnye-glagoly-guide.html           301!
 /german/article-nemeckie-padezhi-guide                         /german/article-nemeckie-padezhi-guide.html                    301!
 /german/article-nemeckie-pristavochnye-glagoly-guide           /german/article-nemeckie-pristavochnye-glagoly-guide.html      301!
@@ -259,7 +288,6 @@
 /german/article-testdaf-2026                                   /german/article-testdaf-2026.html                              301!
 /german/article-wohnungssuche-germany-guide                    /german/article-wohnungssuche-germany-guide.html               301!
 /greek/article-arenda-zhilya-v-gretsii-razgovornik             /greek/article-arenda-zhilya-v-gretsii-razgovornik.html        301!
-/greek/article-arenda-zhilya-v-gretsii-yazyk                   /greek/article-arenda-zhilya-v-gretsii-yazyk.html              301!
 /greek/article-ecpe-michigan-greek-exam-2026                   /greek/article-ecpe-michigan-greek-exam-2026.html              301!
 /greek/article-ellinomatheia-2026                              /greek/article-ellinomatheia-2026.html                         301!
 /greek/article-grecheskie-glagoly-spryazhenie                  /greek/article-grecheskie-glagoly-spryazhenie.html             301!
@@ -276,7 +304,6 @@
 /japanese/article-japan-relocation                             /japanese/article-japan-relocation.html                        301!
 /japanese/article-jft-basic-viza-tokutei-gino                  /japanese/article-jft-basic-viza-tokutei-gino.html             301!
 /japanese/article-jlpt-2026                                    /japanese/article-jlpt-2026.html                               301!
-/japanese/article-kanji-sistema-izucheniya-vzroslye            /japanese/article-kanji-sistema-izucheniya-vzroslye.html       301!
 /japanese/article-kanji-sistema-zapominaniya                   /japanese/article-kanji-sistema-zapominaniya.html              301!
 /japanese/article-keigo-vezhlivaya-rech                        /japanese/article-keigo-vezhlivaya-rech.html                   301!
 /japanese/article-rirekisho-sobesedovanie-yaponiya             /japanese/article-rirekisho-sobesedovanie-yaponiya.html        301!
@@ -291,7 +318,6 @@
 /portuguese/article-siple-a2-podtverzhdenie-urovnya-portugalskogo /portuguese/article-siple-a2-podtverzhdenie-urovnya-portugalskogo.html 301!
 /portuguese/article-subjuntivo-portugues-guide                 /portuguese/article-subjuntivo-portugues-guide.html            301!
 /russian/article-delovoy-russkiy-email-perepiska-s-kollegami   /russian/article-delovoy-russkiy-email-perepiska-s-kollegami.html 301!
-/russian/article-delovoy-russkiy-pisma-perepiska-rabota        /russian/article-delovoy-russkiy-pisma-perepiska-rabota.html   301!
 /russian/article-kompleksnyy-ekzamen-russkiy-istoriya-zakonodatelstvo-2026 /russian/article-kompleksnyy-ekzamen-russkiy-istoriya-zakonodatelstvo-2026.html 301!
 /russian/article-pristavochnye-glagoly-dvizheniya-russkiy      /russian/article-pristavochnye-glagoly-dvizheniya-russkiy.html 301!
 /russian/article-russian-cases                                 /russian/article-russian-cases.html                            301!
@@ -300,12 +326,10 @@
 /russian/article-russian-verbs-of-motion                       /russian/article-russian-verbs-of-motion.html                  301!
 /russian/article-russkie-chislitelnye-v-rechi                  /russian/article-russkie-chislitelnye-v-rechi.html             301!
 /russian/article-russkie-padezhi-v-ustnoy-rechi-dословный-perevod /russian/article-russkie-padezhi-v-ustnoy-rechi-dословный-perevod.html 301!
-/russian/article-russkie-predlogi-mesta-i-napravleniya         /russian/article-russkie-predlogi-mesta-i-napravleniya.html    301!
 /russian/article-russkie-predlogi-mesta-napravleniya           /russian/article-russkie-predlogi-mesta-napravleniya.html      301!
 /russian/article-russkiy-rechevoy-etiket-ty-vy                 /russian/article-russkiy-rechevoy-etiket-ty-vy.html            301!
 /russian/article-torfl-2026                                    /russian/article-torfl-2026.html                               301!
 /serbian/article-arenda-zhilya-serbiya-leksika-frazy           /serbian/article-arenda-zhilya-serbiya-leksika-frazy.html      301!
-/serbian/article-bankovskiy-schet-dokumenty-serbiya-leksika    /serbian/article-bankovskiy-schet-dokumenty-serbiya-leksika.html 301!
 /serbian/article-belgrade-culture                              /serbian/article-belgrade-culture.html                         301!
 /serbian/article-ekzamen-serbskiy-vnzh-grazhdanstvo            /serbian/article-ekzamen-serbskiy-vnzh-grazhdanstvo.html       301!
 /serbian/article-glagoly-dvizheniya-serbskiy-yazyk             /serbian/article-glagoly-dvizheniya-serbskiy-yazyk.html        301!
@@ -318,7 +342,6 @@
 /serbian/article-serbskaya-kirillica                           /serbian/article-serbskaya-kirillica.html                      301!
 /serbian/article-serbskiy-rechevoy-etiket-obrashcheniya        /serbian/article-serbskiy-rechevoy-etiket-obrashcheniya.html   301!
 /serbian/article-serbskiy-yazyk-medicinskie-rabotniki-leksika  /serbian/article-serbskiy-yazyk-medicinskie-rabotniki-leksika.html 301!
-/serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya    /serbian/article-shkola-serbia-rebenok-dokumenty-adaptaciya.html 301!
 /serbian/article-shkola-serbiya-rebenok-leksika-adaptaciya     /serbian/article-shkola-serbiya-rebenok-leksika-adaptaciya.html 301!
 /serbian/article-skolko-uchit-serbskiy                         /serbian/article-skolko-uchit-serbskiy.html                    301!
 /serbian/article-vidy-glagola-serbskiy-yazyk                   /serbian/article-vidy-glagola-serbskiy-yazyk.html              301!
@@ -333,7 +356,6 @@
 /spanish/article-spain-vs-latam                                /spanish/article-spain-vs-latam.html                           301!
 /spanish/article-subjuntivo-guide                              /spanish/article-subjuntivo-guide.html                         301!
 /spanish/article-viza-cifrovoy-kochevnik-ispaniya              /spanish/article-viza-cifrovoy-kochevnik-ispaniya.html         301!
-/turkish/article-business-turkish-communication                /turkish/article-business-turkish-communication.html           301!
 /turkish/article-business-turkish-language-guide               /turkish/article-business-turkish-language-guide.html          301!
 /turkish/article-ikamet-turkey-2026                            /turkish/article-ikamet-turkey-2026.html                       301!
 /turkish/article-tomer-2026                                    /turkish/article-tomer-2026.html                               301!
