@@ -178,7 +178,8 @@ function setTeacher(t){
   document.getElementById('t-native').classList.toggle('on', t==='native');
   render();
 }
-try{var _t=new URLSearchParams(location.search).get('type');if(_t==='native')setTeacher('native');}catch(e){}
+// /price<язык>native отдаётся rewrite 200: адрес в браузере остаётся коротким, и ?type= из _redirects странице не виден. Поэтому носитель — ещё и по окончанию пути.
+try{var _t=new URLSearchParams(location.search).get('type')||(/native(?:\.html)?\/?$/i.test(location.pathname)?'native':'');if(_t==='native')setTeacher('native');}catch(e){}
 render();
 </script>
 

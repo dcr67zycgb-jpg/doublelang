@@ -27,6 +27,10 @@
 # Clean-URL прайсы по языкам (rewrite, URL остаётся красивым)
 /pricegermany          /german/pricing.html?type=russian    200
 /pricegermanynative    /german/pricing.html?type=native     200
+# /pricegerman — по образцу остальных языков (/pricedutch, /pricefrench…); прежний
+# /pricegermany оставлен: на него ведут бот и CRM (assistant_bot._PRICE_BASE).
+/pricegerman           /german/pricing.html?type=russian    200
+/pricegermannative     /german/pricing.html?type=native     200
 /pricedutch            /dutch/pricing.html?type=russian      200
 /pricedutchnative      /dutch/pricing.html?type=native       200
 /pricefrench           /french/pricing.html?type=russian     200
