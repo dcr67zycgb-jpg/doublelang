@@ -193,6 +193,55 @@
 /turkish/oferta                              /turkish/oferta.html                         301!
 /turkish/pricing                             /turkish/pricing.html                        301!
 /turkish/privacy                             /turkish/privacy.html                        301!
+
+# Юридические страницы для разделов БЕЗ своих копий (12.11.2026). Своя оферта,
+# политика и возврат есть только у dutch/german/french/turkish. Остальные 7 разделов
+# ссылались на privacy.html относительной ссылкой из формы заявки в каждой статье
+# (шаблон статьи) — 118 ссылок вели в 404; адрес /<язык>/oferta, присланный
+# клиенту, — тоже 404. Ведём на общие страницы в корне. Флаг «!» не нужен:
+# файлов по этим адресам нет, затенять нечего.
+/english/oferta.html                         /oferta.html                              301
+/english/oferta                              /oferta.html                              301
+/english/privacy.html                        /privacy.html                              301
+/english/privacy                             /privacy.html                              301
+/english/refund.html                         /refund.html                              301
+/english/refund                              /refund.html                              301
+/serbian/oferta.html                         /oferta.html                              301
+/serbian/oferta                              /oferta.html                              301
+/serbian/privacy.html                        /privacy.html                              301
+/serbian/privacy                             /privacy.html                              301
+/serbian/refund.html                         /refund.html                              301
+/serbian/refund                              /refund.html                              301
+/spanish/oferta.html                         /oferta.html                              301
+/spanish/oferta                              /oferta.html                              301
+/spanish/privacy.html                        /privacy.html                              301
+/spanish/privacy                             /privacy.html                              301
+/spanish/refund.html                         /refund.html                              301
+/spanish/refund                              /refund.html                              301
+/portuguese/oferta.html                      /oferta.html                              301
+/portuguese/oferta                           /oferta.html                              301
+/portuguese/privacy.html                     /privacy.html                              301
+/portuguese/privacy                          /privacy.html                              301
+/portuguese/refund.html                      /refund.html                              301
+/portuguese/refund                           /refund.html                              301
+/greek/oferta.html                           /oferta.html                              301
+/greek/oferta                                /oferta.html                              301
+/greek/privacy.html                          /privacy.html                              301
+/greek/privacy                               /privacy.html                              301
+/greek/refund.html                           /refund.html                              301
+/greek/refund                                /refund.html                              301
+/japanese/oferta.html                        /oferta.html                              301
+/japanese/oferta                             /oferta.html                              301
+/japanese/privacy.html                       /privacy.html                              301
+/japanese/privacy                            /privacy.html                              301
+/japanese/refund.html                        /refund.html                              301
+/japanese/refund                             /refund.html                              301
+/russian/oferta.html                         /oferta.html                              301
+/russian/oferta                              /oferta.html                              301
+/russian/privacy.html                        /privacy.html                              301
+/russian/privacy                             /privacy.html                              301
+/russian/refund.html                         /refund.html                              301
+/russian/refund                              /refund.html                              301
 /turkish/refund                              /turkish/refund.html                         301!
 
 # ⚠️ Правила ЯВНЫЕ и с флагом «!». Шаблон /<язык>/article-* без флага не
