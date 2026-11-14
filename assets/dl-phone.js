@@ -372,7 +372,19 @@
     var data = event.data;
     if (!data && event.dataTransfer) { try { data = event.dataTransfer.getData('text'); } catch (e) { data = ''; } }
     if (!data) return;
-    if (/^\s*\+/.test(data)) { input.dataset.dlPlus = '1'; return; }
+    if (/^\s*\+/.test(data)) {
+      input.dataset.dlPlus = '1';
+      /* «+» — человек вводит номер с кодом сам. Если в поле уже что-то есть (код,
+       * подставленный по IP или часовому поясу, или прошлый ввод), его «+» начинает
+       * поле заново. Без этого набранное дописывалось к подставленному: в поле без
+       * маски выходило «+90+33612345678» (проверка отказывала — человек упирался в
+       * ошибку), а маска модального окна пересобирала цифры и отрезала последнюю:
+       * «+33 6 12 34 56 70» вместо «…78» — такой номер проверку ПРОХОДИЛ и уезжал
+       * в CRM нерабочим. Весь текст выделен — браузер и так заменит, не мешаем. */
+      var all = input.selectionStart === 0 && input.selectionEnd === String(input.value || '').length;
+      if (digits(input.value) && !all) { event.preventDefault(); setTel(input, data.trim()); }
+      return;
+    }
     if (!/^\s*\d/.test(data)) return;
     if (digits(input.value)) return;                  // код или часть номера уже есть
     if (input.dataset.dlPlus === '1') return;         // свой «+» — код вводит сам
